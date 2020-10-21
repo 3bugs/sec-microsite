@@ -4,7 +4,9 @@
 @endsection
 
 @section('content')
-
+  <?php
+  define('FUNDRAISING_CATEGORY', 'fundraising-category-');
+  ?>
   <section class="container-fluid bg_breadcrumb">
     <div class="row">
       <div class="container">
@@ -30,38 +32,38 @@
     <div class="row">
       <div class="col-12 col-md-4 isp_sidebar">
         <ul>
-          <li class="active"><a href="#PPforSSMES">PP for S SMEs</a></li>
-          <li><a href="#PPforMSMES">PP for M SMEs</a></li>
-          <li><a href="#POforMSMES">PO for M SMEs</a></li>
-          <li><a href="#Crowdfunding">Crowdfunding</a></li>
+          @for ($i = 0; $i < count($fundraisingCategoryList); $i++)
+            @if (count($fundraisingCategoryList[$i]->fundraisings) > 0)
+              <li class="{{ $i === 0 ? 'active' : '' }}"><a href="#{{ FUNDRAISING_CATEGORY.$fundraisingCategoryList[$i]->id }}">{{ $fundraisingCategoryList[$i]->title }}</a></li>
+            @endif
+          @endfor
         </ul>
       </div>
       <div class="col-12 col-md-8 detail_fundraising">
-        <div class="row">
-          <div class="col-12 section" id="PPforSSMES">
-            <h3>PP for S SMEs</h3>
-            <p>Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
-          </div>
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="fundraising-detail.php">
-              <div><img src="images/Rectangle%2039.jpg"></div>
-              <figcaption>
-                <h4>หุ้น (ไม่มีรายย่อย)</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut </p>
-              </figcaption>
-            </a>
-          </figure>
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="fundraising-detail.php">
-              <div><img src="images/Rectangle%2039.jpg"></div>
-              <figcaption>
-                <h4>หุ้น (ไม่มีรายย่อย)</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut </p>
-              </figcaption>
-            </a>
-          </figure>
-        </div>
-        <div class="row">
+        @foreach ($fundraisingCategoryList as $fundraisingCategory)
+          @if (count($fundraisingCategory->fundraisings) > 0)
+            <div class="row">
+              <div class="col-12 section" id="{{ FUNDRAISING_CATEGORY.$fundraisingCategory->id }}">
+                <h3>{{ $fundraisingCategory->title }}</h3>
+                <p>{{ $fundraisingCategory->description }}</p>
+              </div>
+
+              @foreach ($fundraisingCategory->fundraisings as $fundraising)
+              <figure class="col-12 col-md-6 item_fundraising">
+                <a href="fundraising-detail.php">
+                  <div><img src="images/{{ $fundraising->cover_image }}"></div>
+                  <figcaption>
+                    <h4>{{ $fundraising->title }}</h4>
+                    <p>{{ $fundraising->description }}</p>
+                  </figcaption>
+                </a>
+              </figure>
+              @endforeach
+            </div>
+          @endif
+        @endforeach
+
+        {{--<div class="row">
           <div class="col-12 section" id="PPforMSMES">
             <h3>PP for M SMEs</h3>
             <p>Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
@@ -132,7 +134,7 @@
               </figcaption>
             </a>
           </figure>
-        </div>
+        </div>--}}
       </div>
     </div>
   </section>

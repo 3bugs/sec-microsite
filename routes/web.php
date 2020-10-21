@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FundraisingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,13 @@ Route::get('/survey', function () {
   return view('survey');
 });
 
-Route::get('/fundraising', function () {
+/*Route::get('/fundraising', function () {
   return view('fundraising');
-});
+});*/
+
+Route::get('/fundraising', [FundraisingController::class, 'index']);
+Route::post('/fundraising', [FundraisingController::class, 'store']);
+//Route::delete('/task/{task}', 'TaskController@destroy');
 
 /*Route::get('/', function () {
   $tasks = Task::orderBy('created_at', 'asc')->get();

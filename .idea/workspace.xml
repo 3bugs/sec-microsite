@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="" />
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FundraisingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Fundraising.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/FundraisingCategory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_023043_create_fundraisings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_031926_create_fundraising_category_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/phpinfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/test_ms_sql.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/Rectangle 39.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/Rectangle39.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fundraising.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fundraising.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +27,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
+        <option value="CSS File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -131,14 +147,19 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1ilxhqQNsvbMxpNFgak4tRAwd1Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -153,6 +174,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/public/js" />
       <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/public/images" />
@@ -176,18 +198,32 @@
       <workItem from="1603077482850" duration="7040000" />
       <workItem from="1603093590080" duration="153000" />
       <workItem from="1603094004867" duration="5148000" />
-      <workItem from="1603117322398" duration="14706000" />
+      <workItem from="1603117322398" duration="30322000" />
+      <workItem from="1603208297309" duration="2066000" />
+      <workItem from="1603248686408" duration="10690000" />
+      <workItem from="1603262758172" duration="518000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="2146" y="297" key="FileChooserDialogImpl" timestamp="1603094095312">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2146" y="297" key="FileChooserDialogImpl/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603094095312" />
+    <state x="2236" y="331" width="755" height="198" key="Github.ShareDialog" timestamp="1603180166984">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2236" y="331" width="755" height="198" key="Github.ShareDialog/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603180166984" />
+    <state x="2089" y="225" key="Github.UntrackedFilesDialog" timestamp="1603180177764">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2089" y="225" key="Github.UntrackedFilesDialog/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603180177764" />
     <state width="1809" height="289" key="GridCell.Tab.0.bottom" timestamp="1602512849441">
       <screen x="0" y="312" width="1366" height="768" />
     </state>
@@ -204,11 +240,23 @@
       <screen x="0" y="312" width="1366" height="768" />
     </state>
     <state width="1809" height="289" key="GridCell.Tab.0.right/1366.0.1920.1080/0.312.1366.768@0.312.1366.768" timestamp="1602512849441" />
+    <state x="2159" y="464" key="NewPhpFileDialog" timestamp="1603187083512">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2159" y="464" key="NewPhpFileDialog/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603187083512" />
     <state x="2274" y="189" key="SettingsEditor" timestamp="1603160167000">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2274" y="189" key="SettingsEditor/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603160167000" />
     <state x="2125" y="189" key="SettingsEditor/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1602496373759" />
     <state x="2679" y="189" key="SettingsEditor/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603117374517" />
+    <state width="654" height="446" key="SwitcherDM" timestamp="1603257042592">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603257042592" />
+    <state width="798" height="296" key="javadoc.popup.new" timestamp="1603250425846">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state width="798" height="296" key="javadoc.popup.new/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603250425846" />
   </component>
 </project>
