@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Fundraising;
+use App\Models\FundraisingCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +22,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/fundraising', function (Request $request) {
   $fundraisingList = Fundraising::orderBy('id', 'asc')->get();
+  $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'asc')->get();
 
   //return $fundraisingList->toJson();
 
   return json_encode(array(
     'status' => 'ok',
     'data_list' => $fundraisingList,
+    'category_list' => $fundraisingCategoryList,
   ));
 });

@@ -1,8 +1,10 @@
 <template>
-  <v-container class="pa-8">
+  <v-container>
     <v-data-table
+      v-if="showList"
       :headers="headers"
       :items="fundraisingList"
+      :loading="isLoadingList"
       class="elevation-1"
     >
       <template v-slot:top>
@@ -19,108 +21,29 @@
           <v-btn
             color="primary"
             dark
-            class="mb-2"
-            v-bind="attrs"
-            v-on="on"
+            class="mb-2 mr-2"
+            @click="handleClickAdd"
           >
+            <v-icon
+              class="mr-1"
+            >
+              mdi-plus-thick
+            </v-icon>
             ADD
           </v-btn>
-          <!--<v-dialog
-            v-model="dialog"
-            max-width="500px"
+          <v-btn
+            color="success"
+            dark
+            class="mb-2"
+            @click="handleClickRefresh"
           >
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                color="primary"
-                dark
-                class="mb-2"
-                v-bind="attrs"
-                v-on="on"
-              >
-                New Item
-              </v-btn>
-            </template>
-            <v-card>
-              <v-card-title>
-                <span class="headline">{{ formTitle }}</span>
-              </v-card-title>
-
-              <v-card-text>
-                <v-container>
-                  <v-row>
-                    <v-col
-                      cols="12"
-                      sm="6"
-                      md="4"
-                    >
-                      <v-text-field
-                        v-model="editedItem.name"
-                        label="Dessert name"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col
-                      cols="12"
-                      sm="6"
-                      md="4"
-                    >
-                      <v-text-field
-                        v-model="editedItem.calories"
-                        label="Calories"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col
-                      cols="12"
-                      sm="6"
-                      md="4"
-                    >
-                      <v-text-field
-                        v-model="editedItem.fat"
-                        label="Fat (g)"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col
-                      cols="12"
-                      sm="6"
-                      md="4"
-                    >
-                      <v-text-field
-                        v-model="editedItem.carbs"
-                        label="Carbs (g)"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col
-                      cols="12"
-                      sm="6"
-                      md="4"
-                    >
-                      <v-text-field
-                        v-model="editedItem.protein"
-                        label="Protein (g)"
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                  color="blue darken-1"
-                  text
-                  @click="close"
-                >
-                  Cancel
-                </v-btn>
-                <v-btn
-                  color="blue darken-1"
-                  text
-                  @click="save"
-                >
-                  Save
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>-->
+            <v-icon
+              class="mr-1"
+            >
+              mdi-refresh
+            </v-icon>
+            REFRESH
+          </v-btn>
           <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
               <v-card-title class="headline">ต้องการลบข้อมูลนี้?</v-card-title>
@@ -134,37 +57,55 @@
           </v-dialog>
         </v-toolbar>
       </template>
+      <template v-slot:item.image="{ item }">
+        <img :src="'/images/' + item.cover_image" style="width: 100px; height: 50px" class="mt-1">
+      </template>
       <template v-slot:item.actions="{ item }">
         <v-icon
           small
           class="mr-2"
-          @click="alert('edit')"
+          @click="() => handleClickEdit(item)"
         >
           mdi-pencil
         </v-icon>
         <v-icon
           small
-          @click="deleteItem(item)"
+          @click="() => handleClickDelete(item)"
         >
           mdi-delete
         </v-icon>
       </template>
+      <template
+        v-slot:progress
+      >
+        <v-progress-linear
+          color="purple"
+          :height="10"
+          indeterminate
+        ></v-progress-linear>
+      </template>
     </v-data-table>
 
-    <!--<v-container>
-      <v-data-table
-        :headers="headers"
-        :items="fundraisingList"
-        :items-per-page="5"
-        class="elevation-1"
-      ></v-data-table>
-    </v-container>-->
+    <fundraising-form
+      v-if="!showList"
+      :item="editItem"
+      :category-list="fundraisingCategoryList"
+      :on-cancel-form="handleCancelForm"
+    />
   </v-container>
 </template>
 
 <script>
+import FundraisingForm from '../components/fundraising_form';
+
 export default {
+  components: {
+    FundraisingForm,
+  },
   data: () => ({
+    editItem: null,
+    showList: true,
+    isLoadingList: true,
     dialog: false,
     dialogDelete: false,
     headers: [
@@ -173,43 +114,66 @@ export default {
         align: 'start',
         value: 'title',
       },
-      {text: 'Description', value: 'description'},
+      {text: 'Short description', value: 'description'},
+      {text: 'Cover Image', value: 'image'},
       {text: 'Actions', value: 'actions', sortable: false},
-      /*
-            {
-              text: 'Dessert (100g serving)',
-              align: 'start',
-              sortable: false,
-              value: 'name',
-            },
-            {text: 'Calories', value: 'calories'},
-            {text: 'Fat (g)', value: 'fat'},
-            {text: 'Carbs (g)', value: 'carbs'},
-            {text: 'Protein (g)', value: 'protein'},
-            {text: 'Iron (%)', value: 'iron'},
-      */
     ],
     fundraisingList: [],
+    fundraisingCategoryList: [],
   }),
   created() {
-    axios.get('/api/fundraising', {
-      params: {}
-    })
-      .then((response) => {
-        console.log(response.data);
-        if (response.data.status === 'ok') {
-          this.fundraisingList = response.data.data_list;
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-      });
+    console.log('***** Fundraising created() *****');
+    this.fetchList();
   },
   methods: {
-    deleteItem(item) {
+    handleClickAdd() {
+      this.editItem = null;
+      this.showList = false;
+    },
+
+    handleClickEdit(item) {
+      this.editItem = item;
+      this.showList = false;
+    },
+
+    handleClickRefresh() {
+      this.fundraisingList = [];
+      this.fetchList();
+    },
+
+    handleCancelForm() {
+      this.showList = true;
+    },
+
+    fetchList() {
+      this.isLoadingList = true;
+
+      axios.get('/api/fundraising', {
+        params: {}
+      })
+        .then((response) => {
+          this.isLoadingList = false;
+
+          console.log(response.data);
+          if (response.data.status === 'ok') {
+            this.fundraisingList = response.data.data_list;
+            this.fundraisingCategoryList = response.data.category_list.map(item => ({
+              ...item, toString: () => {
+                return item.title
+              }
+            }));
+          }
+        })
+        .catch(function (error) {
+          this.isLoadingList = false;
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        });
+    },
+
+    handleClickDelete(item) {
       this.dialogDelete = true;
     },
 

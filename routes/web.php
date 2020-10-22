@@ -44,6 +44,7 @@ Route::get('/admin', function () {
   return redirect('/admin/dashboard');
 });
 Route::get('/admin/{any}', function () {
+  app('debugbar')->disable();
   return view('admin');
 })->where('any', '.*');
 
