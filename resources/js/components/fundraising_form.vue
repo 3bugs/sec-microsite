@@ -11,7 +11,7 @@
       ></v-divider>
       <v-spacer></v-spacer>
       <v-btn
-        color="error"
+        color="warning"
         dark
         class="mb-2"
         @click="handleClickCancel"
@@ -19,7 +19,7 @@
         <v-icon
           class="mr-1"
         >
-          mdi-close-thick
+          mdi-arrow-left
         </v-icon>
         ยกเลิก
       </v-btn>
@@ -54,6 +54,33 @@
         required
       ></v-select>
 
+      <v-file-input
+        label="รูปภาพ Cover"
+        prepend-icon="mdi-camera"
+        :rules="coverImageRules"
+        required
+        class="mt-2"
+        @change="handleFileInputChanged"
+      ></v-file-input>
+
+      <img :src="selectedImageSrc" style="width: 300px; height: 150px">
+
+      <!--<image-uploader
+        :debug="1"
+        :maxWidth="512"
+        :quality="0.7"
+        :autoRotate=true
+        outputFormat="verbose"
+        :preview=false
+        :className="['fileinput', { 'fileinput&#45;&#45;loaded' : hasImage }]"
+        :capture="false"
+        accept="video/*,image/*"
+        doNotResize="['gif', 'svg']"
+        @input="setImage"
+        @onUpload="startImageResize"
+        @onComplete="endImageResize"
+      />-->
+
       <v-btn
         :disabled="!valid"
         color="success"
@@ -87,7 +114,12 @@
 </template>
 
 <script>
+import ImageUploader from 'vue-image-upload-resize';
+
 export default {
+  components: {
+    ImageUploader,
+  },
   props: {
     item: Object,
     categoryList: Array,
@@ -106,16 +138,56 @@ export default {
       //v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
     selectedCategory: null,
-    //fundraisingCategoryList: this.categoryList,
+    selectedFile: null,
+    selectedImageSrc: null,
   }),
+  computed: {
+    coverImageRules() {
+      return this.item == null ? [v => !!v || 'ต้องใส่รูปภาพ'] : [];
+    },
+
+    coverImage() {
+      /*if (this.selectedFile != null) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          image.src = e.target.result;
+        }
+        // you have to declare the file loading
+        reader.readAsDataURL(this.selectedFile);
+      }*/
+    },
+  },
   created() {
     console.log('***** FundraisingForm created() *****');
     if (this.item != null) {
       this.title = this.item.title;
       this.description = this.item.description;
+      this.selectedCategory = this.categoryList.filter(
+        category => category.id === this.item.fundraising_category_id
+      )[0];
     }
   },
   methods: {
+    handleFileInputChanged(file) {
+      this.selectedFile = file;
+      this.getImageSrc();
+    },
+
+    getImageSrc() {
+      const file = this.selectedFile;
+      const self = this;
+
+      if (file != null) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          self.selectedImageSrc = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      } else {
+        this.selectedImageSrc = null;
+      }
+    },
+
     handleClickCancel() {
       if (this.onCancelForm != null) {
         this.onCancelForm();

@@ -1,97 +1,121 @@
 <template>
   <v-container>
-    <v-data-table
-      v-if="showList"
-      :headers="headers"
-      :items="fundraisingList"
-      :loading="isLoadingList"
-      class="elevation-1"
-    >
-      <template v-slot:top>
-        <v-toolbar
-          flat
-        >
-          <v-toolbar-title>วิธีการระดมทุน</v-toolbar-title>
-          <v-divider
-            class="mx-4"
-            inset
-            vertical
-          ></v-divider>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            dark
-            class="mb-2 mr-2"
-            @click="handleClickAdd"
-          >
-            <v-icon
-              class="mr-1"
-            >
-              mdi-plus-thick
-            </v-icon>
-            ADD
-          </v-btn>
-          <v-btn
-            color="success"
-            dark
-            class="mb-2"
-            @click="handleClickRefresh"
-          >
-            <v-icon
-              class="mr-1"
-            >
-              mdi-refresh
-            </v-icon>
-            REFRESH
-          </v-btn>
-          <v-dialog v-model="dialogDelete" max-width="500px">
-            <v-card>
-              <v-card-title class="headline">ต้องการลบข้อมูลนี้?</v-card-title>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="closeDelete">ยกเลิก</v-btn>
-                <v-btn color="blue darken-1" text @click="deleteItemConfirm">ลบ</v-btn>
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-        </v-toolbar>
-      </template>
-      <template v-slot:item.image="{ item }">
-        <img :src="'/images/' + item.cover_image" style="width: 100px; height: 50px" class="mt-1">
-      </template>
-      <template v-slot:item.actions="{ item }">
-        <v-icon
-          small
-          class="mr-2"
-          @click="() => handleClickEdit(item)"
-        >
-          mdi-pencil
-        </v-icon>
-        <v-icon
-          small
-          @click="() => handleClickDelete(item)"
-        >
-          mdi-delete
-        </v-icon>
-      </template>
-      <template
-        v-slot:progress
-      >
-        <v-progress-linear
-          color="purple"
-          :height="10"
-          indeterminate
-        ></v-progress-linear>
-      </template>
-    </v-data-table>
 
-    <fundraising-form
-      v-if="!showList"
-      :item="editItem"
-      :category-list="fundraisingCategoryList"
-      :on-cancel-form="handleCancelForm"
-    />
+    <v-tabs
+      v-model="tab"
+      style="display: none"
+      align-with-title
+    >
+      <v-tab
+        v-for="item in ['list', 'details']"
+        :key="item"
+      >
+        {{ item }}
+      </v-tab>
+    </v-tabs>
+
+    <v-tabs-items v-model="tab">
+      <v-tab-item
+        :key="'list'"
+      >
+        <v-data-table
+          v-if="showList"
+          :headers="headers"
+          :items="fundraisingList"
+          :loading="isLoadingList"
+          class="elevation-1"
+        >
+          <template v-slot:top>
+            <v-toolbar
+              flat
+            >
+              <v-toolbar-title>วิธีการระดมทุน</v-toolbar-title>
+              <v-divider
+                class="mx-4"
+                inset
+                vertical
+              ></v-divider>
+              <v-spacer></v-spacer>
+              <v-btn
+                color="primary"
+                dark
+                class="mb-2 mr-2"
+                @click="handleClickAdd"
+              >
+                <v-icon
+                  class="mr-1"
+                >
+                  mdi-plus-thick
+                </v-icon>
+                ADD
+              </v-btn>
+              <v-btn
+                color="success"
+                dark
+                class="mb-2"
+                @click="handleClickRefresh"
+              >
+                <v-icon
+                  class="mr-1"
+                >
+                  mdi-refresh
+                </v-icon>
+                REFRESH
+              </v-btn>
+              <v-dialog v-model="dialogDelete" max-width="500px">
+                <v-card>
+                  <v-card-title class="headline">ต้องการลบข้อมูลนี้?</v-card-title>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="closeDelete">ยกเลิก</v-btn>
+                    <v-btn color="blue darken-1" text @click="deleteItemConfirm">ลบ</v-btn>
+                    <v-spacer></v-spacer>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-toolbar>
+          </template>
+          <template v-slot:item.image="{ item }">
+            <img :src="'/images/' + item.cover_image" style="width: 100px; height: 50px" class="mt-1">
+          </template>
+          <template v-slot:item.actions="{ item }">
+            <v-icon
+              small
+              class="mr-2"
+              @click="() => handleClickEdit(item)"
+            >
+              mdi-pencil
+            </v-icon>
+            <v-icon
+              small
+              @click="() => handleClickDelete(item)"
+            >
+              mdi-delete
+            </v-icon>
+          </template>
+          <template
+            v-slot:progress
+          >
+            <v-progress-linear
+              color="purple"
+              :height="10"
+              indeterminate
+            ></v-progress-linear>
+          </template>
+        </v-data-table>
+      </v-tab-item>
+
+      <v-tab-item
+        :key="'details'"
+      >
+        <fundraising-form
+          v-if="!showList"
+          :item="editItem"
+          :category-list="fundraisingCategoryList"
+          :on-cancel-form="handleCancelForm"
+        />
+      </v-tab-item>
+    </v-tabs-items>
   </v-container>
 </template>
 
@@ -103,6 +127,7 @@ export default {
     FundraisingForm,
   },
   data: () => ({
+    tab: 0,
     editItem: null,
     showList: true,
     isLoadingList: true,
@@ -127,11 +152,13 @@ export default {
   },
   methods: {
     handleClickAdd() {
+      this.tab = 1;
       this.editItem = null;
       this.showList = false;
     },
 
     handleClickEdit(item) {
+      this.tab = 1;
       this.editItem = item;
       this.showList = false;
     },
@@ -142,6 +169,7 @@ export default {
     },
 
     handleCancelForm() {
+      this.tab = 0;
       this.showList = true;
     },
 
