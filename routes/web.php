@@ -40,6 +40,13 @@ Route::get('/fundraising', [FundraisingController::class, 'index']);
 Route::post('/fundraising', [FundraisingController::class, 'store']);
 //Route::delete('/task/{task}', 'TaskController@destroy');
 
+Route::get('/admin', function () {
+  return redirect('/admin/dashboard');
+});
+Route::get('/admin/{any}', function () {
+  return view('admin');
+})->where('any', '.*');
+
 /*Route::get('/', function () {
   $tasks = Task::orderBy('created_at', 'asc')->get();
   return view('tasks', [
