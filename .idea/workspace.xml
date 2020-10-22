@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +138,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ilxhqQNsvbMxpNFgak4tRAwd1Y" />
@@ -201,7 +206,7 @@
       <workItem from="1603208297309" duration="2066000" />
       <workItem from="1603248686408" duration="10690000" />
       <workItem from="1603262758172" duration="14816000" />
-      <workItem from="1603288498484" duration="21393000" />
+      <workItem from="1603288498484" duration="23142000" />
     </task>
     <task id="LOCAL-00001" summary="front: หน้า fundraising">
       <created>1603263528055</created>
@@ -217,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603332790149</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add dependency files">
+      <created>1603336425910</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603336425910</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,17 +239,18 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="front: หน้า fundraising" />
     <MESSAGE value="back: ขึ้นโครงหลังบ้าน" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: ขึ้นโครงหลังบ้าน" />
+    <MESSAGE value="add dependency files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add dependency files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2618" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603298802921">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2618" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603298802921" />
-    <state x="65" y="24" width="1855" height="1056" key="CommitChangelistDialog2" timestamp="1603332789786">
+    <state x="0" y="336" width="1366" height="744" key="CommitChangelistDialog2" timestamp="1603336425663">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="65" y="24" width="1855" height="1056" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603332789786" />
+    <state x="0" y="336" width="1366" height="744" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603336425663" />
     <state x="1431" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603263527773" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1603295733951">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -287,10 +300,10 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603267325252" />
-    <state x="2486" y="275" key="Vcs.Push.Dialog.v2" timestamp="1603332794056">
+    <state x="2486" y="275" key="Vcs.Push.Dialog.v2" timestamp="1603336439199">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603332794056" />
+    <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603336439199" />
     <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603263529572" />
     <state width="798" height="296" key="javadoc.popup.new" timestamp="1603250425846">
       <screen x="1366" y="0" width="1920" height="1080" />
