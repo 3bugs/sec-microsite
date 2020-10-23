@@ -1,6 +1,5 @@
 <template>
   <v-container>
-
     <v-tabs
       v-model="tab"
       style="display: none"
@@ -24,12 +23,18 @@
           :items="fundraisingList"
           :loading="isLoadingList"
           class="elevation-1"
+          :footer-props="{
+            //'items-per-page-all-text': 'ทั้งหมด',
+            'items-per-page-text': 'จำนวนแถวข้อมูลต่อ 1 หน้า',
+            'page-text': '',
+            'show-current-page': true,
+          }"
         >
           <template v-slot:top>
             <v-toolbar
               flat
             >
-              <v-toolbar-title>วิธีการระดมทุน</v-toolbar-title>
+              <v-toolbar-title>{{ currentRouteTitle }}</v-toolbar-title>
               <v-divider
                 class="mx-4"
                 inset
@@ -43,11 +48,12 @@
                 @click="handleClickAdd"
               >
                 <v-icon
-                  class="mr-1"
+                  small
+                  class="mr-2"
                 >
                   mdi-plus-thick
                 </v-icon>
-                ADD
+                เพิ่ม
               </v-btn>
               <v-btn
                 color="success"
@@ -55,12 +61,9 @@
                 class="mb-2"
                 @click="handleClickRefresh"
               >
-                <v-icon
-                  class="mr-1"
-                >
+                <v-icon medium>
                   mdi-refresh
                 </v-icon>
-                REFRESH
               </v-btn>
               <v-dialog v-model="dialogDelete" max-width="500px">
                 <v-card>
@@ -76,22 +79,52 @@
             </v-toolbar>
           </template>
           <template v-slot:item.image="{ item }">
-            <img :src="'/images/' + item.cover_image" style="width: 100px; height: 50px" class="mt-1">
+            <v-img
+              :lazy-src="`${item.cover_image}`"
+              max-height="75"
+              max-width="150"
+              :src="`${item.cover_image}`"
+              style="border: 0 solid #ccc"
+              class="mt-2 mb-2"
+            >
+            </v-img>
+          </template>
+          <template v-slot:item.category_id="{ item }">
+            <v-chip
+              small
+              :color="fundraisingCategoryColorList[item.category_id - 1]"
+            >
+              {{ item.category_title }}
+            </v-chip>
           </template>
           <template v-slot:item.actions="{ item }">
-            <v-icon
-              small
-              class="mr-2"
-              @click="() => handleClickEdit(item)"
-            >
-              mdi-pencil
-            </v-icon>
-            <v-icon
-              small
-              @click="() => handleClickDelete(item)"
-            >
-              mdi-delete
-            </v-icon>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  small
+                  class="mr-2"
+                  v-bind="attrs"
+                  v-on="on"
+                  @click="() => handleClickEdit(item)"
+                >
+                  mdi-pencil
+                </v-icon>
+              </template>
+              <span>แก้ไข</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  small
+                  v-bind="attrs"
+                  v-on="on"
+                  @click="() => handleClickDelete(item)"
+                >
+                  mdi-delete
+                </v-icon>
+              </template>
+              <span>ลบ</span>
+            </v-tooltip>
           </template>
           <template
             v-slot:progress
@@ -121,6 +154,7 @@
 
 <script>
 import FundraisingForm from '../components/fundraising_form';
+import {routeDataList, fundraisingCategoryColorList} from '../constants';
 
 export default {
   components: {
@@ -134,18 +168,25 @@ export default {
     dialog: false,
     dialogDelete: false,
     headers: [
-      {
-        text: 'Title',
-        align: 'start',
-        value: 'title',
-      },
-      {text: 'Short description', value: 'description'},
-      {text: 'Cover Image', value: 'image'},
-      {text: 'Actions', value: 'actions', sortable: false},
+      {text: 'Title', align: 'start', value: 'title', sortable: true,},
+      {text: 'Short description', value: 'description', sortable: true,},
+      {text: 'Cover Image', value: 'image', sortable: false,},
+      {text: 'Category', value: 'category_id', sortable: true,},
+      {text: 'Actions', value: 'actions', sortable: false,},
     ],
     fundraisingList: [],
     fundraisingCategoryList: [],
+    routeDataList,
+    fundraisingCategoryColorList,
   }),
+  computed: {
+    currentRouteTitle() {
+      const currentRouteName = this.$route.name;
+      return this.routeDataList.filter(
+        route => route.name === currentRouteName
+      )[0].title;
+    },
+  },
   created() {
     console.log('***** Fundraising created() *****');
     this.fetchList();

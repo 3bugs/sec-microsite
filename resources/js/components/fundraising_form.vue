@@ -1,15 +1,13 @@
 <template>
   <v-card>
-    <v-toolbar
-      flat
-    >
-      <v-toolbar-title>{{ item == null ? 'เพิ่ม' : 'แก้ไข' }}ข้อมูล</v-toolbar-title>
+    <v-toolbar flat>
+      <v-toolbar-title>{{ currentRouteTitle }} - {{ item == null ? 'เพิ่ม' : 'แก้ไข' }}ข้อมูล</v-toolbar-title>
       <v-divider
         class="mx-4"
         inset
         vertical
       ></v-divider>
-      <v-spacer></v-spacer>
+      <v-spacer/>
       <v-btn
         color="warning"
         dark
@@ -17,7 +15,8 @@
         @click="handleClickCancel"
       >
         <v-icon
-          class="mr-1"
+          small
+          class="mr-2"
         >
           mdi-arrow-left
         </v-icon>
@@ -29,7 +28,7 @@
       ref="form"
       v-model="valid"
       lazy-validation
-      class="pl-5 pr-5 pb-5"
+      class="pl-5 pr-5"
     >
       <v-text-field
         v-model="title"
@@ -63,7 +62,29 @@
         @change="handleFileInputChanged"
       ></v-file-input>
 
-      <img :src="selectedImageSrc" style="width: 300px; height: 150px">
+      <v-container v-if="selectedImageSrc != null">
+        <v-img
+          :lazy-src="selectedImageSrc"
+          max-height="150"
+          max-width="300"
+          :src="selectedImageSrc"
+          style="border: 1px solid #ccc"
+        >
+          <template v-slot:placeholder>
+            <v-row
+              class="fill-height ma-0"
+              align="center"
+              justify="center"
+            >
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
+        <!--<img :src="selectedImageSrc" style="object-fit: cover; width: 400px; height: 200px">-->
+      </v-container>
 
       <!--<image-uploader
         :debug="1"
@@ -81,20 +102,6 @@
         @onComplete="endImageResize"
       />-->
 
-      <v-btn
-        :disabled="!valid"
-        color="success"
-        class="mt-4"
-        @click="validate"
-      >
-        <v-icon
-          class="mr-1"
-        >
-          mdi-content-save
-        </v-icon>
-        บันทึก
-      </v-btn>
-
       <!--<v-btn
         color="error"
         class="mr-4"
@@ -110,15 +117,80 @@
         Reset Validation
       </v-btn>-->
     </v-form>
+    <v-toolbar
+      flat
+      class="pb-5"
+    >
+      <v-btn
+        :disabled="!valid"
+        color="success"
+        @click="validate"
+      >
+        <v-icon
+          small
+          class="mr-2"
+        >
+          mdi-content-save
+        </v-icon>
+        บันทึก
+      </v-btn>
+      <v-spacer/>
+      <v-dialog
+        v-if="item != null"
+        v-model="confirmDeleteDialog"
+        persistent
+        max-width="500"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            color="error"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon
+              small
+              class="mr-2"
+            >
+              mdi-trash-can-outline
+            </v-icon>
+            ลบ
+          </v-btn>
+        </template>
+        <v-card>
+          <v-card-title class="headline">
+            ต้องการลบข้อมูลนี้ใช่หรือไม่?
+          </v-card-title>
+          <v-card-text>ข้อมูลจะถูกลบออกจากฐานข้อมูล หลังจากคุณคลิก 'ลบ'</v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="green darken-1"
+              text
+              @click="confirmDeleteDialog = false"
+            >
+              ยกเลิก
+            </v-btn>
+            <v-btn
+              color="green darken-1"
+              text
+              @click="confirmDeleteDialog = false"
+            >
+              ลบ
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-toolbar>
   </v-card>
 </template>
 
 <script>
-import ImageUploader from 'vue-image-upload-resize';
+import {routeDataList} from '../constants';
+//import ImageUploader from 'vue-image-upload-resize';
 
 export default {
   components: {
-    ImageUploader,
+    //ImageUploader,
   },
   props: {
     item: Object,
@@ -140,8 +212,17 @@ export default {
     selectedCategory: null,
     selectedFile: null,
     selectedImageSrc: null,
+    confirmDeleteDialog: false,
+    routeDataList,
   }),
   computed: {
+    currentRouteTitle() {
+      const currentRouteName = this.$route.name;
+      return this.routeDataList.filter(
+        route => route.name === currentRouteName
+      )[0].title;
+    },
+
     coverImageRules() {
       return this.item == null ? [v => !!v || 'ต้องใส่รูปภาพ'] : [];
     },
@@ -163,8 +244,9 @@ export default {
       this.title = this.item.title;
       this.description = this.item.description;
       this.selectedCategory = this.categoryList.filter(
-        category => category.id === this.item.fundraising_category_id
+        category => category.id === this.item.category_id
       )[0];
+      this.selectedImageSrc = this.item.cover_image;
     }
   },
   methods: {
@@ -184,7 +266,7 @@ export default {
         }
         reader.readAsDataURL(file);
       } else {
-        this.selectedImageSrc = null;
+        this.selectedImageSrc = this.item == null ? null : this.item.cover_image;
       }
     },
 
@@ -192,6 +274,10 @@ export default {
       if (this.onCancelForm != null) {
         this.onCancelForm();
       }
+    },
+
+    handleClickDelete() {
+      alert('Under construction!');
     },
 
     validate() {

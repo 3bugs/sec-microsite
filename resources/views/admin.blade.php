@@ -11,6 +11,14 @@
 <body>
 <div id="app">
   <v-app>
+    <v-btn
+        fab dark large
+        color="warning"
+        fixed right bottom
+        @click="handleClickHomeButton"
+    >
+      <v-icon dark>mdi-home</v-icon>
+    </v-btn>
     <v-navigation-drawer
         v-model="drawer"
         app
@@ -28,20 +36,15 @@
       </v-container>
 
       <v-list>
-        <v-list-item link to="dashboard">
+        <v-list-item
+            v-for="route in routeDataList"
+            link :to="route.name"
+        >
           <v-list-item-action>
-            <v-icon>mdi-home</v-icon>
+            <v-icon>@{{ route.menuIconName }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>หน้าหลัก</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link to="fundraising">
-          <v-list-item-action>
-            <v-icon>mdi-bitcoin</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>วิธีการระดมทุน</v-list-item-title>
+            <v-list-item-title>@{{ route.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>

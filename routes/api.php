@@ -17,11 +17,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
 
 Route::get('/fundraising', function (Request $request) {
-  $fundraisingList = Fundraising::orderBy('id', 'asc')->get();
+  app('debugbar')->disable();
+
+  //$fundraisingList = Fundraising::orderBy('id', 'asc')->get();
+
+  $fundraisingList = DB::table('fundraisings')
+    ->join('fundraising_categories', 'fundraisings.category_id', '=', 'fundraising_categories.id')
+    ->select('fundraisings.*', 'fundraising_categories.title AS category_title')
+    ->get();
+
+  foreach ($fundraisingList as $fundraising) {
+    $fundraising->cover_image = asset('images') . '/' . $fundraising->cover_image;
+  }
   $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'asc')->get();
 
   //return $fundraisingList->toJson();

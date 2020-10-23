@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_023043_create_fundraisings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_023043_create_fundraisings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_031926_create_fundraising_category_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_031926_create_fundraising_category_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/fundraising_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/fundraising_form.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/pages/fundraising.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/fundraising.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +32,8 @@
       <list>
         <option value="composer.json" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -157,6 +165,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
@@ -212,7 +221,7 @@
       <workItem from="1603262758172" duration="14816000" />
       <workItem from="1603288498484" duration="28807000" />
       <workItem from="1603351971297" duration="13218000" />
-      <workItem from="1603378138600" duration="11259000" />
+      <workItem from="1603378138600" duration="35475000" />
     </task>
     <task id="LOCAL-00001" summary="front: หน้า fundraising">
       <created>1603263528055</created>
@@ -249,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603362608392</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="back: หน้าเพิ่ม/แก้ไข fundraising (ยังไม่สมบูรณ์)">
+      <created>1603409823117</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603409823117</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,15 +281,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="back: หน้าเพิ่ม/แก้ไข fundraising (ยังไม่สมบูรณ์)" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603441358919" />
     <state x="2618" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603298802921">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2618" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603298802921" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2" timestamp="1603362607765">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state x="1985" y="24" width="1855" height="1056" key="CommitChangelistDialog2" timestamp="1603409822718">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
     <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603362607765" />
+    <state x="1985" y="24" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603409822718" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1603295733951">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -312,32 +333,43 @@
     </state>
     <state x="2159" y="464" key="NewPhpFileDialog/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603187083512" />
     <state x="1605" y="464" key="NewPhpFileDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603264906322" />
-    <state x="2679" y="189" key="SettingsEditor" timestamp="1603378150380">
+    <state x="2679" y="189" key="SettingsEditor" timestamp="1603447886674">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2274" y="189" key="SettingsEditor/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603331977446" />
     <state x="1739" y="256" key="SettingsEditor/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603271923401" />
-    <state x="2679" y="189" key="SettingsEditor/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603378150380" />
-    <state width="654" height="446" key="SwitcherDM" timestamp="1603267325252">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state x="2679" y="189" key="SettingsEditor/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603447886674" />
+    <state width="654" height="446" key="SwitcherDM" timestamp="1603463929697">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603267325252" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1603362610173">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603463929697" />
+    <state x="2512" y="275" key="Vcs.Push.Dialog.v2" timestamp="1603409825545">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
     <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603362610173" />
+    <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603409825545" />
+    <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603456149482" />
     <state x="2061" y="196" width="1720" height="884" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603387834976">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2061" y="196" width="1720" height="884" key="com.intellij.history.integration.ui.views.FileHistoryDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603387834976" />
+    <state x="2258" y="161" width="1275" height="898" key="find.popup" timestamp="1603456135028">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2258" y="161" width="1275" height="898" key="find.popup/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603456135028" />
     <state width="798" height="296" key="javadoc.popup.new" timestamp="1603250425846">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state width="798" height="296" key="javadoc.popup.new/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603250425846" />
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1603360447271">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state x="2575" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1603462347007">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603360447271" />
+    <state x="2575" y="236" width="672" height="678" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603462347007" />
   </component>
 </project>

@@ -16,12 +16,14 @@ class CreateFundraisingsTable extends Migration
   {
     Schema::create('fundraisings', function (Blueprint $table) {
       $table->id();
-      $table->integer('fundraising_category_id')->unsigned()->index();
+      $table->integer('category_id')->unsigned()->index();
       $table->string('title');
       $table->text('cover_image');
       $table->text('description');
       $table->longText('content');
-      $table->timestamps();
+      //$table->timestamps();
+      $table->timestamp('created_at')->useCurrent();
+      $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
     });
   }
 
