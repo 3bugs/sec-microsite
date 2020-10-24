@@ -1,5 +1,22 @@
 <template>
   <v-container>
+    <v-overlay
+      :value="isDeleting"
+      z-index="9999"
+    >
+      <v-progress-circular
+        indeterminate
+        size="70"
+      >
+        <v-img
+          lazy-src="/images/logo.svg"
+          max-height="40"
+          max-width="40"
+          src="/images/logo.svg"
+          class="mb-2"
+        />
+      </v-progress-circular>
+    </v-overlay>
     <v-tabs
       v-model="tab"
       style="display: none"
@@ -29,6 +46,8 @@
             //'page-text': '',
             'show-current-page': true,
           }"
+          :options="getTableOptions()"
+          @update:options="handleUpdateTableOptions"
         >
           <template v-slot:top>
             <v-toolbar
@@ -65,7 +84,8 @@
                   mdi-refresh
                 </v-icon>
               </v-btn>
-              <v-dialog v-model="dialogDelete" max-width="500px">
+
+              <!--<v-dialog v-model="dialogDelete" max-width="500px">
                 <v-card>
                   <v-card-title class="headline">ต้องการลบข้อมูลนี้?</v-card-title>
                   <v-card-actions>
@@ -75,7 +95,37 @@
                     <v-spacer></v-spacer>
                   </v-card-actions>
                 </v-card>
-              </v-dialog>
+              </v-dialog>-->
+
+              <!--<v-dialog
+                v-model="dialogDelete"
+                max-width="500"
+              >
+                <v-card>
+                  <v-card-title class="headline">
+                    ต้องการลบข้อมูลนี้ใช่หรือไม่?
+                  </v-card-title>
+                  <v-card-text>ข้อมูลจะถูกลบออกจากฐานข้อมูล หลังจากคุณคลิก 'ลบ'</v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      @click="dialogDelete = false"
+                    >
+                      ยกเลิก
+                    </v-btn>
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      @click="handleClickDelete"
+                    >
+                      ลบ
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>-->
+
             </v-toolbar>
           </template>
           <template v-slot:item.image="{ item }">
@@ -98,6 +148,8 @@
             </v-chip>
           </template>
           <template v-slot:item.actions="{ item }">
+
+            <!--ดูหน้าเว็บ-->
             <v-tooltip bottom>
               <template v-slot:activator="{ on, attrs }">
                 <v-icon
@@ -112,6 +164,8 @@
               </template>
               <span>ดูหน้าเว็บ</span>
             </v-tooltip>
+
+            <!--แก้ไข-->
             <v-tooltip bottom>
               <template v-slot:activator="{ on, attrs }">
                 <v-icon
@@ -126,6 +180,8 @@
               </template>
               <span>แก้ไข</span>
             </v-tooltip>
+
+            <!--ลบ-->
             <v-tooltip bottom>
               <template v-slot:activator="{ on, attrs }">
                 <v-icon
@@ -160,27 +216,40 @@
           :item="editItem"
           :category-list="fundraisingCategoryList"
           :on-cancel-form="handleCancelForm"
+          :on-save="handleSave"
+          :on-delete="handleDelete"
         />
       </v-tab-item>
     </v-tabs-items>
+
+    <my-dialog
+      :visible="dialog.visible"
+      :persistent="dialog.persistent"
+      @close="dialog.visible = false"
+      :title="dialog.title"
+      :message="dialog.message"
+      :button-list="dialog.buttonList"
+    />
   </v-container>
 </template>
 
 <script>
-import FundraisingForm from '../components/fundraising_form';
 import {routeDataList, fundraisingCategoryColorList} from '../constants';
+import FundraisingForm from '../components/fundraising_form';
+import MyDialog from '../components/my_dialog';
+
+const KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
 
 export default {
   components: {
-    FundraisingForm,
+    FundraisingForm, MyDialog,
   },
   data: () => ({
     tab: 0,
     editItem: null,
     showList: true,
     isLoadingList: true,
-    dialog: false,
-    dialogDelete: false,
+    isDeleting: false,
     headers: [
       {text: 'Cover Image', value: 'image', sortable: false,},
       {text: 'Title', align: 'start', value: 'title', sortable: true,},
@@ -192,6 +261,11 @@ export default {
     fundraisingCategoryList: [],
     routeDataList,
     fundraisingCategoryColorList,
+    dialog: {
+      visible: false,
+      title: '',
+      message: '',
+    },
   }),
   computed: {
     currentRouteTitle() {
@@ -206,6 +280,27 @@ export default {
     this.fetchList();
   },
   methods: {
+    showDialog(title, message, buttonList, persistent) {
+      this.dialog = {
+        visible: true,
+        persistent: persistent,
+        title: title,
+        message: message,
+        buttonList: buttonList,
+      };
+    },
+
+    handleUpdateTableOptions(option) {
+      //alert(JSON.stringify(option));
+      localStorage.setItem(KEY_TABLE_OPTIONS, JSON.stringify(option));
+      console.log('TABLE OPTIONS SAVED');
+    },
+    getTableOptions() {
+      const jsonOptions = localStorage.getItem(KEY_TABLE_OPTIONS);
+      console.log('TABLE OPTIONS RESTORED');
+      return jsonOptions == null ? null : JSON.parse(jsonOptions);
+    },
+
     handleClickAdd() {
       this.tab = 1;
       this.editItem = null;
@@ -213,7 +308,18 @@ export default {
     },
 
     handleClickViewWeb(item) {
-      window.open('/');
+      this.showDialog(
+        'Under Construction!',
+        'ฟังก์ชันนี้อยู่ระหว่างการพัฒนา',
+        [
+          {
+            text: 'OK',
+            onClick: null,
+          }
+        ],
+        false,
+      );
+      //window.open('/');
     },
 
     handleClickEdit(item) {
@@ -230,6 +336,16 @@ export default {
     handleCancelForm() {
       this.tab = 0;
       this.showList = true;
+    },
+    handleSave() {
+      this.tab = 0;
+      this.showList = true;
+      this.handleClickRefresh();
+    },
+    handleDelete() {
+      this.tab = 0;
+      this.showList = true;
+      this.handleClickRefresh();
     },
 
     fetchList() {
@@ -261,12 +377,59 @@ export default {
     },
 
     handleClickDelete(item) {
-      this.dialogDelete = true;
+      this.showDialog(
+        `ต้องการลบข้อมูลนี้ใช่หรือไม่?`,
+        `ข้อมูล '${item.title}' จะถูกลบออกจากฐานข้อมูล หลังจากคุณคลิก 'ลบ'`,
+        [
+          {
+            text: 'ยกเลิก',
+            onClick: () => {
+            },
+          },
+          {
+            text: 'ลบ',
+            onClick: () => {
+              this.doDeleting(item.id);
+            },
+          },
+        ],
+        false,
+      );
     },
-
-    deleteItemConfirm() {
-      //this.desserts.splice(this.editedIndex, 1)
-      this.closeDelete();
+    doDeleting(id) {
+      this.isDeleting = true;
+      axios.post('/api/fundraising', {
+        id,
+        _method: 'delete',
+      })
+        .then((response) => {
+          const status = response.data.status;
+          const message = response.data.message;
+          if (status === 'ok') {
+            this.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
+              text: 'OK', onClick: () => {
+                this.handleClickRefresh();
+              },
+            }], true);
+          } else {
+            this.showDialog('ผิดพลาด', `เกิดข้อผิดพลาด: ${message}`, [{
+              text: 'OK', onClick: () => {
+                //
+              },
+            }], true);
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+          this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+            text: 'OK', onClick: () => {
+              //
+            },
+          }], true);
+        })
+        .then(() => { // always executed
+          this.isDeleting = false;
+        });
     },
 
     /*close () {
@@ -276,14 +439,6 @@ export default {
         this.editedIndex = -1;
       });
     },*/
-
-    closeDelete() {
-      this.dialogDelete = false;
-      /*this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
-      });*/
-    },
   }
 }
 </script>

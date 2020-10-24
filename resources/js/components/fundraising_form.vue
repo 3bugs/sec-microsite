@@ -166,7 +166,6 @@
       <v-dialog
         v-if="item != null"
         v-model="confirmDeleteDialog"
-        persistent
         max-width="500"
       >
         <template v-slot:activator="{ on, attrs }">
@@ -194,16 +193,16 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
-              color="green darken-1"
+              color="blue darken-1"
               text
               @click="confirmDeleteDialog = false"
             >
               ยกเลิก
             </v-btn>
             <v-btn
-              color="green darken-1"
+              color="blue darken-1"
               text
-              @click="confirmDeleteDialog = false"
+              @click="handleClickDelete"
             >
               ลบ
             </v-btn>
@@ -238,6 +237,7 @@ export default {
     categoryList: Array,
     onCancelForm: Function,
     onSave: Function,
+    onDelete: Function,
   },
   data: () => ({
     valid: true,
@@ -336,7 +336,47 @@ export default {
     },
 
     handleClickDelete() {
-      alert('Under construction!');
+      this.doDeleting();
+      this.confirmDeleteDialog = false;
+    },
+    doDeleting() {
+      const self = this;
+
+      this.isDeleting = true;
+      axios.post('/api/fundraising', {
+        id: this.item.id,
+        _method: 'delete',
+      })
+        .then((response) => {
+          const status = response.data.status;
+          const message = response.data.message;
+          if (status === 'ok') {
+            this.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
+              text: 'OK', onClick: () => {
+                if (this.onDelete != null) {
+                  this.onDelete();
+                }
+              },
+            }], true);
+          } else {
+            this.showDialog('ผิดพลาด', `เกิดข้อผิดพลาด: ${message}`, [{
+              text: 'OK', onClick: () => {
+                //
+              },
+            }], true);
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+          this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+            text: 'OK', onClick: () => {
+              //
+            },
+          }], true);
+        })
+        .then(function () { // always executed
+          self.isDeleting = false;
+        });
     },
 
     validate() {
@@ -378,7 +418,9 @@ export default {
           if (status === 'ok') {
             this.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
               text: 'OK', onClick: () => {
-                //
+                if (this.onSave != null) {
+                  this.onSave();
+                }
               },
             }], true);
           } else {

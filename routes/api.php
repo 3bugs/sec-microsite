@@ -123,3 +123,21 @@ Route::put('/fundraising', function (Request $request) {
     ));
   }
 });
+
+Route::delete('/fundraising', function (Request $request) {
+  try {
+    $id = $request->id;
+    $fundraising = Fundraising::find($id);
+    $fundraising->delete();
+
+    return json_encode(array(
+      'status' => 'ok',
+      'message' => 'success',
+    ));
+  } catch (Exception $e) {
+    return json_encode(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ));
+  }
+});
