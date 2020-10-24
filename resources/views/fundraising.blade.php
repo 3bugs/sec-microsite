@@ -51,7 +51,7 @@
               @foreach ($fundraisingCategory->fundraisings as $fundraising)
               <figure class="col-12 col-md-6 item_fundraising">
                 <a href="fundraising-detail.php">
-                  <div><img src="images/{{ $fundraising->cover_image }}"></div>
+                  <div><img src="{{ Storage::url($fundraising->cover_image) }}"></div>
                   <figcaption>
                     <h4>{{ $fundraising->title }}</h4>
                     <p>{{ $fundraising->description }}</p>

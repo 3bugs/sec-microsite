@@ -11,6 +11,6 @@ class Fundraising extends Model
 
   public function fundraisingCategory()
   {
-    return $this->belongsTo(FundraisingCategory::class);
+    return $this->belongsTo(FundraisingCategory::class, 'category_id', 'id');
   }
 }

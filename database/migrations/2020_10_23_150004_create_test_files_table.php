@@ -1,13 +1,10 @@
 <?php
 
-use App\Models\Fundraising;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-//https://stackoverflow.com/questions/18067614/how-can-i-set-the-default-value-of-a-timestamp-column-to-the-current-timestamp-w
-
-class CreateFundraisingCategoryTable extends Migration
+class CreateTestFilesTable extends Migration
 {
   /**
    * Run the migrations.
@@ -16,10 +13,9 @@ class CreateFundraisingCategoryTable extends Migration
    */
   public function up()
   {
-    Schema::create('fundraising_categorys', function (Blueprint $table) {
+    Schema::create('test_files', function (Blueprint $table) {
       $table->id();
-      $table->string('title');
-      $table->text('description');
+      $table->string('filename');
       //$table->timestamps();
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
@@ -33,6 +29,6 @@ class CreateFundraisingCategoryTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('fundraising_categorys');
+    Schema::dropIfExists('test_files');
   }
 }

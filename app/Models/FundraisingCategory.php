@@ -11,6 +11,6 @@ class FundraisingCategory extends Model
 
   public function fundraisings()
   {
-    return $this->hasMany(Fundraising::class);
+    return $this->hasMany(Fundraising::class, 'category_id', 'id');
   }
 }

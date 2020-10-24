@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\TestFile;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FundraisingController;
 
@@ -47,6 +49,19 @@ Route::get('/admin/{any}', function () {
   app('debugbar')->disable();
   return view('admin');
 })->where('any', '.*');
+
+Route::get('/testfile', function () {
+  return view('testfile');
+
+  /*$testFiles = TestFile::orderBy('id', 'asc')->get();
+  return json_encode(array(
+    'data_list' => $testFiles,
+  ));*/
+});
+Route::post('/testfile', function (Request $request) {
+  $path = $request->file('myFile')->store('avatars');
+  return 'PATH: '.$path.'<br>'.'myText: '.$request->myText;
+});
 
 /*Route::get('/', function () {
   $tasks = Task::orderBy('created_at', 'asc')->get();

@@ -25,8 +25,8 @@
           class="elevation-1"
           :footer-props="{
             //'items-per-page-all-text': 'ทั้งหมด',
-            'items-per-page-text': 'จำนวนแถวข้อมูลต่อ 1 หน้า',
-            'page-text': '',
+            'items-per-page-text': 'จำนวนแถวข้อมูลต่อหน้า',
+            //'page-text': '',
             'show-current-page': true,
           }"
         >
@@ -105,6 +105,20 @@
                   class="mr-2"
                   v-bind="attrs"
                   v-on="on"
+                  @click="() => handleClickViewWeb(item)"
+                >
+                  mdi-web
+                </v-icon>
+              </template>
+              <span>ดูหน้าเว็บ</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  small
+                  class="mr-2"
+                  v-bind="attrs"
+                  v-on="on"
                   @click="() => handleClickEdit(item)"
                 >
                   mdi-pencil
@@ -130,8 +144,8 @@
             v-slot:progress
           >
             <v-progress-linear
-              color="purple"
-              :height="10"
+              color="primary"
+              :height="5"
               indeterminate
             ></v-progress-linear>
           </template>
@@ -168,11 +182,11 @@ export default {
     dialog: false,
     dialogDelete: false,
     headers: [
+      {text: 'Cover Image', value: 'image', sortable: false,},
       {text: 'Title', align: 'start', value: 'title', sortable: true,},
       {text: 'Short description', value: 'description', sortable: true,},
-      {text: 'Cover Image', value: 'image', sortable: false,},
       {text: 'Category', value: 'category_id', sortable: true,},
-      {text: 'Actions', value: 'actions', sortable: false,},
+      {text: 'Actions', value: 'actions', sortable: false, width: '120px'},
     ],
     fundraisingList: [],
     fundraisingCategoryList: [],
@@ -196,6 +210,10 @@ export default {
       this.tab = 1;
       this.editItem = null;
       this.showList = false;
+    },
+
+    handleClickViewWeb(item) {
+      window.open('/');
     },
 
     handleClickEdit(item) {
@@ -234,8 +252,8 @@ export default {
           }
         })
         .catch(function (error) {
-          this.isLoadingList = false;
           console.log(error);
+          this.isLoadingList = false;
         })
         .then(function () {
           // always executed
@@ -269,3 +287,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.my-class {
+  white-space: nowrap;
+}
+</style>

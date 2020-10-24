@@ -1,5 +1,32 @@
 <template>
-  <v-card>
+  <v-card :loading="false">
+    <v-overlay
+      :value="isSaving || isDeleting"
+      z-index="9999"
+    >
+      <v-progress-circular
+        indeterminate
+        size="70"
+      >
+        <v-img
+          lazy-src="/images/logo.svg"
+          max-height="40"
+          max-width="40"
+          src="/images/logo.svg"
+          class="mb-2"
+        />
+      </v-progress-circular>
+    </v-overlay>
+    <template
+      v-slot:progress
+    >
+      <v-progress-linear
+        color="primary"
+        :height="5"
+        indeterminate
+      ></v-progress-linear>
+    </template>
+
     <v-toolbar flat>
       <v-toolbar-title>{{ currentRouteTitle }} - {{ item == null ? 'เพิ่ม' : 'แก้ไข' }}ข้อมูล</v-toolbar-title>
       <v-divider
@@ -10,9 +37,9 @@
       <v-spacer/>
       <v-btn
         color="warning"
-        dark
         class="mb-2"
         @click="handleClickCancel"
+        :disabled="isSaving || isDeleting"
       >
         <v-icon
           small
@@ -122,9 +149,10 @@
       class="pb-5"
     >
       <v-btn
-        :disabled="!valid"
+        :disabled="!valid || isSaving || isDeleting"
         color="success"
         @click="validate"
+        :loading="isSaving"
       >
         <v-icon
           small
@@ -146,6 +174,8 @@
             color="error"
             v-bind="attrs"
             v-on="on"
+            :loading="isDeleting"
+            :disabled="isSaving || isDeleting"
           >
             <v-icon
               small
@@ -181,21 +211,33 @@
         </v-card>
       </v-dialog>
     </v-toolbar>
+
+    <my-dialog
+      :visible="dialog.visible"
+      :persistent="dialog.persistent"
+      @close="dialog.visible = false"
+      :title="dialog.title"
+      :message="dialog.message"
+      :button-list="dialog.buttonList"
+    />
   </v-card>
 </template>
 
 <script>
 import {routeDataList} from '../constants';
+import MyDialog from '../components/my_dialog';
 //import ImageUploader from 'vue-image-upload-resize';
 
 export default {
   components: {
+    MyDialog,
     //ImageUploader,
   },
   props: {
     item: Object,
     categoryList: Array,
     onCancelForm: Function,
+    onSave: Function,
   },
   data: () => ({
     valid: true,
@@ -214,6 +256,13 @@ export default {
     selectedImageSrc: null,
     confirmDeleteDialog: false,
     routeDataList,
+    isSaving: false,
+    isDeleting: false,
+    dialog: {
+      visible: false,
+      title: '',
+      message: '',
+    },
   }),
   computed: {
     currentRouteTitle() {
@@ -250,6 +299,16 @@ export default {
     }
   },
   methods: {
+    showDialog(title, message, buttonList, persistent) {
+      this.dialog = {
+        visible: true,
+        persistent: persistent,
+        title: title,
+        message: message,
+        buttonList: buttonList,
+      };
+    },
+
     handleFileInputChanged(file) {
       this.selectedFile = file;
       this.getImageSrc();
@@ -286,9 +345,63 @@ export default {
           + `Title: ${this.title}\n-----\n`
           + `Description: ${this.description}\n-----\n`
           + `Category: [${this.selectedCategory.id}] ${this.selectedCategory.title}\n-----`;
-        alert(msg);
+        //alert(msg);
+
+        this.doSaving();
       }
     },
+    doSaving() {
+      const self = this;
+
+      const formData = new FormData();
+      formData.append('id', this.item == null ? 0 : this.item.id);
+      formData.append('title', this.title);
+      formData.append('description', this.description);
+      formData.append('category_id', this.selectedCategory.id);
+      formData.append('cover_image', this.selectedFile);
+      if (this.item != null) {
+        formData.append('_method', 'put');
+      }
+      const config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+
+      this.isSaving = true;
+      //axios.put ไม่ work!!!
+      //const saveMethod = this.item == null ? axios.post : axios.put;
+      axios.post('/api/fundraising', formData, config)
+        .then((response) => {
+          const status = response.data.status;
+          const message = response.data.message;
+          if (status === 'ok') {
+            this.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
+              text: 'OK', onClick: () => {
+                //
+              },
+            }], true);
+          } else {
+            this.showDialog('ผิดพลาด', `เกิดข้อผิดพลาด: ${message}`, [{
+              text: 'OK', onClick: () => {
+                //
+              },
+            }], true);
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+          this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+            text: 'OK', onClick: () => {
+              //
+            },
+          }], true);
+        })
+        .then(function () { // always executed
+          self.isSaving = false;
+        });
+    },
+
     reset() {
       this.$refs.form.reset();
     },

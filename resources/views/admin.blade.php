@@ -22,22 +22,25 @@
     <v-navigation-drawer
         v-model="drawer"
         app
+        dark
+        src="/images/banner.jpg"
     >
       <v-container>
         <v-row align="center" justify="center">
           <v-img
-              lazy-src="/images/logo.svg"
-              max-height="75"
-              max-width="75"
-              src="/images/logo.svg"
+              lazy-src="/images/logo_white.svg"
+              max-height="60"
+              max-width="60"
+              src="/images/logo_white.svg"
           >
           </v-img>
         </v-row>
       </v-container>
 
-      <v-list>
+      <v-list nav>
         <v-list-item
-            v-for="route in routeDataList"
+            v-for="(route, index) in routeDataList"
+            :key="index"
             link :to="route.name"
         >
           <v-list-item-action>
@@ -60,7 +63,7 @@
     </v-app-bar>
 
     <v-main :style="{background: '#eee'}">
-      <v-container fluid class="pa-5">
+      <v-container fluid class="pa-1 pa-sm-2 pa-md-5">
         <router-view></router-view>
       </v-container>
     </v-main>

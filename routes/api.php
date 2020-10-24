@@ -4,6 +4,9 @@ use App\Models\Fundraising;
 use App\Models\FundraisingCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+
+define('PATH_PUBLIC_FUNDRAISING', 'public/fundraising');
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +34,7 @@ Route::get('/fundraising', function (Request $request) {
     ->get();
 
   foreach ($fundraisingList as $fundraising) {
-    $fundraising->cover_image = asset('images') . '/' . $fundraising->cover_image;
+    $fundraising->cover_image = Storage::url($fundraising->cover_image);
   }
   $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'asc')->get();
 
@@ -42,4 +45,81 @@ Route::get('/fundraising', function (Request $request) {
     'data_list' => $fundraisingList,
     'category_list' => $fundraisingCategoryList,
   ));
+});
+
+Route::post('/fundraising', function (Request $request) {
+  // imagePath: public/fundraising/xxx.jpg
+  // imageUrl: /storage/fundraising/xxx.jpg
+  try {
+    $imagePath = $request->file('cover_image')->store(PATH_PUBLIC_FUNDRAISING);
+    $imageUrl = Storage::url($imagePath);
+    $title = $request->title;
+    $description = $request->description;
+    $categoryId = $request->category_id;
+
+    $fundraising = new Fundraising;
+    $fundraising->title = $title;
+    $fundraising->description = $description;
+    $fundraising->category_id = $categoryId;
+    $fundraising->cover_image = $imagePath;
+    $fundraising->content = '';
+    $fundraising->save();
+
+    $message = "Title: $title\n"
+      . "Description: $description\n"
+      . "Category ID: $categoryId\n"
+      . "Cover image imagePath: $imagePath\n"
+      . "Cover image URL: $imageUrl";
+
+    return json_encode(array(
+      'status' => 'ok',
+      'message' => $message,
+    ));
+  } catch (Exception $e) {
+    return json_encode(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ));
+  }
+});
+
+Route::put('/fundraising', function (Request $request) {
+  try {
+    $imagePath = null;
+    if ($request->hasFile('cover_image')) {
+      $imagePath = $request->file('cover_image')->store(PATH_PUBLIC_FUNDRAISING);
+      $imageUrl = Storage::url($imagePath);
+    }
+    $id = $request->id;
+    $title = $request->title;
+    $description = $request->description;
+    $categoryId = $request->category_id;
+
+    $fundraising = Fundraising::find($id);
+    $fundraising->title = $title;
+    $fundraising->description = $description;
+    $fundraising->category_id = $categoryId;
+    $fundraising->content = '';
+    if ($imagePath != null) {
+      $fundraising->cover_image = $imagePath;
+    }
+    $fundraising->save();
+
+    $message = "ID: $id\n"
+      . "Title: $title\n"
+      . "Description: $description\n"
+      . "Category ID: $categoryId\n"
+      . "Cover image imagePath:" . $fundraising->cover_image . "\n"
+      . "Cover image URL: " . Storage::url($fundraising->cover_image);
+
+    return json_encode(array(
+      'status' => 'ok',
+      'message' => $message,
+    ));
+  } catch (Exception $e) {
+    return json_encode(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ));
+  }
 });
