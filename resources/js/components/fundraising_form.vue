@@ -89,7 +89,10 @@
         @change="handleFileInputChanged"
       ></v-file-input>
 
-      <v-container v-if="selectedImageSrc != null">
+      <v-container
+        class="pl-0 pr-0"
+        v-if="selectedImageSrc != null"
+      >
         <v-img
           :lazy-src="selectedImageSrc"
           max-height="150"
@@ -111,6 +114,17 @@
           </template>
         </v-img>
         <!--<img :src="selectedImageSrc" style="object-fit: cover; width: 400px; height: 200px">-->
+      </v-container>
+
+      <v-container
+        class="pl-0 pr-0 pt-6 pb-6"
+      >
+        <ckeditor
+          :editor="editor"
+          v-model="editorData"
+          :config="editorConfig"
+          :rules="descriptionRules"
+        ></ckeditor>
       </v-container>
 
       <!--<image-uploader
@@ -225,6 +239,8 @@
 <script>
 import {routeDataList} from '../constants';
 import MyDialog from '../components/my_dialog';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 //import ImageUploader from 'vue-image-upload-resize';
 
 export default {
@@ -263,6 +279,9 @@ export default {
       title: '',
       message: '',
     },
+    editor: ClassicEditor,
+    editorData: '<p>Content of the editor</p>',
+    editorConfig: {},
   }),
   computed: {
     currentRouteTitle() {

@@ -35,7 +35,7 @@
         :key="'list'"
       >
         <v-data-table
-          v-if="showList"
+          v-if="true || showList"
           :headers="headers"
           :items="fundraisingList"
           :loading="isLoadingList"

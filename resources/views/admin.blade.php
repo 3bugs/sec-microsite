@@ -63,7 +63,7 @@
     </v-app-bar>
 
     <v-main :style="{background: '#eee'}">
-      <v-container fluid class="pa-1 pa-sm-2 pa-md-5">
+      <v-container fluid class="pt-1 pt-sm-2 pt-md-5 pl-1 pl-sm-2 pl-md-5 pr-1 pr-sm-2 pr-md-5 pb-16">
         <router-view></router-view>
       </v-container>
     </v-main>
