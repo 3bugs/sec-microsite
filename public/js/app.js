@@ -1944,6 +1944,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/my_dialog */ "./resources/js/components/my_dialog.vue");
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _my_upload_adapter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./my_upload_adapter */ "./resources/js/components/my_upload_adapter.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2184,12 +2203,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
- //import ImageUploader from 'vue-image-upload-resize';
+
+
+__webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Thai from '@ckeditor/ckeditor5-build-classic/build/translations/th';
+//import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+//import editor from '@ckeditor/ckeditor5-build-decoupled-document';
+//import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
+//import {ClassicEditor} from '../../ckeditor5/packages/ckeditor5-build-classic';
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    MyDialog: _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__["default"] //ImageUploader,
-
+    MyDialog: _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     item: Object,
@@ -2225,8 +2251,20 @@ __webpack_require__.r(__webpack_exports__);
         message: ''
       },
       editor: _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_2___default.a,
-      editorData: '<p>Content of the editor</p>',
-      editorConfig: {}
+      editorContent: '',
+      editorConfig: {
+        extraPlugins: [this.uploader],
+        language: 'th'
+        /*alignment: {
+          options: [ 'left', 'center', 'right' ]
+        },
+        toolbar: ['heading', '|', 'bold', 'italic', 'alignment', 'link', 'bulletedList', 'numberedList', '|', 'insertTable', '|', 'imageUpload', 'mediaEmbed', '|', 'undo', 'redo'],
+        table: {
+          toolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+        },*/
+
+      },
+      contentRuleVisible: false
     };
   },
   computed: {
@@ -2264,9 +2302,20 @@ __webpack_require__.r(__webpack_exports__);
         return category.id === _this.item.category_id;
       })[0];
       this.selectedImageSrc = this.item.cover_image;
+      this.editorContent = this.item.content;
     }
   },
   methods: {
+    handleEditorReady: function handleEditorReady() {
+      console.log('EDITOR READY!');
+      /*const toolbarContainer = document.querySelector('.document-editor__toolbar');
+      toolbarContainer.appendChild(this.editor.ui.view.toolbar.element);*/
+    },
+    uploader: function uploader(editor) {
+      editor.plugins.get('FileRepository').createUploadAdapter = function (loader) {
+        return new _my_upload_adapter__WEBPACK_IMPORTED_MODULE_3__["default"](loader);
+      };
+    },
     showDialog: function showDialog(title, message, buttonList, persistent) {
       this.dialog = {
         visible: true,
@@ -2346,10 +2395,24 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     validate: function validate() {
+      this.contentRuleVisible = this.editorContent == null || this.editorContent.trim().length === 0;
+
       if (this.$refs.form.validate()) {
         var msg = 'ข้อมูลที่จะส่งไปบันทึกลงฐานข้อมูล\n-----\n' + "Title: ".concat(this.title, "\n-----\n") + "Description: ".concat(this.description, "\n-----\n") + "Category: [".concat(this.selectedCategory.id, "] ").concat(this.selectedCategory.title, "\n-----"); //alert(msg);
 
-        this.doSaving();
+        if (this.editorContent == null || this.editorContent.trim().length === 0) {
+          this.showDialog('กรุณากรอกข้อมูลให้ครบถ้วน', 'คุณยังไม่ได้กรอกเนื้อหาบทความ', [{
+            text: 'OK',
+            onClick: null
+          }], true);
+        } else {
+          this.doSaving();
+        }
+      } else {
+        this.showDialog('กรุณากรอกข้อมูลให้ครบถ้วน', 'กรุณากรอกข้อมูลให้ครบถ้วน', [{
+          text: 'OK',
+          onClick: null
+        }], true);
       }
     },
     doSaving: function doSaving() {
@@ -2358,10 +2421,11 @@ __webpack_require__.r(__webpack_exports__);
       var self = this;
       var formData = new FormData();
       formData.append('id', this.item == null ? 0 : this.item.id);
-      formData.append('title', this.title);
-      formData.append('description', this.description);
+      formData.append('title', this.title.trim());
+      formData.append('description', this.description.trim());
       formData.append('category_id', this.selectedCategory.id);
       formData.append('cover_image', this.selectedFile);
+      formData.append('content_data', this.editorContent.trim());
 
       if (this.item != null) {
         formData.append('_method', 'put');
@@ -2786,29 +2850,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2825,25 +2866,29 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
       showList: true,
       isLoadingList: true,
       isDeleting: false,
+      isUpdatePublished: false,
       headers: [{
-        text: 'Cover Image',
+        text: 'รูปภาพปก',
         value: 'image',
-        sortable: false
+        sortable: false,
+        width: '170px'
       }, {
-        text: 'Title',
+        text: 'หัวเรื่อง',
         align: 'start',
         value: 'title',
         sortable: true
-      }, {
-        text: 'Short description',
-        value: 'description',
-        sortable: true
-      }, {
-        text: 'Category',
+      },
+      /*{text: 'คำอธิบายย่อ', value: 'description', sortable: true,},*/
+      {
+        text: 'หมวดหมู่',
         value: 'category_id',
         sortable: true
       }, {
-        text: 'Actions',
+        text: 'เผยแพร่',
+        value: 'published',
+        sortable: true
+      }, {
+        text: 'จัดการ',
         value: 'actions',
         sortable: false,
         width: '120px'
@@ -2855,6 +2900,10 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
       dialog: {
         visible: false,
         title: '',
+        message: ''
+      },
+      snackbar: {
+        visible: false,
         message: ''
       }
     };
@@ -2936,7 +2985,12 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         console.log(response.data);
 
         if (response.data.status === 'ok') {
-          _this.fundraisingList = response.data.data_list;
+          var dataList = response.data.data_list;
+          dataList.forEach(function (item, index) {
+            item.published = item.published === 1;
+            item.isUpdating = false;
+          });
+          _this.fundraisingList = dataList;
           _this.fundraisingCategoryList = response.data.category_list.map(function (item) {
             return _objectSpread(_objectSpread({}, item), {}, {
               toString: function toString() {
@@ -3000,7 +3054,8 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         // always executed
         _this3.isDeleting = false;
       });
-    }
+    },
+
     /*close () {
       this.dialog = false;
       this.$nextTick(() => {
@@ -3008,9 +3063,86 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         this.editedIndex = -1;
       });
     },*/
+    handleClickSwitch: function handleClickSwitch(item) {
+      var _this4 = this;
 
+      var preText = !item.published ? 'ปิดการ' : '';
+      this.showDialog("".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25"), "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48"), [{
+        text: 'ไม่ใช่',
+        onClick: function onClick() {
+          item.published = !item.published;
+        }
+      }, {
+        text: 'ใช่',
+        onClick: function onClick() {
+          _this4.doUpdatePublished(item);
+        }
+      }], false);
+    },
+    doUpdatePublished: function doUpdatePublished(item) {
+      var _this5 = this;
+
+      var self = this;
+      var formData = new FormData();
+      formData.append('id', item.id);
+      formData.append('published', item.published ? 1 : 0);
+      formData.append('_method', 'put');
+      var config = {
+        /*headers: {
+          'content-type': 'multipart/form-data'
+        }*/
+      };
+      item.isUpdating = true; //axios.put ไม่ work!!!
+
+      axios.post('/api/fundraising', formData, config).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this5.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this5.snackbar.visible = true;
+        } else {
+          item.published = !item.published;
+
+          _this5.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {}
+          }], true);
+        }
+      })["catch"](function (error) {
+        item.published = !item.published;
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        self.isUpdating = false;
+      });
+    }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 200px;\n}\n", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -20678,6 +20810,36 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./fundraising_form.vue?vue&type=style&index=1&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/fundraising.vue?vue&type=style&index=0&id=6a66ae6b&scoped=true&lang=css&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/fundraising.vue?vue&type=style&index=0&id=6a66ae6b&scoped=true&lang=css& ***!
@@ -21464,6 +21626,7 @@ var render = function() {
             attrs: {
               label: "รูปภาพ Cover",
               "prepend-icon": "mdi-camera",
+              accept: "image/*",
               rules: _vm.coverImageRules,
               required: ""
             },
@@ -21525,19 +21688,27 @@ var render = function() {
             { staticClass: "pl-0 pr-0 pt-6 pb-6" },
             [
               _c("ckeditor", {
-                attrs: {
-                  editor: _vm.editor,
-                  config: _vm.editorConfig,
-                  rules: _vm.descriptionRules
-                },
+                attrs: { editor: _vm.editor, config: _vm.editorConfig },
+                on: { ready: _vm.handleEditorReady },
                 model: {
-                  value: _vm.editorData,
+                  value: _vm.editorContent,
                   callback: function($$v) {
-                    _vm.editorData = $$v
+                    _vm.editorContent = $$v
                   },
-                  expression: "editorData"
+                  expression: "editorContent"
                 }
-              })
+              }),
+              _vm._v(" "),
+              _vm.contentRuleVisible && _vm.editorContent.trim().length === 0
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "mt-1",
+                      staticStyle: { color: "#ff5252", "font-size": "12px" }
+                    },
+                    [_vm._v("ต้องกรอกเนื้อหา\n      ")]
+                  )
+                : _vm._e()
             ],
             1
           )
@@ -22050,6 +22221,30 @@ var render = function() {
                           }
                         },
                         {
+                          key: "item.published",
+                          fn: function(ref) {
+                            var item = ref.item
+                            return [
+                              _c("v-switch", {
+                                staticClass: "ma-0 pa-0",
+                                attrs: { color: "primary", "hide-details": "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.handleClickSwitch(item)
+                                  }
+                                },
+                                model: {
+                                  value: item.published,
+                                  callback: function($$v) {
+                                    _vm.$set(item, "published", $$v)
+                                  },
+                                  expression: "item.published"
+                                }
+                              })
+                            ]
+                          }
+                        },
+                        {
                           key: "item.actions",
                           fn: function(ref) {
                             var item = ref.item
@@ -22226,7 +22421,7 @@ var render = function() {
                       ],
                       null,
                       false,
-                      1959736350
+                      4243285608
                     )
                   })
                 : undefined
@@ -22269,7 +22464,21 @@ var render = function() {
             _vm.dialog.visible = false
           }
         }
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          model: {
+            value: _vm.snackbar.visible,
+            callback: function($$v) {
+              _vm.$set(_vm.snackbar, "visible", $$v)
+            },
+            expression: "snackbar.visible"
+          }
+        },
+        [_vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")]
+      )
     ],
     1
   )
@@ -81326,6 +81535,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+ //import CKEditor from 'ckeditor4-vue';
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_4___default.a);
@@ -81397,7 +81607,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fundraising_form_vue_vue_type_template_id_4cee67aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fundraising_form.vue?vue&type=template&id=4cee67aa&scoped=true& */ "./resources/js/components/fundraising_form.vue?vue&type=template&id=4cee67aa&scoped=true&");
 /* harmony import */ var _fundraising_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./fundraising_form.vue?vue&type=script&lang=js& */ "./resources/js/components/fundraising_form.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _fundraising_form_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fundraising_form.vue?vue&type=style&index=1&lang=css& */ "./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -81405,7 +81617,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _fundraising_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _fundraising_form_vue_vue_type_template_id_4cee67aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _fundraising_form_vue_vue_type_template_id_4cee67aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -81434,6 +81646,22 @@ component.options.__file = "resources/js/components/fundraising_form.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./fundraising_form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/fundraising_form.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css& ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_form_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./fundraising_form.vue?vue&type=style&index=1&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/fundraising_form.vue?vue&type=style&index=1&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_form_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_form_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_form_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_form_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_form_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -81521,6 +81749,307 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_my_dialog_vue_vue_type_template_id_1d2cd800_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/my_upload_adapter.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/my_upload_adapter.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyUploadAdapter; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+//https://stackoverflow.com/questions/59190905/vuejs-ckeditor5-upload-images
+var MyUploadAdapter = /*#__PURE__*/function () {
+  function MyUploadAdapter(loader) {
+    _classCallCheck(this, MyUploadAdapter);
+
+    // The file loader instance to use during the upload.
+    this.loader = loader;
+  } // Starts the upload process.
+
+
+  _createClass(MyUploadAdapter, [{
+    key: "upload",
+    value: function upload() {
+      var _this = this;
+
+      return this.loader.file.then(function (file) {
+        return new Promise(function (resolve, reject) {
+          _this._initRequest();
+
+          _this._initListeners(resolve, reject, file);
+
+          _this._sendRequest(file);
+        });
+      });
+    } // Aborts the upload process.
+
+  }, {
+    key: "abort",
+    value: function abort() {
+      if (this.xhr) {
+        this.xhr.abort();
+      }
+    } // Initializes the XMLHttpRequest object using the URL passed to the constructor.
+
+  }, {
+    key: "_initRequest",
+    value: function _initRequest() {
+      var xhr = this.xhr = new XMLHttpRequest(); // Note that your request may look different. It is up to you and your editor
+      // integration to choose the right communication channel. This example uses
+      // a POST request with JSON as a data structure but your configuration
+      // could be different.
+
+      xhr.open('POST', '/api/editor-file-upload', true);
+      xhr.responseType = 'json';
+    } // Initializes XMLHttpRequest listeners.
+
+  }, {
+    key: "_initListeners",
+    value: function _initListeners(resolve, reject, file) {
+      var xhr = this.xhr;
+      var loader = this.loader;
+      var genericErrorText = "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E2D\u0E31\u0E1E\u0E42\u0E2B\u0E25\u0E14\u0E44\u0E1F\u0E25\u0E4C ".concat(file.name, " \u0E44\u0E14\u0E49");
+      xhr.addEventListener('error', function () {
+        return reject(genericErrorText);
+      });
+      xhr.addEventListener('abort', function () {
+        return reject();
+      });
+      xhr.addEventListener('load', function () {
+        var response = xhr.response; // This example assumes the XHR server's "response" object will come with
+        // an "error" which has its own "message" that can be passed to reject()
+        // in the upload promise.
+        //
+        // Your integration may handle upload errors in a different way so make sure
+        // it is done properly. The reject() function must be called when the upload fails.
+
+        if (!response || response.error.code !== 0) {
+          return reject(response && response.error ? response.error.message : genericErrorText);
+        } // If the upload is successful, resolve the upload promise with an object containing
+        // at least the "default" URL, pointing to the image on the server.
+        // This URL will be used to display the image in the content. Learn more in the
+        // UploadAdapter#upload documentation.
+
+
+        resolve({
+          "default": response.url
+        });
+      }); // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
+      // properties which are used e.g. to display the upload progress bar in the editor
+      // user interface.
+
+      if (xhr.upload) {
+        xhr.upload.addEventListener('progress', function (evt) {
+          if (evt.lengthComputable) {
+            loader.uploadTotal = evt.total;
+            loader.uploaded = evt.loaded;
+          }
+        });
+      }
+    } // Prepares the data and sends the request.
+
+  }, {
+    key: "_sendRequest",
+    value: function _sendRequest(file) {
+      var _this2 = this;
+
+      /*const pica = require('pica')();
+      pica.resize(file, null)
+        .then(result => pica.toBlob(result, 'image/jpeg', 0.90))
+        .then(blob => {
+          const data = new FormData();
+          data.append('upload', blob);
+           // Important note: This is the right place to implement security mechanisms
+          // like authentication and CSRF protection. For instance, you can use
+          // XMLHttpRequest.setRequestHeader() to set the request headers containing
+          // the CSRF token generated earlier by your application.
+           // Send the request.
+          this.xhr.send(data);
+        });*/
+      this.resize(file, 400, 400, function (resizedFile) {
+        // Prepare the form data.
+        var data = new FormData();
+        data.append('upload', resizedFile); // Important note: This is the right place to implement security mechanisms
+        // like authentication and CSRF protection. For instance, you can use
+        // XMLHttpRequest.setRequestHeader() to set the request headers containing
+        // the CSRF token generated earlier by your application.
+        // Send the request.
+
+        _this2.xhr.send(data);
+      });
+    }
+  }, {
+    key: "resize",
+    value: function resize(file, maxWidth, maxHeight, callback) {
+      var fileReader = new FileReader();
+      var canvas = document.createElement('canvas');
+      var context = null;
+      var imageObj = new Image(); //let blob = null;
+      // check for an image then
+      //trigger the file loader to get the data from the image
+
+      if (file.type.match('image.*')) {
+        fileReader.readAsDataURL(file);
+      } else {
+        alert('ไม่ใช่รูปภาพ');
+      } // setup the file loader onload function
+      // once the file loader has the data it passes it to the
+      // image object which, once the image has loaded,
+      // triggers the images onload function
+
+
+      fileReader.onload = function () {
+        imageObj.src = this.result;
+      };
+
+      fileReader.onabort = function () {
+        alert("The upload was aborted.");
+      };
+
+      fileReader.onerror = function () {
+        alert("เกิดข้อผิดพลาดในการอ่านข้อมูลไฟล์");
+      }; // set up the images onload function which clears the hidden canvas context,
+      // draws the new image then gets the blob data from it
+
+
+      imageObj.onload = function () {
+        // Check for empty images
+        if (this.width === 0 || this.height === 0) {
+          alert('Image is empty');
+        } else {
+          if (this.width > this.height) {
+            maxHeight = this.height * maxWidth / this.width;
+          } else {
+            maxWidth = this.width * maxHeight / this.height;
+          } //create a hidden canvas object we can use to create the new resized image data
+
+
+          canvas.id = "hiddenCanvas";
+          canvas.width = maxWidth;
+          canvas.height = maxHeight;
+          canvas.style.visibility = "hidden";
+          document.body.appendChild(canvas); //get the context to use
+
+          context = canvas.getContext('2d');
+          context.clearRect(0, 0, maxWidth, maxHeight);
+          context.drawImage(imageObj, 0, 0, this.width, this.height, 0, 0, maxWidth, maxHeight); //dataURItoBlob function available here:
+          // http://stackoverflow.com/questions/12168909/blob-from-dataurl
+          // add ')' at the end of this function SO dont allow to update it without a 6 character edit
+          //blob = dataURItoBlob(canvas.toDataURL(imageEncoding));
+
+          fetch(canvas.toDataURL()).then(function (res) {
+            return res.blob();
+          }).then(function (blob) {
+            return callback(blob);
+          }); //pass this blob to your upload function
+          //callback(blob);
+        }
+      };
+
+      imageObj.onabort = function () {
+        alert("Image load was aborted.");
+      };
+
+      imageObj.onerror = function () {
+        alert("An error occured while loading image.");
+      };
+    }
+  }]);
+
+  return MyUploadAdapter;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/th.js":
+/*!***************************************!*\
+  !*** ./resources/js/components/th.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+!function (e) {
+  var t = e.th = e.th || {};
+  t.dictionary = Object.assign(t.dictionary || {}, {
+    "%0 of %1": "",
+    "Block quote": "คำพูด",
+    Cancel: "ยกเลิก",
+    "Cannot upload file:": "ไม่สามารถอัปโหลดไฟล์ได้:",
+    "Centered image": "จัดแนวรูปกึ่งกลาง",
+    "Change image text alternative": "เปลี่ยนข้อความเมื่อไม่พบรูป",
+    "Choose heading": "เลือกขนาดหัวข้อ",
+    Column: "คอลัมน์",
+    "Decrease indent": "ลดการเยื้อง",
+    "Delete column": "ลบคอลัมน์",
+    "Delete row": "ลบแถว",
+    "Dropdown toolbar": "",
+    "Editor toolbar": "",
+    "Enter image caption": "ระบุคำอธิบายภาพ",
+    "Full size image": "รูปขนาดเต็ม",
+    "Header column": "หัวข้อคอลัมน์",
+    "Header row": "ส่วนหัวแถว",
+    Heading: "หัวข้อ",
+    "Heading 1": "หัวข้อระดับ 1",
+    "Heading 2": "หัวข้อระดับ 2",
+    "Heading 3": "หัวข้อระดับ 3",
+    "Heading 4": "หัวข้อระดับ 4",
+    "Heading 5": "หัวข้อระดับ 5",
+    "Heading 6": "หัวข้อระดับ 6",
+    "Image toolbar": "เครื่องมือรูปภาพ",
+    "image widget": "วิดเจ็ตรูปภาพ",
+    "Increase indent": "เพิ่มการเยื้อง",
+    "Insert column left": "แทรกคอลัมน์ทางซ้าย",
+    "Insert column right": "แทรกคอลัมน์ทางขวา",
+    "Insert image": "แทรกรูป",
+    "Insert paragraph after block": "เพิ่มย่อหน้าหลังบล็อคนี้",
+    "Insert paragraph before block": "เพิ่มย่อหน้าก่อนบล็อคนี้",
+    "Insert row above": "แทรกส่วนหัวด้านบน",
+    "Insert row below": "แทรกส่วนหัวด้านล่าง",
+    "Insert table": "แทรกตาราง",
+    "Left aligned image": "จัดแนวภาพซ้าย",
+    "Merge cell down": "ผสานเซลล์ด้านล่าง",
+    "Merge cell left": "ผสานเซลล์ด้านซ้าย",
+    "Merge cell right": "ผสานเซลล์ด้านขวา",
+    "Merge cell up": "ผสานเซลล์ด้านบน",
+    "Merge cells": "ผสานเซลล์",
+    Next: "ถัดไป",
+    Paragraph: "ย่อหน้า",
+    Previous: "ก่อนหน้า",
+    Redo: "ทำซ้ำ",
+    "Rich Text Editor": "",
+    "Rich Text Editor, %0": "",
+    "Right aligned image": "จัดแนวภาพขวา",
+    Row: "แถว",
+    Save: "บันทึก",
+    "Select column": "",
+    "Select row": "",
+    "Show more items": "",
+    "Side image": "รูปด้านข้าง",
+    "Split cell horizontally": "แยกเซลล์แนวนอน",
+    "Split cell vertically": "แยกเซลล์แนวตั้ง",
+    "Table toolbar": "เครื่องมือตาราง",
+    "Text alternative": "ข้อความเมื่อไม่พบรูป",
+    Undo: "ย้อนกลับ",
+    "Upload failed": "อัปโหลดไม่สำเร็จ",
+    "Upload in progress": "กำลังดำเนินการอัปโหลด",
+    "Widget toolbar": "แถบเครื่องมือวิดเจ็ต"
+  }), t.getPluralForm = function (e) {
+    return 0;
+  };
+}(window.CKEDITOR_TRANSLATIONS || (window.CKEDITOR_TRANSLATIONS = {}));
 
 /***/ }),
 

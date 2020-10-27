@@ -83,6 +83,7 @@
       <v-file-input
         label="รูปภาพ Cover"
         prepend-icon="mdi-camera"
+        accept="image/*"
         :rules="coverImageRules"
         required
         class="mt-2"
@@ -116,15 +117,32 @@
         <!--<img :src="selectedImageSrc" style="object-fit: cover; width: 400px; height: 200px">-->
       </v-container>
 
+      <!--Content Editor-->
       <v-container
         class="pl-0 pr-0 pt-6 pb-6"
       >
+        <!--<div class="document-editor__toolbar"></div>
+        <div class="document-editor__editable-container">
+          <ckeditor
+            :editor="editor"
+            v-model="editorContent"
+            :config="editorConfig"
+            @ready="handleEditorReady"
+          ></ckeditor>
+        </div>-->
         <ckeditor
           :editor="editor"
-          v-model="editorData"
+          v-model="editorContent"
           :config="editorConfig"
-          :rules="descriptionRules"
+          @ready="handleEditorReady"
         ></ckeditor>
+
+        <div
+          v-if="contentRuleVisible && editorContent.trim().length === 0"
+          class="mt-1"
+          style="color: #ff5252; font-size: 12px"
+        >ต้องกรอกเนื้อหา
+        </div>
       </v-container>
 
       <!--<image-uploader
@@ -239,14 +257,20 @@
 <script>
 import {routeDataList} from '../constants';
 import MyDialog from '../components/my_dialog';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import editor from '@ckeditor/ckeditor5-build-classic';
+require('./th');
+//import Thai from '@ckeditor/ckeditor5-build-classic/build/translations/th';
+//import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
-//import ImageUploader from 'vue-image-upload-resize';
+//import editor from '@ckeditor/ckeditor5-build-decoupled-document';
+//import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
+//import {ClassicEditor} from '../../ckeditor5/packages/ckeditor5-build-classic';
+
+import MyUploadAdapter from "./my_upload_adapter";
 
 export default {
   components: {
     MyDialog,
-    //ImageUploader,
   },
   props: {
     item: Object,
@@ -255,34 +279,47 @@ export default {
     onSave: Function,
     onDelete: Function,
   },
-  data: () => ({
-    valid: true,
-    title: '',
-    titleRules: [
-      v => !!v || 'ต้องกรอกชื่อหัวข้อ',
-      v => (v && v.length <= 255) || 'ชื่อหัวข้อต้องไม่เกิน 255 ตัวอักษร',
-    ],
-    description: '',
-    descriptionRules: [
-      v => !!v || 'ต้องกรอกคำอธิบาย',
-      //v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-    ],
-    selectedCategory: null,
-    selectedFile: null,
-    selectedImageSrc: null,
-    confirmDeleteDialog: false,
-    routeDataList,
-    isSaving: false,
-    isDeleting: false,
-    dialog: {
-      visible: false,
+  data() {
+    return {
+      valid: true,
       title: '',
-      message: '',
-    },
-    editor: ClassicEditor,
-    editorData: '<p>Content of the editor</p>',
-    editorConfig: {},
-  }),
+      titleRules: [
+        v => !!v || 'ต้องกรอกชื่อหัวข้อ',
+        v => (v && v.length <= 255) || 'ชื่อหัวข้อต้องไม่เกิน 255 ตัวอักษร',
+      ],
+      description: '',
+      descriptionRules: [
+        v => !!v || 'ต้องกรอกคำอธิบาย',
+        //v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+      selectedCategory: null,
+      selectedFile: null,
+      selectedImageSrc: null,
+      confirmDeleteDialog: false,
+      routeDataList,
+      isSaving: false,
+      isDeleting: false,
+      dialog: {
+        visible: false,
+        title: '',
+        message: '',
+      },
+      editor,
+      editorContent: '',
+      editorConfig: {
+        extraPlugins: [this.uploader],
+        language: 'th',
+        /*alignment: {
+          options: [ 'left', 'center', 'right' ]
+        },
+        toolbar: ['heading', '|', 'bold', 'italic', 'alignment', 'link', 'bulletedList', 'numberedList', '|', 'insertTable', '|', 'imageUpload', 'mediaEmbed', '|', 'undo', 'redo'],
+        table: {
+          toolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
+        },*/
+      },
+      contentRuleVisible: false,
+    }
+  },
   computed: {
     currentRouteTitle() {
       const currentRouteName = this.$route.name;
@@ -315,9 +352,22 @@ export default {
         category => category.id === this.item.category_id
       )[0];
       this.selectedImageSrc = this.item.cover_image;
+      this.editorContent = this.item.content;
     }
   },
   methods: {
+    handleEditorReady() {
+      console.log('EDITOR READY!');
+      /*const toolbarContainer = document.querySelector('.document-editor__toolbar');
+      toolbarContainer.appendChild(this.editor.ui.view.toolbar.element);*/
+    },
+
+    uploader(editor) {
+      editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+        return new MyUploadAdapter(loader);
+      };
+    },
+
     showDialog(title, message, buttonList, persistent) {
       this.dialog = {
         visible: true,
@@ -399,6 +449,8 @@ export default {
     },
 
     validate() {
+      this.contentRuleVisible = (this.editorContent == null || this.editorContent.trim().length === 0)
+
       if (this.$refs.form.validate()) {
         const msg = 'ข้อมูลที่จะส่งไปบันทึกลงฐานข้อมูล\n-----\n'
           + `Title: ${this.title}\n-----\n`
@@ -406,7 +458,23 @@ export default {
           + `Category: [${this.selectedCategory.id}] ${this.selectedCategory.title}\n-----`;
         //alert(msg);
 
-        this.doSaving();
+        if (this.editorContent == null || this.editorContent.trim().length === 0) {
+          this.showDialog(
+            'กรุณากรอกข้อมูลให้ครบถ้วน',
+            'คุณยังไม่ได้กรอกเนื้อหาบทความ',
+            [{text: 'OK', onClick: null}],
+            true
+          );
+        } else {
+          this.doSaving();
+        }
+      } else {
+        this.showDialog(
+          'กรุณากรอกข้อมูลให้ครบถ้วน',
+          'กรุณากรอกข้อมูลให้ครบถ้วน',
+          [{text: 'OK', onClick: null}],
+          true
+        );
       }
     },
     doSaving() {
@@ -414,10 +482,11 @@ export default {
 
       const formData = new FormData();
       formData.append('id', this.item == null ? 0 : this.item.id);
-      formData.append('title', this.title);
-      formData.append('description', this.description);
+      formData.append('title', this.title.trim());
+      formData.append('description', this.description.trim());
       formData.append('category_id', this.selectedCategory.id);
       formData.append('cover_image', this.selectedFile);
+      formData.append('content_data', this.editorContent.trim());
       if (this.item != null) {
         formData.append('_method', 'put');
       }
@@ -474,4 +543,10 @@ export default {
 </script>
 
 <style scoped>
+</style>
+
+<style>
+.ck-editor__editable {
+  min-height: 200px;
+}
 </style>

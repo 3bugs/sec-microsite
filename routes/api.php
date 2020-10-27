@@ -48,6 +48,8 @@ Route::get('/fundraising', function (Request $request) {
 });
 
 Route::post('/fundraising', function (Request $request) {
+  app('debugbar')->disable();
+
   // imagePath: public/fundraising/xxx.jpg
   // imageUrl: /storage/fundraising/xxx.jpg
   try {
@@ -56,13 +58,14 @@ Route::post('/fundraising', function (Request $request) {
     $title = $request->title;
     $description = $request->description;
     $categoryId = $request->category_id;
+    $content = $request->content_data;
 
     $fundraising = new Fundraising;
     $fundraising->title = $title;
     $fundraising->description = $description;
     $fundraising->category_id = $categoryId;
     $fundraising->cover_image = $imagePath;
-    $fundraising->content = '';
+    $fundraising->content = $content;
     $fundraising->save();
 
     $message = "Title: $title\n"
@@ -84,37 +87,39 @@ Route::post('/fundraising', function (Request $request) {
 });
 
 Route::put('/fundraising', function (Request $request) {
+  app('debugbar')->disable();
+
   try {
     $imagePath = null;
     if ($request->hasFile('cover_image')) {
       $imagePath = $request->file('cover_image')->store(PATH_PUBLIC_FUNDRAISING);
       $imageUrl = Storage::url($imagePath);
     }
-    $id = $request->id;
-    $title = $request->title;
-    $description = $request->description;
-    $categoryId = $request->category_id;
 
-    $fundraising = Fundraising::find($id);
-    $fundraising->title = $title;
-    $fundraising->description = $description;
-    $fundraising->category_id = $categoryId;
-    $fundraising->content = '';
+    $fundraising = Fundraising::find($request->id);
+    if ($request->has('title')) {
+      $fundraising->title = $request->title;
+    }
+    if ($request->has('description')) {
+      $fundraising->description = $request->description;
+    }
+    if ($request->has('category_id')) {
+      $fundraising->category_id = $request->category_id;
+    }
+    if ($request->has('content_data')) {
+      $fundraising->content = $request->content_data;
+    }
+    if ($request->has('published')) {
+      $fundraising->published = $request->published;
+    }
     if ($imagePath != null) {
       $fundraising->cover_image = $imagePath;
     }
     $fundraising->save();
 
-    $message = "ID: $id\n"
-      . "Title: $title\n"
-      . "Description: $description\n"
-      . "Category ID: $categoryId\n"
-      . "Cover image imagePath:" . $fundraising->cover_image . "\n"
-      . "Cover image URL: " . Storage::url($fundraising->cover_image);
-
     return json_encode(array(
       'status' => 'ok',
-      'message' => $message,
+      'message' => '',
     ));
   } catch (Exception $e) {
     return json_encode(array(
@@ -125,6 +130,8 @@ Route::put('/fundraising', function (Request $request) {
 });
 
 Route::delete('/fundraising', function (Request $request) {
+  app('debugbar')->disable();
+
   try {
     $id = $request->id;
     $fundraising = Fundraising::find($id);
@@ -138,6 +145,35 @@ Route::delete('/fundraising', function (Request $request) {
     return json_encode(array(
       'status' => 'error',
       'message' => $e->getMessage(),
+    ));
+  }
+});
+
+Route::post('/editor-file-upload', function (Request $request) {
+  app('debugbar')->disable();
+  //header('Access-Control-Allow-Origin: *');
+  //header('Content-type: application/json; charset=utf-8');
+
+  // imagePath: public/fundraising/xxx.jpg
+  // imageUrl: /storage/fundraising/xxx.jpg
+  try {
+    $imagePath = $request->file('upload')->store(PATH_PUBLIC_FUNDRAISING);
+    $imageUrl = Storage::url($imagePath);
+
+    return json_encode(array(
+      'error' => array(
+        'code' => 0,
+        'message' => 'ok',
+      ),
+      'url' => $imageUrl,
+    ));
+  } catch (Exception $e) {
+    return json_encode(array(
+      'error' => array(
+        'code' => 1,
+        'message' => 'เกิดข้อผิดพลาดในการบันทึกไฟล์',
+      ),
+      'url' => null,
     ));
   }
 });

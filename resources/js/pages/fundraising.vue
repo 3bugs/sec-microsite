@@ -84,48 +84,6 @@
                   mdi-refresh
                 </v-icon>
               </v-btn>
-
-              <!--<v-dialog v-model="dialogDelete" max-width="500px">
-                <v-card>
-                  <v-card-title class="headline">ต้องการลบข้อมูลนี้?</v-card-title>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="blue darken-1" text @click="closeDelete">ยกเลิก</v-btn>
-                    <v-btn color="blue darken-1" text @click="deleteItemConfirm">ลบ</v-btn>
-                    <v-spacer></v-spacer>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>-->
-
-              <!--<v-dialog
-                v-model="dialogDelete"
-                max-width="500"
-              >
-                <v-card>
-                  <v-card-title class="headline">
-                    ต้องการลบข้อมูลนี้ใช่หรือไม่?
-                  </v-card-title>
-                  <v-card-text>ข้อมูลจะถูกลบออกจากฐานข้อมูล หลังจากคุณคลิก 'ลบ'</v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                      color="blue darken-1"
-                      text
-                      @click="dialogDelete = false"
-                    >
-                      ยกเลิก
-                    </v-btn>
-                    <v-btn
-                      color="blue darken-1"
-                      text
-                      @click="handleClickDelete"
-                    >
-                      ลบ
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>-->
-
             </v-toolbar>
           </template>
           <template v-slot:item.image="{ item }">
@@ -139,6 +97,8 @@
             >
             </v-img>
           </template>
+
+          <!--category-->
           <template v-slot:item.category_id="{ item }">
             <v-chip
               small
@@ -147,8 +107,19 @@
               {{ item.category_title }}
             </v-chip>
           </template>
-          <template v-slot:item.actions="{ item }">
 
+          <!--status-->
+          <template v-slot:item.published="{ item }">
+            <v-switch
+              class="ma-0 pa-0"
+              v-model="item.published"
+              color="primary"
+              hide-details
+              @click="handleClickSwitch(item)"
+            ></v-switch>
+          </template>
+
+          <template v-slot:item.actions="{ item }">
             <!--ดูหน้าเว็บ-->
             <v-tooltip bottom>
               <template v-slot:activator="{ on, attrs }">
@@ -230,6 +201,12 @@
       :message="dialog.message"
       :button-list="dialog.buttonList"
     />
+
+    <v-snackbar
+      v-model="snackbar.visible"
+    >
+      {{ snackbar.message }}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -250,12 +227,14 @@ export default {
     showList: true,
     isLoadingList: true,
     isDeleting: false,
+    isUpdatePublished: false,
     headers: [
-      {text: 'Cover Image', value: 'image', sortable: false,},
-      {text: 'Title', align: 'start', value: 'title', sortable: true,},
-      {text: 'Short description', value: 'description', sortable: true,},
-      {text: 'Category', value: 'category_id', sortable: true,},
-      {text: 'Actions', value: 'actions', sortable: false, width: '120px'},
+      {text: 'รูปภาพปก', value: 'image', sortable: false, width: '170px',},
+      {text: 'หัวเรื่อง', align: 'start', value: 'title', sortable: true,},
+      /*{text: 'คำอธิบายย่อ', value: 'description', sortable: true,},*/
+      {text: 'หมวดหมู่', value: 'category_id', sortable: true,},
+      {text: 'เผยแพร่', value: 'published', sortable: true,},
+      {text: 'จัดการ', value: 'actions', sortable: false, width: '120px',},
     ],
     fundraisingList: [],
     fundraisingCategoryList: [],
@@ -266,6 +245,10 @@ export default {
       title: '',
       message: '',
     },
+    snackbar: {
+      visible: false,
+      message: '',
+    }
   }),
   computed: {
     currentRouteTitle() {
@@ -359,7 +342,13 @@ export default {
 
           console.log(response.data);
           if (response.data.status === 'ok') {
-            this.fundraisingList = response.data.data_list;
+            const dataList = response.data.data_list;
+            dataList.forEach((item, index) => {
+              item.published = (item.published === 1);
+              item.isUpdating = false;
+            });
+            this.fundraisingList = dataList;
+
             this.fundraisingCategoryList = response.data.category_list.map(item => ({
               ...item, toString: () => {
                 return item.title
@@ -439,6 +428,71 @@ export default {
         this.editedIndex = -1;
       });
     },*/
+    handleClickSwitch(item) {
+      const preText = !item.published ? 'ปิดการ' : ''
+      this.showDialog(
+        `${preText}เผยแพร่ข้อมูล`,
+        `ต้องการ${preText}เผยแพร่ข้อมูลนี้ใช่หรือไม่`,
+        [
+          {
+            text: 'ไม่ใช่', onClick: () => {
+              item.published = !item.published;
+            },
+          },
+          {
+            text: 'ใช่', onClick: () => {
+              this.doUpdatePublished(item);
+            },
+          },
+        ],
+        false
+      );
+    },
+    doUpdatePublished(item) {
+      const self = this;
+
+      const formData = new FormData();
+      formData.append('id', item.id);
+      formData.append('published', item.published ? 1 : 0);
+      formData.append('_method', 'put');
+      const config = {
+        /*headers: {
+          'content-type': 'multipart/form-data'
+        }*/
+      };
+
+      item.isUpdating = true;
+      //axios.put ไม่ work!!!
+      axios.post('/api/fundraising', formData, config)
+        .then((response) => {
+          const status = response.data.status;
+          const message = response.data.message;
+          if (status === 'ok') {
+            this.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+            this.snackbar.visible = true;
+          } else {
+            item.published = !item.published;
+
+            this.showDialog('ผิดพลาด', `เกิดข้อผิดพลาด: ${message}`, [{
+              text: 'OK', onClick: () => {
+              },
+            }], true);
+          }
+        })
+        .catch(function (error) {
+          item.published = !item.published;
+
+          console.log(error);
+          this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+            text: 'OK', onClick: () => {
+              //
+            },
+          }], true);
+        })
+        .then(function () { // always executed
+          self.isUpdating = false;
+        });
+    },
   }
 }
 </script>
