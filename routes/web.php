@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Fundraising;
 use App\Models\TestFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,8 +40,16 @@ Route::get('/survey', function () {
 });*/
 
 Route::get('/fundraising', [FundraisingController::class, 'index']);
-Route::post('/fundraising', [FundraisingController::class, 'store']);
+//Route::post('/fundraising', [FundraisingController::class, 'store']);
 //Route::delete('/task/{task}', 'TaskController@destroy');
+
+Route::get('/fundraising/{id}', function ($id) {
+  $fundraising = Fundraising::find($id);
+
+  return view('fundraising-details', [
+    'item' => $fundraising,
+  ]);
+});
 
 Route::get('/admin', function () {
   return redirect('/admin/dashboard');

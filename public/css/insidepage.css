@@ -288,7 +288,41 @@ body {
   display: block;
 }
 
-.detailfd_text {
+.detailfd_text > p, li {
+  font-family: Sarabun;
+  font-style: normal;
+  font-size: 1rem;
+  color: #666;
+  opacity: 1;
+}
+
+.detailfd_text ul {
+  list-style: square;
+}
+
+.detailfd_text li {
+  margin-bottom: 0.8em;
+  margin-left: 3em;
+}
+
+.detailfd_text ul li:last-child {
+  margin-bottom: 2em;
+}
+
+.detailfd_text h2 {
+  font-family: Prompt;
+  font-weight: normal;
+  font-size: 2rem;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.detailfd_text h3 {
+  font-family: Prompt;
+  font-weight: normal;
+  font-size: 1.5rem;
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
 }
 
 .detailfd_text::after {

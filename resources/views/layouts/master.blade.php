@@ -13,12 +13,12 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/main.css">
   <link href='https://fonts.googleapis.com/css?family=Prompt|Sarabun|Roboto' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="css/hamburgers.min.css" rel="stylesheet">
-  <link href="css/insidepage.css" rel="stylesheet">
+  <link href="/css/hamburgers.min.css" rel="stylesheet">
+  <link href="/css/insidepage.css" rel="stylesheet">
 
   <meta name="theme-color" content="#fafafa">
 
@@ -33,12 +33,12 @@
 {{--<div id="app">--}}
 <div class="my-navbar">
   <div style="display: flex; align-items: center">
-    <a href="/"><img class="img-logo" src="images/logo.svg" alt="logo" style="cursor: pointer"></a>
+    <a href="/"><img class="img-logo" src="/images/logo.svg" alt="logo" style="cursor: pointer"></a>
     <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</div>
   </div>
   <div style="display: flex; align-items: center; align-self: stretch">
     <div id="menu-item-search" class="menu-item">
-      <img class="img-search" src="images/ic_search.svg" alt="search icon">
+      <img class="img-search" src="/images/ic_search.svg" alt="search icon">
       <div class="icon-label d-none d-md-block" style="color: #005288;">Search</div>
     </div>
     <div id="menu-item-menu" class="menu-item" style="background-color: #8DC63F">
@@ -64,13 +64,13 @@
       <div class="row">
         <div class="col-12 wrap_myd">
           <h2>Make your dreams a <span>reality</span></h2>
-          <a href="#">ติดต่อเรา <img src="images/ar_ftbtn.svg"></a>
+          <a href="#">ติดต่อเรา <img src="/images/ar_ftbtn.svg"></a>
         </div>
       </div>
       <div class="row row_bot_footer">
         <div class="col-12 col-md-5 botlogoandsocial">
-          <img src="images/footer-logo.svg">
-          <a href="#"><img src="images/001-facebook.svg"></a><a href="#"><img src="images/002-youtube.svg"></a><a href="#"><img src="images/003-twitter.svg"></a>
+          <img src="/images/footer-logo.svg">
+          <a href="#"><img src="/images/001-facebook.svg"></a><a href="#"><img src="/images/002-youtube.svg"></a><a href="#"><img src="/images/003-twitter.svg"></a>
           <p>สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์
             333/3 ถนนวิภาวดีรังสิต แขวงจอมพล เขตจตุจักร กรุงเทพมหานคร 10900</p>
         </div>
@@ -116,11 +116,11 @@
 </footer>
 {{--</div>--}}
 
-<script src="js/vendor/modernizr-3.8.0.min.js"></script>
+<script src="/js/vendor/modernizr-3.8.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.5.1.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery-3.5.1.min.js"><\/script>')</script>
+<script src="/js/plugins.js"></script>
+<script src="/js/main.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <!--<script>

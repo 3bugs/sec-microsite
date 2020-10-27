@@ -2850,6 +2850,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2882,6 +2904,10 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
       {
         text: 'หมวดหมู่',
         value: 'category_id',
+        sortable: true
+      }, {
+        text: 'สร้าง/ปรับปรุง',
+        value: 'date',
         sortable: true
       }, {
         text: 'เผยแพร่',
@@ -2946,10 +2972,18 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
       this.showList = false;
     },
     handleClickViewWeb: function handleClickViewWeb(item) {
-      this.showDialog('Under Construction!', 'ฟังก์ชันนี้อยู่ระหว่างการพัฒนา', [{
-        text: 'OK',
-        onClick: null
-      }], false); //window.open('/');
+      window.open("/fundraising/".concat(item.id));
+      /*this.showDialog(
+        'Under Construction!',
+        'ฟังก์ชันนี้อยู่ระหว่างการพัฒนา',
+        [
+          {
+            text: 'OK',
+            onClick: null,
+          }
+        ],
+        false,
+      );*/
     },
     handleClickEdit: function handleClickEdit(item) {
       this.tab = 1;
@@ -3008,7 +3042,7 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
     handleClickDelete: function handleClickDelete(item) {
       var _this2 = this;
 
-      this.showDialog("\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?", "\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 '".concat(item.title, "' \u0E08\u0E30\u0E16\u0E39\u0E01\u0E25\u0E1A\u0E2D\u0E2D\u0E01\u0E08\u0E32\u0E01\u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 \u0E2B\u0E25\u0E31\u0E07\u0E08\u0E32\u0E01\u0E04\u0E38\u0E13\u0E04\u0E25\u0E34\u0E01 '\u0E25\u0E1A'"), [{
+      this.showDialog("\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25", "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 '".concat(item.title, "' \u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
         text: 'ยกเลิก',
         onClick: function onClick() {}
       }, {
@@ -3030,12 +3064,16 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         var message = response.data.message;
 
         if (status === 'ok') {
-          _this3.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
-            text: 'OK',
-            onClick: function onClick() {
-              _this3.handleClickRefresh();
-            }
-          }], true);
+          _this3.snackbar.message = 'ลบข้อมูลสำเร็จ';
+          _this3.snackbar.visible = true;
+
+          _this3.handleClickRefresh();
+          /*this.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
+            text: 'OK', onClick: () => {
+              this.handleClickRefresh();
+            },
+          }], true);*/
+
         } else {
           _this3.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
             text: 'OK',
@@ -3067,7 +3105,7 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
       var _this4 = this;
 
       var preText = !item.published ? 'ปิดการ' : '';
-      this.showDialog("".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25"), "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48"), [{
+      this.showDialog("".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25"), "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
         text: 'ไม่ใช่',
         onClick: function onClick() {
           item.published = !item.published;
@@ -3077,7 +3115,7 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         onClick: function onClick() {
           _this4.doUpdatePublished(item);
         }
-      }], false);
+      }], true);
     },
     doUpdatePublished: function doUpdatePublished(item) {
       var _this5 = this;
@@ -22221,6 +22259,55 @@ var render = function() {
                           }
                         },
                         {
+                          key: "item.date",
+                          fn: function(ref) {
+                            var item = ref.item
+                            return [
+                              _c(
+                                "div",
+                                [
+                                  _c(
+                                    "v-icon",
+                                    { attrs: { small: "", color: "#999" } },
+                                    [
+                                      _vm._v(
+                                        "\n              mdi-folder-plus-outline\n            "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(item.created_at) +
+                                      "\n          "
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                [
+                                  _c(
+                                    "v-icon",
+                                    { attrs: { small: "", color: "#999" } },
+                                    [
+                                      _vm._v(
+                                        "\n              mdi-pencil\n            "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(item.updated_at) +
+                                      "\n          "
+                                  )
+                                ],
+                                1
+                              )
+                            ]
+                          }
+                        },
+                        {
                           key: "item.published",
                           fn: function(ref) {
                             var item = ref.item
@@ -22421,7 +22508,7 @@ var render = function() {
                       ],
                       null,
                       false,
-                      4243285608
+                      3986653128
                     )
                   })
                 : undefined
@@ -81877,7 +81964,7 @@ var MyUploadAdapter = /*#__PURE__*/function () {
            // Send the request.
           this.xhr.send(data);
         });*/
-      this.resize(file, 400, 400, function (resizedFile) {
+      this.resize(file, 1000, 1000, function (resizedFile) {
         // Prepare the form data.
         var data = new FormData();
         data.append('upload', resizedFile); // Important note: This is the right place to implement security mechanisms
@@ -81929,9 +82016,13 @@ var MyUploadAdapter = /*#__PURE__*/function () {
           alert('Image is empty');
         } else {
           if (this.width > this.height) {
-            maxHeight = this.height * maxWidth / this.width;
+            if (this.width > maxWidth) {
+              maxHeight = this.height * maxWidth / this.width;
+            }
           } else {
-            maxWidth = this.width * maxHeight / this.height;
+            if (this.height > maxHeight) {
+              maxWidth = this.width * maxHeight / this.height;
+            }
           } //create a hidden canvas object we can use to create the new resized image data
 
 

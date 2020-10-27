@@ -108,6 +108,28 @@
             </v-chip>
           </template>
 
+          <!--created/updated-->
+          <template v-slot:item.date="{ item }">
+            <div>
+              <v-icon
+                small
+                color="#999"
+              >
+                mdi-folder-plus-outline
+              </v-icon>
+              {{ item.created_at }}
+            </div>
+            <div>
+              <v-icon
+                small
+                color="#999"
+              >
+                mdi-pencil
+              </v-icon>
+              {{ item.updated_at }}
+            </div>
+          </template>
+
           <!--status-->
           <template v-slot:item.published="{ item }">
             <v-switch
@@ -233,6 +255,7 @@ export default {
       {text: 'หัวเรื่อง', align: 'start', value: 'title', sortable: true,},
       /*{text: 'คำอธิบายย่อ', value: 'description', sortable: true,},*/
       {text: 'หมวดหมู่', value: 'category_id', sortable: true,},
+      {text: 'สร้าง/ปรับปรุง', value: 'date', sortable: true,},
       {text: 'เผยแพร่', value: 'published', sortable: true,},
       {text: 'จัดการ', value: 'actions', sortable: false, width: '120px',},
     ],
@@ -291,7 +314,8 @@ export default {
     },
 
     handleClickViewWeb(item) {
-      this.showDialog(
+      window.open(`/fundraising/${item.id}`);
+      /*this.showDialog(
         'Under Construction!',
         'ฟังก์ชันนี้อยู่ระหว่างการพัฒนา',
         [
@@ -301,8 +325,7 @@ export default {
           }
         ],
         false,
-      );
-      //window.open('/');
+      );*/
     },
 
     handleClickEdit(item) {
@@ -367,8 +390,8 @@ export default {
 
     handleClickDelete(item) {
       this.showDialog(
-        `ต้องการลบข้อมูลนี้ใช่หรือไม่?`,
-        `ข้อมูล '${item.title}' จะถูกลบออกจากฐานข้อมูล หลังจากคุณคลิก 'ลบ'`,
+        `ลบข้อมูล`,
+        `ต้องการลบข้อมูล '${item.title}' ใช่หรือไม่?`,
         [
           {
             text: 'ยกเลิก',
@@ -395,11 +418,15 @@ export default {
           const status = response.data.status;
           const message = response.data.message;
           if (status === 'ok') {
-            this.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
+            this.snackbar.message = 'ลบข้อมูลสำเร็จ';
+            this.snackbar.visible = true;
+            this.handleClickRefresh();
+
+            /*this.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
               text: 'OK', onClick: () => {
                 this.handleClickRefresh();
               },
-            }], true);
+            }], true);*/
           } else {
             this.showDialog('ผิดพลาด', `เกิดข้อผิดพลาด: ${message}`, [{
               text: 'OK', onClick: () => {
@@ -432,7 +459,7 @@ export default {
       const preText = !item.published ? 'ปิดการ' : ''
       this.showDialog(
         `${preText}เผยแพร่ข้อมูล`,
-        `ต้องการ${preText}เผยแพร่ข้อมูลนี้ใช่หรือไม่`,
+        `ต้องการ${preText}เผยแพร่ข้อมูลนี้ใช่หรือไม่?`,
         [
           {
             text: 'ไม่ใช่', onClick: () => {
@@ -445,7 +472,7 @@ export default {
             },
           },
         ],
-        false
+        true,
       );
     },
     doUpdatePublished(item) {

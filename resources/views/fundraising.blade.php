@@ -12,7 +12,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 pagebreadcrumb">
-            <a href="index.html">&#60; กลับหน้าแรก</a>
+            <a href="/">&#60; กลับหน้าแรก</a>
             <h1>ช่องทางระดมทุน</h1>
             <img src="images/breadcrumb-img.png" class="img_breadcrumb">
           </div>
@@ -49,139 +49,26 @@
               </div>
 
               @foreach ($fundraisingCategory->fundraisings as $fundraising)
-              <figure class="col-12 col-md-6 item_fundraising">
-                <a href="fundraising-detail.php">
-                  <div><img src="{{ Storage::url($fundraising->cover_image) }}"></div>
-                  <figcaption>
-                    <h4>{{ $fundraising->title }}</h4>
-                    <p>{{ $fundraising->description }}</p>
-                  </figcaption>
-                </a>
-              </figure>
+                @if ($fundraising->published === 1)
+                  <figure class="col-12 col-md-6 item_fundraising">
+                    <a href="fundraising/{{ $fundraising->id }}">
+                      <div><img src="{{ Storage::url($fundraising->cover_image) }}"></div>
+                      <figcaption>
+                        <h4>{{ $fundraising->title }}</h4>
+                        <p>{{ $fundraising->description }}</p>
+                      </figcaption>
+                    </a>
+                  </figure>
+                @endif
               @endforeach
             </div>
           @endif
         @endforeach
+      </div>
+    </div>
+  </section>
 
-        {{--<div class="row">
-          <div class="col-12 section" id="PPforMSMES">
-            <h3>PP for M SMEs</h3>
-            <p>Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
-          </div>
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="fundraising-detail.php">
-              <div><img src="images/Rectangle%2039.jpg"></div>
-              <figcaption>
-                <h4>หุ้น (ไม่มีรายย่อย)</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut </p>
-              </figcaption>
-            </a>
-          </figure>
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="fundraising-detail.php">
-              <div><img src="images/Rectangle%2039.jpg"></div>
-              <figcaption>
-                <h4>หุ้น (ไม่มีรายย่อย)</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut </p>
-              </figcaption>
-            </a>
-          </figure>
-        </div>
-        <div class="row">
-          <div class="col-12 section" id="POforMSMES">
-            <h3>PO for M SMEs</h3>
-            <p>Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
-          </div>
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="fundraising-detail.php">
-              <div><img src="images/Rectangle%2039.jpg"></div>
-              <figcaption>
-                <h4>หุ้น (ไม่มีรายย่อย)</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut </p>
-              </figcaption>
-            </a>
-          </figure>
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="fundraising-detail.php">
-              <div><img src="images/Rectangle%2039.jpg"></div>
-              <figcaption>
-                <h4>หุ้น (ไม่มีรายย่อย)</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut </p>
-              </figcaption>
-            </a>
-          </figure>
-        </div>
-        <div class="row">
-          <div class="col-12 section" id="Crowdfunding">
-            <h3>Crowdfunding</h3>
-            <p>Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris</p>
-          </div>
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="fundraising-detail.php">
-              <div><img src="images/Rectangle%2039.jpg"></div>
-              <figcaption>
-                <h4>หุ้น (ไม่มีรายย่อย)</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut </p>
-              </figcaption>
-            </a>
-          </figure>
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="fundraising-detail.php">
-              <div><img src="images/Rectangle%2039.jpg"></div>
-              <figcaption>
-                <h4>หุ้น (ไม่มีรายย่อย)</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut </p>
-              </figcaption>
-            </a>
-          </figure>
-        </div>--}}
-      </div>
-    </div>
-  </section>
-  <section class="container-fluid bg_link_iconbot">
-    <div class="row">
-      <div class="container">
-        <div class="row">
-          <div class="col-6 col-md-2 link_iconbot">
-            <a href="#">
-              <img src="images/menu01.svg">
-              <div>สำรวจตัวเอง <img src="images/icon-readmore.svg"></div>
-            </a>
-          </div>
-          <div class="col-6 col-md-2 link_iconbot">
-            <a href="fundraising.php">
-              <img src="images/menu02.svg">
-              <div>ช่องทางระดมทุน <img src="images/icon-readmore.svg"></div>
-            </a>
-          </div>
-          <div class="col-6 col-md-2 link_iconbot">
-            <a href="media.php">
-              <img src="images/menu03.svg">
-              <div>เรียนรู้การระดมทุน <img src="images/icon-readmore.svg"></div>
-            </a>
-          </div>
-          <div class="col-6 col-md-2 link_iconbot">
-            <a href="events.php">
-              <img src="images/menu04.svg">
-              <div>SEC event <img src="images/icon-readmore.svg"></div>
-            </a>
-          </div>
-          <div class="col-6 col-md-2 link_iconbot">
-            <a href="contact.php">
-              <img src="images/menu05.svg">
-              <div>คลินิคระดมทุน <img src="images/icon-readmore.svg"></div>
-            </a>
-          </div>
-          <div class="col-6 col-md-2 link_iconbot">
-            <a href="vision.php">
-              <img src="images/menu06.svg">
-              <div>พันธกิจ / พันธมิตร <img src="images/icon-readmore.svg"></div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  @include('includes.menu-footer')
 @endsection
 
 @section('script')

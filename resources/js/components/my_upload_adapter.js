@@ -95,7 +95,7 @@ export default class MyUploadAdapter {
         this.xhr.send(data);
       });*/
 
-    this.resize(file, 400, 400, (resizedFile) => {
+    this.resize(file, 1000, 1000, (resizedFile) => {
       // Prepare the form data.
       const data = new FormData();
       data.append('upload', resizedFile);
@@ -149,9 +149,13 @@ export default class MyUploadAdapter {
         alert('Image is empty');
       } else {
         if (this.width > this.height) {
-          maxHeight = this.height * maxWidth / this.width;
+          if (this.width > maxWidth) {
+            maxHeight = this.height * maxWidth / this.width;
+          }
         } else {
-          maxWidth = this.width * maxHeight / this.height;
+          if (this.height > maxHeight) {
+            maxWidth = this.width * maxHeight / this.height;
+          }
         }
 
         //create a hidden canvas object we can use to create the new resized image data

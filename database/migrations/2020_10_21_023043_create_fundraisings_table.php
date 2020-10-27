@@ -21,7 +21,7 @@ class CreateFundraisingsTable extends Migration
       $table->text('cover_image');
       $table->text('description');
       $table->longText('content');
-      //$table->timestamps();
+      $table->boolean('published')->default(1);
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
     });
