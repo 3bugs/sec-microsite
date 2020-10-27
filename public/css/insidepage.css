@@ -238,9 +238,15 @@ body {
   height: auto;
 }
 
+.detailfd_text figure.image {
+  text-align: center;
+}
+
 .wrap_video {
   text-align: center;
   margin-bottom: 40px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .wrap_video > div {
@@ -1326,6 +1332,8 @@ body {
 
   .wrap_video {
     margin-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .detailfd_text::after {

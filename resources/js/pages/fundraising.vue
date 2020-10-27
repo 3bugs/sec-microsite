@@ -108,26 +108,38 @@
             </v-chip>
           </template>
 
-          <!--created/updated-->
-          <template v-slot:item.date="{ item }">
-            <div>
-              <v-icon
-                small
-                color="#999"
-              >
-                mdi-folder-plus-outline
-              </v-icon>
-              {{ item.created_at }}
-            </div>
-            <div>
-              <v-icon
-                small
-                color="#999"
-              >
-                mdi-pencil
-              </v-icon>
-              {{ item.updated_at }}
-            </div>
+          <!--created-->
+          <template v-slot:item.created_at="{ item }">
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  small
+                  class="mr-2"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  mdi-calendar
+                </v-icon>
+              </template>
+              <span>{{ formatThaiDateTime(item.created_at) }}</span>
+            </v-tooltip>
+          </template>
+
+          <!--updated-->
+          <template v-slot:item.updated_at="{ item }">
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  small
+                  class="mr-2"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  mdi-calendar
+                </v-icon>
+              </template>
+              <span>{{ formatThaiDateTime(item.updated_at) }}</span>
+            </v-tooltip>
           </template>
 
           <!--status-->
@@ -147,7 +159,7 @@
               <template v-slot:activator="{ on, attrs }">
                 <v-icon
                   small
-                  class="mr-2"
+                  class="mr-3"
                   v-bind="attrs"
                   v-on="on"
                   @click="() => handleClickViewWeb(item)"
@@ -163,7 +175,7 @@
               <template v-slot:activator="{ on, attrs }">
                 <v-icon
                   small
-                  class="mr-2"
+                  class="mr-3"
                   v-bind="attrs"
                   v-on="on"
                   @click="() => handleClickEdit(item)"
@@ -255,9 +267,10 @@ export default {
       {text: 'หัวเรื่อง', align: 'start', value: 'title', sortable: true,},
       /*{text: 'คำอธิบายย่อ', value: 'description', sortable: true,},*/
       {text: 'หมวดหมู่', value: 'category_id', sortable: true,},
-      {text: 'สร้าง/ปรับปรุง', value: 'date', sortable: true,},
-      {text: 'เผยแพร่', value: 'published', sortable: true,},
-      {text: 'จัดการ', value: 'actions', sortable: false, width: '120px',},
+      {text: 'สร้าง', value: 'created_at', sortable: true, width: '75px', align: 'center',},
+      {text: 'ปรับปรุง', value: 'updated_at', sortable: true, width: '75px', align: 'center',},
+      {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
+      {text: 'จัดการ', value: 'actions', sortable: false, width: '120px', align: 'center',},
     ],
     fundraisingList: [],
     fundraisingCategoryList: [],
@@ -346,11 +359,17 @@ export default {
     handleSave() {
       this.tab = 0;
       this.showList = true;
+      this.scrollToTop();
       this.handleClickRefresh();
+    },
+    scrollToTop() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     },
     handleDelete() {
       this.tab = 0;
       this.showList = true;
+      this.scrollToTop();
       this.handleClickRefresh();
     },
 
@@ -519,6 +538,25 @@ export default {
         .then(function () { // always executed
           self.isUpdating = false;
         });
+    },
+
+    formatThaiDateTime(dateTimeString) {
+      const thaiShortMonthNames = [
+        'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.',
+      ];
+      const mainParts = dateTimeString.split(' ');
+
+      const dateParts = mainParts[0].split('-');
+      const yearThai = parseInt(dateParts[0]) + 543;
+      const month = thaiShortMonthNames[parseInt(dateParts[1]) - 1];
+      const day = parseInt(dateParts[2]);
+
+      const timeParts = mainParts[1].split(':');
+      const hour = timeParts[0];
+      const minute = timeParts[1];
+      const second = timeParts[2];
+
+      return `${day} ${month} ${yearThai}, ${hour}.${minute} น.`;
     },
   }
 }

@@ -219,9 +219,9 @@
         </template>
         <v-card>
           <v-card-title class="headline">
-            ต้องการลบข้อมูลนี้ใช่หรือไม่?
+            ลบข้อมูล
           </v-card-title>
-          <v-card-text>ข้อมูลจะถูกลบออกจากฐานข้อมูล หลังจากคุณคลิก 'ลบ'</v-card-text>
+          <v-card-text>ต้องการลบข้อมูลนี้ ใช่หรือไม่?</v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn

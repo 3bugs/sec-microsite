@@ -149,20 +149,21 @@ export default class MyUploadAdapter {
         alert('Image is empty');
       } else {
         if (this.width > this.height) {
-          if (this.width > maxWidth) {
-            maxHeight = this.height * maxWidth / this.width;
-          }
+          maxHeight = this.height * maxWidth / this.width;
         } else {
-          if (this.height > maxHeight) {
-            maxWidth = this.width * maxHeight / this.height;
-          }
+          maxWidth = this.width * maxHeight / this.height;
+        }
+        if (maxWidth > this.width) {
+          maxWidth = this.width;
+          maxHeight = this.height;
         }
 
         //create a hidden canvas object we can use to create the new resized image data
         canvas.id = "hiddenCanvas";
         canvas.width = maxWidth;
         canvas.height = maxHeight;
-        canvas.style.visibility = "hidden";
+        canvas.style.display = 'none';
+        //canvas.style.visibility = "hidden";
         document.body.appendChild(canvas);
 
         //get the context to use

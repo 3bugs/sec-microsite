@@ -2872,6 +2872,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2906,18 +2918,29 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         value: 'category_id',
         sortable: true
       }, {
-        text: 'สร้าง/ปรับปรุง',
-        value: 'date',
-        sortable: true
+        text: 'สร้าง',
+        value: 'created_at',
+        sortable: true,
+        width: '75px',
+        align: 'center'
+      }, {
+        text: 'ปรับปรุง',
+        value: 'updated_at',
+        sortable: true,
+        width: '75px',
+        align: 'center'
       }, {
         text: 'เผยแพร่',
         value: 'published',
-        sortable: true
+        sortable: true,
+        width: '100px',
+        align: 'center'
       }, {
         text: 'จัดการ',
         value: 'actions',
         sortable: false,
-        width: '120px'
+        width: '120px',
+        align: 'center'
       }],
       fundraisingList: [],
       fundraisingCategoryList: [],
@@ -3001,11 +3024,18 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
     handleSave: function handleSave() {
       this.tab = 0;
       this.showList = true;
+      this.scrollToTop();
       this.handleClickRefresh();
+    },
+    scrollToTop: function scrollToTop() {
+      document.body.scrollTop = 0; // For Safari
+
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     },
     handleDelete: function handleDelete() {
       this.tab = 0;
       this.showList = true;
+      this.scrollToTop();
       this.handleClickRefresh();
     },
     fetchList: function fetchList() {
@@ -3159,6 +3189,19 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         // always executed
         self.isUpdating = false;
       });
+    },
+    formatThaiDateTime: function formatThaiDateTime(dateTimeString) {
+      var thaiShortMonthNames = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+      var mainParts = dateTimeString.split(' ');
+      var dateParts = mainParts[0].split('-');
+      var yearThai = parseInt(dateParts[0]) + 543;
+      var month = thaiShortMonthNames[parseInt(dateParts[1]) - 1];
+      var day = parseInt(dateParts[2]);
+      var timeParts = mainParts[1].split(':');
+      var hour = timeParts[0];
+      var minute = timeParts[1];
+      var second = timeParts[2];
+      return "".concat(day, " ").concat(month, " ").concat(yearThai, ", ").concat(hour, ".").concat(minute, " \u0E19.");
     }
   }
 });
@@ -21845,15 +21888,11 @@ var render = function() {
                     "v-card",
                     [
                       _c("v-card-title", { staticClass: "headline" }, [
-                        _vm._v(
-                          "\n          ต้องการลบข้อมูลนี้ใช่หรือไม่?\n        "
-                        )
+                        _vm._v("\n          ลบข้อมูล\n        ")
                       ]),
                       _vm._v(" "),
                       _c("v-card-text", [
-                        _vm._v(
-                          "ข้อมูลจะถูกลบออกจากฐานข้อมูล หลังจากคุณคลิก 'ลบ'"
-                        )
+                        _vm._v("ต้องการลบข้อมูลนี้ ใช่หรือไม่?")
                       ]),
                       _vm._v(" "),
                       _c(
@@ -22259,50 +22298,119 @@ var render = function() {
                           }
                         },
                         {
-                          key: "item.date",
+                          key: "item.created_at",
                           fn: function(ref) {
                             var item = ref.item
                             return [
                               _c(
-                                "div",
-                                [
-                                  _c(
-                                    "v-icon",
-                                    { attrs: { small: "", color: "#999" } },
+                                "v-tooltip",
+                                {
+                                  attrs: { bottom: "" },
+                                  scopedSlots: _vm._u(
                                     [
-                                      _vm._v(
-                                        "\n              mdi-folder-plus-outline\n            "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(
-                                    "\n            " +
-                                      _vm._s(item.created_at) +
-                                      "\n          "
+                                      {
+                                        key: "activator",
+                                        fn: function(ref) {
+                                          var on = ref.on
+                                          var attrs = ref.attrs
+                                          return [
+                                            _c(
+                                              "v-icon",
+                                              _vm._g(
+                                                _vm._b(
+                                                  {
+                                                    staticClass: "mr-2",
+                                                    attrs: { small: "" }
+                                                  },
+                                                  "v-icon",
+                                                  attrs,
+                                                  false
+                                                ),
+                                                on
+                                              ),
+                                              [
+                                                _vm._v(
+                                                  "\n                mdi-calendar\n              "
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        }
+                                      }
+                                    ],
+                                    null,
+                                    true
                                   )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
+                                },
+                                [
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.formatThaiDateTime(item.created_at)
+                                      )
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          }
+                        },
+                        {
+                          key: "item.updated_at",
+                          fn: function(ref) {
+                            var item = ref.item
+                            return [
                               _c(
-                                "div",
-                                [
-                                  _c(
-                                    "v-icon",
-                                    { attrs: { small: "", color: "#999" } },
+                                "v-tooltip",
+                                {
+                                  attrs: { bottom: "" },
+                                  scopedSlots: _vm._u(
                                     [
-                                      _vm._v(
-                                        "\n              mdi-pencil\n            "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(
-                                    "\n            " +
-                                      _vm._s(item.updated_at) +
-                                      "\n          "
+                                      {
+                                        key: "activator",
+                                        fn: function(ref) {
+                                          var on = ref.on
+                                          var attrs = ref.attrs
+                                          return [
+                                            _c(
+                                              "v-icon",
+                                              _vm._g(
+                                                _vm._b(
+                                                  {
+                                                    staticClass: "mr-2",
+                                                    attrs: { small: "" }
+                                                  },
+                                                  "v-icon",
+                                                  attrs,
+                                                  false
+                                                ),
+                                                on
+                                              ),
+                                              [
+                                                _vm._v(
+                                                  "\n                mdi-calendar\n              "
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        }
+                                      }
+                                    ],
+                                    null,
+                                    true
                                   )
-                                ],
-                                1
+                                },
+                                [
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.formatThaiDateTime(item.updated_at)
+                                      )
+                                    )
+                                  ])
+                                ]
                               )
                             ]
                           }
@@ -22353,7 +22461,7 @@ var render = function() {
                                               _vm._g(
                                                 _vm._b(
                                                   {
-                                                    staticClass: "mr-2",
+                                                    staticClass: "mr-3",
                                                     attrs: { small: "" },
                                                     on: {
                                                       click: function() {
@@ -22406,7 +22514,7 @@ var render = function() {
                                               _vm._g(
                                                 _vm._b(
                                                   {
-                                                    staticClass: "mr-2",
+                                                    staticClass: "mr-3",
                                                     attrs: { small: "" },
                                                     on: {
                                                       click: function() {
@@ -22508,7 +22616,7 @@ var render = function() {
                       ],
                       null,
                       false,
-                      3986653128
+                      1337490920
                     )
                   })
                 : undefined
@@ -82016,20 +82124,22 @@ var MyUploadAdapter = /*#__PURE__*/function () {
           alert('Image is empty');
         } else {
           if (this.width > this.height) {
-            if (this.width > maxWidth) {
-              maxHeight = this.height * maxWidth / this.width;
-            }
+            maxHeight = this.height * maxWidth / this.width;
           } else {
-            if (this.height > maxHeight) {
-              maxWidth = this.width * maxHeight / this.height;
-            }
+            maxWidth = this.width * maxHeight / this.height;
+          }
+
+          if (maxWidth > this.width) {
+            maxWidth = this.width;
+            maxHeight = this.height;
           } //create a hidden canvas object we can use to create the new resized image data
 
 
           canvas.id = "hiddenCanvas";
           canvas.width = maxWidth;
           canvas.height = maxHeight;
-          canvas.style.visibility = "hidden";
+          canvas.style.display = 'none'; //canvas.style.visibility = "hidden";
+
           document.body.appendChild(canvas); //get the context to use
 
           context = canvas.getContext('2d');

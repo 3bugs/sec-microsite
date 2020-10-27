@@ -14,7 +14,7 @@ class FundraisingController extends Controller
 
   public function index(Request $request)
   {
-    $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'desc')->get();
+    $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'asc')->get();
 
     return view('fundraising', [
       'fundraisingCategoryList' => $fundraisingCategoryList,

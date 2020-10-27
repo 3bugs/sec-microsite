@@ -26,7 +26,7 @@
       </div>
       {{--<div class="col-12 wrap_video">
         <div>
-          <iframe src="https://www.youtube.com/embed/klKOynYQq6s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          <iframe src="https://www.youtube.com/embed/ygv5NWJDpz8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen></iframe>
         </div>
       </div>--}}
