@@ -33,6 +33,6 @@ class CreateFundraisingCategoriesTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('fundraising_categorys');
+    Schema::dropIfExists('fundraising_categories');
   }
 }
