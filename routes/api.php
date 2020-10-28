@@ -25,12 +25,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/fundraising', function (Request $request) {
   app('debugbar')->disable();
+  //date_default_timezone_set('Asia/Bangkok');
 
   //$fundraisingList = Fundraising::orderBy('id', 'asc')->get();
 
   $fundraisingList = DB::table('fundraisings')
     ->join('fundraising_categories', 'fundraisings.category_id', '=', 'fundraising_categories.id')
     ->select('fundraisings.*', 'fundraising_categories.title AS category_title')
+    ->orderBy('id', 'desc')
     ->get();
 
   foreach ($fundraisingList as $fundraising) {

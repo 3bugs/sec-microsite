@@ -15,6 +15,7 @@
         fab dark large
         color="warning"
         fixed right bottom
+        @click="handleClickHomeButton"
     >
       <v-icon dark>mdi-home</v-icon>
     </v-btn>
@@ -77,9 +78,6 @@
 </div>
 <!-- Scripts -->
 <script>
-  function handleClickHomeButton() {
-    alert('ok');
-  }
 </script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 </body>

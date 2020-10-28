@@ -2612,6 +2612,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     source: String
@@ -22057,7 +22059,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticClass: "fill-height", attrs: { fluid: "" } },
+    { attrs: { "fill-height": "", fluid: "" } },
     [
       _c(
         "v-row",
@@ -22067,8 +22069,17 @@ var render = function() {
             _c("img", {
               attrs: {
                 src: "/images/under_construction.png",
-                height: "300px",
-                width: "300px"
+                width: "300px",
+                height: "300px"
+              }
+            }),
+            _c("br"),
+            _vm._v(" "),
+            _c("img", {
+              attrs: {
+                src: "/images/logo.svg",
+                width: "120px",
+                height: "120px"
               }
             })
           ])

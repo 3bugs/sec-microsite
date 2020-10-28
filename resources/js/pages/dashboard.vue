@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    class="fill-height"
-    fluid
-  >
+  <v-container fill-height fluid>
     <v-row
       align="center"
       justify="center"
@@ -10,8 +7,13 @@
       <v-col class="text-center">
         <img
           src="/images/under_construction.png"
-          height="300px"
           width="300px"
+          height="300px"
+        ><br>
+        <img
+          src="/images/logo.svg"
+          width="120px"
+          height="120px"
         >
         <!--<v-tooltip left>
           <template v-slot:activator="{ on }">
