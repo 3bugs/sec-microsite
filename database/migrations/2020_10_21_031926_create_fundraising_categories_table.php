@@ -20,7 +20,7 @@ class CreateFundraisingCategoriesTable extends Migration
       $table->id();
       $table->string('title');
       $table->text('description');
-      //$table->timestamps();
+      $table->boolean('published')->default(1);
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
     });

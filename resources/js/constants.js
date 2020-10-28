@@ -1,5 +1,6 @@
 import Dashboard from "./pages/dashboard";
 import Fundraising from "./pages/fundraising";
+import FundraisingCategory from "./pages/fundraising-category";
 
 export const routeDataList = [
   {
@@ -14,6 +15,13 @@ export const routeDataList = [
     name: 'fundraising',
     component: Fundraising,
     title: 'วิธีการระดมทุน',
+    menuIconName: 'mdi-bitcoin',
+  },
+  {
+    path: '/fundraising-category',
+    name: 'fundraising-category',
+    component: FundraisingCategory,
+    title: 'หมวดหมู่วิธีการระดมทุน',
     menuIconName: 'mdi-bitcoin',
   },
 ];

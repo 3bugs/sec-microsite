@@ -2622,6 +2622,637 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/fundraising-category.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/fundraising-category.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
+/* harmony import */ var _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/my_dialog */ "./resources/js/components/my_dialog.vue");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/utils */ "./resources/js/utils/utils.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+var KEY_TABLE_OPTIONS = 'table-fundraising-category-options';
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    MyDialog: _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      valid: true,
+      editItemIndex: -1,
+      editItem: {
+        title: '',
+        description: ''
+      },
+      defaultItem: {
+        title: '',
+        description: ''
+      },
+      titleRules: [function (v) {
+        return !!v || 'ต้องกรอกชื่อหมวดหมู่';
+      }, function (v) {
+        return v && v.length <= 255 || 'ชื่อหมวดหมู่ต้องไม่เกิน 255 ตัวอักษร';
+      }],
+      descriptionRules: [function (v) {
+        return !!v || 'ต้องกรอกคำอธิบาย';
+      }],
+      isLoadingList: true,
+      isSaving: false,
+      isDeleting: false,
+      isUpdatePublished: false,
+      headers: [{
+        text: 'ชื่อหมวดหมู่',
+        align: 'start',
+        value: 'title',
+        sortable: true
+      }, {
+        text: 'คำอธิบาย',
+        value: 'description',
+        sortable: true
+      }, {
+        text: 'สร้าง',
+        value: 'created_at',
+        sortable: true,
+        width: '70px',
+        align: 'center'
+      }, {
+        text: 'ปรับปรุง',
+        value: 'updated_at',
+        sortable: true,
+        width: '70px',
+        align: 'center'
+      }, {
+        text: 'เผยแพร่',
+        value: 'published',
+        sortable: true,
+        width: '100px',
+        align: 'center'
+      }, {
+        text: 'จัดการ',
+        value: 'actions',
+        sortable: false,
+        width: '80px',
+        align: 'center'
+      }],
+      dataList: [],
+      routeDataList: _constants__WEBPACK_IMPORTED_MODULE_0__["routeDataList"],
+      fundraisingCategoryColorList: _constants__WEBPACK_IMPORTED_MODULE_0__["fundraisingCategoryColorList"],
+      editDialogVisible: false,
+      dialog: {
+        visible: false,
+        title: '',
+        message: ''
+      },
+      snackbar: {
+        visible: false,
+        message: ''
+      },
+      formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_2__["formatThaiDateTime"]
+    };
+  },
+  computed: {
+    currentRouteTitle: function currentRouteTitle() {
+      var currentRouteName = this.$route.name;
+      return this.routeDataList.filter(function (route) {
+        return route.name === currentRouteName;
+      })[0].title;
+    },
+    editDialogTitle: function editDialogTitle() {
+      return "".concat(this.editItemIndex === -1 ? 'เพิ่ม' : 'แก้ไข', "\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48");
+    }
+  },
+  watch: {
+    editDialogVisible: function editDialogVisible(val) {
+      val || this.closeEditDialog();
+    }
+  },
+  created: function created() {
+    console.log('***** Fundraising Category created() *****');
+    this.fetchList();
+  },
+  methods: {
+    showDialog: function showDialog(title, message, buttonList, persistent) {
+      this.dialog = {
+        visible: true,
+        persistent: persistent,
+        title: title,
+        message: message,
+        buttonList: buttonList
+      };
+    },
+    handleUpdateTableOptions: function handleUpdateTableOptions(option) {
+      //alert(JSON.stringify(option));
+      localStorage.setItem(KEY_TABLE_OPTIONS, JSON.stringify(option));
+      console.log('TABLE OPTIONS SAVED');
+    },
+    getTableOptions: function getTableOptions() {
+      var jsonOptions = localStorage.getItem(KEY_TABLE_OPTIONS);
+      console.log('TABLE OPTIONS RESTORED');
+      return jsonOptions == null ? null : JSON.parse(jsonOptions);
+    },
+    handleClickEdit: function handleClickEdit(item) {
+      this.editItemIndex = item.id;
+      this.editItem = Object.assign({}, item);
+      this.editDialogVisible = true;
+    },
+    handleClickCloseEditDialog: function handleClickCloseEditDialog() {
+      this.closeEditDialog();
+    },
+    handleClickSaveEditDialog: function handleClickSaveEditDialog() {
+      if (this.$refs.form.validate()) {
+        this.doSaving();
+      } else {
+        this.showDialog('กรุณากรอกข้อมูลให้ครบถ้วน', 'กรุณากรอกข้อมูลให้ครบถ้วน', [{
+          text: 'OK',
+          onClick: null
+        }], true);
+      }
+    },
+    closeEditDialog: function closeEditDialog() {
+      this.editItemIndex = -1;
+      this.editItem = Object.assign({}, this.defaultItem);
+      this.editDialogVisible = false;
+      this.resetValidation();
+    },
+    resetValidation: function resetValidation() {
+      this.$refs.form.resetValidation();
+    },
+    doSaving: function doSaving() {
+      var _this = this;
+
+      var self = this;
+      var _this$editItem = this.editItem,
+          title = _this$editItem.title,
+          description = _this$editItem.description;
+      var formData = new FormData();
+      formData.append('id', this.editItemIndex);
+      formData.append('title', title.trim());
+      formData.append('description', description.trim());
+
+      if (this.editItemIndex !== -1) {
+        formData.append('_method', 'put');
+      }
+
+      var config = {
+        headers: {//'content-type': 'multipart/form-data'
+        }
+      };
+      this.isSaving = true; //axios.put ไม่ work!!!
+      //const saveMethod = this.item == null ? axios.post : axios.put;
+
+      axios.post('/api/fundraising-category', formData, config).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this.closeEditDialog();
+
+          _this.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this.snackbar.visible = true;
+
+          _this.handleClickRefresh();
+        } else {
+          _this.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {//
+            }
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        self.isSaving = false;
+      });
+    },
+    handleClickRefresh: function handleClickRefresh() {
+      this.dataList = [];
+      this.fetchList();
+    },
+    scrollToTop: function scrollToTop() {
+      document.body.scrollTop = 0; // For Safari
+
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
+    fetchList: function fetchList() {
+      var _this2 = this;
+
+      this.isLoadingList = true;
+      axios.get('/api/fundraising-category', {
+        params: {}
+      }).then(function (response) {
+        console.log(response.data);
+
+        if (response.data.status === 'ok') {
+          var dataList = response.data.data_list;
+          dataList.forEach(function (item, index) {
+            item.published = item.published === 1;
+            item.isUpdating = false;
+          });
+          _this2.dataList = dataList;
+        } else {
+          var errorMessage = response.data.message;
+
+          _this2.showDialog('ผิดพลาด', errorMessage, [{
+            text: 'OK',
+            onClick: null
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+
+        _this2.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง', [{
+          text: 'OK',
+          onClick: null
+        }], true);
+      }).then(function () {
+        // always executed
+        _this2.isLoadingList = false;
+      });
+    },
+    handleClickDelete: function handleClickDelete(item) {
+      var _this3 = this;
+
+      this.showDialog("\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48", "\u0E01\u0E32\u0E23\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E08\u0E30\u0E17\u0E33\u0E43\u0E2B\u0E49\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14\u0E20\u0E32\u0E22\u0E43\u0E15\u0E49\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E19\u0E31\u0E49\u0E19\u0E16\u0E39\u0E01\u0E25\u0E1A\u0E44\u0E1B\u0E14\u0E49\u0E27\u0E22\n\n\n\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48 '".concat(item.title, "' \u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
+        text: 'ยกเลิก',
+        onClick: function onClick() {}
+      }, {
+        text: 'ลบ',
+        onClick: function onClick() {
+          _this3.doDeleting(item.id);
+        }
+      }], false);
+    },
+    doDeleting: function doDeleting(id) {
+      var _this4 = this;
+
+      this.isDeleting = true;
+      axios.post('/api/fundraising-category', {
+        id: id,
+        _method: 'delete'
+      }).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this4.snackbar.message = 'ลบข้อมูลสำเร็จ';
+          _this4.snackbar.visible = true;
+
+          _this4.handleClickRefresh();
+        } else {
+          _this4.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {//
+            }
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        _this4.isDeleting = false;
+      });
+    },
+    handleClickSwitch: function handleClickSwitch(item) {
+      var _this5 = this;
+
+      var preText = !item.published ? 'ปิดการ' : '';
+      this.showDialog("".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25"), "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
+        text: 'ไม่ใช่',
+        onClick: function onClick() {
+          item.published = !item.published;
+        }
+      }, {
+        text: 'ใช่',
+        onClick: function onClick() {
+          _this5.doUpdatePublished(item);
+        }
+      }], true);
+    },
+    doUpdatePublished: function doUpdatePublished(item) {
+      var _this6 = this;
+
+      var self = this;
+      var formData = new FormData();
+      formData.append('id', item.id);
+      formData.append('published', item.published ? 1 : 0);
+      formData.append('_method', 'put');
+      var config = {
+        /*headers: {
+          'content-type': 'multipart/form-data'
+        }*/
+      };
+      item.isUpdating = true; //axios.put ไม่ work!!!
+
+      axios.post('/api/fundraising-category', formData, config).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this6.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this6.snackbar.visible = true;
+        } else {
+          item.published = !item.published;
+
+          _this6.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {}
+          }], true);
+        }
+      })["catch"](function (error) {
+        item.published = !item.published;
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        self.isUpdating = false;
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/fundraising.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/fundraising.vue?vue&type=script&lang=js& ***!
@@ -2634,6 +3265,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
 /* harmony import */ var _components_fundraising_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/fundraising_form */ "./resources/js/components/fundraising_form.vue");
 /* harmony import */ var _components_my_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/my_dialog */ "./resources/js/components/my_dialog.vue");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/utils */ "./resources/js/utils/utils.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2889,7 +3521,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
+
+var KEY_TABLE_OPTIONS = 'table-fundraising-options';
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     FundraisingForm: _components_fundraising_form__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2923,13 +3556,13 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         text: 'สร้าง',
         value: 'created_at',
         sortable: true,
-        width: '75px',
+        width: '70px',
         align: 'center'
       }, {
         text: 'ปรับปรุง',
         value: 'updated_at',
         sortable: true,
-        width: '75px',
+        width: '70px',
         align: 'center'
       }, {
         text: 'เผยแพร่',
@@ -2956,7 +3589,8 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
       snackbar: {
         visible: false,
         message: ''
-      }
+      },
+      formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_3__["formatThaiDateTime"]
     };
   },
   computed: {
@@ -3047,7 +3681,6 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
       axios.get('/api/fundraising', {
         params: {}
       }).then(function (response) {
-        _this.isLoadingList = false;
         console.log(response.data);
 
         if (response.data.status === 'ok') {
@@ -3064,11 +3697,24 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
               }
             });
           });
+        } else {
+          var errorMessage = response.data.message;
+
+          _this.showDialog('ผิดพลาด', errorMessage, [{
+            text: 'OK',
+            onClick: null
+          }], true);
         }
       })["catch"](function (error) {
         console.log(error);
-        this.isLoadingList = false;
-      }).then(function () {// always executed
+
+        _this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง', [{
+          text: 'OK',
+          onClick: null
+        }], true);
+      }).then(function () {
+        // always executed
+        _this.isLoadingList = false;
       });
     },
     handleClickDelete: function handleClickDelete(item) {
@@ -3191,19 +3837,6 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
         // always executed
         self.isUpdating = false;
       });
-    },
-    formatThaiDateTime: function formatThaiDateTime(dateTimeString) {
-      var thaiShortMonthNames = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
-      var mainParts = dateTimeString.split(' ');
-      var dateParts = mainParts[0].split('-');
-      var yearThai = parseInt(dateParts[0]) + 543;
-      var month = thaiShortMonthNames[parseInt(dateParts[1]) - 1];
-      var day = parseInt(dateParts[2]);
-      var timeParts = mainParts[1].split(':');
-      var hour = timeParts[0];
-      var minute = timeParts[1];
-      var second = timeParts[2];
-      return "".concat(day, " ").concat(month, " ").concat(yearThai, ", ").concat(hour, ".").concat(minute, " \u0E19.");
     }
   }
 });
@@ -3222,7 +3855,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 200px;\n}\n", ""]);
+exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 150px;\n}\n", ""]);
 
 // exports
 
@@ -22097,6 +22730,614 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/fundraising-category.vue?vue&type=template&id=1f6186d0&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/fundraising-category.vue?vue&type=template&id=1f6186d0&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    [
+      _c(
+        "v-overlay",
+        { attrs: { value: _vm.isSaving || _vm.isDeleting, "z-index": "9999" } },
+        [
+          _c(
+            "v-progress-circular",
+            { attrs: { indeterminate: "", size: "70" } },
+            [
+              _c("v-img", {
+                staticClass: "mb-2",
+                attrs: {
+                  "lazy-src": "/images/logo.svg",
+                  "max-height": "40",
+                  "max-width": "40",
+                  src: "/images/logo.svg"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-data-table", {
+        staticClass: "elevation-1",
+        attrs: {
+          headers: _vm.headers,
+          items: _vm.dataList,
+          loading: _vm.isLoadingList,
+          "footer-props": {
+            //'items-per-page-all-text': 'ทั้งหมด',
+            "items-per-page-text": "จำนวนแถวข้อมูลต่อหน้า",
+            //'page-text': '',
+            "show-current-page": true
+          },
+          options: _vm.getTableOptions()
+        },
+        on: { "update:options": _vm.handleUpdateTableOptions },
+        scopedSlots: _vm._u([
+          {
+            key: "top",
+            fn: function() {
+              return [
+                _c(
+                  "v-toolbar",
+                  { attrs: { flat: "" } },
+                  [
+                    _c("v-toolbar-title", [
+                      _vm._v(_vm._s(_vm.currentRouteTitle))
+                    ]),
+                    _vm._v(" "),
+                    _c("v-divider", {
+                      staticClass: "mx-4",
+                      attrs: { inset: "", vertical: "" }
+                    }),
+                    _vm._v(" "),
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-dialog",
+                      {
+                        attrs: { "max-width": "600px" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    _vm._b(
+                                      {
+                                        staticClass: "mb-2 mr-2",
+                                        attrs: { color: "primary", dark: "" }
+                                      },
+                                      "v-btn",
+                                      attrs,
+                                      false
+                                    ),
+                                    on
+                                  ),
+                                  [
+                                    _c(
+                                      "v-icon",
+                                      {
+                                        staticClass: "mr-2",
+                                        attrs: { small: "" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                mdi-plus-thick\n              "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(
+                                      "\n              เพิ่ม\n            "
+                                    )
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ]),
+                        model: {
+                          value: _vm.editDialogVisible,
+                          callback: function($$v) {
+                            _vm.editDialogVisible = $$v
+                          },
+                          expression: "editDialogVisible"
+                        }
+                      },
+                      [
+                        _vm._v(" "),
+                        _c(
+                          "v-card",
+                          [
+                            _c("v-card-title", [
+                              _c("span", { staticClass: "headline" }, [
+                                _vm._v(
+                                  "\n                " +
+                                    _vm._s(_vm.editDialogTitle) +
+                                    "\n              "
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-text",
+                              [
+                                _c(
+                                  "v-container",
+                                  [
+                                    _c(
+                                      "v-form",
+                                      {
+                                        ref: "form",
+                                        staticClass: "pl-0 pr-0",
+                                        attrs: { "lazy-validation": "" },
+                                        model: {
+                                          value: _vm.valid,
+                                          callback: function($$v) {
+                                            _vm.valid = $$v
+                                          },
+                                          expression: "valid"
+                                        }
+                                      },
+                                      [
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            counter: 255,
+                                            rules: _vm.titleRules,
+                                            label: "ชื่อหมวดหมู่",
+                                            required: ""
+                                          },
+                                          model: {
+                                            value: _vm.editItem.title,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editItem,
+                                                "title",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editItem.title"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            rules: _vm.descriptionRules,
+                                            label: "คำอธิบาย",
+                                            required: ""
+                                          },
+                                          model: {
+                                            value: _vm.editItem.description,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editItem,
+                                                "description",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editItem.description"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-actions",
+                              [
+                                _c("v-spacer"),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "blue darken-1", text: "" },
+                                    on: {
+                                      click: _vm.handleClickCloseEditDialog
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                ยกเลิก\n              "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "blue darken-1", text: "" },
+                                    on: { click: _vm.handleClickSaveEditDialog }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                บันทึก\n              "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "mb-2",
+                        attrs: { color: "success", dark: "" },
+                        on: { click: _vm.handleClickRefresh }
+                      },
+                      [
+                        _c("v-icon", { attrs: { medium: "" } }, [
+                          _vm._v("\n            mdi-refresh\n          ")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "item.image",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c("v-img", {
+                  staticClass: "mt-2 mb-2",
+                  staticStyle: { border: "0 solid #ccc" },
+                  attrs: {
+                    "lazy-src": "" + item.cover_image,
+                    "max-height": "75",
+                    "max-width": "150",
+                    src: "" + item.cover_image
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "item.category_id",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-chip",
+                  {
+                    attrs: {
+                      small: "",
+                      color:
+                        _vm.fundraisingCategoryColorList[item.category_id - 1]
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n        " + _vm._s(item.category_title) + "\n      "
+                    )
+                  ]
+                )
+              ]
+            }
+          },
+          {
+            key: "item.created_at",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      staticClass: "mr-2",
+                                      attrs: { small: "" }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [
+                                  _vm._v(
+                                    "\n            mdi-calendar\n          "
+                                  )
+                                ]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(_vm._s(_vm.formatThaiDateTime(item.created_at)))
+                    ])
+                  ]
+                )
+              ]
+            }
+          },
+          {
+            key: "item.updated_at",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      staticClass: "mr-2",
+                                      attrs: { small: "" }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [
+                                  _vm._v(
+                                    "\n            mdi-calendar\n          "
+                                  )
+                                ]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(
+                        _vm._s(
+                          item.updated_at == null
+                            ? "ยังไม่เคยมีการแก้ไข"
+                            : _vm.formatThaiDateTime(item.updated_at)
+                        )
+                      )
+                    ])
+                  ]
+                )
+              ]
+            }
+          },
+          {
+            key: "item.published",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c("v-switch", {
+                  staticClass: "ma-0 pa-0",
+                  attrs: { color: "primary", "hide-details": "" },
+                  on: {
+                    click: function($event) {
+                      return _vm.handleClickSwitch(item)
+                    }
+                  },
+                  model: {
+                    value: item.published,
+                    callback: function($$v) {
+                      _vm.$set(item, "published", $$v)
+                    },
+                    expression: "item.published"
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "item.actions",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      staticClass: "mr-3",
+                                      attrs: { small: "" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.handleClickEdit(item)
+                                        }
+                                      }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [_vm._v("\n            mdi-pencil\n          ")]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [_vm._v(" "), _c("span", [_vm._v("แก้ไข")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      attrs: { small: "" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.handleClickDelete(item)
+                                        }
+                                      }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [_vm._v("\n            mdi-delete\n          ")]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [_vm._v(" "), _c("span", [_vm._v("ลบ")])]
+                )
+              ]
+            }
+          },
+          {
+            key: "progress",
+            fn: function() {
+              return [
+                _c("v-progress-linear", {
+                  attrs: { color: "indigo", height: 5, indeterminate: "" }
+                })
+              ]
+            },
+            proxy: true
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _c("my-dialog", {
+        attrs: {
+          visible: _vm.dialog.visible,
+          persistent: _vm.dialog.persistent,
+          title: _vm.dialog.title,
+          message: _vm.dialog.message,
+          "button-list": _vm.dialog.buttonList
+        },
+        on: {
+          close: function($event) {
+            _vm.dialog.visible = false
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          model: {
+            value: _vm.snackbar.visible,
+            callback: function($$v) {
+              _vm.$set(_vm.snackbar, "visible", $$v)
+            },
+            expression: "snackbar.visible"
+          }
+        },
+        [_vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/fundraising.vue?vue&type=template&id=6a66ae6b&scoped=true&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/fundraising.vue?vue&type=template&id=6a66ae6b&scoped=true& ***!
@@ -22417,7 +23658,11 @@ var render = function() {
                                   _c("span", [
                                     _vm._v(
                                       _vm._s(
-                                        _vm.formatThaiDateTime(item.updated_at)
+                                        item.updated_at == null
+                                          ? "ยังไม่เคยมีการแก้ไข"
+                                          : _vm.formatThaiDateTime(
+                                              item.updated_at
+                                            )
                                       )
                                     )
                                   ])
@@ -22615,7 +23860,7 @@ var render = function() {
                             return [
                               _c("v-progress-linear", {
                                 attrs: {
-                                  color: "primary",
+                                  color: "indigo",
                                   height: 5,
                                   indeterminate: ""
                                 }
@@ -22627,7 +23872,7 @@ var render = function() {
                       ],
                       null,
                       false,
-                      1337490920
+                      1738117064
                     )
                   })
                 : undefined
@@ -82278,6 +83523,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fundraisingCategoryColorList", function() { return fundraisingCategoryColorList; });
 /* harmony import */ var _pages_dashboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/dashboard */ "./resources/js/pages/dashboard.vue");
 /* harmony import */ var _pages_fundraising__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/fundraising */ "./resources/js/pages/fundraising.vue");
+/* harmony import */ var _pages_fundraising_category__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/fundraising-category */ "./resources/js/pages/fundraising-category.vue");
+
 
 
 var routeDataList = [{
@@ -82291,6 +83538,12 @@ var routeDataList = [{
   name: 'fundraising',
   component: _pages_fundraising__WEBPACK_IMPORTED_MODULE_1__["default"],
   title: 'วิธีการระดมทุน',
+  menuIconName: 'mdi-bitcoin'
+}, {
+  path: '/fundraising-category',
+  name: 'fundraising-category',
+  component: _pages_fundraising_category__WEBPACK_IMPORTED_MODULE_2__["default"],
+  title: 'หมวดหมู่วิธีการระดมทุน',
   menuIconName: 'mdi-bitcoin'
 }];
 var fundraisingCategoryColorList = ['#beebe9', '#f4dada', '#f6eec7', '#d9e4dd', '#fbf7f0'];
@@ -82361,6 +83614,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboard_vue_vue_type_template_id_e1aead0a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_dashboard_vue_vue_type_template_id_e1aead0a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/fundraising-category.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/pages/fundraising-category.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _fundraising_category_vue_vue_type_template_id_1f6186d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fundraising-category.vue?vue&type=template&id=1f6186d0&scoped=true& */ "./resources/js/pages/fundraising-category.vue?vue&type=template&id=1f6186d0&scoped=true&");
+/* harmony import */ var _fundraising_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./fundraising-category.vue?vue&type=script&lang=js& */ "./resources/js/pages/fundraising-category.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _fundraising_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _fundraising_category_vue_vue_type_template_id_1f6186d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _fundraising_category_vue_vue_type_template_id_1f6186d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "1f6186d0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/fundraising-category.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/fundraising-category.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/pages/fundraising-category.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./fundraising-category.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/fundraising-category.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/fundraising-category.vue?vue&type=template&id=1f6186d0&scoped=true&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/pages/fundraising-category.vue?vue&type=template&id=1f6186d0&scoped=true& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_category_vue_vue_type_template_id_1f6186d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./fundraising-category.vue?vue&type=template&id=1f6186d0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/fundraising-category.vue?vue&type=template&id=1f6186d0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_category_vue_vue_type_template_id_1f6186d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_category_vue_vue_type_template_id_1f6186d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -82476,6 +83798,36 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: _constants__WEBPACK_IMPORTED_MODULE_2__["routeDataList"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
+
+/***/ }),
+
+/***/ "./resources/js/utils/utils.js":
+/*!*************************************!*\
+  !*** ./resources/js/utils/utils.js ***!
+  \*************************************/
+/*! exports provided: formatThaiDateTime */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatThaiDateTime", function() { return formatThaiDateTime; });
+function formatThaiDateTime(dateTimeString) {
+  var date = new Date(dateTimeString);
+  return date.toLocaleString('th-TH');
+  /*const thaiShortMonthNames = [
+    'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.',
+  ];
+  const mainParts = dateTimeString.split(' ');
+   const dateParts = mainParts[0].split('-');
+  const yearThai = parseInt(dateParts[0]) + 543;
+  const month = thaiShortMonthNames[parseInt(dateParts[1]) - 1];
+  const day = parseInt(dateParts[2]);
+   const timeParts = mainParts[1].split(':');
+  const hour = timeParts[0];
+  const minute = timeParts[1];
+  const second = timeParts[2];
+   return `${day} ${month} ${yearThai}, ${hour}.${minute} น.`;*/
+}
 
 /***/ }),
 

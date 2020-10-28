@@ -23,30 +23,135 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
 
+Route::get('/fundraising-category', function (Request $request) {
+  app('debugbar')->disable();
+
+  try {
+    $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'asc')->get();
+
+    return json_encode(array(
+      'status' => 'ok',
+      'data_list' => $fundraisingCategoryList,
+    ));
+  } catch (Exception $e) {
+    return json_encode(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ));
+  }
+});
+
+Route::post('/fundraising-category', function (Request $request) {
+  app('debugbar')->disable();
+
+  // imagePath: public/fundraising/xxx.jpg
+  // imageUrl: /storage/fundraising/xxx.jpg
+  try {
+    $title = $request->title;
+    $description = $request->description;
+
+    $category = new FundraisingCategory;
+    $category->title = $title;
+    $category->description = $description;
+    $category->save();
+
+    $message = "Title: $title\n"
+      . "Description: $description";
+
+    return response()->json(array(
+      'status' => 'ok',
+      'message' => $message,
+    ), 200);
+  } catch (Exception $e) {
+    return response()->json(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ), 200);
+  }
+});
+
+Route::put('/fundraising-category', function (Request $request) {
+  app('debugbar')->disable();
+
+  try {
+    $category = FundraisingCategory::find($request->id);
+    if ($request->has('title')) {
+      $category->title = $request->title;
+    }
+    if ($request->has('description')) {
+      $category->description = $request->description;
+    }
+    if ($request->has('published')) {
+      $category->published = $request->published;
+    }
+    $category->save();
+
+    return response()->json(array(
+      'status' => 'ok',
+      'message' => '',
+    ), 200);
+  } catch (Exception $e) {
+    return response()->json(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ), 200);
+  }
+});
+
+Route::delete('/fundraising-category', function (Request $request) {
+  app('debugbar')->disable();
+
+  try {
+    $id = $request->id;
+    $category = FundraisingCategory::find($id);
+    $category->delete();
+
+    return response()->json(array(
+      'status' => 'ok',
+      'message' => 'success',
+    ), 200);
+  } catch (Exception $e) {
+    return response()->json(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ), 200);
+  }
+});
+
 Route::get('/fundraising', function (Request $request) {
   app('debugbar')->disable();
   //date_default_timezone_set('Asia/Bangkok');
 
-  //$fundraisingList = Fundraising::orderBy('id', 'asc')->get();
+  try {
+    $fundraisingList = DB::table('fundraisings')
+      ->join('fundraising_categories', 'fundraisings.category_id', '=', 'fundraising_categories.id')
+      ->select('fundraisings.*', 'fundraising_categories.title AS category_title')
+      ->orderBy('id', 'desc')
+      ->get();
 
-  $fundraisingList = DB::table('fundraisings')
-    ->join('fundraising_categories', 'fundraisings.category_id', '=', 'fundraising_categories.id')
-    ->select('fundraisings.*', 'fundraising_categories.title AS category_title')
-    ->orderBy('id', 'desc')
-    ->get();
+    foreach ($fundraisingList as $fundraising) {
+      $fundraising->cover_image = Storage::url($fundraising->cover_image);
+    }
+    $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'asc')->get();
 
-  foreach ($fundraisingList as $fundraising) {
-    $fundraising->cover_image = Storage::url($fundraising->cover_image);
+    //return $fundraisingList->toJson();
+
+    /*return json_encode(array(
+      'status' => 'ok',
+      'data_list' => $fundraisingList,
+      'category_list' => $fundraisingCategoryList,
+    ));*/
+    return response()->json(array(
+      'status' => 'ok',
+      'data_list' => $fundraisingList,
+      'category_list' => $fundraisingCategoryList,
+    ), 200);
+  } catch (Exception $e) {
+    return response()->json(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ), 200);
   }
-  $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'asc')->get();
-
-  //return $fundraisingList->toJson();
-
-  return json_encode(array(
-    'status' => 'ok',
-    'data_list' => $fundraisingList,
-    'category_list' => $fundraisingCategoryList,
-  ));
 });
 
 Route::post('/fundraising', function (Request $request) {
@@ -76,15 +181,15 @@ Route::post('/fundraising', function (Request $request) {
       . "Cover image imagePath: $imagePath\n"
       . "Cover image URL: $imageUrl";
 
-    return json_encode(array(
+    return response()->json(array(
       'status' => 'ok',
       'message' => $message,
-    ));
+    ), 200);
   } catch (Exception $e) {
-    return json_encode(array(
+    return response()->json(array(
       'status' => 'error',
       'message' => $e->getMessage(),
-    ));
+    ), 200);
   }
 });
 
@@ -119,15 +224,15 @@ Route::put('/fundraising', function (Request $request) {
     }
     $fundraising->save();
 
-    return json_encode(array(
+    return response()->json(array(
       'status' => 'ok',
       'message' => '',
-    ));
+    ), 200);
   } catch (Exception $e) {
-    return json_encode(array(
+    return response()->json(array(
       'status' => 'error',
       'message' => $e->getMessage(),
-    ));
+    ), 200);
   }
 });
 
@@ -139,22 +244,21 @@ Route::delete('/fundraising', function (Request $request) {
     $fundraising = Fundraising::find($id);
     $fundraising->delete();
 
-    return json_encode(array(
+    return response()->json(array(
       'status' => 'ok',
       'message' => 'success',
-    ));
+    ), 200);
   } catch (Exception $e) {
-    return json_encode(array(
+    return response()->json(array(
       'status' => 'error',
       'message' => $e->getMessage(),
-    ));
+    ), 200);
   }
 });
 
 Route::post('/editor-file-upload', function (Request $request) {
   app('debugbar')->disable();
   //header('Access-Control-Allow-Origin: *');
-  //header('Content-type: application/json; charset=utf-8');
 
   // imagePath: public/fundraising/xxx.jpg
   // imageUrl: /storage/fundraising/xxx.jpg
@@ -162,20 +266,20 @@ Route::post('/editor-file-upload', function (Request $request) {
     $imagePath = $request->file('upload')->store(PATH_PUBLIC_FUNDRAISING);
     $imageUrl = Storage::url($imagePath);
 
-    return json_encode(array(
+    return response()->json(array(
       'error' => array(
         'code' => 0,
         'message' => 'ok',
       ),
       'url' => $imageUrl,
-    ));
+    ), 200);
   } catch (Exception $e) {
-    return json_encode(array(
+    return response()->json(array(
       'error' => array(
         'code' => 1,
         'message' => 'เกิดข้อผิดพลาดในการบันทึกไฟล์',
       ),
       'url' => null,
-    ));
+    ), 200);
   }
 });

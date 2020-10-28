@@ -138,7 +138,7 @@
                   mdi-calendar
                 </v-icon>
               </template>
-              <span>{{ formatThaiDateTime(item.updated_at) }}</span>
+              <span>{{ item.updated_at == null ? 'ยังไม่เคยมีการแก้ไข' : formatThaiDateTime(item.updated_at) }}</span>
             </v-tooltip>
           </template>
 
@@ -205,7 +205,7 @@
             v-slot:progress
           >
             <v-progress-linear
-              color="primary"
+              color="indigo"
               :height="5"
               indeterminate
             ></v-progress-linear>
@@ -248,8 +248,9 @@
 import {routeDataList, fundraisingCategoryColorList} from '../constants';
 import FundraisingForm from '../components/fundraising_form';
 import MyDialog from '../components/my_dialog';
+import {formatThaiDateTime} from '../utils/utils';
 
-const KEY_TABLE_OPTIONS = 'table-fundraising-options-3';
+const KEY_TABLE_OPTIONS = 'table-fundraising-options';
 
 export default {
   components: {
@@ -267,8 +268,8 @@ export default {
       {text: 'หัวเรื่อง', align: 'start', value: 'title', sortable: true,},
       /*{text: 'คำอธิบายย่อ', value: 'description', sortable: true,},*/
       {text: 'หมวดหมู่', value: 'category_id', sortable: true,},
-      {text: 'สร้าง', value: 'created_at', sortable: true, width: '75px', align: 'center',},
-      {text: 'ปรับปรุง', value: 'updated_at', sortable: true, width: '75px', align: 'center',},
+      {text: 'สร้าง', value: 'created_at', sortable: true, width: '70px', align: 'center',},
+      {text: 'ปรับปรุง', value: 'updated_at', sortable: true, width: '70px', align: 'center',},
       {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
       {text: 'จัดการ', value: 'actions', sortable: false, width: '120px', align: 'center',},
     ],
@@ -284,7 +285,8 @@ export default {
     snackbar: {
       visible: false,
       message: '',
-    }
+    },
+    formatThaiDateTime,
   }),
   computed: {
     currentRouteTitle() {
@@ -380,8 +382,6 @@ export default {
         params: {}
       })
         .then((response) => {
-          this.isLoadingList = false;
-
           console.log(response.data);
           if (response.data.status === 'ok') {
             const dataList = response.data.data_list;
@@ -396,14 +396,31 @@ export default {
                 return item.title
               }
             }));
+          } else {
+            const errorMessage = response.data.message;
+            this.showDialog(
+              'ผิดพลาด',
+              errorMessage,
+              [
+                {text: 'OK', onClick: null}
+              ],
+              true,
+            );
           }
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
-          this.isLoadingList = false;
+          this.showDialog(
+            'ผิดพลาด',
+            'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง',
+            [
+              {text: 'OK', onClick: null}
+            ],
+            true,
+          );
         })
-        .then(function () {
-          // always executed
+        .then(() => { // always executed
+          this.isLoadingList = false;
         });
     },
 
@@ -538,25 +555,6 @@ export default {
         .then(function () { // always executed
           self.isUpdating = false;
         });
-    },
-
-    formatThaiDateTime(dateTimeString) {
-      const thaiShortMonthNames = [
-        'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.',
-      ];
-      const mainParts = dateTimeString.split(' ');
-
-      const dateParts = mainParts[0].split('-');
-      const yearThai = parseInt(dateParts[0]) + 543;
-      const month = thaiShortMonthNames[parseInt(dateParts[1]) - 1];
-      const day = parseInt(dateParts[2]);
-
-      const timeParts = mainParts[1].split(':');
-      const hour = timeParts[0];
-      const minute = timeParts[1];
-      const second = timeParts[2];
-
-      return `${day} ${month} ${yearThai}, ${hour}.${minute} น.`;
     },
   }
 }
