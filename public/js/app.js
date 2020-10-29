@@ -2878,22 +2878,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2927,6 +2911,11 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-category-options';
       isDeleting: false,
       isUpdatePublished: false,
       headers: [{
+        text: ' ',
+        align: 'start',
+        value: 'strip',
+        sortable: false
+      }, {
         text: 'ชื่อหมวดหมู่',
         align: 'start',
         value: 'title',
@@ -3028,10 +3017,14 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-category-options';
       if (this.$refs.form.validate()) {
         this.doSaving();
       } else {
-        this.showDialog('กรุณากรอกข้อมูลให้ครบถ้วน', 'กรุณากรอกข้อมูลให้ครบถ้วน', [{
-          text: 'OK',
-          onClick: null
-        }], true);
+        this.snackbar.visible = true;
+        this.snackbar.message = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+        /*this.showDialog(
+          'กรุณากรอกข้อมูลให้ครบถ้วน',
+          'กรุณากรอกข้อมูลให้ครบถ้วน',
+          [{text: 'OK', onClick: null}],
+          true
+        );*/
       }
     },
     closeEditDialog: function closeEditDialog() {
@@ -3144,7 +3137,7 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-category-options';
     handleClickDelete: function handleClickDelete(item) {
       var _this3 = this;
 
-      this.showDialog("\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48", "\u0E01\u0E32\u0E23\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E08\u0E30\u0E17\u0E33\u0E43\u0E2B\u0E49\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14\u0E20\u0E32\u0E22\u0E43\u0E15\u0E49\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E19\u0E31\u0E49\u0E19\u0E16\u0E39\u0E01\u0E25\u0E1A\u0E44\u0E1B\u0E14\u0E49\u0E27\u0E22\n\n\n\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48 '".concat(item.title, "' \u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
+      this.showDialog("\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48", "\u0E01\u0E32\u0E23\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E08\u0E30\u0E17\u0E33\u0E43\u0E2B\u0E49\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14\u0E20\u0E32\u0E22\u0E43\u0E15\u0E49\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E19\u0E31\u0E49\u0E19\u0E16\u0E39\u0E01\u0E25\u0E1A\u0E44\u0E1B\u0E14\u0E49\u0E27\u0E22 \u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48 '".concat(item.title, "' \u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
         text: 'ยกเลิก',
         onClick: function onClick() {}
       }, {
@@ -23011,43 +23004,19 @@ var render = function() {
             proxy: true
           },
           {
-            key: "item.image",
+            key: "item.strip",
             fn: function(ref) {
               var item = ref.item
               return [
-                _c("v-img", {
+                _c("div", {
                   staticClass: "mt-2 mb-2",
-                  staticStyle: { border: "0 solid #ccc" },
-                  attrs: {
-                    "lazy-src": "" + item.cover_image,
-                    "max-height": "75",
-                    "max-width": "150",
-                    src: "" + item.cover_image
-                  }
+                  style:
+                    "border: 0 solid red; background-color: " +
+                    _vm.fundraisingCategoryColorList[
+                      (item.id - 1) % _vm.fundraisingCategoryColorList.length
+                    ] +
+                    "; min-height: 70px; height: 100%; width: 10px;"
                 })
-              ]
-            }
-          },
-          {
-            key: "item.category_id",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c(
-                  "v-chip",
-                  {
-                    attrs: {
-                      small: "",
-                      color:
-                        _vm.fundraisingCategoryColorList[item.category_id - 1]
-                    }
-                  },
-                  [
-                    _vm._v(
-                      "\n        " + _vm._s(item.category_title) + "\n      "
-                    )
-                  ]
-                )
               ]
             }
           },

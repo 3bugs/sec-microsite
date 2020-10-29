@@ -111,6 +111,10 @@ button {
   font-size: 0.875em !important;
 }
 
+.page-content {
+  padding-top: 100px;
+}
+
 .my-navbar {
   display: flex;
   justify-content: space-between;
@@ -125,56 +129,39 @@ button {
   border: 0px solid deeppink;
   z-index: 99999;
   box-shadow: 0px 5px 24px rgba(0, 0, 0, 0.13);
+  transition: 0.2s;
 }
 
-@media (max-width: 767px) {
-  .my-navbar {
-    height: 60px;
-  }
-}
-
-.menu-item {
+.my-navbar .menu-item {
   display: flex;
   align-self: stretch;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 154px;
+  width: 140px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-@media (max-width: 767px) {
-  .menu-item {
-    width: 66px;
-  }
-}
-
-#menu-item-search:hover {
+.my-navbar #menu-item-search:hover {
   background-color: #f8f8f8;
 }
 
-#menu-item-menu:hover {
+.my-navbar #menu-item-menu:hover {
   background-color: #72A927 !important;
 }
 
-.img-logo {
+.my-navbar .logo {
   width: 57px;
   height: 57px;
   margin-left: 50px;
   margin-bottom: 8px;
-}
-
-@media (max-width: 767px) {
-  .img-logo {
-    width: 40px;
-    height: 40px;
-    margin-left: 20px;
-    margin-bottom: 0;
-  }
+  transition: 0.2s;
 }
 
 .img-search {
   width: 34px;
+  transition: 0.2s;
 }
 
 .icon-label {
@@ -182,22 +169,21 @@ button {
   font-style: normal;
   font-size: 14px;
   font-weight: 500;
+  transition: 0.2s;
 }
 
-.header {
+.icon-label-hide {
+  display: none !important;
+}
+
+.my-navbar .header {
   font-family: Sarabun;
   font-style: normal;
   font-size: 20px;
   font-weight: 500;
   color: #005288;
   margin: 0 25px;
-}
-
-@media (max-width: 767px) {
-  .header {
-    font-size: 16px;
-    margin: 0 15px;
-  }
+  transition: 0.2s;
 }
 
 .hamburger {
@@ -206,14 +192,104 @@ button {
 
 .hamburger-inner {
   background-color: white !important;
+  transition: 0.2s;
 }
 
 .hamburger-inner::before {
   background-color: white !important;
+  transition: 0.2s;
 }
 
 .hamburger-inner::after {
   background-color: white !important;
+  transition: 0.2s;
+}
+
+.hamburger-width-small {
+  left: 5px !important;
+  top: 5px !important;
+  width: 30px !important;
+  height: 3px !important;
+}
+
+.hamburger-width-small::before {
+  top: 8px !important;
+  width: 30px !important;
+  height: 3px !important;
+}
+
+.hamburger-width-small::after {
+  top: 16px !important;
+  width: 30px !important;
+  height: 3px !important;
+}
+
+.is-active .hamburger-width-small::after {
+  top: 20px !important;
+  width: 30px !important;
+  height: 3px !important;
+}
+
+.hamburger-width-normal {
+  width: 40px !important;
+  height: 4px !important;
+  border-radius: 4px !important;
+}
+
+@media (max-width: 767px) {
+  .page-content {
+    padding-top: 0;
+  }
+
+  .my-navbar {
+    position: static;
+    height: 60px;
+  }
+
+  .my-navbar .menu-item {
+    width: 70px;
+  }
+
+  .my-navbar .logo {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    margin-bottom: 0;
+  }
+
+  .my-navbar .header {
+    font-size: 16px;
+    margin: 0 15px;
+  }
+
+  .my-navbar .img-search {
+    width: 26px;
+  }
+
+  .hamburger-inner {
+    left: 5px !important;
+    top: 5px !important;
+    width: 30px !important;
+    height: 3px !important;
+  }
+
+  .hamburger-inner::before {
+    top: 8px !important;
+    width: 30px !important;
+    height: 3px !important;
+  }
+
+  .hamburger-inner::after {
+    top: 16px !important;
+    width: 30px !important;
+    height: 3px !important;
+  }
+
+  .is-active .hamburger-inner::after {
+    top: 20px !important;
+    width: 30px !important;
+    height: 3px !important;
+  }
 }
 
 /*
@@ -391,9 +467,9 @@ textarea {
 }
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -413,16 +489,20 @@ textarea {
     box-shadow: none !important;
     text-shadow: none !important;
   }
+
   a,
   a:visited {
     text-decoration: underline;
   }
+
   a[href]:after {
     content: " (" attr(href) ")";
   }
+
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
+
   /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
@@ -431,14 +511,17 @@ textarea {
   a[href^="javascript:"]:after {
     content: "";
   }
+
   pre {
     white-space: pre-wrap !important;
   }
+
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
+
   /*
      * Printing Tables:
      * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
@@ -446,16 +529,19 @@ textarea {
   thead {
     display: table-header-group;
   }
+
   tr,
   img {
     page-break-inside: avoid;
   }
+
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3;
   }
+
   h2,
   h3 {
     page-break-after: avoid;

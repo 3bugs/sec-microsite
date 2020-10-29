@@ -44,7 +44,6 @@
           ></v-divider>
           <v-spacer></v-spacer>
 
-
           <v-dialog
             v-model="editDialogVisible"
             max-width="600px"
@@ -118,7 +117,6 @@
             </v-card>
           </v-dialog>
 
-
           <v-btn
             color="success"
             dark
@@ -131,26 +129,12 @@
           </v-btn>
         </v-toolbar>
       </template>
-      <template v-slot:item.image="{ item }">
-        <v-img
-          :lazy-src="`${item.cover_image}`"
-          max-height="75"
-          max-width="150"
-          :src="`${item.cover_image}`"
-          style="border: 0 solid #ccc"
+      <template v-slot:item.strip="{ item }">
+        <div
+          :style="`border: 0 solid red; background-color: ${fundraisingCategoryColorList[(item.id - 1) % fundraisingCategoryColorList.length]}; min-height: 70px; height: 100%; width: 10px;`"
           class="mt-2 mb-2"
         >
-        </v-img>
-      </template>
-
-      <!--category-->
-      <template v-slot:item.category_id="{ item }">
-        <v-chip
-          small
-          :color="fundraisingCategoryColorList[item.category_id - 1]"
-        >
-          {{ item.category_title }}
-        </v-chip>
+        </div>
       </template>
 
       <!--created-->
@@ -293,6 +277,7 @@ export default {
       isDeleting: false,
       isUpdatePublished: false,
       headers: [
+        {text: ' ', align: 'start', value: 'strip', sortable: false,},
         {text: 'ชื่อหมวดหมู่', align: 'start', value: 'title', sortable: true,},
         {text: 'คำอธิบาย', value: 'description', sortable: true,},
         {text: 'สร้าง', value: 'created_at', sortable: true, width: '70px', align: 'center',},
@@ -328,7 +313,7 @@ export default {
     }
   },
   watch: {
-    editDialogVisible (val) {
+    editDialogVisible(val) {
       val || this.closeEditDialog();
     },
   },
@@ -370,12 +355,14 @@ export default {
       if (this.$refs.form.validate()) {
         this.doSaving();
       } else {
-        this.showDialog(
+        this.snackbar.visible = true;
+        this.snackbar.message = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+        /*this.showDialog(
           'กรุณากรอกข้อมูลให้ครบถ้วน',
           'กรุณากรอกข้อมูลให้ครบถ้วน',
           [{text: 'OK', onClick: null}],
           true
-        );
+        );*/
       }
     },
     closeEditDialog() {

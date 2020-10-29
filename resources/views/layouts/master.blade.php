@@ -33,7 +33,7 @@
 {{--<div id="app">--}}
 <div class="my-navbar">
   <div style="display: flex; align-items: center">
-    <a href="/"><img class="img-logo" src="/images/logo.svg" alt="logo" style="cursor: pointer"></a>
+    <a href="/"><img class="logo" src="/images/logo.svg" alt="logo" style="cursor: pointer"></a>
     <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</div>
   </div>
   <div style="display: flex; align-items: center; align-self: stretch">
@@ -44,7 +44,7 @@
     <div id="menu-item-menu" class="menu-item" style="background-color: #8DC63F">
       <!--<img class="img-search" src="images/ic_menu.svg" alt="search icon">-->
 
-      <button class="hamburger hamburger--elastic" type="button" style="margin: 0; padding: 0">
+      <button class="hamburger hamburger--elastic" type="button" style="margin: 0; padding: 0;">
   <span class="hamburger-box" style="margin: 0; padding: 0">
     <span class="hamburger-inner" style="margin: 0; padding: 0"></span>
   </span>
@@ -55,7 +55,9 @@
   </div>
 </div>
 
-@yield('content')
+<div class="page-content">
+  @yield('content')
+</div>
 
 <!--footer-->
 <footer class="container-fluid footer">
@@ -146,6 +148,55 @@
   menu.on("click", function (e) {
     hamburgerButton.toggleClass("is-active");
     // Do something else, like open/close menu
+  });
+
+  function adjustNavBar() {
+    const navBar = $('.my-navbar');
+    const logo = $('.my-navbar .logo');
+    const header = $('.my-navbar .header');
+    const menuItem = $('.my-navbar .menu-item');
+    const iconLabel = $('.my-navbar .icon-label');
+    const imgSearch = $('.my-navbar .img-search');
+    const hamburgerInner = $('.hamburger-inner');
+
+    if (Modernizr.mq('(min-width: 768px)')) {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        navBar.css('height', '60px');
+        logo.css('width', '40px');
+        logo.css('height', '40px');
+        logo.css('margin-left', '25px');
+        logo.css('margin-bottom', '2px');
+        header.css('font-size', '16px');
+        header.css('margin', '2px 15px 0');
+        menuItem.css('width', '80px');
+        iconLabel.css('font-size', '12px');
+        iconLabel.addClass('icon-label-hide');
+        imgSearch.css('width', '26px');
+        hamburgerInner.addClass('hamburger-width-small');
+      } else {
+        navBar.css('height', '100px');
+        logo.css('width', '57px');
+        logo.css('height', '57px');
+        logo.css('margin-left', '50px');
+        logo.css('margin-bottom', '8px');
+        header.css('font-size', '20px');
+        header.css('margin', '0 25px');
+        menuItem.css('width', '140px');
+        iconLabel.css('font-size', '14px');
+        iconLabel.removeClass('icon-label-hide');
+        imgSearch.css('width', '34px');
+        hamburgerInner.removeClass('hamburger-width-small');
+      }
+    }
+  }
+
+  $(function () {
+    window.onload = function (e) {
+      adjustNavBar();
+    }
+    window.onscroll = function (e) {
+      adjustNavBar();
+    };
   });
 </script>
 
