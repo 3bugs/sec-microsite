@@ -7,6 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+  <style>
+    .v-application--is-ltr .v-list-item__action:first-child, .v-application--is-ltr .v-list-item__icon:first-child {
+      margin-right: 18px !important;
+    }
+    .v-application--is-ltr .v-list-group--no-action>.v-list-group__items>.v-list-item {
+      padding-left: 60px !important;
+    }
+    .v-list-group .v-list-group__header .v-list-item__icon.v-list-group__header__append-icon {
+      min-width: 0 !important;
+    }
+  </style>
 </head>
 <body>
 <div id="app">
@@ -38,7 +50,62 @@
       </v-container>
 
       <v-list shaped>
-        <v-list-item
+        <template
+            v-for="(item, index) in routeDataList"
+        >
+          <v-list-item
+              :key="index"
+              v-if="item.subItemList == null || item.subItemList.length === 0"
+              link :to="item.name"
+          >
+            <v-list-item-action>
+              <v-icon>@{{ item.menuIconName }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>@{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-group
+              v-else
+              :value="false"
+              no-action
+              color="white"
+          >
+            <template v-slot:activator>
+              <v-list-item-action>
+                <v-icon
+                    v-text="item.menuIconName"
+                ></v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>@{{ item.title }}</v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+                v-for="(subItem, index) in item.subItemList"
+                :key="index"
+                link :to="subItem.name"
+                dense
+            >
+              <v-list-item-title
+                  v-text="subItem.menuTitle"
+                  style="line-height: 2em"
+              ></v-list-item-title>
+              {{--<v-list-item-icon>
+                <v-icon
+                    v-text="subItem.menuIconName"
+                    small
+                ></v-icon>
+              </v-list-item-icon>--}}
+            </v-list-item>
+          </v-list-group>
+        </template>
+
+
+
+        {{--<v-list-item
             v-for="(route, index) in routeDataList"
             :key="index"
             link :to="route.name"
@@ -51,11 +118,15 @@
           </v-list-item-content>
         </v-list-item>
 
-        {{--<v-list-group
+        <v-list-group
+            :value="true"
             no-action
-            sub-group
+            color="yellow"
         >
           <template v-slot:activator>
+            <v-list-item-action>
+              <v-icon v-text="'mdi-update'"></v-icon>
+            </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>Admin</v-list-item-title>
             </v-list-item-content>
@@ -67,7 +138,6 @@
               link
           >
             <v-list-item-title v-text="item"></v-list-item-title>
-
             <v-list-item-icon>
               <v-icon v-text="'mdi-update'"></v-icon>
             </v-list-item-icon>

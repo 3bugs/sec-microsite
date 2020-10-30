@@ -4,10 +4,21 @@ import {routeDataList} from './constants';
 
 Vue.use(VueRouter);
 
+const routes = [];
+routeDataList.forEach(item => {
+  if (item.subItemList == null) {
+    routes.push(item);
+  } else {
+    item.subItemList.forEach(subItem => {
+      routes.push(subItem);
+    });
+  }
+});
+
 const router = new VueRouter({
   mode: 'history',
   base: 'admin',
-  routes: routeDataList,
+  routes: routes,
 });
 
 export default router;

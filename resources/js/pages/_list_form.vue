@@ -246,7 +246,7 @@
 </template>
 
 <script>
-import {routeDataList, categoryColorList} from '../constants';
+import {routeDataList, getRouteTitle, categoryColorList} from '../constants';
 import DetailsForm from '../components/_details_form';
 import MyDialog from '../components/my_dialog';
 import {formatThaiDateTime} from '../utils/utils';
@@ -295,10 +295,7 @@ export default {
   },
   computed: {
     currentRouteTitle() {
-      const currentRouteName = this.$route.name;
-      return this.routeDataList.filter(
-        route => route.name === currentRouteName
-      )[0].title;
+      return getRouteTitle(this.$route.name);
     },
   },
   created() {

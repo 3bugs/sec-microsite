@@ -2289,10 +2289,7 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
   },
   computed: {
     currentRouteTitle: function currentRouteTitle() {
-      var currentRouteName = this.$route.name;
-      return this.routeDataList.filter(function (route) {
-        return route.name === currentRouteName;
-      })[0].title;
+      return Object(_constants__WEBPACK_IMPORTED_MODULE_0__["getRouteTitle"])(this.$route.name);
     },
     coverImageRules: function coverImageRules() {
       return this.item == null ? [function (v) {
@@ -2920,10 +2917,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: {
     currentRouteTitle: function currentRouteTitle() {
-      var currentRouteName = this.$route.name;
-      return this.routeDataList.filter(function (route) {
-        return route.name === currentRouteName;
-      })[0].title;
+      return Object(_constants__WEBPACK_IMPORTED_MODULE_0__["getRouteTitle"])(this.$route.name);
     }
   },
   created: function created() {
@@ -3582,10 +3576,7 @@ var KEY_TABLE_OPTIONS = 'table-fundraising-category-options';
   },
   computed: {
     currentRouteTitle: function currentRouteTitle() {
-      var currentRouteName = this.$route.name;
-      return this.routeDataList.filter(function (route) {
-        return route.name === currentRouteName;
-      })[0].title;
+      return Object(_constants__WEBPACK_IMPORTED_MODULE_0__["getRouteTitle"])(this.$route.name);
     },
     editDialogTitle: function editDialogTitle() {
       return "".concat(this.editItemIndex === -1 ? 'เพิ่ม' : 'แก้ไข', "\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48");
@@ -84007,12 +83998,13 @@ var MyUploadAdapter = /*#__PURE__*/function () {
 /*!***********************************!*\
   !*** ./resources/js/constants.js ***!
   \***********************************/
-/*! exports provided: routeDataList, categoryColorList */
+/*! exports provided: routeDataList, getRouteTitle, categoryColorList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routeDataList", function() { return routeDataList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRouteTitle", function() { return getRouteTitle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "categoryColorList", function() { return categoryColorList; });
 /* harmony import */ var _pages_dashboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/dashboard */ "./resources/js/pages/dashboard.vue");
 /* harmony import */ var _pages_fundraising__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/fundraising */ "./resources/js/pages/fundraising.vue");
@@ -84029,24 +84021,71 @@ var routeDataList = [{
   title: 'หน้าหลัก',
   menuIconName: 'mdi-home'
 }, {
-  path: '/fundraising',
-  name: 'fundraising',
-  component: _pages_fundraising__WEBPACK_IMPORTED_MODULE_1__["default"],
   title: 'วิธีการระดมทุน',
-  menuIconName: 'mdi-bitcoin'
+  menuIconName: 'mdi-bitcoin',
+  subItemList: [{
+    path: '/fundraising',
+    name: 'fundraising',
+    component: _pages_fundraising__WEBPACK_IMPORTED_MODULE_1__["default"],
+    title: 'วิธีการระดมทุน',
+    menuTitle: 'วิธีการระดมทุน',
+    menuIconName: 'mdi-content-copy'
+  }, {
+    path: '/fundraising-category',
+    name: 'fundraising-category',
+    component: _pages_fundraising_category__WEBPACK_IMPORTED_MODULE_2__["default"],
+    title: 'หมวดหมู่วิธีการระดมทุน',
+    menuTitle: 'หมวดหมู่วิธีการระดมทุน',
+    menuIconName: 'mdi-shape-outline'
+  }]
 }, {
-  path: '/fundraising-category',
-  name: 'fundraising-category',
-  component: _pages_fundraising_category__WEBPACK_IMPORTED_MODULE_2__["default"],
-  title: 'หมวดหมู่วิธีการระดมทุน',
-  menuIconName: 'mdi-bitcoin'
-}, {
-  path: '/media',
-  name: 'media',
-  component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
-  title: 'สื่อการเรียนรู้ระดมทุน',
-  menuIconName: 'mdi-laptop'
+  title: 'แหล่งข้อมูลระดมทุน',
+  menuIconName: 'mdi-laptop',
+  subItemList: [{
+    path: '/media',
+    name: 'media',
+    component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
+    title: 'แหล่งข้อมูลระดมทุน > สื่อการเรียนรู้ระดมทุน',
+    menuTitle: 'สื่อการเรียนรู้ระดมทุน',
+    menuIconName: 'mdi-content-copy'
+  }, {
+    path: '/media-category',
+    name: 'media-category',
+    component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
+    title: 'หมวดหมู่สื่อการเรียนรู้ระดมทุน',
+    menuTitle: 'หมวดหมู่สื่อการเรียนรู้ฯ',
+    menuIconName: 'mdi-shape-outline'
+  }, {
+    path: '/media-category',
+    name: 'media-category',
+    component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
+    title: 'แหล่งข้อมูลระดมทุน > บทความที่เกี่ยวข้อง',
+    menuTitle: 'บทความที่เกี่ยวข้อง',
+    menuIconName: 'mdi-shape-outline'
+  }, {
+    path: '/media-category',
+    name: 'media-category',
+    component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
+    title: 'แหล่งข้อมูลระดมทุน > Link อื่นๆ ที่เกี่ยวข้อง',
+    menuTitle: 'Link อื่นๆ ที่เกี่ยวข้อง',
+    menuIconName: 'mdi-shape-outline'
+  }]
 }];
+var getRouteTitle = function getRouteTitle(routeName) {
+  var resultList = [];
+  routeDataList.forEach(function (item) {
+    if (item.subItemList == null) {
+      resultList.push(item);
+    } else {
+      item.subItemList.forEach(function (subItem) {
+        resultList.push(subItem);
+      });
+    }
+  });
+  return resultList.filter(function (item) {
+    return item.name === routeName;
+  })[0].title;
+};
 var categoryColorList = ['#beebe9', '#f4dada', '#f6eec7', '#d9e4dd', '#fbf7f0'];
 
 /***/ }),
@@ -84431,10 +84470,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+var routes = [];
+_constants__WEBPACK_IMPORTED_MODULE_2__["routeDataList"].forEach(function (item) {
+  if (item.subItemList == null) {
+    routes.push(item);
+  } else {
+    item.subItemList.forEach(function (subItem) {
+      routes.push(subItem);
+    });
+  }
+});
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   base: 'admin',
-  routes: _constants__WEBPACK_IMPORTED_MODULE_2__["routeDataList"]
+  routes: routes
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 

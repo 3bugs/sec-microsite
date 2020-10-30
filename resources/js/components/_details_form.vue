@@ -274,7 +274,7 @@
 </template>
 
 <script>
-import {routeDataList} from '../constants';
+import {getRouteTitle, routeDataList} from '../constants';
 import MyDialog from '../components/my_dialog';
 import editor from '@ckeditor/ckeditor5-build-classic';
 require('./th');
@@ -342,10 +342,7 @@ export default {
   },
   computed: {
     currentRouteTitle() {
-      const currentRouteName = this.$route.name;
-      return this.routeDataList.filter(
-        route => route.name === currentRouteName
-      )[0].title;
+      return getRouteTitle(this.$route.name);
     },
 
     coverImageRules() {
