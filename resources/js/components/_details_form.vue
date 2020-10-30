@@ -28,14 +28,33 @@
     </template>
 
     <v-toolbar flat>
-      <v-toolbar-title>{{ currentRouteTitle }} - {{ item == null ? 'เพิ่ม' : 'แก้ไข' }}ข้อมูล</v-toolbar-title>
+      <v-toolbar-title>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              light
+              v-bind="attrs"
+              v-on="on"
+              @click="handleClickCancel"
+            >
+              <v-icon color="grey darken-2">
+                mdi-arrow-left
+              </v-icon>
+            </v-btn>
+          </template>
+          <span>ย้อนกลับ (ยกเลิกการ{{ item == null ? 'เพิ่ม' : 'แก้ไข' }}ข้อมูล)</span>
+        </v-tooltip>
+
+        {{ currentRouteTitle }} - {{ item == null ? 'เพิ่ม' : 'แก้ไข' }}ข้อมูล
+      </v-toolbar-title>
       <v-divider
         class="mx-4"
         inset
         vertical
       ></v-divider>
       <v-spacer/>
-      <v-btn
+      <!--<v-btn
         color="warning"
         class="mb-2"
         @click="handleClickCancel"
@@ -48,7 +67,7 @@
           mdi-arrow-left
         </v-icon>
         ยกเลิก
-      </v-btn>
+      </v-btn>-->
     </v-toolbar>
 
     <v-form
@@ -273,6 +292,7 @@ export default {
     MyDialog,
   },
   props: {
+    tableName: String,
     item: Object,
     categoryList: Array,
     onCancelForm: Function,
@@ -344,7 +364,7 @@ export default {
     },
   },
   created() {
-    console.log('***** FundraisingForm created() *****');
+    console.log('***** DetailsForm created() *****');
     if (this.item != null) {
       this.title = this.item.title;
       this.description = this.item.description;
@@ -412,7 +432,7 @@ export default {
       const self = this;
 
       this.isDeleting = true;
-      axios.post('/api/fundraising', {
+      axios.post(`/api/${this.tableName}`, {
         id: this.item.id,
         _method: 'delete',
       })
@@ -499,7 +519,7 @@ export default {
       this.isSaving = true;
       //axios.put ไม่ work!!!
       //const saveMethod = this.item == null ? axios.post : axios.put;
-      axios.post('/api/fundraising', formData, config)
+      axios.post(`/api/${this.tableName}`, formData, config)
         .then((response) => {
           const status = response.data.status;
           const message = response.data.message;

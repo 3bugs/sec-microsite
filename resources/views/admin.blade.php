@@ -37,7 +37,7 @@
         </v-row>
       </v-container>
 
-      <v-list nav>
+      <v-list shaped>
         <v-list-item
             v-for="(route, index) in routeDataList"
             :key="index"
@@ -50,16 +50,39 @@
             <v-list-item-title>@{{ route.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        {{--<v-list-group
+            no-action
+            sub-group
+        >
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>Admin</v-list-item-title>
+            </v-list-item-content>
+          </template>
+
+          <v-list-item
+              v-for="(item, index) in ['aaa', 'bbb', 'ccc']"
+              :key="index"
+              link
+          >
+            <v-list-item-title v-text="item"></v-list-item-title>
+
+            <v-list-item-icon>
+              <v-icon v-text="'mdi-update'"></v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>--}}
       </v-list>
     </v-navigation-drawer>
 
     <v-app-bar
         app
-        color="indigo"
+        style="background: linear-gradient(91.95deg, #003558 14.65%, #005288 57.97%)"
         dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>SEC Microsite - Back Office</v-toolbar-title>
+      <v-toolbar-title>SEC MICROSITE - Back Office</v-toolbar-title>
     </v-app-bar>
 
     <v-main :style="{background: '#eee'}">
@@ -69,8 +92,8 @@
     </v-main>
 
     <v-footer
-        color="indigo"
         app
+        color="#003558"
     >
       <span class="white--text">&copy; 2020 สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</span>
     </v-footer>

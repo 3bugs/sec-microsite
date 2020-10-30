@@ -1,6 +1,7 @@
-import Dashboard from "./pages/dashboard";
-import Fundraising from "./pages/fundraising";
-import FundraisingCategory from "./pages/fundraising-category";
+import Dashboard from './pages/dashboard';
+import Fundraising from './pages/fundraising';
+import FundraisingCategory from './pages/fundraising-category';
+import Media from './pages/media';
 
 export const routeDataList = [
   {
@@ -24,9 +25,16 @@ export const routeDataList = [
     title: 'หมวดหมู่วิธีการระดมทุน',
     menuIconName: 'mdi-bitcoin',
   },
+  {
+    path: '/media',
+    name: 'media',
+    component: Media,
+    title: 'สื่อการเรียนรู้ระดมทุน',
+    menuIconName: 'mdi-bitcoin',
+  },
 ];
 
-export const fundraisingCategoryColorList = [
+export const categoryColorList = [
   '#beebe9',
   '#f4dada',
   '#f6eec7',

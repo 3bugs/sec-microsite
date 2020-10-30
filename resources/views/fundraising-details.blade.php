@@ -54,4 +54,5 @@
 @endsection
 
 @section('script')
+  //https://ckeditor.com/docs/ckeditor5/latest/features/media-embed.html#displaying-embedded-media-on-your-website
 @endsection

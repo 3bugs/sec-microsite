@@ -1,6 +1,6 @@
 <template>
   <list-form
-    table-name="fundraising"
+    table-name="media"
   />
 </template>
 

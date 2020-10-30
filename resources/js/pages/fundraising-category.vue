@@ -243,7 +243,7 @@
 </template>
 
 <script>
-import {routeDataList, fundraisingCategoryColorList} from '../constants';
+import {routeDataList, categoryColorList} from '../constants';
 import MyDialog from '../components/my_dialog';
 import {formatThaiDateTime} from '../utils/utils';
 
@@ -277,17 +277,17 @@ export default {
       isDeleting: false,
       isUpdatePublished: false,
       headers: [
-        {text: ' ', align: 'start', value: 'strip', sortable: false,},
+        {text: ' ', align: 'start', value: 'strip', sortable: false, width: '15px',},
         {text: 'ชื่อหมวดหมู่', align: 'start', value: 'title', sortable: true,},
         {text: 'คำอธิบาย', value: 'description', sortable: true,},
         {text: 'สร้าง', value: 'created_at', sortable: true, width: '70px', align: 'center',},
-        {text: 'ปรับปรุง', value: 'updated_at', sortable: true, width: '70px', align: 'center',},
+        {text: 'แก้ไข', value: 'updated_at', sortable: true, width: '70px', align: 'center',},
         {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
-        {text: 'จัดการ', value: 'actions', sortable: false, width: '80px', align: 'center',},
+        {text: 'จัดการ', value: 'actions', sortable: false, width: '90px', align: 'center',},
       ],
       dataList: [],
       routeDataList,
-      fundraisingCategoryColorList,
+      fundraisingCategoryColorList: categoryColorList,
       editDialogVisible: false,
       dialog: {
         visible: false,

@@ -2,11 +2,14 @@
 
 use App\Models\Fundraising;
 use App\Models\FundraisingCategory;
+use App\Models\Media;
+use App\Models\MediaCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 define('PATH_PUBLIC_FUNDRAISING', 'public/fundraising');
+//define('PATH_PUBLIC_MEDIA', 'public/media');
 
 /*
 |--------------------------------------------------------------------------
@@ -120,7 +123,6 @@ Route::delete('/fundraising-category', function (Request $request) {
 
 Route::get('/fundraising', function (Request $request) {
   app('debugbar')->disable();
-  //date_default_timezone_set('Asia/Bangkok');
 
   try {
     $fundraisingList = DB::table('fundraisings')
@@ -134,13 +136,6 @@ Route::get('/fundraising', function (Request $request) {
     }
     $fundraisingCategoryList = FundraisingCategory::orderBy('id', 'asc')->get();
 
-    //return $fundraisingList->toJson();
-
-    /*return json_encode(array(
-      'status' => 'ok',
-      'data_list' => $fundraisingList,
-      'category_list' => $fundraisingCategoryList,
-    ));*/
     return response()->json(array(
       'status' => 'ok',
       'data_list' => $fundraisingList,
@@ -243,6 +238,138 @@ Route::delete('/fundraising', function (Request $request) {
     $id = $request->id;
     $fundraising = Fundraising::find($id);
     $fundraising->delete();
+
+    return response()->json(array(
+      'status' => 'ok',
+      'message' => 'success',
+    ), 200);
+  } catch (Exception $e) {
+    return response()->json(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ), 200);
+  }
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+Route::get('/media', function (Request $request) {
+  app('debugbar')->disable();
+
+  try {
+    $mediaList = DB::table('media')
+      ->join('media_categories', 'media.category_id', '=', 'media_categories.id')
+      ->select('media.*', 'media_categories.title AS category_title')
+      ->orderBy('id', 'desc')
+      ->get();
+
+    foreach ($mediaList as $media) {
+      $media->cover_image = Storage::url($media->cover_image);
+    }
+    $mediaCategoryList = MediaCategory::orderBy('id', 'asc')->get();
+
+    return response()->json(array(
+      'status' => 'ok',
+      'data_list' => $mediaList,
+      'category_list' => $mediaCategoryList,
+    ), 200);
+  } catch (Exception $e) {
+    return response()->json(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ), 200);
+  }
+});
+
+Route::post('/media', function (Request $request) {
+  app('debugbar')->disable();
+
+  // imagePath: public/media/xxx.jpg
+  // imageUrl: /storage/media/xxx.jpg
+  try {
+    $imagePath = $request->file('cover_image')->store(PATH_PUBLIC_FUNDRAISING);
+    $imageUrl = Storage::url($imagePath);
+    $title = $request->title;
+    $description = $request->description;
+    $categoryId = $request->category_id;
+    $content = $request->content_data;
+
+    $media = new Media;
+    $media->title = $title;
+    $media->description = $description;
+    $media->category_id = $categoryId;
+    $media->cover_image = $imagePath;
+    $media->content = $content;
+    $media->save();
+
+    $message = "Title: $title\n"
+      . "Description: $description\n"
+      . "Category ID: $categoryId\n"
+      . "Cover image imagePath: $imagePath\n"
+      . "Cover image URL: $imageUrl";
+
+    return response()->json(array(
+      'status' => 'ok',
+      'message' => $message,
+    ), 200);
+  } catch (Exception $e) {
+    return response()->json(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ), 200);
+  }
+});
+
+Route::put('/media', function (Request $request) {
+  app('debugbar')->disable();
+
+  try {
+    $imagePath = null;
+    if ($request->hasFile('cover_image')) {
+      $imagePath = $request->file('cover_image')->store(PATH_PUBLIC_FUNDRAISING);
+      $imageUrl = Storage::url($imagePath);
+    }
+
+    $media = Media::find($request->id);
+    if ($request->has('title')) {
+      $media->title = $request->title;
+    }
+    if ($request->has('description')) {
+      $media->description = $request->description;
+    }
+    if ($request->has('category_id')) {
+      $media->category_id = $request->category_id;
+    }
+    if ($request->has('content_data')) {
+      $media->content = $request->content_data;
+    }
+    if ($request->has('published')) {
+      $media->published = $request->published;
+    }
+    if ($imagePath != null) {
+      $media->cover_image = $imagePath;
+    }
+    $media->save();
+
+    return response()->json(array(
+      'status' => 'ok',
+      'message' => '',
+    ), 200);
+  } catch (Exception $e) {
+    return response()->json(array(
+      'status' => 'error',
+      'message' => $e->getMessage(),
+    ), 200);
+  }
+});
+
+Route::delete('/media', function (Request $request) {
+  app('debugbar')->disable();
+
+  try {
+    $id = $request->id;
+    $media = Media::find($id);
+    $media->delete();
 
     return response()->json(array(
       'status' => 'ok',

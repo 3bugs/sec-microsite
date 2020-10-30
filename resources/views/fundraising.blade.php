@@ -99,7 +99,7 @@
         } else {
           targetOffset = $(targetId).offset().top - $('.my-navbar').outerHeight(true) - 15;
         }
-        $('html,body').animate({scrollTop: targetOffset}, 1000);
+        $('html,body').animate({scrollTop: targetOffset}, 200);
       });
 
       function scrollNav() {

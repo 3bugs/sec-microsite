@@ -3,8 +3,14 @@
 
 <script>
 export default {
-  data: () => ({
-  }),
+  components: {},
+  data() {
+    return {};
+  },
+  computed: {
+    computedTest() {
+    },
+  },
   created() {
   },
   methods: {
