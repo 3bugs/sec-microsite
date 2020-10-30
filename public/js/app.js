@@ -84045,7 +84045,7 @@ var routeDataList = [{
   name: 'media',
   component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
   title: 'สื่อการเรียนรู้ระดมทุน',
-  menuIconName: 'mdi-bitcoin'
+  menuIconName: 'mdi-laptop'
 }];
 var categoryColorList = ['#beebe9', '#f4dada', '#f6eec7', '#d9e4dd', '#fbf7f0'];
 

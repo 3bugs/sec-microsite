@@ -30,7 +30,7 @@ export const routeDataList = [
     name: 'media',
     component: Media,
     title: 'สื่อการเรียนรู้ระดมทุน',
-    menuIconName: 'mdi-bitcoin',
+    menuIconName: 'mdi-laptop',
   },
 ];
 
