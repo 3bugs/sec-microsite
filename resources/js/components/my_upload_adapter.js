@@ -1,15 +1,17 @@
 //https://stackoverflow.com/questions/59190905/vuejs-ckeditor5-upload-images
 export default class MyUploadAdapter {
-  constructor(loader) {
+  constructor(loader, tableName) {
     // The file loader instance to use during the upload.
     this.loader = loader;
+    this.tableName = tableName;
   }
 
   // Starts the upload process.
   upload() {
+    const tableName = this.tableName;
     return this.loader.file
       .then(file => new Promise((resolve, reject) => {
-        this._initRequest();
+        this._initRequest(tableName);
         this._initListeners(resolve, reject, file);
         this._sendRequest(file);
       }));
@@ -23,14 +25,16 @@ export default class MyUploadAdapter {
   }
 
   // Initializes the XMLHttpRequest object using the URL passed to the constructor.
-  _initRequest() {
+  _initRequest(tableName) {
+    //alert(`/api/${tableName}/upload-file`);
+
     const xhr = this.xhr = new XMLHttpRequest();
 
     // Note that your request may look different. It is up to you and your editor
     // integration to choose the right communication channel. This example uses
     // a POST request with JSON as a data structure but your configuration
     // could be different.
-    xhr.open('POST', '/api/editor-file-upload', true);
+    xhr.open('POST', `/api/${tableName}/upload-file`, true);
     xhr.responseType = 'json';
   }
 

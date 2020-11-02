@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="back: เพิ่มหน้าจัดการสื่อการเรียนรู้ระดมทุน">
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiFundraisingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiMediaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/_ApiDataController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/pages/_category_list_form.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/pages/media-category.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/_details_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/_details_form.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/my_upload_adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/my_upload_adapter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/_list_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_list_form.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/pages/fundraising-category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/fundraising-category.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +171,7 @@
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/api" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -178,22 +182,22 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/js/pages" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/js/components" />
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/resources/js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
+      <recent name="$PROJECT_DIR$/resources/js/pages" />
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/resources/js/components" />
+      <recent name="$PROJECT_DIR$/public/images" />
     </key>
   </component>
   <component name="RunManager">
@@ -233,7 +237,11 @@
       <workItem from="1603939918365" duration="25732000" />
       <workItem from="1603979360961" duration="5634000" />
       <workItem from="1604024388865" duration="5323000" />
-      <workItem from="1604031337734" duration="18178000" />
+      <workItem from="1604031337734" duration="18523000" />
+      <workItem from="1604109200242" duration="2244000" />
+      <workItem from="1604159206512" duration="660000" />
+      <workItem from="1604292004878" duration="18828000" />
+      <workItem from="1604322740696" duration="11361000" />
     </task>
     <task id="LOCAL-00001" summary="front: หน้า fundraising">
       <created>1603263528055</created>
@@ -375,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604035845563</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="back: re-implement sidebar">
+      <created>1604054979209</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1604054979209</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,23 +413,33 @@
     <MESSAGE value="back: crud fundraising-category" />
     <MESSAGE value="front: resize navbar when scrolling + responsive" />
     <MESSAGE value="back: เพิ่มหน้าจัดการสื่อการเรียนรู้ระดมทุน" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: เพิ่มหน้าจัดการสื่อการเรียนรู้ระดมทุน" />
+    <MESSAGE value="back: re-implement sidebar" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: re-implement sidebar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603441358919" />
-    <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603783971107">
+    <state x="2707" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1604334891794">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2153" y="220" key="#com.intellij.ide.util.MemberChooser/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604305197453" />
+    <state x="2707" y="220" key="#com.intellij.ide.util.MemberChooser/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604334891794" />
+    <state x="1871" y="24" width="1415" height="1056" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604311505085">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
+    <state x="1871" y="24" width="1415" height="1056" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604311505085" />
+    <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604332438461">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603783971107" />
-    <state x="2618" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603298802921" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1604035862392">
+    <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604332438461" />
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1604054978886">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604035862392" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604054978886" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603821043535" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1603295733951">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -459,22 +484,22 @@
     <state x="2159" y="464" key="NewPhpFileDialog/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603187083512" />
     <state x="2252" y="501" key="NewPhpFileDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603782902576" />
     <state x="2159" y="464" key="NewPhpFileDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603471279932" />
-    <state x="1925" y="231" key="SettingsEditor" timestamp="1604030523390">
+    <state x="1925" y="231" key="SettingsEditor" timestamp="1604322219834">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2274" y="189" key="SettingsEditor/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604024195668" />
-    <state x="1925" y="231" key="SettingsEditor/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604030523390" />
+    <state x="1925" y="231" key="SettingsEditor/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604322219834" />
     <state x="2679" y="189" key="SettingsEditor/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603902873098" />
-    <state width="654" height="446" key="SwitcherDM" timestamp="1604054296740">
+    <state width="654" height="446" key="SwitcherDM" timestamp="1604298179481">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604054296740" />
+    <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604298179481" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603463929697" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1604035872203">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1604054980647">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604035872203" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604054980647" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603821045723" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -493,10 +518,10 @@
     </state>
     <state width="798" height="296" key="javadoc.popup.new/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603250425846" />
     <state width="798" height="296" key="javadoc.popup.new/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603522066666" />
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1604049196542">
+    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1604312705443">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604049196542" />
+    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604312705443" />
     <state x="2575" y="236" width="672" height="678" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603979748040" />
   </component>
 </project>

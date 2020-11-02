@@ -2,6 +2,7 @@ import Dashboard from './pages/dashboard';
 import Fundraising from './pages/fundraising';
 import FundraisingCategory from './pages/fundraising-category';
 import Media from './pages/media';
+import MediaCategory from './pages/media-category';
 
 export const routeDataList = [
   {
@@ -12,23 +13,23 @@ export const routeDataList = [
     menuIconName: 'mdi-home',
   },
   {
-    title: 'วิธีการระดมทุน',
+    title: 'ช่องทางการระดมทุน',
     menuIconName: 'mdi-bitcoin',
     subItemList: [
       {
         path: '/fundraising',
         name: 'fundraising',
         component: Fundraising,
-        title: 'วิธีการระดมทุน',
-        menuTitle: 'วิธีการระดมทุน',
+        title: 'ช่องทางการระดมทุน',
+        menuTitle: 'ช่องทางการระดมทุน',
         menuIconName: 'mdi-content-copy',
       },
       {
         path: '/fundraising-category',
         name: 'fundraising-category',
         component: FundraisingCategory,
-        title: 'หมวดหมู่วิธีการระดมทุน',
-        menuTitle: 'หมวดหมู่วิธีการระดมทุน',
+        title: 'หมวดหมู่ช่องทางการระดมทุน',
+        menuTitle: 'หมวดหมู่ช่องทางการระดมทุน',
         menuIconName: 'mdi-shape-outline',
       },
     ],
@@ -41,14 +42,14 @@ export const routeDataList = [
         path: '/media',
         name: 'media',
         component: Media,
-        title: 'แหล่งข้อมูลระดมทุน > สื่อการเรียนรู้ระดมทุน',
+        title: 'สื่อการเรียนรู้ระดมทุน',
         menuTitle: 'สื่อการเรียนรู้ระดมทุน',
         menuIconName: 'mdi-content-copy',
       },
       {
         path: '/media-category',
         name: 'media-category',
-        component: Media,
+        component: MediaCategory,
         title: 'หมวดหมู่สื่อการเรียนรู้ระดมทุน',
         menuTitle: 'หมวดหมู่สื่อการเรียนรู้ฯ',
         menuIconName: 'mdi-shape-outline',
@@ -57,7 +58,7 @@ export const routeDataList = [
         path: '/media-category',
         name: 'media-category',
         component: Media,
-        title: 'แหล่งข้อมูลระดมทุน > บทความที่เกี่ยวข้อง',
+        title: 'บทความที่เกี่ยวข้อง',
         menuTitle: 'บทความที่เกี่ยวข้อง',
         menuIconName: 'mdi-shape-outline',
       },
@@ -65,7 +66,7 @@ export const routeDataList = [
         path: '/media-category',
         name: 'media-category',
         component: Media,
-        title: 'แหล่งข้อมูลระดมทุน > Link อื่นๆ ที่เกี่ยวข้อง',
+        title: 'Link อื่นๆ ที่เกี่ยวข้อง',
         menuTitle: 'Link อื่นๆ ที่เกี่ยวข้อง',
         menuIconName: 'mdi-shape-outline',
       },

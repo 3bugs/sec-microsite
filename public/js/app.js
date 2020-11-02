@@ -2245,6 +2245,8 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
     onDelete: Function
   },
   data: function data() {
+    var _this = this;
+
     return {
       valid: true,
       title: '',
@@ -2273,7 +2275,9 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       editor: _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_2___default.a,
       editorContent: '',
       editorConfig: {
-        extraPlugins: [this.uploader],
+        extraPlugins: [function (editor) {
+          return _this.uploader(editor, _this.tableName);
+        }],
         language: 'th'
         /*alignment: {
           options: [ 'left', 'center', 'right' ]
@@ -2308,7 +2312,7 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
     }
   },
   created: function created() {
-    var _this = this;
+    var _this2 = this;
 
     console.log('***** DetailsForm created() *****');
 
@@ -2316,7 +2320,7 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       this.title = this.item.title;
       this.description = this.item.description;
       this.selectedCategory = this.categoryList.filter(function (category) {
-        return category.id === _this.item.category_id;
+        return category.id === _this2.item.category_id;
       })[0];
       this.selectedImageSrc = this.item.cover_image;
       this.editorContent = this.item.content;
@@ -2328,9 +2332,9 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       /*const toolbarContainer = document.querySelector('.document-editor__toolbar');
       toolbarContainer.appendChild(this.editor.ui.view.toolbar.element);*/
     },
-    uploader: function uploader(editor) {
+    uploader: function uploader(editor, tableName) {
       editor.plugins.get('FileRepository').createUploadAdapter = function (loader) {
-        return new _my_upload_adapter__WEBPACK_IMPORTED_MODULE_3__["default"](loader);
+        return new _my_upload_adapter__WEBPACK_IMPORTED_MODULE_3__["default"](loader, tableName);
       };
     },
     showDialog: function showDialog(title, message, buttonList, persistent) {
@@ -2372,7 +2376,7 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       this.confirmDeleteDialog = false;
     },
     doDeleting: function doDeleting() {
-      var _this2 = this;
+      var _this3 = this;
 
       var self = this;
       this.isDeleting = true;
@@ -2384,16 +2388,16 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
         var message = response.data.message;
 
         if (status === 'ok') {
-          _this2.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
+          _this3.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
             text: 'OK',
             onClick: function onClick() {
-              if (_this2.onDelete != null) {
-                _this2.onDelete();
+              if (_this3.onDelete != null) {
+                _this3.onDelete();
               }
             }
           }], true);
         } else {
-          _this2.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+          _this3.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
             text: 'OK',
             onClick: function onClick() {//
             }
@@ -2433,7 +2437,7 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       }
     },
     doSaving: function doSaving() {
-      var _this3 = this;
+      var _this4 = this;
 
       var self = this;
       var formData = new FormData();
@@ -2461,16 +2465,16 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
         var message = response.data.message;
 
         if (status === 'ok') {
-          _this3.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
+          _this4.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
             text: 'OK',
             onClick: function onClick() {
-              if (_this3.onSave != null) {
-                _this3.onSave();
+              if (_this4.onSave != null) {
+                _this4.onSave();
               }
             }
           }], true);
         } else {
-          _this3.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+          _this4.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
             text: 'OK',
             onClick: function onClick() {//
             }
@@ -2567,6 +2571,631 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {},
   methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/_category_list_form.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/_category_list_form.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
+/* harmony import */ var _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/my_dialog */ "./resources/js/components/my_dialog.vue");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/utils */ "./resources/js/utils/utils.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    tableName: String
+  },
+  components: {
+    MyDialog: _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      KEY_TABLE_OPTIONS: "table-".concat(this.tableName, "-category-options"),
+      valid: true,
+      editItemIndex: -1,
+      editItem: {
+        title: '',
+        description: ''
+      },
+      defaultItem: {
+        title: '',
+        description: ''
+      },
+      titleRules: [function (v) {
+        return !!v || 'ต้องกรอกชื่อหมวดหมู่';
+      }, function (v) {
+        return v && v.length <= 255 || 'ชื่อหมวดหมู่ต้องไม่เกิน 255 ตัวอักษร';
+      }],
+      descriptionRules: [function (v) {
+        return !!v || 'ต้องกรอกคำอธิบาย';
+      }],
+      isLoadingList: true,
+      isSaving: false,
+      isDeleting: false,
+      isUpdatePublished: false,
+      headers: [{
+        text: ' ',
+        align: 'start',
+        value: 'strip',
+        sortable: false,
+        width: '15px'
+      }, {
+        text: 'ชื่อหมวดหมู่',
+        align: 'start',
+        value: 'title',
+        sortable: true
+      }, {
+        text: 'คำอธิบาย',
+        value: 'description',
+        sortable: true
+      }, {
+        text: 'สร้าง',
+        value: 'created_at',
+        sortable: true,
+        width: '70px',
+        align: 'center'
+      }, {
+        text: 'แก้ไข',
+        value: 'updated_at',
+        sortable: true,
+        width: '70px',
+        align: 'center'
+      }, {
+        text: 'เผยแพร่',
+        value: 'published',
+        sortable: true,
+        width: '100px',
+        align: 'center'
+      }, {
+        text: 'จัดการ',
+        value: 'actions',
+        sortable: false,
+        width: '90px',
+        align: 'center'
+      }],
+      dataList: [],
+      routeDataList: _constants__WEBPACK_IMPORTED_MODULE_0__["routeDataList"],
+      categoryColorList: _constants__WEBPACK_IMPORTED_MODULE_0__["categoryColorList"],
+      editDialogVisible: false,
+      dialog: {
+        visible: false,
+        title: '',
+        message: ''
+      },
+      snackbar: {
+        visible: false,
+        message: ''
+      },
+      formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_2__["formatThaiDateTime"]
+    };
+  },
+  computed: {
+    currentRouteTitle: function currentRouteTitle() {
+      return Object(_constants__WEBPACK_IMPORTED_MODULE_0__["getRouteTitle"])(this.$route.name);
+    },
+    editDialogTitle: function editDialogTitle() {
+      return "".concat(this.editItemIndex === -1 ? 'เพิ่ม' : 'แก้ไข', "\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48");
+    }
+  },
+  watch: {
+    editDialogVisible: function editDialogVisible(val) {
+      val || this.closeEditDialog();
+    }
+  },
+  created: function created() {
+    console.log("***** ".concat(this.tableName, " Category created() *****"));
+    this.fetchList();
+  },
+  methods: {
+    showDialog: function showDialog(title, message, buttonList, persistent) {
+      this.dialog = {
+        visible: true,
+        persistent: persistent,
+        title: title,
+        message: message,
+        buttonList: buttonList
+      };
+    },
+    handleUpdateTableOptions: function handleUpdateTableOptions(option) {
+      //alert(JSON.stringify(option));
+      localStorage.setItem(this.KEY_TABLE_OPTIONS, JSON.stringify(option));
+      console.log('TABLE OPTIONS SAVED');
+    },
+    getTableOptions: function getTableOptions() {
+      var jsonOptions = localStorage.getItem(this.KEY_TABLE_OPTIONS);
+      console.log('TABLE OPTIONS RESTORED');
+      return jsonOptions == null ? null : JSON.parse(jsonOptions);
+    },
+    handleClickEdit: function handleClickEdit(item) {
+      this.editItemIndex = item.id;
+      this.editItem = Object.assign({}, item);
+      this.editDialogVisible = true;
+    },
+    handleClickCloseEditDialog: function handleClickCloseEditDialog() {
+      this.closeEditDialog();
+    },
+    handleClickSaveEditDialog: function handleClickSaveEditDialog() {
+      if (this.$refs.form.validate()) {
+        this.doSaving();
+      } else {
+        this.snackbar.visible = true;
+        this.snackbar.message = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+        /*this.showDialog(
+          'กรุณากรอกข้อมูลให้ครบถ้วน',
+          'กรุณากรอกข้อมูลให้ครบถ้วน',
+          [{text: 'OK', onClick: null}],
+          true
+        );*/
+      }
+    },
+    closeEditDialog: function closeEditDialog() {
+      this.editItemIndex = -1;
+      this.editItem = Object.assign({}, this.defaultItem);
+      this.editDialogVisible = false;
+      this.resetValidation();
+    },
+    resetValidation: function resetValidation() {
+      this.$refs.form.resetValidation();
+    },
+    doSaving: function doSaving() {
+      var _this = this;
+
+      var self = this;
+      var _this$editItem = this.editItem,
+          title = _this$editItem.title,
+          description = _this$editItem.description;
+      var formData = new FormData();
+      formData.append('id', this.editItemIndex);
+      formData.append('title', title.trim());
+      formData.append('description', description.trim());
+
+      if (this.editItemIndex !== -1) {
+        formData.append('_method', 'put');
+      }
+
+      var config = {
+        headers: {//'content-type': 'multipart/form-data'
+        }
+      };
+      this.isSaving = true; //axios.put ไม่ work!!!
+      //const saveMethod = this.item == null ? axios.post : axios.put;
+
+      axios.post("/api/".concat(this.tableName, "-category"), formData, config).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this.closeEditDialog();
+
+          _this.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this.snackbar.visible = true;
+
+          _this.handleClickRefresh();
+        } else {
+          _this.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {//
+            }
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        self.isSaving = false;
+      });
+    },
+    handleClickRefresh: function handleClickRefresh() {
+      this.dataList = [];
+      this.fetchList();
+    },
+    scrollToTop: function scrollToTop() {
+      document.body.scrollTop = 0; // For Safari
+
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
+    fetchList: function fetchList() {
+      var _this2 = this;
+
+      this.isLoadingList = true;
+      axios.get("/api/".concat(this.tableName, "-category"), {
+        params: {}
+      }).then(function (response) {
+        console.log(response.data);
+
+        if (response.data.status === 'ok') {
+          var dataList = response.data.data_list;
+          dataList.forEach(function (item, index) {
+            item.published = item.published === 1;
+            item.isUpdating = false;
+          });
+          _this2.dataList = dataList;
+        } else {
+          var errorMessage = response.data.message;
+
+          _this2.showDialog('ผิดพลาด', errorMessage, [{
+            text: 'OK',
+            onClick: null
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+
+        _this2.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง', [{
+          text: 'OK',
+          onClick: null
+        }], true);
+      }).then(function () {
+        // always executed
+        _this2.isLoadingList = false;
+      });
+    },
+    handleClickDelete: function handleClickDelete(item) {
+      var _this3 = this;
+
+      this.showDialog("\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48", "\u0E01\u0E32\u0E23\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E08\u0E30\u0E17\u0E33\u0E43\u0E2B\u0E49\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14\u0E20\u0E32\u0E22\u0E43\u0E15\u0E49\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E19\u0E31\u0E49\u0E19\u0E16\u0E39\u0E01\u0E25\u0E1A\u0E44\u0E1B\u0E14\u0E49\u0E27\u0E22 \u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48 '".concat(item.title, "' \u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
+        text: 'ยกเลิก',
+        onClick: function onClick() {}
+      }, {
+        text: 'ลบ',
+        onClick: function onClick() {
+          _this3.doDeleting(item.id);
+        }
+      }], false);
+    },
+    doDeleting: function doDeleting(id) {
+      var _this4 = this;
+
+      this.isDeleting = true;
+      axios.post("/api/".concat(this.tableName, "-category"), {
+        id: id,
+        _method: 'delete'
+      }).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this4.snackbar.message = 'ลบข้อมูลสำเร็จ';
+          _this4.snackbar.visible = true;
+
+          _this4.handleClickRefresh();
+        } else {
+          _this4.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {//
+            }
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        _this4.isDeleting = false;
+      });
+    },
+    handleClickSwitch: function handleClickSwitch(item) {
+      var _this5 = this;
+
+      var preText = !item.published ? 'ปิดการ' : '';
+      this.showDialog("".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25"), "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
+        text: 'ไม่ใช่',
+        onClick: function onClick() {
+          item.published = !item.published;
+        }
+      }, {
+        text: 'ใช่',
+        onClick: function onClick() {
+          _this5.doUpdatePublished(item);
+        }
+      }], true);
+    },
+    doUpdatePublished: function doUpdatePublished(item) {
+      var _this6 = this;
+
+      var self = this;
+      var formData = new FormData();
+      formData.append('id', item.id);
+      formData.append('published', item.published ? 1 : 0);
+      formData.append('_method', 'put');
+      var config = {
+        /*headers: {
+          'content-type': 'multipart/form-data'
+        }*/
+      };
+      item.isUpdating = true; //axios.put ไม่ work!!!
+
+      axios.post("/api/".concat(this.tableName, "-category"), formData, config).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this6.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this6.snackbar.visible = true;
+        } else {
+          item.published = !item.published;
+
+          _this6.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {}
+          }], true);
+        }
+      })["catch"](function (error) {
+        item.published = !item.published;
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        self.isUpdating = false;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -3239,247 +3868,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
-/* harmony import */ var _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/my_dialog */ "./resources/js/components/my_dialog.vue");
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/utils */ "./resources/js/utils/utils.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _category_list_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_category_list_form */ "./resources/js/pages/_category_list_form.vue");
 //
 //
 //
@@ -3487,366 +3876,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
-
-var KEY_TABLE_OPTIONS = 'table-fundraising-category-options';
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    MyDialog: _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__["default"]
+    CategoryListForm: _category_list_form__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {
-      valid: true,
-      editItemIndex: -1,
-      editItem: {
-        title: '',
-        description: ''
-      },
-      defaultItem: {
-        title: '',
-        description: ''
-      },
-      titleRules: [function (v) {
-        return !!v || 'ต้องกรอกชื่อหมวดหมู่';
-      }, function (v) {
-        return v && v.length <= 255 || 'ชื่อหมวดหมู่ต้องไม่เกิน 255 ตัวอักษร';
-      }],
-      descriptionRules: [function (v) {
-        return !!v || 'ต้องกรอกคำอธิบาย';
-      }],
-      isLoadingList: true,
-      isSaving: false,
-      isDeleting: false,
-      isUpdatePublished: false,
-      headers: [{
-        text: ' ',
-        align: 'start',
-        value: 'strip',
-        sortable: false,
-        width: '15px'
-      }, {
-        text: 'ชื่อหมวดหมู่',
-        align: 'start',
-        value: 'title',
-        sortable: true
-      }, {
-        text: 'คำอธิบาย',
-        value: 'description',
-        sortable: true
-      }, {
-        text: 'สร้าง',
-        value: 'created_at',
-        sortable: true,
-        width: '70px',
-        align: 'center'
-      }, {
-        text: 'แก้ไข',
-        value: 'updated_at',
-        sortable: true,
-        width: '70px',
-        align: 'center'
-      }, {
-        text: 'เผยแพร่',
-        value: 'published',
-        sortable: true,
-        width: '100px',
-        align: 'center'
-      }, {
-        text: 'จัดการ',
-        value: 'actions',
-        sortable: false,
-        width: '90px',
-        align: 'center'
-      }],
-      dataList: [],
-      routeDataList: _constants__WEBPACK_IMPORTED_MODULE_0__["routeDataList"],
-      fundraisingCategoryColorList: _constants__WEBPACK_IMPORTED_MODULE_0__["categoryColorList"],
-      editDialogVisible: false,
-      dialog: {
-        visible: false,
-        title: '',
-        message: ''
-      },
-      snackbar: {
-        visible: false,
-        message: ''
-      },
-      formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_2__["formatThaiDateTime"]
-    };
+    return {};
   },
-  computed: {
-    currentRouteTitle: function currentRouteTitle() {
-      return Object(_constants__WEBPACK_IMPORTED_MODULE_0__["getRouteTitle"])(this.$route.name);
-    },
-    editDialogTitle: function editDialogTitle() {
-      return "".concat(this.editItemIndex === -1 ? 'เพิ่ม' : 'แก้ไข', "\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48");
-    }
-  },
-  watch: {
-    editDialogVisible: function editDialogVisible(val) {
-      val || this.closeEditDialog();
-    }
-  },
-  created: function created() {
-    console.log('***** Fundraising Category created() *****');
-    this.fetchList();
-  },
+  created: function created() {},
   methods: {
-    showDialog: function showDialog(title, message, buttonList, persistent) {
-      this.dialog = {
-        visible: true,
-        persistent: persistent,
-        title: title,
-        message: message,
-        buttonList: buttonList
-      };
-    },
-    handleUpdateTableOptions: function handleUpdateTableOptions(option) {
-      //alert(JSON.stringify(option));
-      localStorage.setItem(KEY_TABLE_OPTIONS, JSON.stringify(option));
-      console.log('TABLE OPTIONS SAVED');
-    },
-    getTableOptions: function getTableOptions() {
-      var jsonOptions = localStorage.getItem(KEY_TABLE_OPTIONS);
-      console.log('TABLE OPTIONS RESTORED');
-      return jsonOptions == null ? null : JSON.parse(jsonOptions);
-    },
-    handleClickEdit: function handleClickEdit(item) {
-      this.editItemIndex = item.id;
-      this.editItem = Object.assign({}, item);
-      this.editDialogVisible = true;
-    },
-    handleClickCloseEditDialog: function handleClickCloseEditDialog() {
-      this.closeEditDialog();
-    },
-    handleClickSaveEditDialog: function handleClickSaveEditDialog() {
-      if (this.$refs.form.validate()) {
-        this.doSaving();
-      } else {
-        this.snackbar.visible = true;
-        this.snackbar.message = 'กรุณากรอกข้อมูลให้ครบถ้วน';
-        /*this.showDialog(
-          'กรุณากรอกข้อมูลให้ครบถ้วน',
-          'กรุณากรอกข้อมูลให้ครบถ้วน',
-          [{text: 'OK', onClick: null}],
-          true
-        );*/
-      }
-    },
-    closeEditDialog: function closeEditDialog() {
-      this.editItemIndex = -1;
-      this.editItem = Object.assign({}, this.defaultItem);
-      this.editDialogVisible = false;
-      this.resetValidation();
-    },
-    resetValidation: function resetValidation() {
-      this.$refs.form.resetValidation();
-    },
-    doSaving: function doSaving() {
-      var _this = this;
-
-      var self = this;
-      var _this$editItem = this.editItem,
-          title = _this$editItem.title,
-          description = _this$editItem.description;
-      var formData = new FormData();
-      formData.append('id', this.editItemIndex);
-      formData.append('title', title.trim());
-      formData.append('description', description.trim());
-
-      if (this.editItemIndex !== -1) {
-        formData.append('_method', 'put');
-      }
-
-      var config = {
-        headers: {//'content-type': 'multipart/form-data'
-        }
-      };
-      this.isSaving = true; //axios.put ไม่ work!!!
-      //const saveMethod = this.item == null ? axios.post : axios.put;
-
-      axios.post('/api/fundraising-category', formData, config).then(function (response) {
-        var status = response.data.status;
-        var message = response.data.message;
-
-        if (status === 'ok') {
-          _this.closeEditDialog();
-
-          _this.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
-          _this.snackbar.visible = true;
-
-          _this.handleClickRefresh();
-        } else {
-          _this.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
-            text: 'OK',
-            onClick: function onClick() {//
-            }
-          }], true);
-        }
-      })["catch"](function (error) {
-        console.log(error);
-        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
-          text: 'OK',
-          onClick: function onClick() {//
-          }
-        }], true);
-      }).then(function () {
-        // always executed
-        self.isSaving = false;
-      });
-    },
-    handleClickRefresh: function handleClickRefresh() {
-      this.dataList = [];
-      this.fetchList();
-    },
-    scrollToTop: function scrollToTop() {
-      document.body.scrollTop = 0; // For Safari
-
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    },
-    fetchList: function fetchList() {
-      var _this2 = this;
-
-      this.isLoadingList = true;
-      axios.get('/api/fundraising-category', {
-        params: {}
-      }).then(function (response) {
-        console.log(response.data);
-
-        if (response.data.status === 'ok') {
-          var dataList = response.data.data_list;
-          dataList.forEach(function (item, index) {
-            item.published = item.published === 1;
-            item.isUpdating = false;
-          });
-          _this2.dataList = dataList;
-        } else {
-          var errorMessage = response.data.message;
-
-          _this2.showDialog('ผิดพลาด', errorMessage, [{
-            text: 'OK',
-            onClick: null
-          }], true);
-        }
-      })["catch"](function (error) {
-        console.log(error);
-
-        _this2.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง', [{
-          text: 'OK',
-          onClick: null
-        }], true);
-      }).then(function () {
-        // always executed
-        _this2.isLoadingList = false;
-      });
-    },
-    handleClickDelete: function handleClickDelete(item) {
-      var _this3 = this;
-
-      this.showDialog("\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48", "\u0E01\u0E32\u0E23\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E08\u0E30\u0E17\u0E33\u0E43\u0E2B\u0E49\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14\u0E20\u0E32\u0E22\u0E43\u0E15\u0E49\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48\u0E19\u0E31\u0E49\u0E19\u0E16\u0E39\u0E01\u0E25\u0E1A\u0E44\u0E1B\u0E14\u0E49\u0E27\u0E22 \u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E25\u0E1A\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48 '".concat(item.title, "' \u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
-        text: 'ยกเลิก',
-        onClick: function onClick() {}
-      }, {
-        text: 'ลบ',
-        onClick: function onClick() {
-          _this3.doDeleting(item.id);
-        }
-      }], false);
-    },
-    doDeleting: function doDeleting(id) {
-      var _this4 = this;
-
-      this.isDeleting = true;
-      axios.post('/api/fundraising-category', {
-        id: id,
-        _method: 'delete'
-      }).then(function (response) {
-        var status = response.data.status;
-        var message = response.data.message;
-
-        if (status === 'ok') {
-          _this4.snackbar.message = 'ลบข้อมูลสำเร็จ';
-          _this4.snackbar.visible = true;
-
-          _this4.handleClickRefresh();
-        } else {
-          _this4.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
-            text: 'OK',
-            onClick: function onClick() {//
-            }
-          }], true);
-        }
-      })["catch"](function (error) {
-        console.log(error);
-        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
-          text: 'OK',
-          onClick: function onClick() {//
-          }
-        }], true);
-      }).then(function () {
-        // always executed
-        _this4.isDeleting = false;
-      });
-    },
-    handleClickSwitch: function handleClickSwitch(item) {
-      var _this5 = this;
-
-      var preText = !item.published ? 'ปิดการ' : '';
-      this.showDialog("".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25"), "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
-        text: 'ไม่ใช่',
-        onClick: function onClick() {
-          item.published = !item.published;
-        }
-      }, {
-        text: 'ใช่',
-        onClick: function onClick() {
-          _this5.doUpdatePublished(item);
-        }
-      }], true);
-    },
-    doUpdatePublished: function doUpdatePublished(item) {
-      var _this6 = this;
-
-      var self = this;
-      var formData = new FormData();
-      formData.append('id', item.id);
-      formData.append('published', item.published ? 1 : 0);
-      formData.append('_method', 'put');
-      var config = {
-        /*headers: {
-          'content-type': 'multipart/form-data'
-        }*/
-      };
-      item.isUpdating = true; //axios.put ไม่ work!!!
-
-      axios.post('/api/fundraising-category', formData, config).then(function (response) {
-        var status = response.data.status;
-        var message = response.data.message;
-
-        if (status === 'ok') {
-          _this6.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
-          _this6.snackbar.visible = true;
-        } else {
-          item.published = !item.published;
-
-          _this6.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
-            text: 'OK',
-            onClick: function onClick() {}
-          }], true);
-        }
-      })["catch"](function (error) {
-        item.published = !item.published;
-        console.log(error);
-        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
-          text: 'OK',
-          onClick: function onClick() {//
-          }
-        }], true);
-      }).then(function () {
-        // always executed
-        self.isUpdating = false;
-      });
-    }
+    test: function test() {}
   }
 });
 
@@ -3872,6 +3911,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     ListForm: _list_form__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {};
+  },
+  created: function created() {},
+  methods: {
+    test: function test() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/media-category.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/media-category.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _category_list_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_category_list_form */ "./resources/js/pages/_category_list_form.vue");
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    CategoryListForm: _category_list_form__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {};
@@ -3928,7 +3999,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 150px;\n}\n", ""]);
+exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 0;\n}\n", ""]);
 
 // exports
 
@@ -22788,6 +22859,590 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/_category_list_form.vue?vue&type=template&id=6608090a&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/_category_list_form.vue?vue&type=template&id=6608090a&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    [
+      _c(
+        "v-overlay",
+        { attrs: { value: _vm.isSaving || _vm.isDeleting, "z-index": "9999" } },
+        [
+          _c(
+            "v-progress-circular",
+            { attrs: { indeterminate: "", size: "70" } },
+            [
+              _c("v-img", {
+                staticClass: "mb-2",
+                attrs: {
+                  "lazy-src": "/images/logo.svg",
+                  "max-height": "40",
+                  "max-width": "40",
+                  src: "/images/logo.svg"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-data-table", {
+        staticClass: "elevation-1",
+        attrs: {
+          headers: _vm.headers,
+          items: _vm.dataList,
+          loading: _vm.isLoadingList,
+          "footer-props": {
+            //'items-per-page-all-text': 'ทั้งหมด',
+            "items-per-page-text": "จำนวนแถวข้อมูลต่อหน้า",
+            //'page-text': '',
+            "show-current-page": true
+          },
+          options: _vm.getTableOptions()
+        },
+        on: { "update:options": _vm.handleUpdateTableOptions },
+        scopedSlots: _vm._u([
+          {
+            key: "top",
+            fn: function() {
+              return [
+                _c(
+                  "v-toolbar",
+                  { attrs: { flat: "" } },
+                  [
+                    _c("v-toolbar-title", [
+                      _vm._v(_vm._s(_vm.currentRouteTitle))
+                    ]),
+                    _vm._v(" "),
+                    _c("v-divider", {
+                      staticClass: "mx-4",
+                      attrs: { inset: "", vertical: "" }
+                    }),
+                    _vm._v(" "),
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-dialog",
+                      {
+                        attrs: { "max-width": "600px" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    _vm._b(
+                                      {
+                                        staticClass: "mb-2 mr-2",
+                                        attrs: { color: "primary", dark: "" }
+                                      },
+                                      "v-btn",
+                                      attrs,
+                                      false
+                                    ),
+                                    on
+                                  ),
+                                  [
+                                    _c(
+                                      "v-icon",
+                                      {
+                                        staticClass: "mr-2",
+                                        attrs: { small: "" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                mdi-plus-thick\n              "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(
+                                      "\n              เพิ่ม\n            "
+                                    )
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ]),
+                        model: {
+                          value: _vm.editDialogVisible,
+                          callback: function($$v) {
+                            _vm.editDialogVisible = $$v
+                          },
+                          expression: "editDialogVisible"
+                        }
+                      },
+                      [
+                        _vm._v(" "),
+                        _c(
+                          "v-card",
+                          [
+                            _c("v-card-title", [
+                              _c("span", { staticClass: "headline" }, [
+                                _vm._v(
+                                  "\n                " +
+                                    _vm._s(_vm.editDialogTitle) +
+                                    "\n              "
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-text",
+                              [
+                                _c(
+                                  "v-container",
+                                  [
+                                    _c(
+                                      "v-form",
+                                      {
+                                        ref: "form",
+                                        staticClass: "pl-0 pr-0",
+                                        attrs: { "lazy-validation": "" },
+                                        model: {
+                                          value: _vm.valid,
+                                          callback: function($$v) {
+                                            _vm.valid = $$v
+                                          },
+                                          expression: "valid"
+                                        }
+                                      },
+                                      [
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            counter: 255,
+                                            rules: _vm.titleRules,
+                                            label: "ชื่อหมวดหมู่",
+                                            required: ""
+                                          },
+                                          model: {
+                                            value: _vm.editItem.title,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editItem,
+                                                "title",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editItem.title"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("v-text-field", {
+                                          attrs: {
+                                            rules: _vm.descriptionRules,
+                                            label: "คำอธิบาย",
+                                            required: ""
+                                          },
+                                          model: {
+                                            value: _vm.editItem.description,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.editItem,
+                                                "description",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "editItem.description"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-actions",
+                              [
+                                _c("v-spacer"),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "blue darken-1", text: "" },
+                                    on: {
+                                      click: _vm.handleClickCloseEditDialog
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                ยกเลิก\n              "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "blue darken-1", text: "" },
+                                    on: { click: _vm.handleClickSaveEditDialog }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                บันทึก\n              "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "mb-2",
+                        attrs: { color: "success", dark: "" },
+                        on: { click: _vm.handleClickRefresh }
+                      },
+                      [
+                        _c("v-icon", { attrs: { medium: "" } }, [
+                          _vm._v("\n            mdi-refresh\n          ")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "item.strip",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c("div", {
+                  staticClass: "mt-2 mb-2",
+                  style:
+                    "border: 0 solid red; background-color: " +
+                    _vm.categoryColorList[
+                      (item.id - 1) % _vm.categoryColorList.length
+                    ] +
+                    "; min-height: 70px; height: 100%; width: 10px;"
+                })
+              ]
+            }
+          },
+          {
+            key: "item.created_at",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      staticClass: "mr-2",
+                                      attrs: { small: "" }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [
+                                  _vm._v(
+                                    "\n            mdi-calendar\n          "
+                                  )
+                                ]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(_vm._s(_vm.formatThaiDateTime(item.created_at)))
+                    ])
+                  ]
+                )
+              ]
+            }
+          },
+          {
+            key: "item.updated_at",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      staticClass: "mr-2",
+                                      attrs: { small: "" }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [
+                                  _vm._v(
+                                    "\n            mdi-calendar\n          "
+                                  )
+                                ]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(
+                        _vm._s(
+                          item.updated_at == null
+                            ? "ยังไม่เคยมีการแก้ไข"
+                            : _vm.formatThaiDateTime(item.updated_at)
+                        )
+                      )
+                    ])
+                  ]
+                )
+              ]
+            }
+          },
+          {
+            key: "item.published",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c("v-switch", {
+                  staticClass: "ma-0 pa-0",
+                  attrs: { color: "primary", "hide-details": "" },
+                  on: {
+                    click: function($event) {
+                      return _vm.handleClickSwitch(item)
+                    }
+                  },
+                  model: {
+                    value: item.published,
+                    callback: function($$v) {
+                      _vm.$set(item, "published", $$v)
+                    },
+                    expression: "item.published"
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "item.actions",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      staticClass: "mr-3",
+                                      attrs: { small: "" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.handleClickEdit(item)
+                                        }
+                                      }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [_vm._v("\n            mdi-pencil\n          ")]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [_vm._v(" "), _c("span", [_vm._v("แก้ไข")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      attrs: { small: "" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.handleClickDelete(item)
+                                        }
+                                      }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [_vm._v("\n            mdi-delete\n          ")]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [_vm._v(" "), _c("span", [_vm._v("ลบ")])]
+                )
+              ]
+            }
+          },
+          {
+            key: "progress",
+            fn: function() {
+              return [
+                _c("v-progress-linear", {
+                  attrs: { color: "indigo", height: 5, indeterminate: "" }
+                })
+              ]
+            },
+            proxy: true
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _c("my-dialog", {
+        attrs: {
+          visible: _vm.dialog.visible,
+          persistent: _vm.dialog.persistent,
+          title: _vm.dialog.title,
+          message: _vm.dialog.message,
+          "button-list": _vm.dialog.buttonList
+        },
+        on: {
+          close: function($event) {
+            _vm.dialog.visible = false
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          model: {
+            value: _vm.snackbar.visible,
+            callback: function($$v) {
+              _vm.$set(_vm.snackbar, "visible", $$v)
+            },
+            expression: "snackbar.visible"
+          }
+        },
+        [_vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/_list_form.vue?vue&type=template&id=9c259522&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/_list_form.vue?vue&type=template&id=9c259522&scoped=true& ***!
@@ -23462,567 +24117,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-container",
-    [
-      _c(
-        "v-overlay",
-        { attrs: { value: _vm.isSaving || _vm.isDeleting, "z-index": "9999" } },
-        [
-          _c(
-            "v-progress-circular",
-            { attrs: { indeterminate: "", size: "70" } },
-            [
-              _c("v-img", {
-                staticClass: "mb-2",
-                attrs: {
-                  "lazy-src": "/images/logo.svg",
-                  "max-height": "40",
-                  "max-width": "40",
-                  src: "/images/logo.svg"
-                }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("v-data-table", {
-        staticClass: "elevation-1",
-        attrs: {
-          headers: _vm.headers,
-          items: _vm.dataList,
-          loading: _vm.isLoadingList,
-          "footer-props": {
-            //'items-per-page-all-text': 'ทั้งหมด',
-            "items-per-page-text": "จำนวนแถวข้อมูลต่อหน้า",
-            //'page-text': '',
-            "show-current-page": true
-          },
-          options: _vm.getTableOptions()
-        },
-        on: { "update:options": _vm.handleUpdateTableOptions },
-        scopedSlots: _vm._u([
-          {
-            key: "top",
-            fn: function() {
-              return [
-                _c(
-                  "v-toolbar",
-                  { attrs: { flat: "" } },
-                  [
-                    _c("v-toolbar-title", [
-                      _vm._v(_vm._s(_vm.currentRouteTitle))
-                    ]),
-                    _vm._v(" "),
-                    _c("v-divider", {
-                      staticClass: "mx-4",
-                      attrs: { inset: "", vertical: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("v-spacer"),
-                    _vm._v(" "),
-                    _c(
-                      "v-dialog",
-                      {
-                        attrs: { "max-width": "600px" },
-                        scopedSlots: _vm._u([
-                          {
-                            key: "activator",
-                            fn: function(ref) {
-                              var on = ref.on
-                              var attrs = ref.attrs
-                              return [
-                                _c(
-                                  "v-btn",
-                                  _vm._g(
-                                    _vm._b(
-                                      {
-                                        staticClass: "mb-2 mr-2",
-                                        attrs: { color: "primary", dark: "" }
-                                      },
-                                      "v-btn",
-                                      attrs,
-                                      false
-                                    ),
-                                    on
-                                  ),
-                                  [
-                                    _c(
-                                      "v-icon",
-                                      {
-                                        staticClass: "mr-2",
-                                        attrs: { small: "" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                mdi-plus-thick\n              "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(
-                                      "\n              เพิ่ม\n            "
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
-                            }
-                          }
-                        ]),
-                        model: {
-                          value: _vm.editDialogVisible,
-                          callback: function($$v) {
-                            _vm.editDialogVisible = $$v
-                          },
-                          expression: "editDialogVisible"
-                        }
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "v-card",
-                          [
-                            _c("v-card-title", [
-                              _c("span", { staticClass: "headline" }, [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(_vm.editDialogTitle) +
-                                    "\n              "
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-text",
-                              [
-                                _c(
-                                  "v-container",
-                                  [
-                                    _c(
-                                      "v-form",
-                                      {
-                                        ref: "form",
-                                        staticClass: "pl-0 pr-0",
-                                        attrs: { "lazy-validation": "" },
-                                        model: {
-                                          value: _vm.valid,
-                                          callback: function($$v) {
-                                            _vm.valid = $$v
-                                          },
-                                          expression: "valid"
-                                        }
-                                      },
-                                      [
-                                        _c("v-text-field", {
-                                          attrs: {
-                                            counter: 255,
-                                            rules: _vm.titleRules,
-                                            label: "ชื่อหมวดหมู่",
-                                            required: ""
-                                          },
-                                          model: {
-                                            value: _vm.editItem.title,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.editItem,
-                                                "title",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "editItem.title"
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-text-field", {
-                                          attrs: {
-                                            rules: _vm.descriptionRules,
-                                            label: "คำอธิบาย",
-                                            required: ""
-                                          },
-                                          model: {
-                                            value: _vm.editItem.description,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.editItem,
-                                                "description",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "editItem.description"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-actions",
-                              [
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { color: "blue darken-1", text: "" },
-                                    on: {
-                                      click: _vm.handleClickCloseEditDialog
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                ยกเลิก\n              "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { color: "blue darken-1", text: "" },
-                                    on: { click: _vm.handleClickSaveEditDialog }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                บันทึก\n              "
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        staticClass: "mb-2",
-                        attrs: { color: "success", dark: "" },
-                        on: { click: _vm.handleClickRefresh }
-                      },
-                      [
-                        _c("v-icon", { attrs: { medium: "" } }, [
-                          _vm._v("\n            mdi-refresh\n          ")
-                        ])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "item.strip",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c("div", {
-                  staticClass: "mt-2 mb-2",
-                  style:
-                    "border: 0 solid red; background-color: " +
-                    _vm.fundraisingCategoryColorList[
-                      (item.id - 1) % _vm.fundraisingCategoryColorList.length
-                    ] +
-                    "; min-height: 70px; height: 100%; width: 10px;"
-                })
-              ]
-            }
-          },
-          {
-            key: "item.created_at",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c(
-                  "v-tooltip",
-                  {
-                    attrs: { bottom: "" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "activator",
-                          fn: function(ref) {
-                            var on = ref.on
-                            var attrs = ref.attrs
-                            return [
-                              _c(
-                                "v-icon",
-                                _vm._g(
-                                  _vm._b(
-                                    {
-                                      staticClass: "mr-2",
-                                      attrs: { small: "" }
-                                    },
-                                    "v-icon",
-                                    attrs,
-                                    false
-                                  ),
-                                  on
-                                ),
-                                [
-                                  _vm._v(
-                                    "\n            mdi-calendar\n          "
-                                  )
-                                ]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      true
-                    )
-                  },
-                  [
-                    _vm._v(" "),
-                    _c("span", [
-                      _vm._v(_vm._s(_vm.formatThaiDateTime(item.created_at)))
-                    ])
-                  ]
-                )
-              ]
-            }
-          },
-          {
-            key: "item.updated_at",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c(
-                  "v-tooltip",
-                  {
-                    attrs: { bottom: "" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "activator",
-                          fn: function(ref) {
-                            var on = ref.on
-                            var attrs = ref.attrs
-                            return [
-                              _c(
-                                "v-icon",
-                                _vm._g(
-                                  _vm._b(
-                                    {
-                                      staticClass: "mr-2",
-                                      attrs: { small: "" }
-                                    },
-                                    "v-icon",
-                                    attrs,
-                                    false
-                                  ),
-                                  on
-                                ),
-                                [
-                                  _vm._v(
-                                    "\n            mdi-calendar\n          "
-                                  )
-                                ]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      true
-                    )
-                  },
-                  [
-                    _vm._v(" "),
-                    _c("span", [
-                      _vm._v(
-                        _vm._s(
-                          item.updated_at == null
-                            ? "ยังไม่เคยมีการแก้ไข"
-                            : _vm.formatThaiDateTime(item.updated_at)
-                        )
-                      )
-                    ])
-                  ]
-                )
-              ]
-            }
-          },
-          {
-            key: "item.published",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c("v-switch", {
-                  staticClass: "ma-0 pa-0",
-                  attrs: { color: "primary", "hide-details": "" },
-                  on: {
-                    click: function($event) {
-                      return _vm.handleClickSwitch(item)
-                    }
-                  },
-                  model: {
-                    value: item.published,
-                    callback: function($$v) {
-                      _vm.$set(item, "published", $$v)
-                    },
-                    expression: "item.published"
-                  }
-                })
-              ]
-            }
-          },
-          {
-            key: "item.actions",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c(
-                  "v-tooltip",
-                  {
-                    attrs: { bottom: "" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "activator",
-                          fn: function(ref) {
-                            var on = ref.on
-                            var attrs = ref.attrs
-                            return [
-                              _c(
-                                "v-icon",
-                                _vm._g(
-                                  _vm._b(
-                                    {
-                                      staticClass: "mr-3",
-                                      attrs: { small: "" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.handleClickEdit(item)
-                                        }
-                                      }
-                                    },
-                                    "v-icon",
-                                    attrs,
-                                    false
-                                  ),
-                                  on
-                                ),
-                                [_vm._v("\n            mdi-pencil\n          ")]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      true
-                    )
-                  },
-                  [_vm._v(" "), _c("span", [_vm._v("แก้ไข")])]
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-tooltip",
-                  {
-                    attrs: { bottom: "" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "activator",
-                          fn: function(ref) {
-                            var on = ref.on
-                            var attrs = ref.attrs
-                            return [
-                              _c(
-                                "v-icon",
-                                _vm._g(
-                                  _vm._b(
-                                    {
-                                      attrs: { small: "" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.handleClickDelete(item)
-                                        }
-                                      }
-                                    },
-                                    "v-icon",
-                                    attrs,
-                                    false
-                                  ),
-                                  on
-                                ),
-                                [_vm._v("\n            mdi-delete\n          ")]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      true
-                    )
-                  },
-                  [_vm._v(" "), _c("span", [_vm._v("ลบ")])]
-                )
-              ]
-            }
-          },
-          {
-            key: "progress",
-            fn: function() {
-              return [
-                _c("v-progress-linear", {
-                  attrs: { color: "indigo", height: 5, indeterminate: "" }
-                })
-              ]
-            },
-            proxy: true
-          }
-        ])
-      }),
-      _vm._v(" "),
-      _c("my-dialog", {
-        attrs: {
-          visible: _vm.dialog.visible,
-          persistent: _vm.dialog.persistent,
-          title: _vm.dialog.title,
-          message: _vm.dialog.message,
-          "button-list": _vm.dialog.buttonList
-        },
-        on: {
-          close: function($event) {
-            _vm.dialog.visible = false
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "v-snackbar",
-        {
-          model: {
-            value: _vm.snackbar.visible,
-            callback: function($$v) {
-              _vm.$set(_vm.snackbar, "visible", $$v)
-            },
-            expression: "snackbar.visible"
-          }
-        },
-        [_vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")]
-      )
-    ],
-    1
-  )
+  return _c("category-list-form", { attrs: { "table-name": "fundraising" } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -24047,6 +24142,30 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("list-form", { attrs: { "table-name": "fundraising" } })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/media-category.vue?vue&type=template&id=3bf4ea20&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/media-category.vue?vue&type=template&id=3bf4ea20&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("category-list-form", { attrs: { "table-name": "media" } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -83705,11 +83824,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 //https://stackoverflow.com/questions/59190905/vuejs-ckeditor5-upload-images
 var MyUploadAdapter = /*#__PURE__*/function () {
-  function MyUploadAdapter(loader) {
+  function MyUploadAdapter(loader, tableName) {
     _classCallCheck(this, MyUploadAdapter);
 
     // The file loader instance to use during the upload.
     this.loader = loader;
+    this.tableName = tableName;
   } // Starts the upload process.
 
 
@@ -83718,9 +83838,10 @@ var MyUploadAdapter = /*#__PURE__*/function () {
     value: function upload() {
       var _this = this;
 
+      var tableName = this.tableName;
       return this.loader.file.then(function (file) {
         return new Promise(function (resolve, reject) {
-          _this._initRequest();
+          _this._initRequest(tableName);
 
           _this._initListeners(resolve, reject, file);
 
@@ -83739,13 +83860,14 @@ var MyUploadAdapter = /*#__PURE__*/function () {
 
   }, {
     key: "_initRequest",
-    value: function _initRequest() {
+    value: function _initRequest(tableName) {
+      //alert(`/api/${tableName}/upload-file`);
       var xhr = this.xhr = new XMLHttpRequest(); // Note that your request may look different. It is up to you and your editor
       // integration to choose the right communication channel. This example uses
       // a POST request with JSON as a data structure but your configuration
       // could be different.
 
-      xhr.open('POST', '/api/editor-file-upload', true);
+      xhr.open('POST', "/api/".concat(tableName, "/upload-file"), true);
       xhr.responseType = 'json';
     } // Initializes XMLHttpRequest listeners.
 
@@ -84010,6 +84132,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_fundraising__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/fundraising */ "./resources/js/pages/fundraising.vue");
 /* harmony import */ var _pages_fundraising_category__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/fundraising-category */ "./resources/js/pages/fundraising-category.vue");
 /* harmony import */ var _pages_media__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/media */ "./resources/js/pages/media.vue");
+/* harmony import */ var _pages_media_category__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/media-category */ "./resources/js/pages/media-category.vue");
+
 
 
 
@@ -84021,21 +84145,21 @@ var routeDataList = [{
   title: 'หน้าหลัก',
   menuIconName: 'mdi-home'
 }, {
-  title: 'วิธีการระดมทุน',
+  title: 'ช่องทางการระดมทุน',
   menuIconName: 'mdi-bitcoin',
   subItemList: [{
     path: '/fundraising',
     name: 'fundraising',
     component: _pages_fundraising__WEBPACK_IMPORTED_MODULE_1__["default"],
-    title: 'วิธีการระดมทุน',
-    menuTitle: 'วิธีการระดมทุน',
+    title: 'ช่องทางการระดมทุน',
+    menuTitle: 'ช่องทางการระดมทุน',
     menuIconName: 'mdi-content-copy'
   }, {
     path: '/fundraising-category',
     name: 'fundraising-category',
     component: _pages_fundraising_category__WEBPACK_IMPORTED_MODULE_2__["default"],
-    title: 'หมวดหมู่วิธีการระดมทุน',
-    menuTitle: 'หมวดหมู่วิธีการระดมทุน',
+    title: 'หมวดหมู่ช่องทางการระดมทุน',
+    menuTitle: 'หมวดหมู่ช่องทางการระดมทุน',
     menuIconName: 'mdi-shape-outline'
   }]
 }, {
@@ -84045,13 +84169,13 @@ var routeDataList = [{
     path: '/media',
     name: 'media',
     component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
-    title: 'แหล่งข้อมูลระดมทุน > สื่อการเรียนรู้ระดมทุน',
+    title: 'สื่อการเรียนรู้ระดมทุน',
     menuTitle: 'สื่อการเรียนรู้ระดมทุน',
     menuIconName: 'mdi-content-copy'
   }, {
     path: '/media-category',
     name: 'media-category',
-    component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
+    component: _pages_media_category__WEBPACK_IMPORTED_MODULE_4__["default"],
     title: 'หมวดหมู่สื่อการเรียนรู้ระดมทุน',
     menuTitle: 'หมวดหมู่สื่อการเรียนรู้ฯ',
     menuIconName: 'mdi-shape-outline'
@@ -84059,14 +84183,14 @@ var routeDataList = [{
     path: '/media-category',
     name: 'media-category',
     component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
-    title: 'แหล่งข้อมูลระดมทุน > บทความที่เกี่ยวข้อง',
+    title: 'บทความที่เกี่ยวข้อง',
     menuTitle: 'บทความที่เกี่ยวข้อง',
     menuIconName: 'mdi-shape-outline'
   }, {
     path: '/media-category',
     name: 'media-category',
     component: _pages_media__WEBPACK_IMPORTED_MODULE_3__["default"],
-    title: 'แหล่งข้อมูลระดมทุน > Link อื่นๆ ที่เกี่ยวข้อง',
+    title: 'Link อื่นๆ ที่เกี่ยวข้อง',
     menuTitle: 'Link อื่นๆ ที่เกี่ยวข้อง',
     menuIconName: 'mdi-shape-outline'
   }]
@@ -84087,6 +84211,75 @@ var getRouteTitle = function getRouteTitle(routeName) {
   })[0].title;
 };
 var categoryColorList = ['#beebe9', '#f4dada', '#f6eec7', '#d9e4dd', '#fbf7f0'];
+
+/***/ }),
+
+/***/ "./resources/js/pages/_category_list_form.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/pages/_category_list_form.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _category_list_form_vue_vue_type_template_id_6608090a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_category_list_form.vue?vue&type=template&id=6608090a&scoped=true& */ "./resources/js/pages/_category_list_form.vue?vue&type=template&id=6608090a&scoped=true&");
+/* harmony import */ var _category_list_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_category_list_form.vue?vue&type=script&lang=js& */ "./resources/js/pages/_category_list_form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _category_list_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _category_list_form_vue_vue_type_template_id_6608090a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _category_list_form_vue_vue_type_template_id_6608090a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "6608090a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/_category_list_form.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/_category_list_form.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/pages/_category_list_form.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_category_list_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./_category_list_form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/_category_list_form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_category_list_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/_category_list_form.vue?vue&type=template&id=6608090a&scoped=true&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/pages/_category_list_form.vue?vue&type=template&id=6608090a&scoped=true& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_list_form_vue_vue_type_template_id_6608090a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./_category_list_form.vue?vue&type=template&id=6608090a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/_category_list_form.vue?vue&type=template&id=6608090a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_list_form_vue_vue_type_template_id_6608090a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_category_list_form_vue_vue_type_template_id_6608090a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -84379,6 +84572,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_vue_vue_type_template_id_6a66ae6b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_fundraising_vue_vue_type_template_id_6a66ae6b_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/media-category.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/pages/media-category.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _media_category_vue_vue_type_template_id_3bf4ea20_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./media-category.vue?vue&type=template&id=3bf4ea20&scoped=true& */ "./resources/js/pages/media-category.vue?vue&type=template&id=3bf4ea20&scoped=true&");
+/* harmony import */ var _media_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./media-category.vue?vue&type=script&lang=js& */ "./resources/js/pages/media-category.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _media_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _media_category_vue_vue_type_template_id_3bf4ea20_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _media_category_vue_vue_type_template_id_3bf4ea20_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "3bf4ea20",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/media-category.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/media-category.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/pages/media-category.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_media_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./media-category.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/media-category.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_media_category_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/media-category.vue?vue&type=template&id=3bf4ea20&scoped=true&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/pages/media-category.vue?vue&type=template&id=3bf4ea20&scoped=true& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_media_category_vue_vue_type_template_id_3bf4ea20_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./media-category.vue?vue&type=template&id=3bf4ea20&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/media-category.vue?vue&type=template&id=3bf4ea20&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_media_category_vue_vue_type_template_id_3bf4ea20_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_media_category_vue_vue_type_template_id_3bf4ea20_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

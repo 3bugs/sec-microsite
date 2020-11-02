@@ -327,7 +327,7 @@ export default {
       editor,
       editorContent: '',
       editorConfig: {
-        extraPlugins: [this.uploader],
+        extraPlugins: [(editor) => this.uploader(editor, this.tableName)],
         language: 'th',
         /*alignment: {
           options: [ 'left', 'center', 'right' ]
@@ -379,9 +379,9 @@ export default {
       toolbarContainer.appendChild(this.editor.ui.view.toolbar.element);*/
     },
 
-    uploader(editor) {
+    uploader(editor, tableName) {
       editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-        return new MyUploadAdapter(loader);
+        return new MyUploadAdapter(loader, tableName);
       };
     },
 
@@ -564,6 +564,6 @@ export default {
 
 <style>
 .ck-editor__editable {
-  min-height: 150px;
+  min-height: 0;
 }
 </style>
