@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class _ApiDataController extends Controller
+class ApiDataController extends Controller
 {
   private $mModelClass, $mCategoryModelClass;
   private $mTableName, $mCategoryTableName;
