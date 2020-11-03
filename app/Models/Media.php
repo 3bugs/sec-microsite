@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  public function mediaCategory()
+  {
+    return $this->belongsTo(MediaCategory::class, 'category_id', 'id');
+  }
 }

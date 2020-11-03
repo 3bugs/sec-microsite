@@ -562,8 +562,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .my-class {
   white-space: nowrap;
+}
+
+.v-list-item__title {
+  line-height: 2 !important;
 }
 </style>

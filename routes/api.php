@@ -32,6 +32,7 @@ $apiDataCallback = function () {
 };
 Route::prefix('fundraising')->group($apiDataCallback);
 Route::prefix('media')->group($apiDataCallback);
+Route::prefix('media-more')->group($apiDataCallback);
 
 $apiCategoryCallback = function () {
   Route::get('/', [ApiCategoryController::class, 'index']);

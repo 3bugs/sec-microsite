@@ -79,7 +79,7 @@
             <accordion-card title="ช่องทางการระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu02.svg" img-alt="menu 2"></accordion-card>
           </div>
           <div class="col-12 d-flex flex-column mb-3">
-            <accordion-card title="สื่อการเรียนรู้ระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu03.svg" img-alt="menu 3"></accordion-card>
+            <accordion-card title="แหล่งข้อมูลระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu03.svg" img-alt="menu 3"></accordion-card>
           </div>
           <div class="col-12 d-flex flex-column mb-3">
             <accordion-card title="SEC Event" button-text="ดูเพิ่มเติม" img-src="images/menu04.svg" img-alt="menu 4"></accordion-card>
@@ -276,7 +276,7 @@
           window.location = '/fundraising';
           break;
         case 3:
-          alert('Under construction!');
+          window.location = '/media';
           break;
         case 4:
           alert('Under construction!');

@@ -23,7 +23,8 @@
     <div class="survey-form-container">
       <div class="survey-begin" style="display: flex">
         <div class="survey-begin-content">
-          <div class="pt-4 pt-sm-4 pt-lg-5 pl-3 pl-sm-4 pl-lg-5 pr-3 pr-sm-4 pr-md-0 mb-3" style="border: 0px solid blue; display: flex; flex: 1; flex-direction: column; justify-content: space-between">
+          <div class="pt-4 pt-sm-4 pt-lg-5 pl-3 pl-sm-4 pl-lg-5 pr-3 pr-sm-4 pr-md-0 mb-3"
+               style="border: 0px solid blue; display: flex; flex: 1; flex-direction: column; justify-content: space-between">
             <div style="display: flex; flex-direction: column; border: 0px solid red">
               <h3><a href="/"><span style="color: #3877A0">หน้าแรก > </span></a><span style="color: black">สำรวจตัวเอง</span></h3>
               <img src="images/survey_start.svg" class="pt-3 pb-3 pl-4 pr-4 d-flex d-md-none align-self-center" style="width: 100%; max-width: 260px">
@@ -114,73 +115,43 @@
   <script>
     const questionList = [
       {
-        questionText: 'โปรดเลือกข้อมูลที่ตรงกับท่าน',
+        questionText: 'การจัดตั้งธุรกิจของท่านเป็นแบบใด ?',
         choiceList: [
-          {text: 'คุณได้ทำการ\nจดทะเบียนบริษัท', value: false, nextQuestion: 1},
-          {text: 'คุณไม่เคย\nจดทะเบียนบริษัท', value: false, nextQuestion: 1},
-          {text: 'คุณคือวิสาหกิจ\nเพื่อสังคม', value: false, nextQuestion: 1},
+          {text: 'จัดตั้ง\nเป็นบริษัท', value: false, nextQuestion: 1},
+          {text: 'ไม่จด\nทะเบียนบริษัท', value: false, nextQuestion: -1},
+          {text: 'วิสาหกิจ\nเพื่อสังคม', value: false, nextQuestion: -1},
         ],
-        buttonText: null,
-        buttonIconClass: null,
+      },
+
+      {
+        questionText: 'รูปแบบบริษัทของท่านคือ ?',
+        choiceList: [
+          {text: 'บริษัทจำกัด', value: false, nextQuestion: 2},
+          {text: 'บริษัท\nมหาชนจำกัด', value: false, nextQuestion: 4},
+        ],
       },
       {
-        questionText: 'ประเภทสิ่งมีชีวิต',
+        questionText: 'โปรดเลือกขนาดธุรกิจของท่าน',
+        description: '* SME ขนาดเล็ก (วิสาหกิจขนาดย่อม)\nภาคการผลิต : จ้างงานไม่เกิน 50 คน หรือ รายได้ไม่เกิน 100 ล้านบาทต่อปี\n ภาคการค้าและการบริการ : จ้างงานไม่เกิน 30 คน / รายได้ไม่เกิน  50 ล้านบาทต่อปี\n\n** SME ขนาดกลาง (วิสาหกิจขนาดกลาง)\nภาคการผลิต : จ้างงานไม่เกิน 51-200 คน / รายได้เกิน 100 ล้านบาท แต่ไม่เกิน 500 ล้านบาทต่อปี\nภาคการค้าและการบริการ : จ้างงานไม่เกิน 30-100 คน / รายได้เกิน 50 ล้านบาท แต่ไม่เกิน 300 ล้านบาทต่อปี\n\n***กิจการขนาดใหญ่\nจ้างงานมากกว่า 200 คน / รายได้มากกว่า 500 ล้านบาท',
         choiceList: [
-          {text: 'คน', value: false, nextQuestion: 2},
-          {text: 'สัตว์', value: false, nextQuestion: 3},
-          {text: 'พืช', value: false, nextQuestion: -1},
+          {text: 'SME ขนาดเล็ก*', value: false, nextQuestion: 3},
+          {text: 'SME ขนาดกลาง**', value: false, nextQuestion: 3},
+          {text: 'กิจการขนาดใหญ่***', value: false, nextQuestion: 3},
         ],
-        buttonText: null,
-        buttonIconClass: null,
       },
       {
-        questionText: 'เพศ',
+        questionText: 'ท่านต้องการหาเงินทุนด้วยวิธีการใด ?',
         choiceList: [
-          {text: 'ผู้หญิง', value: false, nextQuestion: -1},
-          {text: 'ผู้ชาย', value: false, nextQuestion: -1},
+          {text: 'อยากกู้ยืม', value: false, nextQuestion: -1},
+          {text: 'อยากหาคน\nร่วมลงทุน', value: false, nextQuestion: -1},
         ],
-        buttonText: null,
-        buttonIconClass: null,
       },
       {
-        questionText: 'ประเภทสัตว์',
+        questionText: 'ปัจจุบันท่านจดทะเบียนเข้าซื้อขายอยู่ในตลาดหลักทรัพย์หรือไม่ ?',
         choiceList: [
-          {text: 'สัตว์เลี้ยงลูก\nด้วยนม', value: false, nextQuestion: 4},
-          {text: 'สัตว์สะเทินน้ำ\nสะเทินบก', value: false, nextQuestion: 5},
-          {text: 'สัตว์เลื้อยคลาน', value: false, nextQuestion: 6},
+          {text: 'จดทะเบียนซื้อขาย\nอยู่ในตลาดหลักทรัพย์  ', value: false, nextQuestion: 3},
+          {text: 'ยังไม่ได้จดทะเบียน\nเข้าซื้อขายในตลาดหลักทรัพย์', value: false, nextQuestion: 3},
         ],
-        buttonText: null,
-        buttonIconClass: null,
-      },
-      {
-        questionText: 'สัตว์เลี้ยงลูกด้วยนม',
-        choiceList: [
-          {text: 'กระต่าย', value: false, nextQuestion: -1},
-          {text: 'ช้าง', value: false, nextQuestion: -1},
-          {text: 'โลมา', value: false, nextQuestion: -1},
-        ],
-        buttonText: null,
-        buttonIconClass: null,
-      },
-      {
-        questionText: 'สัตว์สะเทินน้ำสะเทินบก',
-        choiceList: [
-          {text: 'กบ', value: false, nextQuestion: -1},
-          {text: 'ซาลามานเดอร์', value: false, nextQuestion: -1},
-          {text: 'ตัวเงินตัวทอง', value: false, nextQuestion: -1},
-        ],
-        buttonText: null,
-        buttonIconClass: null,
-      },
-      {
-        questionText: 'สัตว์เลื้อยคลาน',
-        choiceList: [
-          {text: 'งู', value: false, nextQuestion: -1},
-          {text: 'กิ้งก่า', value: false, nextQuestion: -1},
-          {text: 'เต่า', value: false, nextQuestion: -1},
-        ],
-        buttonText: null,
-        buttonIconClass: null,
       },
     ];
 

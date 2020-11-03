@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class MediaCategory extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  public function media()
+  {
+    return $this->hasMany(Media::class, 'category_id', 'id')
+      ->where('media.published', '=', 1);
+  }
 }

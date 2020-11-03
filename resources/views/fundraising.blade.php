@@ -13,13 +13,14 @@
         <div class="row">
           <div class="col-12 pagebreadcrumb">
             <a href="/">&#60; กลับหน้าแรก</a>
-            <h1>ช่องทางระดมทุน</h1>
-            <img src="images/breadcrumb-img.png" class="img_breadcrumb">
+            <h1>ช่องทางการระดมทุน</h1>
+            <img src="/images/bc-fundraising.png" class="img_breadcrumb">
           </div>
         </div>
       </div>
     </div>
   </section>
+
   <section class="container">
     <div class="row">
       <div class="col-12 headpage">

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class ApiCategoryController extends Controller
 {
+  private $mType;
   private $mCategoryModelClass;
 
   public function __construct()
@@ -17,9 +18,11 @@ class ApiCategoryController extends Controller
 
     switch (Request()->route()->getPrefix()) {
       case 'api/fundraising-category':
+        $this->mType = Constants::PAGE_TYPE_FUNDRAISING;
         $this->mCategoryModelClass = FundraisingCategory::class;
         break;
       case 'api/media-category':
+        $this->mType = Constants::PAGE_TYPE_MEDIA;
         $this->mCategoryModelClass = MediaCategory::class;
         break;
     }
@@ -28,7 +31,12 @@ class ApiCategoryController extends Controller
   public function index(Request $request)
   {
     try {
-      $categoryList = ($this->mCategoryModelClass)::orderBy('id', 'asc')->get();
+      if ($this->mType === Constants::PAGE_TYPE_MEDIA) {
+        $categoryList = ($this->mCategoryModelClass)::where('id', '>', 2)
+          ->orderBy('id', 'asc')->get();
+      } else {
+        $categoryList = ($this->mCategoryModelClass)::orderBy('id', 'asc')->get();
+      }
 
       return json_encode(array(
         'status' => 'ok',

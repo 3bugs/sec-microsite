@@ -2,6 +2,7 @@ import Dashboard from './pages/dashboard';
 import Fundraising from './pages/fundraising';
 import FundraisingCategory from './pages/fundraising-category';
 import Media from './pages/media';
+import MediaMore from './pages/media-more';
 import MediaCategory from './pages/media-category';
 
 export const routeDataList = [
@@ -14,7 +15,7 @@ export const routeDataList = [
   },
   {
     title: 'ช่องทางการระดมทุน',
-    menuIconName: 'mdi-bitcoin',
+    menuIconName: 'mdi-bullhorn-outline',
     subItemList: [
       {
         path: '/fundraising',
@@ -55,21 +56,21 @@ export const routeDataList = [
         menuIconName: 'mdi-shape-outline',
       },
       {
-        path: '/media-category',
-        name: 'media-category',
-        component: Media,
-        title: 'บทความที่เกี่ยวข้อง',
-        menuTitle: 'บทความที่เกี่ยวข้อง',
+        path: '/media-more',
+        name: 'media-more',
+        component: MediaMore,
+        title: 'บทความ / Link ที่เกี่ยวข้อง',
+        menuTitle: 'บทความ / Link ที่เกี่ยวข้อง',
         menuIconName: 'mdi-shape-outline',
       },
-      {
+      /*{
         path: '/media-category',
         name: 'media-category',
         component: Media,
         title: 'Link อื่นๆ ที่เกี่ยวข้อง',
         menuTitle: 'Link อื่นๆ ที่เกี่ยวข้อง',
         menuIconName: 'mdi-shape-outline',
-      },
+      },*/
     ],
   },
 ];

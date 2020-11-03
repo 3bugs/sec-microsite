@@ -1,10 +1,11 @@
 <?php
 
-use App\Models\Fundraising;
-use App\Models\TestFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FundraisingController;
+use App\Http\Controllers\MediaController;
+use App\Models\Fundraising;
+use App\Models\Media;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/', function () {
   $cardDataList = array(
     array('id' => 1, 'buttonText' => 'สำรวจตัวเอง', 'buttonMarginTop' => 25),
     array('id' => 2, 'buttonText' => 'ช่องทางการระดมทุน', 'buttonMarginTop' => 25),
-    array('id' => 3, 'buttonText' => 'สื่อการเรียนรู้ระดมทุน', 'buttonMarginTop' => 25),
+    array('id' => 3, 'buttonText' => 'แหล่งข้อมูลระดมทุน', 'buttonMarginTop' => 25),
     array('id' => 4, 'buttonText' => 'SEC Event', 'buttonMarginTop' => 25),
     array('id' => 5, 'buttonText' => 'คลินิกระดมทุน', 'buttonMarginTop' => 5),
     array('id' => 6, 'buttonText' => 'พันธกิจ พันธมิตร', 'buttonMarginTop' => 25),
@@ -40,9 +41,6 @@ Route::get('/survey', function () {
 });*/
 
 Route::get('/fundraising', [FundraisingController::class, 'index']);
-//Route::post('/fundraising', [FundraisingController::class, 'store']);
-//Route::delete('/task/{task}', 'TaskController@destroy');
-
 Route::get('/fundraising/{id}', function ($id) {
   $fundraising = Fundraising::find($id);
 
@@ -56,6 +54,22 @@ Route::get('/fundraising/{id}', function ($id) {
 
   return view('fundraising-details', [
     'item' => $fundraising,
+  ]);
+});
+
+Route::get('/media', [MediaController::class, 'index']);
+Route::get('/media/{id}', function ($id) {
+  $media = Media::find($id);
+
+  $pattern = '#<figure class="media"><oembed url="(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"></oembed></figure>#U';
+  $media->content = preg_replace(
+    $pattern,
+    '<iframe src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+    $media->content
+  );
+
+  return view('media-details', [
+    'item' => $media,
   ]);
 });
 

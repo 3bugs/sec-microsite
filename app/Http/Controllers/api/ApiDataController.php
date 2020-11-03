@@ -13,20 +13,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ApiDataController extends Controller
 {
+  private $mType;
   private $mModelClass, $mCategoryModelClass;
   private $mTableName, $mCategoryTableName;
   private $mStoragePath;
-
-  /*public function __construct($modelClass, $categoryModelClass, $tableName, $categoryTableName, $storagePath, $enableDebugBar = false)
-  {
-    $this->mModelClass = $modelClass;
-    $this->mCategoryModelClass = $categoryModelClass;
-    $this->mTableName = $tableName;
-    $this->mCategoryTableName = $categoryTableName;
-    $this->mStoragePath = $storagePath;
-
-    if (!$enableDebugBar) app('debugbar')->disable();
-  }*/
 
   public function __construct()
   {
@@ -34,6 +24,7 @@ class ApiDataController extends Controller
 
     switch (Request()->route()->getPrefix()) {
       case 'api/fundraising':
+        $this->mType = Constants::PAGE_TYPE_FUNDRAISING;
         $this->mModelClass = Fundraising::class;
         $this->mCategoryModelClass = FundraisingCategory::class;
         $this->mTableName = 'fundraisings';
@@ -41,6 +32,15 @@ class ApiDataController extends Controller
         $this->mStoragePath = 'public/fundraising';
         break;
       case 'api/media':
+        $this->mType = Constants::PAGE_TYPE_MEDIA;
+        $this->mModelClass = Media::class;
+        $this->mCategoryModelClass = MediaCategory::class;
+        $this->mTableName = 'media';
+        $this->mCategoryTableName = 'media_categories';
+        $this->mStoragePath = 'public/media';
+        break;
+      case 'api/media-more':
+        $this->mType = Constants::PAGE_TYPE_MEDIA_MORE;
         $this->mModelClass = Media::class;
         $this->mCategoryModelClass = MediaCategory::class;
         $this->mTableName = 'media';
@@ -58,16 +58,32 @@ class ApiDataController extends Controller
         ->select('fundraisings.*', 'fundraising_categories.title AS category_title')
         ->orderBy('id', 'desc')
         ->get();*/
+
       $dataList = DB::table($this->mTableName)
         ->join($this->mCategoryTableName, ($this->mTableName) . '.category_id', '=', ($this->mCategoryTableName) . '.id')
-        ->select(($this->mTableName) . '.*', ($this->mCategoryTableName) . '.title AS category_title')
-        ->orderBy('id', 'desc')
-        ->get();
+        ->select(($this->mTableName) . '.*', ($this->mCategoryTableName) . '.title AS category_title');
+
+      if ($this->mType === Constants::PAGE_TYPE_MEDIA) {
+        $dataList = $dataList->where(($this->mCategoryTableName) . '.id', '>', 2);
+      } else if ($this->mType === Constants::PAGE_TYPE_MEDIA_MORE) {
+        $dataList = $dataList->where(($this->mCategoryTableName) . '.id', '<=', 2);
+      }
+
+      $dataList = $dataList->orderBy('id', 'desc')->get();
 
       foreach ($dataList as $data) {
         $data->cover_image = Storage::url($data->cover_image);
       }
-      $categoryList = ($this->mCategoryModelClass)::orderBy('id', 'asc')->get();
+
+      if ($this->mType === Constants::PAGE_TYPE_MEDIA) {
+        $categoryList = ($this->mCategoryModelClass)::where('id', '>', 2)
+          ->orderBy('id', 'asc')->get();
+      } else if ($this->mType === Constants::PAGE_TYPE_MEDIA_MORE) {
+        $categoryList = ($this->mCategoryModelClass)::where('id', '<=', 2)
+          ->orderBy('id', 'asc')->get();
+      } else {
+        $categoryList = ($this->mCategoryModelClass)::orderBy('id', 'asc')->get();
+      }
 
       return response()->json(array(
         'status' => 'ok',
