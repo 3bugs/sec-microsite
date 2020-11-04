@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COOKIE CONSENT</title>
+
+  <link rel="stylesheet" href="cookie_consent.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<button id="cc-modal-trigger-button">Cookie Consent</button>
+
+<div id="cookie-modal-backdrop">
+  <div class="modal">
+    <div class="modal-content">
+      <h2>การใช้คุกกี้</h2>
+      <p>
+        ก.ล.ต. ใช้คุกกี้จำเป็นเพื่อการทำงานของเว็บไซต์
+        และอาจใช้คุกกี้ชนิดจดจำข้อมูลซึ่งคุณสามารถเลือกเปิดหรือปิดการใช้งานได้
+        เพื่อใช้ในการปรับปรุงประสิทธิภาพเว็บไซต์ โดย ก.ล.ต.
+        จะไม่ใช้คุกกี้ชนิดนี้หากคุณเลือกปิดการใช้งาน การใช้เครื่องมือนี้
+        จะติดตั้งคุกกี้บนอุปกรณ์ของคุณเพื่อที่จะจดจำข้อมูลการตั้งค่าต่างๆ
+      </p>
+      <p>
+        <strong>สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับคุกกี้ที่ ก.ล.ต. ใช้ สามารถดูได้ที่หน้าเว็บ
+        <a href="/policy.html" target="_blank">“คุกกี้”</a></strong>
+      </p>
+      <hr>
+      <h2>คุกกี้ที่จำเป็น</h2>
+      <p>
+        คุกกี้เหล่านี้ที่จำเป็นในการเปิดใช้คุณลักษณะการทำงานพื้นฐานของเว็บไซต์ เช่น
+        การรักษาความปลอดภัย การบริหารจัดการเครือข่าย การเข้าสู่ระบบ
+        คุณสามารถปิดการใช้งานคุกกี้เหล่านี้ได้ด้วยการตั้งค่าในเว็บเบราว์เซอร์
+        แต่การตั้งค่าดังกล่าวอาจส่งผลต่อการทำงานของเว็บไซต์
+      </p>
+      <hr>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin: 0.83em 0;">
+        <h2 style="margin: 0">คุกกี้วิเคราะห์</h2>
+        <div class="cc-switch" style="color: #fff;">
+          <label class="toggle">
+            <input
+              id="cc-ga-switch-input"
+              class="toggle-checkbox"
+              type="checkbox"
+            >
+            <span class="toggle-label -on">เปิด</span>
+            <span class="toggle-label -off">ปิด</span>
+            <div class="toggle-switch"></div>
+          </label>
+        </div>
+      </div>
+      <p>
+        ก.ล.ต. ใช้คุกกี้ Google Analytics เพื่อการปรับปรุงประสิทธิภาพของเว็บไซต์
+        โดยรวบรวมและรายงานข้อมูลการใช้งานเว็บไซต์ของคุณ
+        คุกกี้ดังกล่าวจะเก็บข้อมูลที่ไม่ระบุตัวบุคคลโดยตรง
+      </p>
+      <p>
+        <strong>สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับการทำงานของคุกกี้ชนิดนี้ สามารถดูได้ที่หน้าเว็บ
+        <a href="/policy.html" target="_blank">“คุกกี้”</a></strong>
+      </p>
+
+      <div style="text-align: center;">
+        <button id="cc-save-button">
+          บันทึกและปิด
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.cookieManager = {
+    write: (key, value) => {
+      document.cookie = `${key}=${encodeURIComponent(JSON.stringify(value))}; path=/`
+    },
+    read: key => {
+      const match = document.cookie.match(`(^|[^;]+)\\s*${key}\\s*=\\s*([^;]+)`)
+      if (!match) return undefined
+      return JSON.parse(match.pop())
+    },
+  }
+
+  window.COOKIE_KEYS = {
+    AUTO_SHOW: 'CC_AUTO_SHOW',
+    ALLOW_GA: 'CC_ALLOW_GA',
+  }
+
+  const $ccBackdrop = $('#cookie-modal-backdrop')
+  const $ccModal = $('#cookie-modal-backdrop .modal')
+  const $ccModalTriggerButton = $('#cc-modal-trigger-button')
+  const $ccGaSwitchInput = $('#cc-ga-switch-input')
+  const $ccSaveButton = $('#cc-save-button')
+
+  const panel = {
+    open: () => {
+      $ccBackdrop.addClass('open')
+      //window.ccState.panelOpen = true
+    },
+    close: () => {
+      $ccBackdrop.removeClass('open')
+      //window.ccState.panelOpen = false
+
+      // Save state that autoShow has been done
+      if (!cookieManager.read(COOKIE_KEYS.AUTO_SHOW)) {
+        cookieManager.write(COOKIE_KEYS.AUTO_SHOW, true)
+      }
+    },
+    save: () => {
+      const allowGa = $ccGaSwitchInput.is(':checked')
+      cookieManager.write(COOKIE_KEYS.ALLOW_GA, allowGa)
+
+      // init GA right away if ga is allow and not initialized before
+      if (allowGa && typeof ga === 'undefined') {
+        initGA()
+      }
+    },
+  }
+
+  $ccModalTriggerButton.on('click', event => {
+    panel.open()
+  })
+  $ccBackdrop.on('click', function (event) {
+    if ($(this).is(event.target)) panel.close()
+  })
+  $ccModal.on('click', () => {
+    //alert('no')
+  })
+  $ccSaveButton.on('click', event => {
+    event.preventDefault()
+    panel.save()
+    panel.close()
+  })
+
+  // On ready
+  $(document).ready(() => {
+    const autoShow = cookieManager.read(COOKIE_KEYS.AUTO_SHOW)
+    const allowGA = cookieManager.read(COOKIE_KEYS.ALLOW_GA)
+
+    if (!autoShow) {
+      //todo: ถ้าจะให้แสดงหน้า cookie อัตโนมัติตอนเข้าเว็บครั้งแรก ให้ลบ comment บรรทัดนี้ออก
+      //panel.open()
+    }
+
+    if (allowGA) {
+      $ccGaSwitchInput.prop('checked', true)
+      initGA()
+    }
+  })
+
+  function initGA() {
+    console.log('Initializing Google Analytics...');
+
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date()
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]
+      a.async = 1
+      a.src = g
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
+
+    ga('create', 'UA-XXXXX-Y', 'auto') // todo: change Tracking ID ********************************************
+    ga('send', 'pageview')
+  }
+</script>
+</body>
+</html>
