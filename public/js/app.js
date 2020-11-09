@@ -2468,7 +2468,7 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
           _this4.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
             text: 'OK',
             onClick: function onClick() {
-              if (_this4.onSave != null) {
+              if (_this4.onSave != null && _this4.item == null) {
                 _this4.onSave();
               }
             }
@@ -84270,7 +84270,7 @@ var getRouteTitle = function getRouteTitle(routeName) {
     return item.name === routeName;
   })[0].title;
 };
-var categoryColorList = ['#beebe9', '#f4dada', '#f6eec7', '#d9e4dd', '#fbf7f0'];
+var categoryColorList = ['#beebe9', '#f4dada', '#f6eec7', '#d9e4dd', '#fbf7f0', '#ADE6D0', '#F1F0CF', '#EBCEED', '#DEB3EB', '#FEBCC8', '#FFFFD8', '#EAEBFF', '#E0FEFE', '#D3EEFF', '#F3EACE', '#E7F1D4', '#D7ECC9', '#C2DEDF'];
 
 /***/ }),
 
