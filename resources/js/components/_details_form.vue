@@ -523,7 +523,7 @@ export default {
           if (status === 'ok') {
             this.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
               text: 'OK', onClick: () => {
-                if (this.onSave != null) {
+                if (this.onSave != null && this.item == null) {
                   this.onSave();
                 }
               },
