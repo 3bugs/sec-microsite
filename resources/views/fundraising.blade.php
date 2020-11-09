@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-12 pagebreadcrumb">
             <a href="/">&#60; กลับหน้าแรก</a>
-            <h1>ช่องทางการระดมทุน</h1>
+            <h1>เครื่องมือระดมทุน</h1>
             <img src="/images/bc-fundraising.png" class="img_breadcrumb">
           </div>
         </div>
