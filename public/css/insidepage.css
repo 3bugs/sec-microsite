@@ -299,7 +299,7 @@ body {
 .detailfd_text > p, li {
   font-family: Sarabun;
   font-style: normal;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #666;
   opacity: 1;
 }
@@ -318,6 +318,10 @@ body {
 }
 
 .detailfd_text ul li:last-child {
+  margin-bottom: 2em;
+}
+
+.detailfd_text ol li:last-child {
   margin-bottom: 2em;
 }
 
