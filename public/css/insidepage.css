@@ -306,6 +306,10 @@ body {
   list-style: square;
 }
 
+.detailfd_text ol {
+  list-style-type: decimal;
+}
+
 .detailfd_text li {
   margin-bottom: 0.8em;
   margin-left: 3em;
@@ -319,7 +323,7 @@ body {
   font-family: Prompt;
   font-weight: normal;
   font-size: 2rem;
-  margin-top: 1em;
+  margin-top: 3em;
   margin-bottom: 0.5em;
 }
 
@@ -327,7 +331,7 @@ body {
   font-family: Prompt;
   font-weight: normal;
   font-size: 1.5rem;
-  margin-top: 0.6em;
+  margin-top: 2em;
   margin-bottom: 0.2em;
 }
 

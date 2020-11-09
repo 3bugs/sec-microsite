@@ -41,37 +41,10 @@ Route::get('/survey', function () {
 });*/
 
 Route::get('/fundraising', [FundraisingController::class, 'index']);
-Route::get('/fundraising/{id}', function ($id) {
-  $fundraising = Fundraising::find($id);
-
-  $pattern = '#<figure class="media"><oembed url="(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"></oembed></figure>#U';
-  $fundraising->content = preg_replace(
-    $pattern,
-    '<div class="col-12 wrap_video"><div><iframe src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div></div>',
-    $fundraising->content
-  );
-
-  return view('fundraising-details', [
-    'item' => $fundraising,
-  ]);
-});
+Route::get('/fundraising/{fundraising}', [FundraisingController::class, 'show']);
 
 Route::get('/media', [MediaController::class, 'index']);
-Route::get('/media/{id}', function ($id) {
-  $media = Media::find($id);
-
-  $pattern = '#<figure class="media"><oembed url="(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"></oembed></figure>#U';
-  $media->content = preg_replace(
-    $pattern,
-    '<iframe src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-    $media->content
-  );
-
-  return view('media-details', [
-    'item' => $media,
-  ]);
-});
+Route::get('/media/{media}', [MediaController::class, 'show']);
 
 Route::get('/admin', function () {
   return redirect('/admin/dashboard');

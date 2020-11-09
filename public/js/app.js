@@ -84203,21 +84203,21 @@ var routeDataList = [{
   title: 'หน้าหลัก',
   menuIconName: 'mdi-home'
 }, {
-  title: 'ช่องทางการระดมทุน',
+  title: 'เครื่องมือระดมทุน',
   menuIconName: 'mdi-bullhorn-outline',
   subItemList: [{
     path: '/fundraising',
     name: 'fundraising',
     component: _pages_fundraising__WEBPACK_IMPORTED_MODULE_1__["default"],
-    title: 'ช่องทางการระดมทุน',
-    menuTitle: 'ช่องทางการระดมทุน',
+    title: 'เครื่องมือระดมทุน',
+    menuTitle: 'เครื่องมือระดมทุน',
     menuIconName: 'mdi-content-copy'
   }, {
     path: '/fundraising-category',
     name: 'fundraising-category',
     component: _pages_fundraising_category__WEBPACK_IMPORTED_MODULE_2__["default"],
-    title: 'หมวดหมู่ช่องทางการระดมทุน',
-    menuTitle: 'หมวดหมู่ช่องทางการระดมทุน',
+    title: 'หมวดหมู่เครื่องมือระดมทุน',
+    menuTitle: 'หมวดหมู่เครื่องมือระดมทุน',
     menuIconName: 'mdi-shape-outline'
   }]
 }, {
