@@ -236,7 +236,7 @@ body {
 .detailfd_text img {
   max-width: 100%;
   height: auto;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 
 .detailfd_text figure.image {
