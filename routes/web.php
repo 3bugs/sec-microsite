@@ -21,7 +21,7 @@ use App\Models\Media;
 Route::get('/', function () {
   $cardDataList = array(
     array('id' => 1, 'buttonText' => 'สำรวจตัวเอง', 'buttonMarginTop' => 25),
-    array('id' => 2, 'buttonText' => 'ช่องทางการระดมทุน', 'buttonMarginTop' => 25),
+    array('id' => 2, 'buttonText' => 'เครื่องมือระดมทุน', 'buttonMarginTop' => 25),
     array('id' => 3, 'buttonText' => 'แหล่งข้อมูลระดมทุน', 'buttonMarginTop' => 25),
     array('id' => 4, 'buttonText' => 'SEC Event', 'buttonMarginTop' => 25),
     array('id' => 5, 'buttonText' => 'คลินิกระดมทุน', 'buttonMarginTop' => 5),

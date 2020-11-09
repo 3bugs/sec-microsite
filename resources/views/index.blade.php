@@ -53,7 +53,7 @@
             <flip-card :id="0" button-text="สำรวจตัวเอง" img-src="images/menu01.svg" img-alt="menu 1"></flip-card>
           </div>
           <div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
-            <flip-card :id="1" button-text="ช่องทางการระดมทุน" img-src="images/menu02.svg" img-alt="menu 2"></flip-card>
+            <flip-card :id="1" button-text="เครื่องมือระดมทุน" img-src="images/menu02.svg" img-alt="menu 2"></flip-card>
           </div>
           <div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
             <flip-card :id="2" button-text="สื่อการเรียนรู้ระดมทุน" img-src="images/menu03.svg" img-alt="menu 3"></flip-card>
@@ -76,7 +76,7 @@
             <accordion-card title="สำรวจตัวเอง" button-text="สำรวจ" img-src="images/menu01.svg" img-alt="menu 1"></accordion-card>
           </div>
           <div class="col-12 d-flex flex-column mb-3">
-            <accordion-card title="ช่องทางการระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu02.svg" img-alt="menu 2"></accordion-card>
+            <accordion-card title="เครื่องมือระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu02.svg" img-alt="menu 2"></accordion-card>
           </div>
           <div class="col-12 d-flex flex-column mb-3">
             <accordion-card title="แหล่งข้อมูลระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu03.svg" img-alt="menu 3"></accordion-card>
@@ -95,7 +95,7 @@
 
       <!--<div style="display: flex; width: 100%; justify-content: space-evenly">
         <card-item button-text="สำรวจตัวเอง" img-src="images/menu01.svg" img-alt="menu 1"></card-item>
-        <card-item button-text="ช่องทางการระดมทุน" img-src="images/menu02.svg" img-alt="menu 2"></card-item>
+        <card-item button-text="เครื่องมือระดมทุน" img-src="images/menu02.svg" img-alt="menu 2"></card-item>
         <card-item button-text="สื่อการเรียนรู้ระดมทุน" img-src="images/menu03.svg" img-alt="menu 3"></card-item>
       </div>
       <div style="display: flex; width: 100%; justify-content: space-evenly">
