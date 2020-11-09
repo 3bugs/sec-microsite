@@ -167,6 +167,15 @@ button:disabled {
   max-width: 554px;
 }
 
+#share-button, #try-again-button {
+  background-color: #8DC63F
+}
+
+#share-button:hover, #try-again-button:hover {
+  background-color: #72A927 !important;
+  filter: none;
+}
+
 .survey-form {
   display: flex;
   flex-direction: column;
