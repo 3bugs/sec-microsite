@@ -323,16 +323,16 @@ body {
   font-family: Prompt;
   font-weight: normal;
   font-size: 2rem;
-  margin-top: 3em;
-  margin-bottom: 0.5em;
+  margin-top: 2.5em;
+  margin-bottom: 1.25em;
 }
 
 .detailfd_text h3 {
   font-family: Prompt;
   font-weight: normal;
   font-size: 1.5rem;
-  margin-top: 2em;
-  margin-bottom: 0.2em;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
 }
 
 .detailfd_text::after {
