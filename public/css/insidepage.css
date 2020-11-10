@@ -329,6 +329,7 @@ body {
   font-family: Prompt;
   font-weight: normal;
   font-size: 2rem;
+  color: #10375C;
   margin-top: 2em;
   margin-bottom: 0.75em;
 }
@@ -337,6 +338,7 @@ body {
   font-family: Prompt;
   font-weight: normal;
   font-size: 1.5rem;
+  color: #10375C;
   margin-top: 2em;
   margin-bottom: 0.75em;
 }
@@ -345,6 +347,7 @@ body {
   font-family: Prompt;
   font-weight: normal;
   font-size: 1.2rem;
+  color: #222831;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
