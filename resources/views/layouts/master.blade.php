@@ -34,7 +34,7 @@
 <div class="my-navbar">
   <div style="display: flex; align-items: center">
     <a href="/"><img class="logo" src="/images/logo.svg" alt="logo" style="cursor: pointer"></a>
-    <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์ 123</div>
+    <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</div>
   </div>
   <div style="display: flex; align-items: center; align-self: stretch">
     <div id="menu-item-search" class="menu-item">
