@@ -566,4 +566,19 @@ export default {
 .ck-editor__editable {
   min-height: 0;
 }
+
+.ck-content h2 {
+  margin-top: 1.8em;
+  margin-bottom: 0.75em;
+}
+
+.ck-content h3 {
+  margin-top: 1.8em;
+  margin-bottom: 0.75em;
+}
+
+.ck-content h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
 </style>

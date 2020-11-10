@@ -4031,7 +4031,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 0;\n}\n", ""]);
+exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 0;\n}\n.ck-content h2 {\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h3 {\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h4 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n}\n", ""]);
 
 // exports
 
