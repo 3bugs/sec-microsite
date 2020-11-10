@@ -586,18 +586,21 @@ export default {
 
 .ck-content h2 {
   color: #10375C;
+  font-weight: normal;
   margin-top: 1.8em;
   margin-bottom: 0.75em;
 }
 
 .ck-content h3 {
   color: #10375C;
+  font-weight: normal;
   margin-top: 1.8em;
   margin-bottom: 0.75em;
 }
 
 .ck-content h4 {
   color: #222831;
+  font-weight: normal;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
