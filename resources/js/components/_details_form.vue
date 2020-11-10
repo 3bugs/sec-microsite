@@ -573,7 +573,7 @@ export default {
 
 .ck-content li {
   margin-bottom: 0.8em;
-  margin-left: 3em;
+  margin-left: 2em;
 }
 
 .ck-content ul li:last-child {
