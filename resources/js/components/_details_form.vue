@@ -1,22 +1,7 @@
 <template>
   <v-card :loading="false">
-    <v-overlay
-      :value="isSaving || isDeleting"
-      z-index="9999"
-    >
-      <v-progress-circular
-        indeterminate
-        size="70"
-      >
-        <v-img
-          lazy-src="/images/logo.svg"
-          max-height="40"
-          max-width="40"
-          src="/images/logo.svg"
-          class="mb-2"
-        />
-      </v-progress-circular>
-    </v-overlay>
+    <my-progress-overlay :visible="isSaving || isDeleting" />
+
     <template
       v-slot:progress
     >
@@ -276,6 +261,7 @@
 <script>
 import {getRouteTitle, routeDataList} from '../constants';
 import MyDialog from '../components/my_dialog';
+import MyProgressOverlay from '../components/my_progress_overlay';
 import editor from '@ckeditor/ckeditor5-build-classic';
 require('./th');
 //import Thai from '@ckeditor/ckeditor5-build-classic/build/translations/th';
@@ -289,7 +275,7 @@ import MyUploadAdapter from "./my_upload_adapter";
 
 export default {
   components: {
-    MyDialog,
+    MyDialog, MyProgressOverlay,
   },
   props: {
     tableName: String,

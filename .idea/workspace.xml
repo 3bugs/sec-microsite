@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/components/my_progress_overlay.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiDataController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/_details_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/_details_form.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/pages/_list_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_list_form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -182,19 +181,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/resources/js/pages" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public/menu05a.svg" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/_old" />
       <recent name="$PROJECT_DIR$/resources/js" />
       <recent name="$PROJECT_DIR$/resources/views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/components" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/resources/js/pages" />
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
   </component>
   <component name="RunManager">
@@ -248,14 +247,7 @@
       <workItem from="1604889341581" duration="275000" />
       <workItem from="1604889890982" duration="31489000" />
       <workItem from="1604974035163" duration="7027000" />
-      <workItem from="1604985260146" duration="10359000" />
-    </task>
-    <task id="LOCAL-00006" summary="back: หน้าเพิ่ม/แก้ไข fundraising (ยังไม่สมบูรณ์)">
-      <created>1603409823117</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1603409823117</updated>
+      <workItem from="1604985260146" duration="12663000" />
     </task>
     <task id="LOCAL-00007" summary="back: หน้าเพิ่ม/แก้ไข fundraising (ยังไม่สมบูรณ์)">
       <created>1603464238432</created>
@@ -593,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604989376412</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="back: ปรับจังหวะการโหลด detail">
+      <created>1604999287502</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1604999287502</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +600,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add debugbar" />
     <MESSAGE value="back: หน้าเพิ่ม/แก้ไข fundraising (ยังไม่สมบูรณ์)" />
     <MESSAGE value="back: finish crud fundraising (ยกเว้นฟีลด์ content)" />
     <MESSAGE value="back: add ckeditor" />
@@ -626,7 +624,8 @@
     <MESSAGE value="front: css" />
     <MESSAGE value="front+back: css" />
     <MESSAGE value="back: css" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: css" />
+    <MESSAGE value="back: ปรับจังหวะการโหลด detail" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: ปรับจังหวะการโหลด detail" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -647,11 +646,11 @@
     </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604904111665" />
     <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604332438461" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1604989376287">
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1604999287198">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604989376287" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604999287198" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604337218211" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1603295733951">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -708,11 +707,11 @@
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604994660409" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603463929697" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1604989377379">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1604999288923">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604989377379" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604999288923" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604337220625" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />

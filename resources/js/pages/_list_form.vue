@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <v-overlay
+    <my-progress-overlay :visible="isDeleting || isLoadingItem" />
+    <!--<v-overlay
       :value="isDeleting"
       z-index="9999"
     >
@@ -16,7 +17,7 @@
           class="mb-2"
         />
       </v-progress-circular>
-    </v-overlay>
+    </v-overlay>-->
     <v-tabs
       v-model="tab"
       style="display: none"
@@ -249,6 +250,7 @@
 import {routeDataList, getRouteTitle, categoryColorList} from '../constants';
 import DetailsForm from '../components/_details_form';
 import MyDialog from '../components/my_dialog';
+import MyProgressOverlay from '../components/my_progress_overlay';
 import {formatThaiDateTime} from '../utils/utils';
 
 export default {
@@ -256,7 +258,7 @@ export default {
     tableName: String,
   },
   components: {
-    DetailsForm, MyDialog,
+    DetailsForm, MyDialog, MyProgressOverlay,
   },
   data() {
     return {
@@ -265,6 +267,7 @@ export default {
       editItem: null,
       showList: true,
       isLoadingList: true,
+      isLoadingItem: false,
       isDeleting: false,
       isUpdatePublished: false,
       headers: [
@@ -350,6 +353,7 @@ export default {
         this.tab = 1;
         this.editItem = fetchedItem;
         this.showList = false;
+        this.scrollToTop();
       });
     },
 
@@ -432,7 +436,7 @@ export default {
     },
 
     fetchItem(itemId, successCallback) {
-      this.isLoadingList = true;
+      this.isLoadingItem = true;
 
       const url = `/api/${this.tableName}/${itemId}?t=${Date.now()}`;
       console.log(url);
@@ -469,7 +473,7 @@ export default {
           );
         })
         .then(() => { // always executed
-          this.isLoadingList = false;
+          this.isLoadingItem = false;
         });
     },
 
