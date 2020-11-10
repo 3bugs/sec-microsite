@@ -7,6 +7,7 @@
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/insidepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/insidepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/_details_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/_details_form.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,21 +245,7 @@
       <workItem from="1604889341581" duration="275000" />
       <workItem from="1604889890982" duration="31489000" />
       <workItem from="1604974035163" duration="7027000" />
-      <workItem from="1604985260146" duration="2408000" />
-    </task>
-    <task id="LOCAL-00001" summary="front: หน้า fundraising">
-      <created>1603263528055</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1603263528055</updated>
-    </task>
-    <task id="LOCAL-00002" summary="back: ขึ้นโครงหลังบ้าน">
-      <created>1603332790149</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1603332790149</updated>
+      <workItem from="1604985260146" duration="3382000" />
     </task>
     <task id="LOCAL-00003" summary="add dependency files">
       <created>1603336425910</created>
@@ -589,7 +576,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604987156974</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="front: css">
+      <created>1604987881302</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1604987881302</updated>
+    </task>
+    <task id="LOCAL-00051" summary="back: css">
+      <created>1604987993879</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1604987993879</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,7 +598,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: ขึ้นโครงหลังบ้าน" />
     <MESSAGE value="add dependency files" />
     <MESSAGE value="add debugbar" />
     <MESSAGE value="back: หน้าเพิ่ม/แก้ไข fundraising (ยังไม่สมบูรณ์)" />
@@ -622,7 +622,8 @@
     <MESSAGE value="front: แก้ข้อความ" />
     <MESSAGE value="back: add timestamp when fetching api" />
     <MESSAGE value="front: css" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: css" />
+    <MESSAGE value="back: css" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -643,11 +644,11 @@
     </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604904111665" />
     <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604332438461" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1604987156846">
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1604987993749">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604987156846" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604987993749" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604337218211" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1603295733951">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -704,11 +705,11 @@
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604986456547" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603463929697" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1604987158238">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1604987994871">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604987158238" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604987994871" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604337220625" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />

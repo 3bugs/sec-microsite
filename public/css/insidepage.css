@@ -296,7 +296,7 @@ body {
   display: block;
 }
 
-.detailfd_text > p, li {
+.detailfd_text p, .detailfd_text li {
   font-family: Sarabun;
   font-style: normal;
   font-size: 1.2rem;

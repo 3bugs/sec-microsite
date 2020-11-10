@@ -567,6 +567,23 @@ export default {
   min-height: 0;
 }
 
+.ck-content p, .ck-content li {
+  color: #666;
+}
+
+.ck-content li {
+  margin-bottom: 0.8em;
+  margin-left: 3em;
+}
+
+.ck-content ul li:last-child {
+  margin-bottom: 2em;
+}
+
+.ck-content ol li:last-child {
+  margin-bottom: 2em;
+}
+
 .ck-content h2 {
   color: #10375C;
   margin-top: 1.8em;
@@ -583,5 +600,10 @@ export default {
   color: #222831;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
+}
+
+.ck-content img {
+  margin: 1rem 0;
+  border: 1px solid #e0e0e0;
 }
 </style>
