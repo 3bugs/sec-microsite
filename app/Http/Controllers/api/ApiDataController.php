@@ -98,6 +98,24 @@ class ApiDataController extends Controller
     }
   }
 
+  public function show($id)
+  {
+    try {
+      $data = $this->mModelClass::find($id);
+      $data->cover_image = Storage::url($data->cover_image);
+
+      return response()->json(array(
+        'status' => 'ok',
+        'data' => $data,
+      ), 200);
+    } catch (Exception $e) {
+      return response()->json(array(
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ), 200);
+    }
+  }
+
   public function store(Request $request)
   {
     // imagePath: public/fundraising/xxx.jpg

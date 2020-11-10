@@ -338,6 +338,7 @@ export default {
         },*/
       },
       contentRuleVisible: false,
+      isUpdated: false, // มีการบันทึกข้อมูลลงฐานข้อมูลหรือยัง
     }
   },
   computed: {
@@ -416,7 +417,9 @@ export default {
     },
 
     handleClickCancel() {
-      if (this.onCancelForm != null) {
+      if (this.isUpdated) {
+        this.onSave();
+      } else {
         this.onCancelForm();
       }
     },
@@ -521,6 +524,8 @@ export default {
           const status = response.data.status;
           const message = response.data.message;
           if (status === 'ok') {
+            this.isUpdated = true;
+
             this.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
               text: 'OK', onClick: () => {
                 if (this.onSave != null && this.item == null) {

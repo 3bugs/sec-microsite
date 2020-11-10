@@ -2288,7 +2288,9 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
         },*/
 
       },
-      contentRuleVisible: false
+      contentRuleVisible: false,
+      isUpdated: false // มีการบันทึกข้อมูลลงฐานข้อมูลหรือยัง
+
     };
   },
   computed: {
@@ -2367,7 +2369,9 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       }
     },
     handleClickCancel: function handleClickCancel() {
-      if (this.onCancelForm != null) {
+      if (this.isUpdated) {
+        this.onSave();
+      } else {
         this.onCancelForm();
       }
     },
@@ -2465,6 +2469,8 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
         var message = response.data.message;
 
         if (status === 'ok') {
+          _this4.isUpdated = true;
+
           _this4.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
             text: 'OK',
             onClick: function onClick() {
@@ -3595,9 +3601,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       );*/
     },
     handleClickEdit: function handleClickEdit(item) {
-      this.tab = 1;
-      this.editItem = item;
-      this.showList = false;
+      var _this = this;
+
+      this.fetchItem(item.id, function (fetchedItem) {
+        _this.tab = 1;
+        _this.editItem = fetchedItem;
+        _this.showList = false;
+      });
     },
     handleClickRefresh: function handleClickRefresh() {
       this.dataList = [];
@@ -3625,7 +3635,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.handleClickRefresh();
     },
     fetchList: function fetchList() {
-      var _this = this;
+      var _this2 = this;
 
       this.isLoadingList = true;
       var url = "/api/".concat(this.tableName, "?t=").concat(Date.now());
@@ -3641,8 +3651,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             item.published = item.published === 1;
             item.isUpdating = false;
           });
-          _this.dataList = dataList;
-          _this.categoryList = response.data.category_list.map(function (item) {
+          _this2.dataList = dataList;
+          _this2.categoryList = response.data.category_list.map(function (item) {
             return _objectSpread(_objectSpread({}, item), {}, {
               toString: function toString() {
                 return item.title;
@@ -3652,7 +3662,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         } else {
           var errorMessage = response.data.message;
 
-          _this.showDialog('ผิดพลาด', errorMessage, [{
+          _this2.showDialog('ผิดพลาด', errorMessage, [{
             text: 'OK',
             onClick: null
           }], true);
@@ -3660,17 +3670,51 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       })["catch"](function (error) {
         console.log(error);
 
-        _this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง', [{
+        _this2.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง', [{
           text: 'OK',
           onClick: null
         }], true);
       }).then(function () {
         // always executed
-        _this.isLoadingList = false;
+        _this2.isLoadingList = false;
+      });
+    },
+    fetchItem: function fetchItem(itemId, successCallback) {
+      var _this3 = this;
+
+      this.isLoadingList = true;
+      var url = "/api/".concat(this.tableName, "/").concat(itemId, "?t=").concat(Date.now());
+      console.log(url);
+      axios.get(url, {
+        params: {}
+      }).then(function (response) {
+        console.log(response.data);
+
+        if (response.data.status === 'ok') {
+          var item = response.data.data;
+          successCallback(item);
+        } else {
+          var errorMessage = response.data.message;
+
+          _this3.showDialog('ผิดพลาด', errorMessage, [{
+            text: 'OK',
+            onClick: null
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+
+        _this3.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง', [{
+          text: 'OK',
+          onClick: null
+        }], true);
+      }).then(function () {
+        // always executed
+        _this3.isLoadingList = false;
       });
     },
     handleClickDelete: function handleClickDelete(item) {
-      var _this2 = this;
+      var _this4 = this;
 
       this.showDialog("\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25", "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 '".concat(item.title, "' \u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
         text: 'ยกเลิก',
@@ -3678,12 +3722,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         text: 'ลบ',
         onClick: function onClick() {
-          _this2.doDeleting(item.id);
+          _this4.doDeleting(item.id);
         }
       }], false);
     },
     doDeleting: function doDeleting(id) {
-      var _this3 = this;
+      var _this5 = this;
 
       this.isDeleting = true;
       axios.post("/api/".concat(this.tableName), {
@@ -3694,10 +3738,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var message = response.data.message;
 
         if (status === 'ok') {
-          _this3.snackbar.message = 'ลบข้อมูลสำเร็จ';
-          _this3.snackbar.visible = true;
+          _this5.snackbar.message = 'ลบข้อมูลสำเร็จ';
+          _this5.snackbar.visible = true;
 
-          _this3.handleClickRefresh();
+          _this5.handleClickRefresh();
           /*this.showDialog('ลบข้อมูลสำเร็จ', 'ลบข้อมูลในฐานข้อมูลสำเร็จ', [{
             text: 'OK', onClick: () => {
               this.handleClickRefresh();
@@ -3705,7 +3749,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }], true);*/
 
         } else {
-          _this3.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+          _this5.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
             text: 'OK',
             onClick: function onClick() {//
             }
@@ -3720,7 +3764,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }], true);
       }).then(function () {
         // always executed
-        _this3.isDeleting = false;
+        _this5.isDeleting = false;
       });
     },
 
@@ -3732,7 +3776,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },*/
     handleClickSwitch: function handleClickSwitch(item) {
-      var _this4 = this;
+      var _this6 = this;
 
       var preText = !item.published ? 'ปิดการ' : '';
       this.showDialog("".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25"), "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23".concat(preText, "\u0E40\u0E1C\u0E22\u0E41\u0E1E\u0E23\u0E48\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
@@ -3743,12 +3787,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         text: 'ใช่',
         onClick: function onClick() {
-          _this4.doUpdatePublished(item);
+          _this6.doUpdatePublished(item);
         }
       }], true);
     },
     doUpdatePublished: function doUpdatePublished(item) {
-      var _this5 = this;
+      var _this7 = this;
 
       var self = this;
       var formData = new FormData();
@@ -3767,12 +3811,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var message = response.data.message;
 
         if (status === 'ok') {
-          _this5.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
-          _this5.snackbar.visible = true;
+          _this7.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this7.snackbar.visible = true;
         } else {
           item.published = !item.published;
 
-          _this5.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+          _this7.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
             text: 'OK',
             onClick: function onClick() {}
           }], true);
@@ -4035,7 +4079,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 0;\n}\n.ck-content h2 {\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h3 {\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h4 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n}\n", ""]);
+exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 0;\n}\n.ck-content p, .ck-content li {\n  color: #666;\n}\n.ck-content li {\n  margin-bottom: 0.8em;\n  margin-left: 2em;\n}\n.ck-content ul li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content ol li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content h2 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h3 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h4 {\n  color: #222831;\n  font-weight: normal;\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n}\n.ck-content img {\n  margin: 1rem 0;\n  border: 1px solid #e0e0e0;\n}\n", ""]);
 
 // exports
 

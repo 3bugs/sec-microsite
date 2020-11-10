@@ -346,9 +346,11 @@ export default {
     },
 
     handleClickEdit(item) {
-      this.tab = 1;
-      this.editItem = item;
-      this.showList = false;
+      this.fetchItem(item.id, fetchedItem => {
+        this.tab = 1;
+        this.editItem = fetchedItem;
+        this.showList = false;
+      });
     },
 
     handleClickRefresh() {
@@ -401,6 +403,48 @@ export default {
                 return item.title
               }
             }));
+          } else {
+            const errorMessage = response.data.message;
+            this.showDialog(
+              'ผิดพลาด',
+              errorMessage,
+              [
+                {text: 'OK', onClick: null}
+              ],
+              true,
+            );
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.showDialog(
+            'ผิดพลาด',
+            'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง',
+            [
+              {text: 'OK', onClick: null}
+            ],
+            true,
+          );
+        })
+        .then(() => { // always executed
+          this.isLoadingList = false;
+        });
+    },
+
+    fetchItem(itemId, successCallback) {
+      this.isLoadingList = true;
+
+      const url = `/api/${this.tableName}/${itemId}?t=${Date.now()}`;
+      console.log(url);
+
+      axios.get(url, {
+        params: {}
+      })
+        .then((response) => {
+          console.log(response.data);
+          if (response.data.status === 'ok') {
+            const item = response.data.data;
+            successCallback(item);
           } else {
             const errorMessage = response.data.message;
             this.showDialog(

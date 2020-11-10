@@ -25,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 $apiDataCallback = function () {
   Route::get('/', [ApiDataController::class, 'index']);
+  Route::get('/{id}', [ApiDataController::class, 'show']);
   Route::post('/', [ApiDataController::class, 'store']);
   Route::post('/upload-file', [ApiDataController::class, 'storeUploadFile']);
   Route::put('/', [ApiDataController::class, 'update']);
