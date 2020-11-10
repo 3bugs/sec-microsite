@@ -3056,7 +3056,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.isLoadingList = true;
-      axios.get("/api/".concat(this.tableName, "-category"), {
+      var url = "/api/".concat(this.tableName, "-category?t=").concat(Date.now());
+      console.log(url);
+      axios.get(url, {
         params: {}
       }).then(function (response) {
         console.log(response.data);
@@ -3626,7 +3628,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       this.isLoadingList = true;
-      axios.get("/api/".concat(this.tableName), {
+      var url = "/api/".concat(this.tableName, "?t=").concat(Date.now());
+      console.log(url);
+      axios.get(url, {
         params: {}
       }).then(function (response) {
         console.log(response.data);

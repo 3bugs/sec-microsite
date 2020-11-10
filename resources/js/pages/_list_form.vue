@@ -380,7 +380,10 @@ export default {
     fetchList() {
       this.isLoadingList = true;
 
-      axios.get(`/api/${this.tableName}`, {
+      const url = `/api/${this.tableName}?t=${Date.now()}`;
+      console.log(url);
+
+      axios.get(url, {
         params: {}
       })
         .then((response) => {

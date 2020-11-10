@@ -436,7 +436,10 @@ export default {
     fetchList() {
       this.isLoadingList = true;
 
-      axios.get(`/api/${this.tableName}-category`, {
+      const url = `/api/${this.tableName}-category?t=${Date.now()}`;
+      console.log(url);
+
+      axios.get(url, {
         params: {}
       })
         .then((response) => {
