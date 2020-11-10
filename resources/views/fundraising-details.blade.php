@@ -2,6 +2,11 @@
 
 @section('head')
   <style>
+    @media (min-width: 576px) {
+      .mw-300 {
+        min-width: 140px;
+      }
+    }
     @media (min-width: 768px) {
       .mw-300 {
         min-width: 200px;
