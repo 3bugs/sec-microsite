@@ -581,10 +581,4 @@ export default {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
-
-@media (min-width: 992px) {
-  .mw-300 {
-    min-width: 300px;
-  }
-}
 </style>

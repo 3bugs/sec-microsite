@@ -1,6 +1,13 @@
 @extends('layouts.master')
 
 @section('head')
+  <style>
+    @media (min-width: 992px) {
+      .mw-300 {
+        min-width: 300px;
+      }
+    }
+  </style>
 @endsection
 
 @section('content')
