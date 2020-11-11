@@ -191,7 +191,7 @@
           <template v-slot:activator="{ on, attrs }">
             <v-icon
               small
-              class="mr-3"
+              :class="allowDelete ? 'mr-3' : ''"
               v-bind="attrs"
               v-on="on"
               @click="handleClickEdit(item)"
@@ -296,7 +296,7 @@ export default {
         {text: 'สร้าง', value: 'created_at', sortable: true, width: '70px', align: 'center',},
         {text: 'แก้ไข', value: 'updated_at', sortable: true, width: '70px', align: 'center',},
         {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
-        {text: 'จัดการ', value: 'actions', sortable: false, width: '90px', align: 'center',},
+        {text: 'จัดการ', value: 'actions', sortable: false, width: this.allowDelete ? '90px' : '70px', align: 'center',},
       ],
       dataList: [],
       routeDataList,

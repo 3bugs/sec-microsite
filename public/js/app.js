@@ -2956,6 +2956,10 @@ __webpack_require__.r(__webpack_exports__);
     allowAdd: {
       type: Boolean,
       "default": true
+    },
+    allowDelete: {
+      type: Boolean,
+      "default": true
     }
   },
   components: {
@@ -3023,7 +3027,7 @@ __webpack_require__.r(__webpack_exports__);
         text: 'จัดการ',
         value: 'actions',
         sortable: false,
-        width: '90px',
+        width: this.allowDelete ? '90px' : '70px',
         align: 'center'
       }],
       dataList: [],
@@ -4052,6 +4056,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _category_list_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_category_list_form */ "./resources/js/pages/_category_list_form.vue");
+//
 //
 //
 //
@@ -23744,7 +23749,7 @@ var render = function() {
                                 _vm._g(
                                   _vm._b(
                                     {
-                                      staticClass: "mr-3",
+                                      class: _vm.allowDelete ? "mr-3" : "",
                                       attrs: { small: "" },
                                       on: {
                                         click: function($event) {
@@ -23771,48 +23776,54 @@ var render = function() {
                   [_vm._v(" "), _c("span", [_vm._v("แก้ไข")])]
                 ),
                 _vm._v(" "),
-                _c(
-                  "v-tooltip",
-                  {
-                    attrs: { bottom: "" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "activator",
-                          fn: function(ref) {
-                            var on = ref.on
-                            var attrs = ref.attrs
-                            return [
-                              _c(
-                                "v-icon",
-                                _vm._g(
-                                  _vm._b(
-                                    {
-                                      attrs: { small: "" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.handleClickDelete(item)
-                                        }
-                                      }
-                                    },
+                _vm.allowDelete
+                  ? _c(
+                      "v-tooltip",
+                      {
+                        attrs: { bottom: "" },
+                        scopedSlots: _vm._u(
+                          [
+                            {
+                              key: "activator",
+                              fn: function(ref) {
+                                var on = ref.on
+                                var attrs = ref.attrs
+                                return [
+                                  _c(
                                     "v-icon",
-                                    attrs,
-                                    false
-                                  ),
-                                  on
-                                ),
-                                [_vm._v("\n            mdi-delete\n          ")]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      true
+                                    _vm._g(
+                                      _vm._b(
+                                        {
+                                          attrs: { small: "" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.handleClickDelete(item)
+                                            }
+                                          }
+                                        },
+                                        "v-icon",
+                                        attrs,
+                                        false
+                                      ),
+                                      on
+                                    ),
+                                    [
+                                      _vm._v(
+                                        "\n            mdi-delete\n          "
+                                      )
+                                    ]
+                                  )
+                                ]
+                              }
+                            }
+                          ],
+                          null,
+                          true
+                        )
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("ลบ")])]
                     )
-                  },
-                  [_vm._v(" "), _c("span", [_vm._v("ลบ")])]
-                )
+                  : _vm._e()
               ]
             }
           },
@@ -24525,7 +24536,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("category-list-form", {
-    attrs: { "table-name": "event", "allow-add": false }
+    attrs: { "table-name": "event", "allow-add": false, "allow-delete": false }
   })
 }
 var staticRenderFns = []

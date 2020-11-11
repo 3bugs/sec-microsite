@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/pages/_category_list_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_category_list_form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/event-category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/event-category.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,14 +246,7 @@
       <workItem from="1604974035163" duration="7027000" />
       <workItem from="1604985260146" duration="13609000" />
       <workItem from="1605015968260" duration="3492000" />
-      <workItem from="1605060791371" duration="23201000" />
-    </task>
-    <task id="LOCAL-00009" summary="back: finish crud fundraising (ยกเว้นฟีลด์ content)">
-      <created>1603544913604</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1603544913604</updated>
+      <workItem from="1605060791371" duration="23543000" />
     </task>
     <task id="LOCAL-00010" summary="back: add ckeditor">
       <created>1603596698135</created>
@@ -592,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605089015560</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="back: disable delete event categories">
+      <created>1605089951405</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1605089951405</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,7 +599,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: add ckeditor" />
     <MESSAGE value="back: finish crud fundraising" />
     <MESSAGE value="front: fundraising details" />
     <MESSAGE value="back: เพิ่มฟีลด์ 'สร้าง', 'ปรับปรุง' หน้า fundraising" />
@@ -625,7 +623,8 @@
     <MESSAGE value="back: ปรับจังหวะการโหลด detail" />
     <MESSAGE value="back: แสดง progress overlay ตอนโหลด item details" />
     <MESSAGE value="back: crud events &amp; event categories" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: crud events &amp; event categories" />
+    <MESSAGE value="back: disable delete event categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: disable delete event categories" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -646,11 +645,11 @@
     </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604904111665" />
     <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604332438461" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1605089015151">
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1605089951259">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605089015151" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605089951259" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604337218211" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1603295733951">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -707,11 +706,11 @@
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605071264370" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603463929697" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1605089017128">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1605089952515">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605089017128" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605089952515" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604337220625" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />
