@@ -2,6 +2,7 @@
   <category-list-form
     table-name="event"
     :allow-add="false"
+    :allow-delete="false"
   />
 </template>
 

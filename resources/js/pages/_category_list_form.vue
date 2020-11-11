@@ -203,7 +203,7 @@
         </v-tooltip>
 
         <!--ลบ-->
-        <v-tooltip bottom>
+        <v-tooltip bottom v-if="allowDelete">
           <template v-slot:activator="{ on, attrs }">
             <v-icon
               small
@@ -256,7 +256,11 @@ export default {
     allowAdd: {
       type: Boolean,
       default: true,
-    }
+    },
+    allowDelete: {
+      type: Boolean,
+      default: true,
+    },
   },
   components: {
     MyDialog,

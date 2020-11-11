@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/EventCategory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_11_053318_create_events_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_11_053346_create_event_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/pages/event-category.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/pages/event.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiDataController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/Constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/Constants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_30_044501_create_media_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_30_044501_create_media_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/insidepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/insidepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/_details_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/_details_form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/pages/_category_list_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_category_list_form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/_list_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_list_form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fundraising.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fundraising.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/media.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/media.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/event-category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/event-category.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,14 +247,7 @@
       <workItem from="1604974035163" duration="7027000" />
       <workItem from="1604985260146" duration="13609000" />
       <workItem from="1605015968260" duration="3492000" />
-      <workItem from="1605060791371" duration="22254000" />
-    </task>
-    <task id="LOCAL-00008" summary="back: หน้าเพิ่ม/แก้ไข fundraising (ยังไม่สมบูรณ์)">
-      <created>1603535462723</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1603535462723</updated>
+      <workItem from="1605060791371" duration="23201000" />
     </task>
     <task id="LOCAL-00009" summary="back: finish crud fundraising (ยกเว้นฟีลด์ content)">
       <created>1603544913604</created>
@@ -611,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605001980647</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="back: crud events &amp; event categories">
+      <created>1605089015559</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1605089015560</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +600,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: finish crud fundraising (ยกเว้นฟีลด์ content)" />
     <MESSAGE value="back: add ckeditor" />
     <MESSAGE value="back: finish crud fundraising" />
     <MESSAGE value="front: fundraising details" />
@@ -644,7 +624,8 @@
     <MESSAGE value="back: css" />
     <MESSAGE value="back: ปรับจังหวะการโหลด detail" />
     <MESSAGE value="back: แสดง progress overlay ตอนโหลด item details" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: แสดง progress overlay ตอนโหลด item details" />
+    <MESSAGE value="back: crud events &amp; event categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: crud events &amp; event categories" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -665,11 +646,11 @@
     </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604904111665" />
     <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604332438461" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1605001980309">
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1605089015151">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605001980309" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605089015151" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604337218211" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1603295733951">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -726,11 +707,11 @@
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605071264370" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603463929697" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1605001982224">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1605089017128">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605001982224" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605089017128" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604337220625" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />
