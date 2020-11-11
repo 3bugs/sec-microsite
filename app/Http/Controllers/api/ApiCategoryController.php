@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\FundraisingCategory;
 use App\Models\MediaCategory;
+use App\Models\EventCategory;
 use Illuminate\Http\Request;
 
 class ApiCategoryController extends Controller
@@ -24,6 +25,10 @@ class ApiCategoryController extends Controller
       case 'api/media-category':
         $this->mType = Constants::PAGE_TYPE_MEDIA;
         $this->mCategoryModelClass = MediaCategory::class;
+        break;
+      case 'api/event-category':
+        $this->mType = Constants::PAGE_TYPE_EVENT;
+        $this->mCategoryModelClass = EventCategory::class;
         break;
     }
   }

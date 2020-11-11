@@ -7,6 +7,8 @@ use App\Models\Fundraising;
 use App\Models\FundraisingCategory;
 use App\Models\Media;
 use App\Models\MediaCategory;
+use App\Models\Event;
+use App\Models\EventCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -46,6 +48,14 @@ class ApiDataController extends Controller
         $this->mTableName = 'media';
         $this->mCategoryTableName = 'media_categories';
         $this->mStoragePath = 'public/media';
+        break;
+      case 'api/event':
+        $this->mType = Constants::PAGE_TYPE_EVENT;
+        $this->mModelClass = Event::class;
+        $this->mCategoryModelClass = EventCategory::class;
+        $this->mTableName = 'events';
+        $this->mCategoryTableName = 'event_categories';
+        $this->mStoragePath = 'public/event';
         break;
     }
   }
@@ -134,6 +144,9 @@ class ApiDataController extends Controller
       $data->category_id = $categoryId;
       $data->cover_image = $imagePath;
       $data->content = $content;
+      if ($request->has('date')) {
+        $data->event_date = $request->date;
+      }
       $data->save();
 
       $message = "Title: $title\n"
@@ -175,6 +188,9 @@ class ApiDataController extends Controller
       }
       if ($request->has('content_data')) {
         $data->content = $request->content_data;
+      }
+      if ($request->has('date')) {
+        $data->event_date = $request->date;
       }
       if ($request->has('published')) {
         $data->published = $request->published;

@@ -75,6 +75,8 @@
 @section('script')
   <script>
     $(document).ready(function () {
+      const $myNavBar = $('.my-navbar');
+
       $('.isp_sidebar ul li').click(function (event) {
         if ($('.isp_sidebar ul li:not(".active")').is(':hidden')) {
           if (Modernizr.mq('(max-width: 767px)')) {
@@ -92,22 +94,22 @@
         targetId = $(this).attr('href');
         if (Modernizr.mq('(max-width: 767px)')) {
           if ($('.isp_sidebar ul').hasClass('sticky')) {
-            targetOffset = $(targetId).offset().top - $('.my-navbar').outerHeight(true) - $('.isp_sidebar ul li.active').outerHeight(true);
+            targetOffset = $(targetId).offset().top - $myNavBar.outerHeight(true) - $('.isp_sidebar ul li.active').outerHeight(true) + 50;
           } else {
             var isbbaropenh = $('.isp_sidebar ul li').outerHeight(true) * ($('.isp_sidebar ul li').length + 1);
-            targetOffset = $(targetId).offset().top - $('.my-navbar').outerHeight(true) - isbbaropenh;
+            targetOffset = $(targetId).offset().top - $myNavBar.outerHeight(true) - isbbaropenh;
           }
         } else {
-          targetOffset = $(targetId).offset().top - $('.my-navbar').outerHeight(true) - 15;
+          targetOffset = $(targetId).offset().top - $myNavBar.outerHeight(true) - 15;
         }
         $('html,body').animate({scrollTop: targetOffset}, 200);
       });
 
       function scrollNav() {
-        var scrollPosition = $(window).scrollTop() + $('.my-navbar').outerHeight(true) + 120;
+        const scrollPosition = $(window).scrollTop() + $myNavBar.outerHeight(true) + 120;
         $('.section').each(function () {
-          var sectionTop = $(this).offset().top;
-          var id = $(this).attr('id');
+          const sectionTop = $(this).offset().top;
+          const id = $(this).attr('id');
 
           if (scrollPosition >= sectionTop) {
             $('.isp_sidebar ul li a').parent('li').removeClass('active');
@@ -115,17 +117,17 @@
           }
         });
 
-        var boxfilter = $(".isp_sidebar ul");
-        var ofstop = $('.detail_fundraising').offset().top - $('.my-navbar').outerHeight(true) + 80;
-        if ($(this).scrollTop() > ofstop) {
-          boxfilter.addClass('sticky');
-          boxfilter.css({
+        const boxFilter = $(".isp_sidebar ul");
+        const offsetTop = $('.detail_fundraising').offset().top - $('.my-navbar').outerHeight(true) + 30;
+        if ($(this).scrollTop() > offsetTop) {
+          boxFilter.addClass('sticky');
+          boxFilter.css({
             //'width': $('.container').outerWidth() - $('.detail_fundraising').outerWidth(),
             //'left': $('.container').offset().left,
-            'top': $(this).scrollTop() + $('.my-navbar').height() - ofstop,
+            'top': $(this).scrollTop() + $('.my-navbar').height() - offsetTop,
           });
         } else {
-          boxfilter.removeClass('sticky');
+          boxFilter.removeClass('sticky');
         }
       }
 

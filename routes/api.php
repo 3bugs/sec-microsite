@@ -34,6 +34,7 @@ $apiDataCallback = function () {
 Route::prefix('fundraising')->group($apiDataCallback);
 Route::prefix('media')->group($apiDataCallback);
 Route::prefix('media-more')->group($apiDataCallback);
+Route::prefix('event')->group($apiDataCallback);
 
 $apiCategoryCallback = function () {
   Route::get('/', [ApiCategoryController::class, 'index']);
@@ -43,3 +44,4 @@ $apiCategoryCallback = function () {
 };
 Route::prefix('fundraising-category')->group($apiCategoryCallback);
 Route::prefix('media-category')->group($apiCategoryCallback);
+Route::prefix('event-category')->group($apiCategoryCallback);

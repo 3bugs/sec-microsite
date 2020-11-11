@@ -4,6 +4,8 @@ import FundraisingCategory from './pages/fundraising-category';
 import Media from './pages/media';
 import MediaMore from './pages/media-more';
 import MediaCategory from './pages/media-category';
+import Event from './pages/event';
+import EventCategory from './pages/event-category';
 
 export const routeDataList = [
   {
@@ -73,6 +75,28 @@ export const routeDataList = [
       },*/
     ],
   },
+  {
+    title: 'SEC Event',
+    menuIconName: 'mdi-calendar-clock',
+    subItemList: [
+      {
+        path: '/event',
+        name: 'event',
+        component: Event,
+        title: 'SEC Event',
+        menuTitle: 'SEC Event',
+        menuIconName: 'mdi-content-copy',
+      },
+      {
+        path: '/event-category',
+        name: 'event-category',
+        component: EventCategory,
+        title: 'หมวดหมู่ SEC Event',
+        menuTitle: 'หมวดหมู่ SEC Event',
+        menuIconName: 'mdi-shape-outline',
+      },
+    ],
+  },
 ];
 
 export const getRouteTitle = (routeName) => {
@@ -92,20 +116,20 @@ export const getRouteTitle = (routeName) => {
 };
 
 export const categoryColorList = [
-  '#beebe9',
+  '#D3EEFF',
+  '#FEBCC8',
+  '#ADE6D0',
+  '#DEB3EB',
   '#f4dada',
   '#f6eec7',
   '#d9e4dd',
-  '#fbf7f0',
-  '#ADE6D0',
+  //'#fbf7f0',
   '#F1F0CF',
+  '#E0FEFE',
   '#EBCEED',
-  '#DEB3EB',
-  '#FEBCC8',
   '#FFFFD8',
   '#EAEBFF',
-  '#E0FEFE',
-  '#D3EEFF',
+  '#beebe9',
   '#F3EACE',
   '#E7F1D4',
   '#D7ECC9',

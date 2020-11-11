@@ -34,8 +34,8 @@
       <div class="col-12 col-md-4 isp_sidebar">
         <ul>
           @for ($i = 0; $i < count($mediaCategoryList); $i++)
-            @if (count($mediaCategoryList[$i]->media) > 0)
-              <li class="{{ $i === 0 ? 'active' : '' }}">
+            @if (count($mediaCategoryList[$i]->media) > 0 && $mediaCategoryList[$i]->id > 2)
+              <li class="{{ $i === 2 ? 'active' : '' }}">
                 <a href="#{{ MEDIA_CATEGORY.$mediaCategoryList[$i]->id }}">
                   {{ $mediaCategoryList[$i]->title }}
                 </a>
@@ -45,23 +45,25 @@
         </ul>
       </div>
 
-      @foreach ($mediaCategoryList as $mediaCategory)
-      <div class="col-12 col-md-8 detail_fundraising detail_hide" id="{{ MEDIA_CATEGORY.$mediaCategory->id }}">
-        <div class="row">
-          @foreach ($mediaCategory->media as $media)
-          <figure class="col-12 col-md-6 item_fundraising">
-            <a href="media/{{ $media->id }}">
-              <div><img src="{{ Storage::url($media->cover_image) }}"></div>
-              <figcaption>
-                <h4>{{ $media->title }}</h4>
-                <p>{{ $media->description }}</p>
-              </figcaption>
-            </a>
-          </figure>
-          @endforeach
-        </div>
-      </div>
-      @endforeach
+      @for ($i = 0; $i < count($mediaCategoryList); $i++)
+        @if (count($mediaCategoryList[$i]->media) > 0 && $mediaCategoryList[$i]->id > 2)
+          <div class="col-12 col-md-8 detail_fundraising detail_hide" id="{{ MEDIA_CATEGORY.$mediaCategoryList[$i]->id }}">
+            <div class="row">
+              @foreach ($mediaCategoryList[$i]->media as $media)
+                <figure class="col-12 col-md-6 item_fundraising">
+                  <a href="media/{{ $media->id }}">
+                    <div><img src="{{ Storage::url($media->cover_image) }}"></div>
+                    <figcaption>
+                      <h4>{{ $media->title }}</h4>
+                      <p>{{ $media->description }}</p>
+                    </figcaption>
+                  </a>
+                </figure>
+              @endforeach
+            </div>
+          </div>
+        @endif
+      @endfor
     </div>
 
     <div class="row all_relate">
@@ -70,33 +72,21 @@
         <h3>บทความที่เกี่ยวข้อง</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutru</p>
         <div class="row">
-          <figure class="col-12 col-md-4 item_fundraising">
-            <a href="media-detail.php">
-              <div><img src="img/info01.png"></div>
-              <figcaption>
-                <h4>Minimal workspace for inspirations</h4>
-                <p>Anthony Masional</p>
-              </figcaption>
-            </a>
-          </figure>
-          <figure class="col-12 col-md-4 item_fundraising">
-            <a href="media-detail.php">
-              <div><img src="img/info01.png"></div>
-              <figcaption>
-                <h4>Minimal workspace for inspirations</h4>
-                <p>Anthony Masional</p>
-              </figcaption>
-            </a>
-          </figure>
-          <figure class="col-12 col-md-4 item_fundraising">
-            <a href="media-detail.php">
-              <div><img src="img/info01.png"></div>
-              <figcaption>
-                <h4>Minimal workspace for inspirations</h4>
-                <p>Anthony Masional</p>
-              </figcaption>
-            </a>
-          </figure>
+          @for ($i = 0; $i < count($mediaCategoryList); $i++)
+            @if ($mediaCategoryList[$i]->id === 1)
+              @foreach ($mediaCategoryList[$i]->media as $media)
+                <figure class="col-12 col-md-4 item_fundraising">
+                  <a href="media/{{ $media->id }}">
+                    <div><img src="{{ Storage::url($media->cover_image) }}"></div>
+                    <figcaption>
+                      <h4>{{ $media->title }}</h4>
+                      <p>{{ $media->description }}</p>
+                    </figcaption>
+                  </a>
+                </figure>
+              @endforeach
+            @endif
+          @endfor
         </div>
       </div>
 
@@ -105,33 +95,21 @@
         <h3>ลิ้งค์อื่นๆ ที่เกี่ยวข้อง</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutru</p>
         <div class="row">
-          <figure class="col-12 col-md-4 item_fundraising">
-            <a href="media-detail.php">
-              <div><img src="img/info01.png"></div>
-              <figcaption>
-                <h4>Minimal workspace for inspirations</h4>
-                <p>Anthony Masional</p>
-              </figcaption>
-            </a>
-          </figure>
-          <figure class="col-12 col-md-4 item_fundraising">
-            <a href="media-detail.php">
-              <div><img src="img/info01.png"></div>
-              <figcaption>
-                <h4>Minimal workspace for inspirations</h4>
-                <p>Anthony Masional</p>
-              </figcaption>
-            </a>
-          </figure>
-          <figure class="col-12 col-md-4 item_fundraising">
-            <a href="media-detail.php">
-              <div><img src="img/info01.png"></div>
-              <figcaption>
-                <h4>Minimal workspace for inspirations</h4>
-                <p>Anthony Masional</p>
-              </figcaption>
-            </a>
-          </figure>
+          @for ($i = 0; $i < count($mediaCategoryList); $i++)
+            @if ($mediaCategoryList[$i]->id === 2)
+              @foreach ($mediaCategoryList[$i]->media as $media)
+                <figure class="col-12 col-md-4 item_fundraising">
+                  <a href="media/{{ $media->id }}">
+                    <div><img src="{{ Storage::url($media->cover_image) }}"></div>
+                    <figcaption>
+                      <h4>{{ $media->title }}</h4>
+                      <p>{{ $media->description }}</p>
+                    </figcaption>
+                  </a>
+                </figure>
+              @endforeach
+            @endif
+          @endfor
         </div>
       </div>
     </div>

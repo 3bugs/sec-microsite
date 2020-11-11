@@ -48,7 +48,10 @@
             v-model="editDialogVisible"
             max-width="600px"
           >
-            <template v-slot:activator="{ on, attrs }">
+            <template
+              v-if="allowAdd"
+              v-slot:activator="{ on, attrs }"
+            >
               <v-btn
                 color="primary"
                 dark
@@ -250,6 +253,10 @@ import {formatThaiDateTime} from '../utils/utils';
 export default {
   props: {
     tableName: String,
+    allowAdd: {
+      type: Boolean,
+      default: true,
+    }
   },
   components: {
     MyDialog,

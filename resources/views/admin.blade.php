@@ -165,7 +165,7 @@
         app
         color="#003558"
     >
-      <span class="white--text">&copy; 2020 สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</span>
+      <span class="white--text">&copy; @{{ currentYear }} สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</span>
     </v-footer>
   </v-app>
 </div>

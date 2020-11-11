@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <my-progress-overlay :visible="isDeleting || isLoadingItem" />
+    <my-progress-overlay :visible="isDeleting || isLoadingItem"/>
     <!--<v-overlay
       :value="isDeleting"
       z-index="9999"
@@ -225,6 +225,7 @@
           :on-cancel-form="handleCancelForm"
           :on-save="handleSave"
           :on-delete="handleDelete"
+          :with-date="withDate"
         />
       </v-tab-item>
     </v-tabs-items>
@@ -256,6 +257,10 @@ import {formatThaiDateTime} from '../utils/utils';
 export default {
   props: {
     tableName: String,
+    withDate: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     DetailsForm, MyDialog, MyProgressOverlay,
@@ -272,14 +277,14 @@ export default {
       isUpdatePublished: false,
       headers: [
         {text: 'รูปภาพปก', value: 'image', sortable: false, width: '170px',},
-        {text: 'หัวเรื่อง', align: 'start', value: 'title', sortable: true,},
-        /*{text: 'คำอธิบายย่อ', value: 'description', sortable: true,},*/
+        {text: 'หัวข้อ', align: 'start', value: 'title', sortable: true,},
         {text: 'หมวดหมู่', value: 'category_id', sortable: true,},
+        this.withDate ? {text: 'วัน', value: 'event_date', sortable: true, width: '80px', align: 'center',} : null,
         {text: 'สร้าง', value: 'created_at', sortable: true, width: '70px', align: 'center',},
         {text: 'แก้ไข', value: 'updated_at', sortable: true, width: '70px', align: 'center',},
         {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
         {text: 'จัดการ', value: 'actions', sortable: false, width: '120px', align: 'center',},
-      ],
+      ].filter(item => item != null),
       dataList: [],
       categoryList: [],
       routeDataList,
@@ -446,9 +451,13 @@ export default {
       })
         .then((response) => {
           console.log(response.data);
+          this.isLoadingItem = false;
+
           if (response.data.status === 'ok') {
-            const item = response.data.data;
-            successCallback(item);
+            this.$nextTick(() => {
+              const item = response.data.data;
+              successCallback(item);
+            })
           } else {
             const errorMessage = response.data.message;
             this.showDialog(
@@ -463,6 +472,8 @@ export default {
         })
         .catch((error) => {
           console.log(error);
+          this.isLoadingItem = false;
+
           this.showDialog(
             'ผิดพลาด',
             'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง',
@@ -473,7 +484,7 @@ export default {
           );
         })
         .then(() => { // always executed
-          this.isLoadingItem = false;
+          //this.isLoadingItem = false;
         });
     },
 

@@ -28,6 +28,7 @@ const app = new Vue({
   data: () => ({
     drawer: null,
     routeDataList,
+    currentYear: new Date().toISOString().substr(0, 4),
   }),
   created() {
     console.log('created()');

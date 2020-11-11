@@ -101,6 +101,7 @@ body {
 
 .isp_sidebar ul li a {
   font-size: 20px;
+  background-color: #F8F8F8;
   color: #000;
   padding: 20px 20px;
   display: block;
@@ -1316,7 +1317,7 @@ body {
 
   .isp_sidebar ul.sticky {
     position: fixed;
-    top: 60px !important;
+    top: 0 !important;
     left: 0;
     right: 0;
   }

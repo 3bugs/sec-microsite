@@ -61,11 +61,53 @@
       lazy-validation
       class="pl-5 pr-5"
     >
+      <v-dialog
+        ref="datePickerDialog"
+        v-if="withDate"
+        v-model="datePickerModal"
+        :return-value.sync="date"
+        persistent
+        width="290px"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-text-field
+            v-model="date"
+            :rules="dateRules"
+            label="วันที่จัดอีเวนต์"
+            prepend-icon="mdi-calendar"
+            readonly
+            v-bind="attrs"
+            v-on="on"
+            required
+          ></v-text-field>
+        </template>
+        <v-date-picker
+          v-model="date"
+          scrollable
+        >
+          <v-spacer></v-spacer>
+          <v-btn
+            text
+            color="primary"
+            @click="datePickerModal = false"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            text
+            color="primary"
+            @click="$refs.datePickerDialog.save(date)"
+          >
+            OK
+          </v-btn>
+        </v-date-picker>
+      </v-dialog>
+
       <v-text-field
         v-model="title"
         :counter="255"
         :rules="titleRules"
-        label="ชื่อหัวข้อ"
+        label="หัวข้อ"
         required
       ></v-text-field>
 
@@ -180,6 +222,7 @@
         Reset Validation
       </v-btn>-->
     </v-form>
+
     <v-toolbar
       flat
       class="pb-5"
@@ -255,6 +298,23 @@
       :message="dialog.message"
       :button-list="dialog.buttonList"
     />
+
+    <!--<div style="flex: 1; position: fixed; bottom: 20px; text-align: center; z-index: 9999; border: 1px solid red">
+      <v-btn
+        :disabled="!valid || isSaving || isDeleting"
+        color="success"
+        @click="validate"
+        :loading="isSaving"
+      >
+        <v-icon
+          small
+          class="mr-2"
+        >
+          mdi-content-save
+        </v-icon>
+        บันทึก
+      </v-btn>
+    </div>-->
   </v-card>
 </template>
 
@@ -284,14 +344,15 @@ export default {
     onCancelForm: Function,
     onSave: Function,
     onDelete: Function,
+    withDate: Boolean,
   },
   data() {
     return {
       valid: true,
       title: '',
       titleRules: [
-        v => !!v || 'ต้องกรอกชื่อหัวข้อ',
-        v => (v && v.length <= 255) || 'ชื่อหัวข้อต้องไม่เกิน 255 ตัวอักษร',
+        v => !!v || 'ต้องกรอกหัวข้อ',
+        v => (v && v.length <= 255) || 'หัวข้อต้องไม่เกิน 255 ตัวอักษร',
       ],
       description: '',
       descriptionRules: [
@@ -325,6 +386,11 @@ export default {
       },
       contentRuleVisible: false,
       isUpdated: false, // มีการบันทึกข้อมูลลงฐานข้อมูลหรือยัง
+      date: '', //new Date().toISOString().substr(0, 10),
+      dateRules: [
+        v => !!v || 'ต้องระบุวันที่จัดอีเวนต์',
+      ],
+      datePickerModal: false,
     }
   },
   computed: {
@@ -357,6 +423,7 @@ export default {
       )[0];
       this.selectedImageSrc = this.item.cover_image;
       this.editorContent = this.item.content;
+      this.date = this.item.event_date;
     }
   },
   methods: {
@@ -493,6 +560,9 @@ export default {
       formData.append('category_id', this.selectedCategory.id);
       formData.append('cover_image', this.selectedFile);
       formData.append('content_data', this.editorContent.trim());
+      if (this.withDate) {
+        formData.append('date', this.date);
+      }
       if (this.item != null) {
         formData.append('_method', 'put');
       }
