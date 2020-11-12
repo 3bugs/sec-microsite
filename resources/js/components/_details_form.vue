@@ -28,7 +28,7 @@
               </v-icon>
             </v-btn>
           </template>
-          <span>ย้อนกลับ (ยกเลิกการ{{ item == null ? 'เพิ่ม' : 'แก้ไข' }}ข้อมูล)</span>
+          <span>ย้อนกลับ (ยกเลิกการ{{ item == null ? 'เพิ่มข้อมูล' : 'เปลี่ยนแปลงที่ยังไม่ได้บันทึก' }})</span>
         </v-tooltip>
 
         {{ currentRouteTitle }} - {{ item == null ? 'เพิ่ม' : 'แก้ไข' }}ข้อมูล
@@ -84,6 +84,7 @@
         <v-date-picker
           v-model="date"
           scrollable
+          locale="th-TH"
         >
           <v-spacer></v-spacer>
           <v-btn
@@ -91,14 +92,14 @@
             color="primary"
             @click="datePickerModal = false"
           >
-            Cancel
+            ยกเลิก
           </v-btn>
           <v-btn
             text
             color="primary"
             @click="$refs.datePickerDialog.save(date)"
           >
-            OK
+            ตกลง
           </v-btn>
         </v-date-picker>
       </v-dialog>
@@ -299,6 +300,18 @@
       :button-list="dialog.buttonList"
     />
 
+    <v-snackbar
+      v-model="snackbar.visible"
+    >
+      <v-icon
+        v-if="snackbar.iconName != null"
+        small color="success" class="mr-1"
+      >
+        {{ snackbar.iconName }}
+      </v-icon>
+      {{ snackbar.message }}
+    </v-snackbar>
+
     <!--<div style="flex: 1; position: fixed; bottom: 20px; text-align: center; z-index: 9999; border: 1px solid red">
       <v-btn
         :disabled="!valid || isSaving || isDeleting"
@@ -370,6 +383,11 @@ export default {
         visible: false,
         title: '',
         message: '',
+      },
+      snackbar: {
+        visible: false,
+        message: '',
+        iconName: null,
       },
       editor,
       editorContent: '',
@@ -582,13 +600,19 @@ export default {
           if (status === 'ok') {
             this.isUpdated = true;
 
-            this.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
-              text: 'OK', onClick: () => {
-                if (this.onSave != null && this.item == null) {
-                  this.onSave();
-                }
-              },
-            }], true);
+            if (this.item == null) {
+              this.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
+                text: 'OK', onClick: () => {
+                  if (this.onSave != null) {
+                    this.onSave();
+                  }
+                },
+              }], true);
+            } else {
+              this.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+              this.snackbar.iconName = 'mdi-check-bold';
+              this.snackbar.visible = true;
+            }
           } else {
             this.showDialog('ผิดพลาด', `เกิดข้อผิดพลาด: ${message}`, [{
               text: 'OK', onClick: () => {

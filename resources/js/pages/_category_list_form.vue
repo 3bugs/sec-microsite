@@ -240,6 +240,12 @@
     <v-snackbar
       v-model="snackbar.visible"
     >
+      <v-icon
+        v-if="snackbar.iconName != null"
+        small color="success" class="mr-1"
+      >
+        {{ snackbar.iconName }}
+      </v-icon>
       {{ snackbar.message }}
     </v-snackbar>
   </v-container>
@@ -310,6 +316,7 @@ export default {
       snackbar: {
         visible: false,
         message: '',
+        iconName: null,
       },
       formatThaiDateTime,
     }
@@ -365,8 +372,9 @@ export default {
       if (this.$refs.form.validate()) {
         this.doSaving();
       } else {
-        this.snackbar.visible = true;
         this.snackbar.message = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+        this.snackbar.iconName = null;
+        this.snackbar.visible = true;
         /*this.showDialog(
           'กรุณากรอกข้อมูลให้ครบถ้วน',
           'กรุณากรอกข้อมูลให้ครบถ้วน',
@@ -411,6 +419,7 @@ export default {
           if (status === 'ok') {
             this.closeEditDialog();
             this.snackbar.message = 'บันทึกข้อมูลสำเร็จ'
+            this.snackbar.iconName = 'mdi-check-bold';
             this.snackbar.visible = true;
             this.handleClickRefresh();
           } else {
@@ -521,6 +530,7 @@ export default {
           const message = response.data.message;
           if (status === 'ok') {
             this.snackbar.message = 'ลบข้อมูลสำเร็จ';
+            this.snackbar.iconName = 'mdi-check-bold';
             this.snackbar.visible = true;
             this.handleClickRefresh();
           } else {
@@ -585,6 +595,7 @@ export default {
           const message = response.data.message;
           if (status === 'ok') {
             this.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+            this.snackbar.iconName = 'mdi-check-bold';
             this.snackbar.visible = true;
           } else {
             item.published = !item.published;

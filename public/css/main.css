@@ -85,7 +85,7 @@ p {
   opacity: 0.8;
 }
 
-a:hover * {
+_a:hover * {
   color: #72A927 !important;
 }
 

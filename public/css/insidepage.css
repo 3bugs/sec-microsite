@@ -910,11 +910,11 @@ body {
 }
 
 .datepicker .next::before {
-  background: url(../img/arrowleft.svg);
+  background: url(/images/ic_arrow_right.svg);
 }
 
 .datepicker .prev::before {
-  background: url(../img/arrowright.svg);
+  background: url(/images/ic_arrow_left.svg);
 }
 
 .datepicker .datepicker-switch {
@@ -930,66 +930,66 @@ body {
   left: 0;
   top: 0;
   height: 100%;
-  width: 2px;
+  width: 3px;
 }
 
 .datepicker td.seminar::before {
   background: #2D9CDB;
 }
 
-.datepicker td.webina::before {
+.datepicker td.webinar::before {
   background: #EB5757;
 }
 
-.datepicker td.businessmatching::before {
+.datepicker td.business_matching::before {
   background: #8DC63F;
 }
 
-.datepicker td.infomation::before {
+.datepicker td.information::before {
   background: #9B51E0;
 }
 
-.datepicker td.seminar.webina::before {
-  background: linear-gradient(to bottom, #8DC63F 50%, #EB5757 50%);
+.datepicker td.seminar.webinar::before {
+  background: linear-gradient(to bottom, #2D9CDB 50%, #EB5757 50%);
 }
 
-.datepicker td.seminar.businessmatching::before {
+.datepicker td.seminar.business_matching::before {
   background: linear-gradient(to bottom, #2D9CDB 50%, #8DC63F 50%);
 }
 
-.datepicker td.seminar.infomation::before {
-  background: linear-gradient(to bottom, #8DC63F 50%, #9B51E0 50%);
+.datepicker td.seminar.information::before {
+  background: linear-gradient(to bottom, #2D9CDB 50%, #9B51E0 50%);
 }
 
-.datepicker td.webina.businessmatching::before {
+.datepicker td.webinar.business_matching::before {
   background: linear-gradient(to bottom, #EB5757 50%, #8DC63F 50%);
 }
 
-.datepicker td.webina.infomation::before {
+.datepicker td.webinar.information::before {
   background: linear-gradient(to bottom, #EB5757 50%, #9B51E0 50%);
 }
 
-.datepicker td.businessmatching.infomation::before {
+.datepicker td.business_matching.information::before {
   background: linear-gradient(to bottom, #8DC63F 50%, #9B51E0 50%);
 }
 
-.datepicker td.seminar.webina.businessmatching::before {
+.datepicker td.seminar.webinar.business_matching::before {
   background: linear-gradient(to bottom, #2D9CDB 0, #2D9CDB 33.333%, #EB5757 33.333%, #EB5757 66.666%, #8DC63F 66.666%, #8DC63F 100%);
 }
 
-.datepicker td.seminar.webina.infomation::before {
+.datepicker td.seminar.webinar.information::before {
   background: linear-gradient(to bottom, #2D9CDB 0, #2D9CDB 33.333%, #EB5757 33.333%, #EB5757 66.666%, #9B51E0 66.666%, #9B51E0 100%);
 }
 
-.datepicker td.seminar.businessmatching.infomation::before {
+.datepicker td.seminar.business_matching.information::before {
   background: linear-gradient(to bottom, #2D9CDB 0, #2D9CDB 33.333%, #8DC63F 33.333%, #8DC63F 66.666%, #9B51E0 66.666%, #9B51E0 100%);
 }
 
-.datepicker td.webina.businessmatching.infomation::before {
+.datepicker td.webinar.business_matching.information::before {
   background: linear-gradient(to bottom, #EB5757 0, #EB5757 33.333%, #8DC63F 33.333%, #8DC63F 66.666%, #9B51E0 66.666%, #9B51E0 100%);
 }
 
-.datepicker td.seminar.webina.businessmatching.infomation::before {
+.datepicker td.seminar.webinar.business_matching.information::before {
   background: linear-gradient(to bottom, #2D9CDB 0, #2D9CDB 25%, #EB5757 25%, #EB5757 50%, #8DC63F 50%, #8DC63F 75%, #9B51E0 75%, #9B51E0 100%);
 }
 
@@ -1120,7 +1120,7 @@ body {
   border-color: #EB5757;
 }
 
-.item_right_event.buinessmatching {
+.item_right_event.business_matching {
   border-color: #8DC63F;
 }
 

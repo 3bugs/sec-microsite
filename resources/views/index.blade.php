@@ -279,7 +279,7 @@
           window.location = '/media';
           break;
         case 4:
-          alert('Under construction!');
+          window.location = '/event';
           break;
         case 5:
           alert('Under construction!');

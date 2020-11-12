@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\EventController;
 use App\Models\Fundraising;
 use App\Models\Media;
 
@@ -45,6 +46,9 @@ Route::get('/fundraising/{fundraising}', [FundraisingController::class, 'show'])
 
 Route::get('/media', [MediaController::class, 'index']);
 Route::get('/media/{media}', [MediaController::class, 'show']);
+
+Route::get('/event', [EventController::class, 'index']);
+Route::get('/event/{event}', [EventController::class, 'show']);
 
 Route::get('/admin', function () {
   return redirect('/admin/dashboard');

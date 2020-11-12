@@ -14,7 +14,7 @@
     "Delete row": "ลบแถว",
     "Dropdown toolbar": "",
     "Editor toolbar": "",
-    "Enter image caption": "ระบุคำอธิบายภาพ",
+    "Enter image caption": "คลิกเพื่อใส่คำอธิบายภาพ",
     "Full size image": "รูปขนาดเต็ม",
     "Header column": "หัวข้อคอลัมน์",
     "Header row": "ส่วนหัวแถว",

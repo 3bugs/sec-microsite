@@ -2266,6 +2266,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2320,6 +2333,11 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
         visible: false,
         title: '',
         message: ''
+      },
+      snackbar: {
+        visible: false,
+        message: '',
+        iconName: null
       },
       editor: _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_3___default.a,
       editorContent: '',
@@ -2531,14 +2549,20 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
         if (status === 'ok') {
           _this4.isUpdated = true;
 
-          _this4.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
-            text: 'OK',
-            onClick: function onClick() {
-              if (_this4.onSave != null && _this4.item == null) {
-                _this4.onSave();
+          if (_this4.item == null) {
+            _this4.showDialog('บันทึกข้อมูลสำเร็จ', 'บันทึกข้อมูลไปยังฐานข้อมูลสำเร็จ', [{
+              text: 'OK',
+              onClick: function onClick() {
+                if (_this4.onSave != null) {
+                  _this4.onSave();
+                }
               }
-            }
-          }], true);
+            }], true);
+          } else {
+            _this4.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+            _this4.snackbar.iconName = 'mdi-check-bold';
+            _this4.snackbar.visible = true;
+          }
         } else {
           _this4.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
             text: 'OK',
@@ -2947,6 +2971,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3041,7 +3071,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       snackbar: {
         visible: false,
-        message: ''
+        message: '',
+        iconName: null
       },
       formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_2__["formatThaiDateTime"]
     };
@@ -3095,8 +3126,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.$refs.form.validate()) {
         this.doSaving();
       } else {
-        this.snackbar.visible = true;
         this.snackbar.message = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+        this.snackbar.iconName = null;
+        this.snackbar.visible = true;
         /*this.showDialog(
           'กรุณากรอกข้อมูลให้ครบถ้วน',
           'กรุณากรอกข้อมูลให้ครบถ้วน',
@@ -3145,6 +3177,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.closeEditDialog();
 
           _this.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this.snackbar.iconName = 'mdi-check-bold';
           _this.snackbar.visible = true;
 
           _this.handleClickRefresh();
@@ -3240,6 +3273,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (status === 'ok') {
           _this4.snackbar.message = 'ลบข้อมูลสำเร็จ';
+          _this4.snackbar.iconName = 'mdi-check-bold';
           _this4.snackbar.visible = true;
 
           _this4.handleClickRefresh();
@@ -3299,6 +3333,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (status === 'ok') {
           _this6.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this6.snackbar.iconName = 'mdi-check-bold';
           _this6.snackbar.visible = true;
         } else {
           item.published = !item.published;
@@ -3346,6 +3381,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3681,7 +3722,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       snackbar: {
         visible: false,
-        message: ''
+        message: '',
+        iconName: null
       },
       formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_4__["formatThaiDateTime"]
     };
@@ -3878,6 +3920,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         if (status === 'ok') {
           _this5.snackbar.message = 'ลบข้อมูลสำเร็จ';
+          _this5.snackbar.iconName = 'mdi-check-bold';
           _this5.snackbar.visible = true;
 
           _this5.handleClickRefresh();
@@ -3951,6 +3994,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         if (status === 'ok') {
           _this7.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this7.snackbar.iconName = 'mdi-check-bold';
           _this7.snackbar.visible = true;
         } else {
           item.published = !item.published;
@@ -22694,8 +22738,12 @@ var render = function() {
                   _c("span", [
                     _vm._v(
                       "ย้อนกลับ (ยกเลิกการ" +
-                        _vm._s(_vm.item == null ? "เพิ่ม" : "แก้ไข") +
-                        "ข้อมูล)"
+                        _vm._s(
+                          _vm.item == null
+                            ? "เพิ่มข้อมูล"
+                            : "เปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+                        ) +
+                        ")"
                     )
                   ])
                 ]
@@ -22810,7 +22858,7 @@ var render = function() {
                   _c(
                     "v-date-picker",
                     {
-                      attrs: { scrollable: "" },
+                      attrs: { scrollable: "", locale: "th-TH" },
                       model: {
                         value: _vm.date,
                         callback: function($$v) {
@@ -22832,7 +22880,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n          Cancel\n        ")]
+                        [_vm._v("\n          ยกเลิก\n        ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -22845,7 +22893,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n          OK\n        ")]
+                        [_vm._v("\n          ตกลง\n        ")]
                       )
                     ],
                     1
@@ -23152,7 +23200,31 @@ var render = function() {
             _vm.dialog.visible = false
           }
         }
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          model: {
+            value: _vm.snackbar.visible,
+            callback: function($$v) {
+              _vm.$set(_vm.snackbar, "visible", $$v)
+            },
+            expression: "snackbar.visible"
+          }
+        },
+        [
+          _vm.snackbar.iconName != null
+            ? _c(
+                "v-icon",
+                { staticClass: "mr-1", attrs: { small: "", color: "success" } },
+                [_vm._v("\n      " + _vm._s(_vm.snackbar.iconName) + "\n    ")]
+              )
+            : _vm._e(),
+          _vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")
+        ],
+        1
+      )
     ],
     1
   )
@@ -23867,7 +23939,17 @@ var render = function() {
             expression: "snackbar.visible"
           }
         },
-        [_vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")]
+        [
+          _vm.snackbar.iconName != null
+            ? _c(
+                "v-icon",
+                { staticClass: "mr-1", attrs: { small: "", color: "success" } },
+                [_vm._v("\n      " + _vm._s(_vm.snackbar.iconName) + "\n    ")]
+              )
+            : _vm._e(),
+          _vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")
+        ],
+        1
       )
     ],
     1
@@ -24452,7 +24534,17 @@ var render = function() {
             expression: "snackbar.visible"
           }
         },
-        [_vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")]
+        [
+          _vm.snackbar.iconName != null
+            ? _c(
+                "v-icon",
+                { staticClass: "mr-1", attrs: { small: "", color: "success" } },
+                [_vm._v("\n      " + _vm._s(_vm.snackbar.iconName) + "\n    ")]
+              )
+            : _vm._e(),
+          _vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")
+        ],
+        1
       )
     ],
     1
@@ -84624,7 +84716,7 @@ var MyUploadAdapter = /*#__PURE__*/function () {
     "Delete row": "ลบแถว",
     "Dropdown toolbar": "",
     "Editor toolbar": "",
-    "Enter image caption": "ระบุคำอธิบายภาพ",
+    "Enter image caption": "คลิกเพื่อใส่คำอธิบายภาพ",
     "Full size image": "รูปขนาดเต็ม",
     "Header column": "หัวข้อคอลัมน์",
     "Header row": "ส่วนหัวแถว",

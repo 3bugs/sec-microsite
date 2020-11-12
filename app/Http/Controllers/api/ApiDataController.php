@@ -108,6 +108,24 @@ class ApiDataController extends Controller
     }
   }
 
+  public function indexByDate($date)
+  {
+    try {
+      $eventList = ($this->mModelClass)::where('event_date', '=', $date)
+        ->orderBy('category_id', 'asc')->get();
+
+      return response()->json(array(
+        'status' => 'ok',
+        'data_list' => $eventList,
+      ), 200);
+    } catch (Exception $e) {
+      return response()->json(array(
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ), 200);
+    }
+  }
+
   public function show($id)
   {
     try {

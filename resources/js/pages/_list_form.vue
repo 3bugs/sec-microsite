@@ -242,6 +242,12 @@
     <v-snackbar
       v-model="snackbar.visible"
     >
+      <v-icon
+        v-if="snackbar.iconName != null"
+        small color="success" class="mr-1"
+      >
+        {{ snackbar.iconName }}
+      </v-icon>
       {{ snackbar.message }}
     </v-snackbar>
   </v-container>
@@ -297,6 +303,7 @@ export default {
       snackbar: {
         visible: false,
         message: '',
+        iconName: null,
       },
       formatThaiDateTime,
     };
@@ -519,6 +526,7 @@ export default {
           const message = response.data.message;
           if (status === 'ok') {
             this.snackbar.message = 'ลบข้อมูลสำเร็จ';
+            this.snackbar.iconName = 'mdi-check-bold';
             this.snackbar.visible = true;
             this.handleClickRefresh();
 
@@ -596,6 +604,7 @@ export default {
           const message = response.data.message;
           if (status === 'ok') {
             this.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+            this.snackbar.iconName = 'mdi-check-bold';
             this.snackbar.visible = true;
           } else {
             item.published = !item.published;

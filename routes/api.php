@@ -30,6 +30,7 @@ $apiDataCallback = function () {
   Route::post('/upload-file', [ApiDataController::class, 'storeUploadFile']);
   Route::put('/', [ApiDataController::class, 'update']);
   Route::delete('/', [ApiDataController::class, 'destroy']);
+  Route::get('/date/{date}', [ApiDataController::class, 'indexByDate']);
 };
 Route::prefix('fundraising')->group($apiDataCallback);
 Route::prefix('media')->group($apiDataCallback);
