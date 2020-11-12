@@ -30,7 +30,7 @@
             <div id="calendar-container">
               <div></div>
             </div>
-            <h6>สามารถเลือกเฉพาะหมวดที่สนใจได้</h6>
+            <h6>เลือกหมวดที่สนใจ</h6>
             <div class="filter_calendar">
               <div>
                 <input checked type="checkbox" id="seminar"><label for="seminar">Seminar</label>
@@ -46,32 +46,33 @@
               </div>
             </div>
           </div>
-          <div id="event-list" class="col-12 col-lg-5 bg_right_calendar" v-if="dataList != null && dataList.length > 0">
-            <h4>@{{ dataList.length }} Events on</h4>
-            <h1>@{{ dateText }}</h1>
-            <div
-                v-for="item in dataList"
-                :class="'item_right_event ' + getClassName(item.category_id)"
-            >
-              <p>@{{ dateText }}</p>
-              <h4>@{{ item.title }}</h4>
-              <p>@{{ item.description }}</p>
+          <div id="event-list" class="col-12 col-lg-5 bg_right_calendar">
+            <div id="event-list-content">
+              <div
+                  v-if="isLoading"
+                  style="position: absolute; right: 10px; top: 10px; justify-content: center; align-items: center"
+              >
+                รอสักครู่...
+              </div>
+
+              <template v-if="filteredDataList == null">
+                <h4 class="mb-3">เลือกวันจากปฏิทิน เพื่อแสดงรายการอีเวนต์ในแต่ละวัน</h4>
+              </template>
+
+              <template v-if="filteredDataList != null">
+                <h4>@{{ filteredDataList.length > 0 ? filteredDataList.length : 'No' }} Event@{{ filteredDataList.length > 1 ? 's' : ''}} on</h4>
+                <h1>@{{ dateText }}</h1>
+                <div
+                    v-for="item in filteredDataList"
+                    :class="'item_right_event ' + getClassName(item.category_id)"
+                    v-on:click="handleClickItem(item)"
+                >
+                  <p>@{{ dateText }}</p>
+                  <h4>@{{ item.title }}</h4>
+                  <p>@{{ item.description }}</p>
+                </div>
+              </template>
             </div>
-            {{--<div class="item_right_event webinar">
-              <p>Sun ・ Sep 16 2020, 8PM</p>
-              <h4>วิธีการระดมทุนให้ได้ตามเป้า</h4>
-              <p>โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            </div>
-            <div class="item_right_event business_matching">
-              <p>Sun ・ Sep 16 2020, 8PM</p>
-              <h4>วิธีการระดมทุนให้ได้ตามเป้า</h4>
-              <p>โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            </div>
-            <div class="item_right_event information">
-              <p>Sun ・ Sep 16 2020, 8PM</p>
-              <h4>วิธีการระดมทุนให้ได้ตามเป้า</h4>
-              <p>โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            </div>--}}
           </div>
         </div>
       </div>
@@ -273,11 +274,14 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
 
   <script>
+    const categoryNameList = [
+      'seminar', 'webinar', 'business_matching', 'information',
+    ];
     const categoryEnableValue = {
-      seminar: true,
-      webinar: true,
-      business_matching: true,
-      information: true,
+      [categoryNameList[0]]: true,
+      [categoryNameList[1]]: true,
+      [categoryNameList[2]]: true,
+      [categoryNameList[3]]: true,
     };
 
     function getFormattedDate(date) {
@@ -319,6 +323,7 @@
           categoryEnableValue[$(this).attr('id')] = $(this).is(':checked');
           //console.log(categoryEnableValue);
           calendar.datepicker('update');
+          eventList.updateCategoryEnableValue();
         });
       });
     });
@@ -329,45 +334,63 @@
       el: '#event-list',
       data: {
         dateText: '',
-        dataList: [],
+        dataList: null,
+        isLoading: false,
+        categoryEnableValue: {},
+      },
+      computed: {
+        filteredDataList() {
+          if (this.dataList == null) return null;
+
+          return this.dataList.filter(event => {
+            return this.categoryEnableValue[categoryNameList[event.category_id - 1]];
+          });
+        },
       },
       created() {
+        this.updateCategoryEnableValue();
       },
       methods: {
         fetchEventByDate(date) {
-          axios.get(`/api/event/date/${date}`)
-            .then(response => {
-              if (response.data.status === 'ok') {
-                this.dataList = response.data.data_list;
-                console.log(this.dataList.length);
+          this.isLoading = true;
 
-                const datePart = date.split('-');
-                const day = parseInt(datePart[2]);
-                let monthNameList = [
-                  'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC',
-                ];
-                this.dateText = `${day} ${monthNameList[datePart[1] - 1]} ${datePart[0]}`;
+          axios.get(`/api/event/date/${date}?t=${Date.now()}`)
+            .then(response => {
+              this.isLoading = false;
+
+              if (response.data.status === 'ok') {
+                const $eventList = $('#event-list-content');
+                $eventList.fadeOut(300, () => {
+                  const datePart = date.split('-');
+                  const day = parseInt(datePart[2]);
+                  let monthNameList = [
+                    'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC',
+                  ];
+                  this.dateText = `${day} ${monthNameList[datePart[1] - 1]} ${datePart[0]}`;
+                  this.dataList = response.data.data_list;
+
+                  $eventList.fadeIn(300, () => {
+                  });
+                });
               } else {
                 alert('เกิดข้อผิดพลาดในการดึงข้อมูล กรุณาลองใหม่');
               }
+            })
+            .catch(error => {
+              console.log(error);
+              this.isLoading = false;
+              alert('เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองใหม่\n\n' + error);
             });
         },
         getClassName(categoryId) {
-          switch (categoryId) {
-            case 1:
-              return 'seminar';
-              break;
-            case 2:
-              return 'webinar';
-              break;
-            case 3:
-              return 'business_matching';
-              break;
-            case 4:
-              return 'information';
-              break;
-          }
+          return categoryNameList[categoryId - 1];
         },
+        handleClickItem(item) {
+          alert('Under construction!');
+        },
+        updateCategoryEnableValue() {
+          this.categoryEnableValue = categoryEnableValue;
+        }
       }
     });
   </script>
