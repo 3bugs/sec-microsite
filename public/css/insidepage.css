@@ -1103,6 +1103,12 @@ body {
   margin-bottom: 15px;
 }
 
+.bg_right_calendar > #skeleton-loader > h4 {
+  margin-top: 58px;
+  color: #003558;
+  margin-bottom: 15px;
+}
+
 .item_right_event {
   background-color: #FFF;
   padding: 10px 15px;
@@ -1131,6 +1137,10 @@ body {
 
 .item_right_event.information {
   border-color: #9B51E0;
+}
+
+.item_right_event.loading {
+  border-color: #CCC;
 }
 
 .item_right_event h4 {

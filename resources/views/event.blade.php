@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
+  <link href="/skeleton-loader/jquery.skeleton.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -47,14 +48,27 @@
             </div>
           </div>
           <div id="event-list" class="col-12 col-lg-5 bg_right_calendar">
-            <div id="event-list-content">
-              <div
-                  v-if="isLoading"
-                  style="position: absolute; right: 10px; top: 10px; justify-content: center; align-items: center"
-              >
-                รอสักครู่...
-              </div>
+            {{--<div
+                v-if="isLoading"
+                style="position: absolute; right: 10px; top: 10px; justify-content: center; align-items: center"
+            >
+              <img src="/images/ic_loading4.gif" style="width: 20px; height: 20px"> รอสักครู่...
+            </div>--}}
 
+            <div id="skeleton-loader" v-if="isLoading" style="text-align: center">
+              <img src="/images/ic_loading.gif" style="width: 40px; margin-top: 100px">
+              {{--<h4>xxx</h4>
+              <h1>xxx</h1>
+              <div
+                  class="item_right_event loading"
+              >
+                <p>วันที่อีเวนต์</p>
+                <h4>หัวข้ออีเวนต์</h4>
+                <p>รายละเอียดอีเวนต์</p>
+              </div>--}}
+            </div>
+
+            <div id="event-list-content">
               <template v-if="filteredDataList == null">
                 <h4 class="mb-3">เลือกวันจากปฏิทิน เพื่อแสดงรายการอีเวนต์ในวันนั้น</h4>
               </template>
@@ -268,12 +282,16 @@
 @endsection
 
 @section('script')
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+          integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
           crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="/js/bootstrap-datepicker.min.js"></script>
+  <!-- script src="/skeleton-loader/jquery.scheletrone.js"></script -->
 
   <script>
+    //const skeletonLoader = $('#skeleton-loader').scheletrone();
+
     const categoryNameList = [
       'seminar', 'webinar', 'business_matching', 'information',
     ];
@@ -352,35 +370,38 @@
       },
       methods: {
         fetchEventByDate(date) {
-          this.isLoading = true;
+          const $eventList = $('#event-list-content');
 
-          axios.get(`/api/event/date/${date}?t=${Date.now()}`)
-            .then(response => {
-              this.isLoading = false;
+          $eventList.fadeOut(0, () => {
+            this.isLoading = true;
 
-              if (response.data.status === 'ok') {
-                const $eventList = $('#event-list-content');
-                $eventList.fadeOut(300, () => {
-                  const datePart = date.split('-');
-                  const day = parseInt(datePart[2]);
-                  let monthNameList = [
-                    'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC',
-                  ];
-                  this.dateText = `${day} ${monthNameList[datePart[1] - 1]} ${datePart[0]}`;
-                  this.dataList = response.data.data_list;
+            setTimeout(() => {
+              axios.get(`/api/event/date/${date}?t=${Date.now()}`)
+                .then(response => {
+                  this.isLoading = false;
 
-                  $eventList.fadeIn(300, () => {
-                  });
+                  if (response.data.status === 'ok') {
+                    const datePart = date.split('-');
+                    const day = parseInt(datePart[2]);
+                    let monthNameList = [
+                      'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC',
+                    ];
+                    this.dateText = `${day} ${monthNameList[datePart[1] - 1]} ${datePart[0]}`;
+                    this.dataList = response.data.data_list;
+
+                    $eventList.fadeIn(300, () => {
+                    });
+                  } else {
+                    alert('เกิดข้อผิดพลาดในการดึงข้อมูล กรุณาลองใหม่');
+                  }
+                })
+                .catch(error => {
+                  console.log(error);
+                  this.isLoading = false;
+                  alert('เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองใหม่\n\n' + error);
                 });
-              } else {
-                alert('เกิดข้อผิดพลาดในการดึงข้อมูล กรุณาลองใหม่');
-              }
-            })
-            .catch(error => {
-              console.log(error);
-              this.isLoading = false;
-              alert('เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองใหม่\n\n' + error);
-            });
+            }, 300);
+          });
         },
         getClassName(categoryId) {
           return categoryNameList[categoryId - 1];
