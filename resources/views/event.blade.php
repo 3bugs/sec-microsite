@@ -56,7 +56,7 @@
               </div>
 
               <template v-if="filteredDataList == null">
-                <h4 class="mb-3">เลือกวันจากปฏิทิน เพื่อแสดงรายการอีเวนต์ในแต่ละวัน</h4>
+                <h4 class="mb-3">เลือกวันจากปฏิทิน เพื่อแสดงรายการอีเวนต์ในวันนั้น</h4>
               </template>
 
               <template v-if="filteredDataList != null">
