@@ -56,7 +56,7 @@
             </div>--}}
 
             <div id="skeleton-loader" v-if="isLoading" style="text-align: center">
-              <img src="/images/ic_loading.gif" style="width: 40px; margin-top: 100px">
+              <img src="/images/ic_loading.gif" style="width: 40px; margin-top: 120px">
               {{--<h4>xxx</h4>
               <h1>xxx</h1>
               <div
@@ -390,6 +390,9 @@
                     this.dataList = response.data.data_list;
 
                     $eventList.fadeIn(300, () => {
+                      $([document.documentElement, document.body]).animate({
+                        scrollTop: Modernizr.mq('(max-width: 991px)') ? $eventList.offset().top - 10 : $eventList.offset().top - 80
+                      }, 500);
                     });
                   } else {
                     alert('เกิดข้อผิดพลาดในการดึงข้อมูล กรุณาลองใหม่');

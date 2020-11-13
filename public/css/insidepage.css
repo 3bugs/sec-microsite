@@ -243,6 +243,13 @@ body {
 
 .detailfd_text figure.image {
   text-align: center;
+  clear: both;
+}
+
+.detailfd_text figure.image-style-side {
+  float: right;
+  margin-left: 2em;
+  max-width: 50%;
 }
 
 .wrap_video {
@@ -838,7 +845,7 @@ body {
 
 .datepicker table {
   width: 100%;
-  border-spacing: 15px;
+  border-spacing: 10px;
   border-collapse: separate;
 }
 
@@ -919,7 +926,7 @@ body {
 
 .datepicker .datepicker-switch {
   color: #10375C;
-  font-size: 36px;
+  font-size: 28px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -994,7 +1001,7 @@ body {
 }
 
 .wrap_calendar {
-  padding: 0 30px;
+  padding: 0 60px;
 }
 
 .wrap_calendar h6 {
@@ -1094,17 +1101,18 @@ body {
 }
 
 .bg_right_calendar h1 {
-  margin-bottom: 30px;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 .bg_right_calendar > #event-list-content > h4 {
-  margin-top: 58px;
+  margin-top: 35px;
   color: #003558;
   margin-bottom: 15px;
 }
 
 .bg_right_calendar > #skeleton-loader > h4 {
-  margin-top: 58px;
+  margin-top: 35px;
   color: #003558;
   margin-bottom: 15px;
 }
@@ -1112,7 +1120,7 @@ body {
 .item_right_event {
   background-color: #FFF;
   padding: 10px 15px;
-  border-left: 10px solid #10375C;
+  border-left: 12px solid #10375C;
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
