@@ -109,6 +109,10 @@
             </v-chip>
           </template>
 
+          <template v-slot:item.begin_date="{ item }">
+            <div>{{ getThaiDateText([item.begin_date, item.end_date], 2) }}</div>
+          </template>
+
           <!--created-->
           <template v-slot:item.created_at="{ item }">
             <v-tooltip bottom>
@@ -122,7 +126,7 @@
                   mdi-calendar
                 </v-icon>
               </template>
-              <span>{{ formatThaiDateTime(item.created_at) }}</span>
+              <span>สร้าง : {{ formatThaiDateTime(item.created_at) }}</span>
             </v-tooltip>
           </template>
 
@@ -139,7 +143,7 @@
                   mdi-calendar
                 </v-icon>
               </template>
-              <span>{{ item.updated_at == null ? 'ยังไม่เคยมีการแก้ไข' : formatThaiDateTime(item.updated_at) }}</span>
+              <span>แก้ไขล่าสุด : {{ item.updated_at == null ? 'ยังไม่เคยมีการแก้ไข' : formatThaiDateTime(item.updated_at) }}</span>
             </v-tooltip>
           </template>
 
@@ -259,6 +263,7 @@ import DetailsForm from '../components/_details_form';
 import MyDialog from '../components/my_dialog';
 import MyProgressOverlay from '../components/my_progress_overlay';
 import {formatThaiDateTime} from '../utils/utils';
+import {getThaiDateText} from "../utils/utils";
 
 export default {
   props: {
@@ -285,9 +290,9 @@ export default {
         {text: 'รูปภาพปก', value: 'image', sortable: false, width: '170px',},
         {text: 'หัวข้อ', align: 'start', value: 'title', sortable: true,},
         {text: 'หมวดหมู่', value: 'category_id', sortable: true,},
-        this.withDate ? {text: 'วัน', value: 'event_date', sortable: true, width: '80px', align: 'center',} : null,
-        {text: 'สร้าง', value: 'created_at', sortable: true, width: '70px', align: 'center',},
-        {text: 'แก้ไข', value: 'updated_at', sortable: true, width: '70px', align: 'center',},
+        this.withDate ? {text: 'วัน', value: 'begin_date', sortable: true, width: '100px', align: 'center',} : null,
+        {text: 'ส', value: 'created_at', sortable: true, width: '60px', align: 'center',},
+        {text: 'ก', value: 'updated_at', sortable: true, width: '60px', align: 'center',},
         {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
         {text: 'จัดการ', value: 'actions', sortable: false, width: '120px', align: 'center',},
       ].filter(item => item != null),
@@ -306,6 +311,7 @@ export default {
         iconName: null,
       },
       formatThaiDateTime,
+      getThaiDateText,
     };
   },
   computed: {

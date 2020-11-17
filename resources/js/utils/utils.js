@@ -19,3 +19,38 @@ export function formatThaiDateTime(dateTimeString) {
 
   return `${day} ${month} ${yearThai}, ${hour}.${minute} น.`;*/
 }
+
+export function getThaiDateText([beginDate, endDate], yearDigits = 4) {
+  //alert('Begin date: ' + beginDate + ', End date: ' + endDate);
+
+  if (beginDate === endDate || endDate == null) {
+    const {day, month, year} = dateSplit(beginDate, yearDigits);
+    return `${day} ${month} ${year}`.trim();
+  }
+
+  const beginDateParts = dateSplit(beginDate, yearDigits);
+  const endDateParts = dateSplit(endDate, yearDigits);
+
+  if (beginDateParts.month === endDateParts.month && beginDateParts.year === endDateParts.year) {
+    return `${beginDateParts.day} - ${endDateParts.day} ${beginDateParts.month} ${beginDateParts.year}`.trim();
+  }
+
+  if (beginDateParts.year === endDateParts.year) {
+    return `${beginDateParts.day} ${beginDateParts.month} - ${endDateParts.day} ${endDateParts.month} ${beginDateParts.year}`.trim();
+  }
+
+  return `${beginDateParts.day} ${beginDateParts.month} ${beginDateParts.year} - ${endDateParts.day} ${endDateParts.month} ${endDateParts.year}`.trim();
+}
+
+export function dateSplit(dateText, yearDigits) {
+  const monthNames = [
+    'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.',
+    'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.',
+  ];
+  const beginDateParts = dateText.split('-');
+  const day = parseInt(beginDateParts[2]);
+  const month = monthNames[parseInt(beginDateParts[1]) - 1];
+  const yearFull = (parseInt(beginDateParts[0]) + 543).toString();
+  const year = yearDigits === 0 ? '' : yearFull.substring(yearFull.length - yearDigits);
+  return {day, month, year};
+}

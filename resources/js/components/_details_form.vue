@@ -61,48 +61,58 @@
       lazy-validation
       class="pl-5 pr-5"
     >
-      <v-dialog
-        ref="datePickerDialog"
-        v-if="withDate"
-        v-model="datePickerModal"
-        :return-value.sync="date"
-        persistent
-        width="290px"
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-text-field
-            v-model="date"
-            :rules="dateRules"
-            label="วันที่จัดอีเวนต์"
-            prepend-icon="mdi-calendar"
-            readonly
-            v-bind="attrs"
-            v-on="on"
-            required
-          ></v-text-field>
-        </template>
-        <v-date-picker
-          v-model="date"
-          scrollable
-          locale="th-TH"
-        >
-          <v-spacer></v-spacer>
-          <v-btn
-            text
-            color="primary"
-            @click="datePickerModal = false"
-          >
-            ยกเลิก
-          </v-btn>
-          <v-btn
-            text
-            color="primary"
-            @click="$refs.datePickerDialog.save(date)"
-          >
-            ตกลง
-          </v-btn>
-        </v-date-picker>
-      </v-dialog>
+      <v-container class="pa-0 ma-0" v-if="withDate">
+        <v-row>
+          <v-col class="pb-0 mb-0">
+            <v-dialog
+              ref="datePickerDialog"
+              v-model="datePickerModal"
+              :return-value.sync="date"
+              persistent
+              width="300px"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  v-model="dateRangeText"
+                  :rules="dateRules"
+                  label="วันที่จัดอีเวนต์"
+                  prepend-icon="mdi-calendar"
+                  readonly
+                  v-bind="attrs"
+                  v-on="on"
+                  required
+                ></v-text-field>
+              </template>
+              <v-date-picker
+                v-model="date"
+                range
+                scrollable
+                locale="th-TH"
+                :selected-items-text="selectedItemsText"
+                @change="handleChangeDate"
+              >
+                <v-spacer></v-spacer>
+                <v-btn
+                  text
+                  color="primary"
+                  @click="datePickerModal = false"
+                >
+                  ยกเลิก
+                </v-btn>
+                <v-btn
+                  text
+                  color="primary"
+                  @click="$refs.datePickerDialog.save(date)"
+                >
+                  ตกลง
+                </v-btn>
+              </v-date-picker>
+            </v-dialog>
+          </v-col>
+          <!--<v-col>
+          </v-col>-->
+        </v-row>
+      </v-container>
 
       <v-text-field
         v-model="title"
@@ -345,6 +355,7 @@ require('./th');
 //import {ClassicEditor} from '../../ckeditor5/packages/ckeditor5-build-classic';
 
 import MyUploadAdapter from "./my_upload_adapter";
+import {getThaiDateText} from "../utils/utils";
 
 export default {
   components: {
@@ -404,7 +415,7 @@ export default {
       },
       contentRuleVisible: false,
       isUpdated: false, // มีการบันทึกข้อมูลลงฐานข้อมูลหรือยัง
-      date: '', //new Date().toISOString().substr(0, 10),
+      date: [], //new Date().toISOString().substr(0, 10),
       dateRules: [
         v => !!v || 'ต้องระบุวันที่จัดอีเวนต์',
       ],
@@ -430,6 +441,25 @@ export default {
         reader.readAsDataURL(this.selectedFile);
       }*/
     },
+
+    dateRangeText () {
+      if (this.date.length === 0) {
+        return '';
+      }
+      else if (this.date.length === 1) {
+        return getThaiDateText([this.date[0], this.date[0]]);
+      } else {
+        return getThaiDateText([this.date[0], this.date[1]]);
+        /*return this.date[0] === this.date[1]
+          ? getThaiDateText(this.date[0])
+          : `${getThaiDateText(this.date[0])} - ${getThaiDateText(this.date[1])}`;*/
+      }
+    },
+
+    selectedItemsText() {
+      if (this.date.length === 0) return '-';
+      return getThaiDateText(this.date, 2);
+    },
   },
   created() {
     console.log('***** DetailsForm created() *****');
@@ -441,10 +471,17 @@ export default {
       )[0];
       this.selectedImageSrc = this.item.cover_image;
       this.editorContent = this.item.content;
-      this.date = this.item.event_date;
+      this.date = this.item.begin_date === this.item.end_date
+        ? [this.item.begin_date]
+        : [this.item.begin_date, this.item.end_date];
     }
   },
   methods: {
+    handleChangeDate() {
+      //alert('ok');
+      this.date.sort();
+    },
+
     handleEditorReady() {
       console.log('EDITOR READY!');
       /*const toolbarContainer = document.querySelector('.document-editor__toolbar');
@@ -579,7 +616,8 @@ export default {
       formData.append('cover_image', this.selectedFile);
       formData.append('content_data', this.editorContent.trim());
       if (this.withDate) {
-        formData.append('date', this.date);
+        formData.append('begin_date', this.date[0]);
+        formData.append('end_date', this.date.length > 1 ? this.date[1] : this.date[0]);
       }
       if (this.item != null) {
         formData.append('_method', 'put');
@@ -648,6 +686,19 @@ export default {
 </style>
 
 <style>
+.v-input .v-label {
+  height: 30px;
+  line-height: 35px;
+}
+
+.v-text-field .v-label {
+   top: 0;
+}
+
+.v-date-picker-title__date {
+  font-size: 28px;
+}
+
 .ck-editor__editable {
   min-height: 0;
 }

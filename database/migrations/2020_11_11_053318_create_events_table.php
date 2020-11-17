@@ -20,7 +20,8 @@ class CreateEventsTable extends Migration
       $table->text('cover_image');
       $table->text('description');
       $table->longText('content');
-      $table->date('event_date');
+      $table->date('begin_date');
+      $table->date('end_date');
       $table->boolean('published')->default(1);
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();

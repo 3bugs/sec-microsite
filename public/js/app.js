@@ -1946,6 +1946,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _my_upload_adapter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./my_upload_adapter */ "./resources/js/components/my_upload_adapter.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/utils */ "./resources/js/utils/utils.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2292,6 +2303,7 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     MyDialog: _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2358,7 +2370,7 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       contentRuleVisible: false,
       isUpdated: false,
       // มีการบันทึกข้อมูลลงฐานข้อมูลหรือยัง
-      date: '',
+      date: [],
       //new Date().toISOString().substr(0, 10),
       dateRules: [function (v) {
         return !!v || 'ต้องระบุวันที่จัดอีเวนต์';
@@ -2384,6 +2396,22 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
         // you have to declare the file loading
         reader.readAsDataURL(this.selectedFile);
       }*/
+    },
+    dateRangeText: function dateRangeText() {
+      if (this.date.length === 0) {
+        return '';
+      } else if (this.date.length === 1) {
+        return Object(_utils_utils__WEBPACK_IMPORTED_MODULE_5__["getThaiDateText"])([this.date[0], this.date[0]]);
+      } else {
+        return Object(_utils_utils__WEBPACK_IMPORTED_MODULE_5__["getThaiDateText"])([this.date[0], this.date[1]]);
+        /*return this.date[0] === this.date[1]
+          ? getThaiDateText(this.date[0])
+          : `${getThaiDateText(this.date[0])} - ${getThaiDateText(this.date[1])}`;*/
+      }
+    },
+    selectedItemsText: function selectedItemsText() {
+      if (this.date.length === 0) return '-';
+      return Object(_utils_utils__WEBPACK_IMPORTED_MODULE_5__["getThaiDateText"])(this.date, 2);
     }
   },
   created: function created() {
@@ -2399,10 +2427,14 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       })[0];
       this.selectedImageSrc = this.item.cover_image;
       this.editorContent = this.item.content;
-      this.date = this.item.event_date;
+      this.date = this.item.begin_date === this.item.end_date ? [this.item.begin_date] : [this.item.begin_date, this.item.end_date];
     }
   },
   methods: {
+    handleChangeDate: function handleChangeDate() {
+      //alert('ok');
+      this.date.sort();
+    },
     handleEditorReady: function handleEditorReady() {
       console.log('EDITOR READY!');
       /*const toolbarContainer = document.querySelector('.document-editor__toolbar');
@@ -2527,7 +2559,8 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       formData.append('content_data', this.editorContent.trim());
 
       if (this.withDate) {
-        formData.append('date', this.date);
+        formData.append('begin_date', this.date[0]);
+        formData.append('end_date', this.date.length > 1 ? this.date[1] : this.date[0]);
       }
 
       if (this.item != null) {
@@ -3636,6 +3669,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+
 
 
 
@@ -3680,21 +3718,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         sortable: true
       }, this.withDate ? {
         text: 'วัน',
-        value: 'event_date',
+        value: 'begin_date',
         sortable: true,
-        width: '80px',
+        width: '100px',
         align: 'center'
       } : null, {
-        text: 'สร้าง',
+        text: 'ส',
         value: 'created_at',
         sortable: true,
-        width: '70px',
+        width: '60px',
         align: 'center'
       }, {
-        text: 'แก้ไข',
+        text: 'ก',
         value: 'updated_at',
         sortable: true,
-        width: '70px',
+        width: '60px',
         align: 'center'
       }, {
         text: 'เผยแพร่',
@@ -3725,7 +3763,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         message: '',
         iconName: null
       },
-      formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_4__["formatThaiDateTime"]
+      formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_4__["formatThaiDateTime"],
+      getThaiDateText: _utils_utils__WEBPACK_IMPORTED_MODULE_4__["getThaiDateText"]
     };
   },
   computed: {
@@ -4329,7 +4368,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.ck-editor__editable {\n  min-height: 0;\n}\n.ck-content p, .ck-content li {\n  color: #666;\n}\n.ck-content li {\n  margin-bottom: 0.8em;\n  margin-left: 2em;\n}\n.ck-content ul li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content ol li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content h2 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h3 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h4 {\n  color: #222831;\n  font-weight: normal;\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n}\n.ck-content img {\n  margin: 1rem 0;\n  border: 1px solid #e0e0e0;\n}\n", ""]);
+exports.push([module.i, "\n.v-input .v-label {\n  height: 30px;\n  line-height: 35px;\n}\n.v-text-field .v-label {\n   top: 0;\n}\n.v-date-picker-title__date {\n  font-size: 28px;\n}\n.ck-editor__editable {\n  min-height: 0;\n}\n.ck-content p, .ck-content li {\n  color: #666;\n}\n.ck-content li {\n  margin-bottom: 0.8em;\n  margin-left: 2em;\n}\n.ck-content ul li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content ol li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content h2 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h3 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h4 {\n  color: #222831;\n  font-weight: normal;\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n}\n.ck-content img {\n  margin: 1rem 0;\n  border: 1px solid #e0e0e0;\n}\n", ""]);
 
 // exports
 
@@ -22786,114 +22825,151 @@ var render = function() {
         [
           _vm.withDate
             ? _c(
-                "v-dialog",
-                {
-                  ref: "datePickerDialog",
-                  attrs: {
-                    "return-value": _vm.date,
-                    persistent: "",
-                    width: "290px"
-                  },
-                  on: {
-                    "update:returnValue": function($event) {
-                      _vm.date = $event
-                    },
-                    "update:return-value": function($event) {
-                      _vm.date = $event
-                    }
-                  },
-                  scopedSlots: _vm._u(
-                    [
-                      {
-                        key: "activator",
-                        fn: function(ref) {
-                          var on = ref.on
-                          var attrs = ref.attrs
-                          return [
-                            _c(
-                              "v-text-field",
-                              _vm._g(
-                                _vm._b(
-                                  {
-                                    attrs: {
-                                      rules: _vm.dateRules,
-                                      label: "วันที่จัดอีเวนต์",
-                                      "prepend-icon": "mdi-calendar",
-                                      readonly: "",
-                                      required: ""
-                                    },
-                                    model: {
-                                      value: _vm.date,
-                                      callback: function($$v) {
-                                        _vm.date = $$v
-                                      },
-                                      expression: "date"
-                                    }
-                                  },
-                                  "v-text-field",
-                                  attrs,
-                                  false
-                                ),
-                                on
-                              )
-                            )
-                          ]
-                        }
-                      }
-                    ],
-                    null,
-                    false,
-                    793088680
-                  ),
-                  model: {
-                    value: _vm.datePickerModal,
-                    callback: function($$v) {
-                      _vm.datePickerModal = $$v
-                    },
-                    expression: "datePickerModal"
-                  }
-                },
+                "v-container",
+                { staticClass: "pa-0 ma-0" },
                 [
-                  _vm._v(" "),
                   _c(
-                    "v-date-picker",
-                    {
-                      attrs: { scrollable: "", locale: "th-TH" },
-                      model: {
-                        value: _vm.date,
-                        callback: function($$v) {
-                          _vm.date = $$v
-                        },
-                        expression: "date"
-                      }
-                    },
+                    "v-row",
                     [
-                      _c("v-spacer"),
-                      _vm._v(" "),
                       _c(
-                        "v-btn",
-                        {
-                          attrs: { text: "", color: "primary" },
-                          on: {
-                            click: function($event) {
-                              _vm.datePickerModal = false
-                            }
-                          }
-                        },
-                        [_vm._v("\n          ยกเลิก\n        ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { text: "", color: "primary" },
-                          on: {
-                            click: function($event) {
-                              return _vm.$refs.datePickerDialog.save(_vm.date)
-                            }
-                          }
-                        },
-                        [_vm._v("\n          ตกลง\n        ")]
+                        "v-col",
+                        { staticClass: "pb-0 mb-0" },
+                        [
+                          _c(
+                            "v-dialog",
+                            {
+                              ref: "datePickerDialog",
+                              attrs: {
+                                "return-value": _vm.date,
+                                persistent: "",
+                                width: "300px"
+                              },
+                              on: {
+                                "update:returnValue": function($event) {
+                                  _vm.date = $event
+                                },
+                                "update:return-value": function($event) {
+                                  _vm.date = $event
+                                }
+                              },
+                              scopedSlots: _vm._u(
+                                [
+                                  {
+                                    key: "activator",
+                                    fn: function(ref) {
+                                      var on = ref.on
+                                      var attrs = ref.attrs
+                                      return [
+                                        _c(
+                                          "v-text-field",
+                                          _vm._g(
+                                            _vm._b(
+                                              {
+                                                attrs: {
+                                                  rules: _vm.dateRules,
+                                                  label: "วันที่จัดอีเวนต์",
+                                                  "prepend-icon":
+                                                    "mdi-calendar",
+                                                  readonly: "",
+                                                  required: ""
+                                                },
+                                                model: {
+                                                  value: _vm.dateRangeText,
+                                                  callback: function($$v) {
+                                                    _vm.dateRangeText = $$v
+                                                  },
+                                                  expression: "dateRangeText"
+                                                }
+                                              },
+                                              "v-text-field",
+                                              attrs,
+                                              false
+                                            ),
+                                            on
+                                          )
+                                        )
+                                      ]
+                                    }
+                                  }
+                                ],
+                                null,
+                                false,
+                                2193832266
+                              ),
+                              model: {
+                                value: _vm.datePickerModal,
+                                callback: function($$v) {
+                                  _vm.datePickerModal = $$v
+                                },
+                                expression: "datePickerModal"
+                              }
+                            },
+                            [
+                              _vm._v(" "),
+                              _c(
+                                "v-date-picker",
+                                {
+                                  attrs: {
+                                    range: "",
+                                    scrollable: "",
+                                    locale: "th-TH",
+                                    "selected-items-text": _vm.selectedItemsText
+                                  },
+                                  on: { change: _vm.handleChangeDate },
+                                  model: {
+                                    value: _vm.date,
+                                    callback: function($$v) {
+                                      _vm.date = $$v
+                                    },
+                                    expression: "date"
+                                  }
+                                },
+                                [
+                                  _c("v-spacer"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { text: "", color: "primary" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.datePickerModal = false
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                ยกเลิก\n              "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { text: "", color: "primary" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.$refs.datePickerDialog.save(
+                                            _vm.date
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                ตกลง\n              "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
                       )
                     ],
                     1
@@ -24154,6 +24230,24 @@ var render = function() {
                           }
                         },
                         {
+                          key: "item.begin_date",
+                          fn: function(ref) {
+                            var item = ref.item
+                            return [
+                              _c("div", [
+                                _vm._v(
+                                  _vm._s(
+                                    _vm.getThaiDateText(
+                                      [item.begin_date, item.end_date],
+                                      2
+                                    )
+                                  )
+                                )
+                              ])
+                            ]
+                          }
+                        },
+                        {
                           key: "item.created_at",
                           fn: function(ref) {
                             var item = ref.item
@@ -24202,9 +24296,12 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("span", [
                                     _vm._v(
-                                      _vm._s(
-                                        _vm.formatThaiDateTime(item.created_at)
-                                      )
+                                      "สร้าง : " +
+                                        _vm._s(
+                                          _vm.formatThaiDateTime(
+                                            item.created_at
+                                          )
+                                        )
                                     )
                                   ])
                                 ]
@@ -24261,13 +24358,14 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("span", [
                                     _vm._v(
-                                      _vm._s(
-                                        item.updated_at == null
-                                          ? "ยังไม่เคยมีการแก้ไข"
-                                          : _vm.formatThaiDateTime(
-                                              item.updated_at
-                                            )
-                                      )
+                                      "แก้ไขล่าสุด : " +
+                                        _vm._s(
+                                          item.updated_at == null
+                                            ? "ยังไม่เคยมีการแก้ไข"
+                                            : _vm.formatThaiDateTime(
+                                                item.updated_at
+                                              )
+                                        )
                                     )
                                   ])
                                 ]
@@ -24476,7 +24574,7 @@ var render = function() {
                       ],
                       null,
                       false,
-                      1559287480
+                      3465634576
                     )
                   })
                 : undefined
@@ -85645,12 +85743,26 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!*************************************!*\
   !*** ./resources/js/utils/utils.js ***!
   \*************************************/
-/*! exports provided: formatThaiDateTime */
+/*! exports provided: formatThaiDateTime, getThaiDateText, dateSplit */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatThaiDateTime", function() { return formatThaiDateTime; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getThaiDateText", function() { return getThaiDateText; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateSplit", function() { return dateSplit; });
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function formatThaiDateTime(dateTimeString) {
   var date = new Date(dateTimeString);
   return date.toLocaleString('th-TH');
@@ -85667,6 +85779,49 @@ function formatThaiDateTime(dateTimeString) {
   const minute = timeParts[1];
   const second = timeParts[2];
    return `${day} ${month} ${yearThai}, ${hour}.${minute} น.`;*/
+}
+function getThaiDateText(_ref) {
+  var _ref2 = _slicedToArray(_ref, 2),
+      beginDate = _ref2[0],
+      endDate = _ref2[1];
+
+  var yearDigits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 4;
+
+  //alert('Begin date: ' + beginDate + ', End date: ' + endDate);
+  if (beginDate === endDate || endDate == null) {
+    var _dateSplit = dateSplit(beginDate, yearDigits),
+        day = _dateSplit.day,
+        month = _dateSplit.month,
+        year = _dateSplit.year;
+
+    return "".concat(day, " ").concat(month, " ").concat(year).trim();
+  }
+
+  var beginDateParts = dateSplit(beginDate, yearDigits);
+  var endDateParts = dateSplit(endDate, yearDigits);
+
+  if (beginDateParts.month === endDateParts.month && beginDateParts.year === endDateParts.year) {
+    return "".concat(beginDateParts.day, " - ").concat(endDateParts.day, " ").concat(beginDateParts.month, " ").concat(beginDateParts.year).trim();
+  }
+
+  if (beginDateParts.year === endDateParts.year) {
+    return "".concat(beginDateParts.day, " ").concat(beginDateParts.month, " - ").concat(endDateParts.day, " ").concat(endDateParts.month, " ").concat(beginDateParts.year).trim();
+  }
+
+  return "".concat(beginDateParts.day, " ").concat(beginDateParts.month, " ").concat(beginDateParts.year, " - ").concat(endDateParts.day, " ").concat(endDateParts.month, " ").concat(endDateParts.year).trim();
+}
+function dateSplit(dateText, yearDigits) {
+  var monthNames = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+  var beginDateParts = dateText.split('-');
+  var day = parseInt(beginDateParts[2]);
+  var month = monthNames[parseInt(beginDateParts[1]) - 1];
+  var yearFull = (parseInt(beginDateParts[0]) + 543).toString();
+  var year = yearDigits === 0 ? '' : yearFull.substring(yearFull.length - yearDigits);
+  return {
+    day: day,
+    month: month,
+    year: year
+  };
 }
 
 /***/ }),

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-  <link href="/skeleton-loader/jquery.skeleton.css" rel="stylesheet">
+  {{--<link href="/skeleton-loader/jquery.skeleton.css" rel="stylesheet">--}}
 @endsection
 
 @section('content')
