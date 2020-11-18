@@ -14,15 +14,12 @@ class EventController extends Controller
 
   public function index(Request $request)
   {
-    $classNameList = array(
+    /*$classNameList = array(
       'seminar', 'webinar', 'business_matching', 'information',
     );
 
-    $eventCategoryList = EventCategory::where('published', 1)
-      ->orderBy('id', 'asc')->get();
-
-    $categoryListByDate = Event::groupBy('event_date')
-      ->selectRaw('event_date, GROUP_CONCAT(DISTINCT category_id) AS category_id_list')
+    $categoryListByDate = Event::groupBy('begin_date')
+      ->selectRaw('begin_date, GROUP_CONCAT(DISTINCT category_id) AS category_id_list')
       ->get();
     foreach ($categoryListByDate as $row) {
       $categoryIdList = explode(',', $row->category_id_list);
@@ -34,11 +31,20 @@ class EventController extends Controller
         }
       }
       $row->classes = trim($classText);
-    }
+    }*/
+
+    $eventCategoryList = EventCategory::where('published', 1)
+      ->orderBy('id', 'asc')->get();
+
+    $eventList = Event::select('category_id', 'begin_date', 'end_date')
+      ->where('published', 1)
+      ->orderBy('begin_date', 'asc')
+      ->get();
 
     return view('event', [
+      //'categoryListByDate' => $categoryListByDate,
       'eventCategoryList' => $eventCategoryList,
-      'categoryListByDate' => $categoryListByDate,
+      'eventList' => $eventList,
     ]);
   }
 

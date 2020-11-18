@@ -308,6 +308,14 @@
       return selectedDate.toISOString().split('T')[0];
     }
 
+    function getClassName(categoryIdList) {
+      const className = categoryIdList.reduce((total, categoryId) => {
+        return total + ` ${categoryNameList[categoryId - 1]}`;
+      }, 'event_date');
+
+      return filterClass(className);
+    }
+
     function filterClass(cl) {
       for (const category in categoryEnableValue) {
         if (categoryEnableValue[category] === false) {
@@ -323,12 +331,27 @@
       format: "mm/dd/yyyy",
       weekStart: 0,
       beforeShowDay: function (date) {
+        const categoryIdList = [];
         const formattedDate = getFormattedDate(date);
-        @foreach($categoryListByDate as $row)
-        if (formattedDate === '{{ $row->event_date }}') {
+        {{--@foreach ($categoryListByDate as $row)
+        if (formattedDate === '{{ $row->begin_date }}') {
           return filterClass('event_date {{ $row->classes }}');
         }
+        @endforeach--}}
+
+        @foreach ($eventList as $event)
+        if (formattedDate < '{{ $event->begin_date }}') {
+          return getClassName(categoryIdList);
+        }
+        if (formattedDate >= '{{ $event->begin_date }}' && formattedDate <= '{{ $event->end_date }}') {
+          if (!categoryIdList.includes({{ $event->category_id }})) {
+            categoryIdList.push({{ $event->category_id }});
+          }
+        }
+        {{--{{ $event->category_id }} * {{ $event->begin_date }} * {{ $event->end_date }}--}}
         @endforeach
+
+        return getClassName(categoryIdList);
       },
     }).on('changeDate', function (e) {
       //console.log(getFormattedDate(e.date));

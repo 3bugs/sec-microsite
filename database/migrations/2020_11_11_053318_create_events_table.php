@@ -22,6 +22,8 @@ class CreateEventsTable extends Migration
       $table->longText('content');
       $table->date('begin_date');
       $table->date('end_date');
+      $table->time('begin_time');
+      $table->time('end_time');
       $table->boolean('published')->default(1);
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();

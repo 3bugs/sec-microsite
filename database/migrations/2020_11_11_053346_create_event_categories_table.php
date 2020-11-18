@@ -39,8 +39,8 @@ class CreateEventCategoriesTable extends Migration
     $category->save();
 
     $category = new EventCategory;
-    $category->title = 'Information';
-    $category->description = 'Information';
+    $category->title = 'อื่นๆ';
+    $category->description = 'อื่นๆ';
     $category->save();
   }
 

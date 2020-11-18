@@ -109,8 +109,100 @@
               </v-date-picker>
             </v-dialog>
           </v-col>
-          <!--<v-col>
-          </v-col>-->
+          <v-col class="pb-0 mb-0">
+
+            <v-container class="pt-0 mt-0 pb-0 mb-0">
+              <v-row>
+                <v-col class="pt-0 mt-0 pb-0 mb-0">
+                  <v-dialog
+                    ref="beginTimePickerDialog"
+                    v-model="beginTimePickerModal"
+                    :return-value.sync="beginTime"
+                    persistent
+                    width="300px"
+                  >
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-text-field
+                        v-model="beginTime"
+                        :rules="timeRules"
+                        label="ตั้งแต่เวลา"
+                        prepend-icon="mdi-clock-time-four-outline"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                        required
+                      ></v-text-field>
+                    </template>
+                    <v-time-picker
+                      v-model="beginTime"
+                      format="24hr"
+                      full-width
+                    >
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        text
+                        color="primary"
+                        @click="beginTimePickerModal = false"
+                      >
+                        ยกเลิก
+                      </v-btn>
+                      <v-btn
+                        text
+                        color="primary"
+                        @click="$refs.beginTimePickerDialog.save(beginTime)"
+                      >
+                        ตกลง
+                      </v-btn>
+                    </v-time-picker>
+                  </v-dialog>
+                </v-col>
+                <v-col class="pt-0 mt-0 pb-0 mb-0">
+                  <v-dialog
+                    ref="endTimePickerDialog"
+                    v-model="endTimePickerModal"
+                    :return-value.sync="endTime"
+                    persistent
+                    width="300px"
+                  >
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-text-field
+                        v-model="endTime"
+                        :rules="timeRules"
+                        label="ถึงเวลา"
+                        prepend-icon="mdi-clock-time-four-outline"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                        required
+                      ></v-text-field>
+                    </template>
+                    <v-time-picker
+                      v-model="endTime"
+                      format="24hr"
+                      full-width
+                    >
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        text
+                        color="primary"
+                        @click="endTimePickerModal = false"
+                      >
+                        ยกเลิก
+                      </v-btn>
+                      <v-btn
+                        text
+                        color="primary"
+                        @click="$refs.endTimePickerDialog.save(endTime)"
+                      >
+                        ตกลง
+                      </v-btn>
+                    </v-time-picker>
+                  </v-dialog>
+                </v-col>
+              </v-row>
+            </v-container>
+
+          </v-col>
         </v-row>
       </v-container>
 
@@ -415,11 +507,20 @@ export default {
       },
       contentRuleVisible: false,
       isUpdated: false, // มีการบันทึกข้อมูลลงฐานข้อมูลหรือยัง
+
       date: [], //new Date().toISOString().substr(0, 10),
+      datePickerModal: false,
       dateRules: [
         v => !!v || 'ต้องระบุวันที่จัดอีเวนต์',
       ],
-      datePickerModal: false,
+
+      beginTime: '',
+      endTime: '',
+      beginTimePickerModal: false,
+      endTimePickerModal: false,
+      timeRules: [
+        v => !!v || 'ต้องระบุเวลา',
+      ],
     }
   },
   computed: {
@@ -471,15 +572,29 @@ export default {
       )[0];
       this.selectedImageSrc = this.item.cover_image;
       this.editorContent = this.item.content;
-      this.date = this.item.begin_date === this.item.end_date
-        ? [this.item.begin_date]
-        : [this.item.begin_date, this.item.end_date];
+
+      if (this.item.begin_date != null) {
+        this.date = this.item.begin_date === this.item.end_date
+          ? [this.item.begin_date]
+          : [this.item.begin_date, this.item.end_date];
+      }
+      if (this.item.begin_time != null) {
+        this.beginTime = this.item.begin_time.substring(0, 5);
+      }
+      if (this.item.end_time != null) {
+        this.endTime = this.item.end_time.substring(0, 5);
+      }
     }
   },
   methods: {
     handleChangeDate() {
-      //alert('ok');
-      this.date.sort();
+      if (this.date.length === 2) {
+        if (this.date[0] >= this.date[1]) {
+          this.date = [this.date[1]];
+          //return;
+        }
+      }
+      //this.date.sort();
     },
 
     handleEditorReady() {
@@ -618,6 +733,8 @@ export default {
       if (this.withDate) {
         formData.append('begin_date', this.date[0]);
         formData.append('end_date', this.date.length > 1 ? this.date[1] : this.date[0]);
+        formData.append('begin_time', this.beginTime);
+        formData.append('end_time', this.endTime);
       }
       if (this.item != null) {
         formData.append('_method', 'put');

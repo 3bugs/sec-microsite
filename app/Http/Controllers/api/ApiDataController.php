@@ -111,10 +111,10 @@ class ApiDataController extends Controller
   public function indexByDate($date)
   {
     try {
-      $eventList = ($this->mModelClass)::where(function ($q) use ($date) {
-        $q->where('begin_date', '<=', $date)
-          ->andWhere('end_date', '>=', $date);
-      })->orderBy('category_id', 'asc')->get();
+      $eventList = ($this->mModelClass)::where('begin_date', '<=', $date)
+        ->where('end_date', '>=', $date)
+        ->orderBy('category_id', 'asc')
+        ->get();
 
       return response()->json(array(
         'status' => 'ok',
@@ -168,6 +168,10 @@ class ApiDataController extends Controller
         $data->begin_date = $request->begin_date;
         $data->end_date = $request->end_date;
       }
+      if ($request->has('begin_time')) {
+        $data->begin_time = $request->begin_time;
+        $data->end_time = $request->end_time;
+      }
       $data->save();
 
       $message = "Title: $title\n"
@@ -213,6 +217,10 @@ class ApiDataController extends Controller
       if ($request->has('begin_date')) {
         $data->begin_date = $request->begin_date;
         $data->end_date = $request->end_date;
+      }
+      if ($request->has('begin_time')) {
+        $data->begin_time = $request->begin_time;
+        $data->end_time = $request->end_time;
       }
       if ($request->has('published')) {
         $data->published = $request->published;
