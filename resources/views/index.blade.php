@@ -88,7 +88,7 @@
             <accordion-card title="คลินิกระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu05.svg" img-alt="menu 5"></accordion-card>
           </div>
           <div class="col-12 d-flex flex-column mb-0">
-            <accordion-card title="พันธกิจ พันธมิตร" button-text="ดูเพิ่มเติม" img-src="images/menu06.svg" img-alt="menu 6"></accordion-card>
+            <accordion-card title="ก.ล.ต. กับ SMEs" button-text="ดูเพิ่มเติม" img-src="images/menu06.svg" img-alt="menu 6"></accordion-card>
           </div>
         </div>
       </div>

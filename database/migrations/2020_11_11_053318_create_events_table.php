@@ -25,6 +25,7 @@ class CreateEventsTable extends Migration
       $table->time('begin_time');
       $table->time('end_time');
       $table->boolean('published')->default(1);
+      $table->boolean('pinned')->default(0);
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
     });

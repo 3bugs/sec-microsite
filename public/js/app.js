@@ -2382,6 +2382,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2408,7 +2420,8 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
     onCancelForm: Function,
     onSave: Function,
     onDelete: Function,
-    withDate: Boolean
+    withDate: Boolean,
+    showPinned: Boolean
   },
   data: function data() {
     var _this = this;
@@ -2429,6 +2442,8 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       selectedCategory: null,
       selectedFile: null,
       selectedImageSrc: null,
+      published: 1,
+      pinned: 0,
       confirmDeleteDialog: false,
       routeDataList: _constants__WEBPACK_IMPORTED_MODULE_0__["routeDataList"],
       isSaving: false,
@@ -2526,6 +2541,8 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       })[0];
       this.selectedImageSrc = this.item.cover_image;
       this.editorContent = this.item.content;
+      this.published = this.item.published;
+      this.pinned = this.item.pinned;
 
       if (this.item.begin_date != null) {
         this.date = this.item.begin_date === this.item.end_date ? [this.item.begin_date] : [this.item.begin_date, this.item.end_date];
@@ -2671,6 +2688,8 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
       formData.append('category_id', this.selectedCategory.id);
       formData.append('cover_image', this.selectedFile);
       formData.append('content_data', this.editorContent.trim());
+      formData.append('published', this.published);
+      formData.append('pinned', this.pinned);
 
       if (this.withDate) {
         formData.append('begin_date', this.date[0]);
@@ -3185,16 +3204,16 @@ __webpack_require__.r(__webpack_exports__);
         value: 'description',
         sortable: true
       }, {
-        text: 'สร้าง',
+        text: 'ส',
         value: 'created_at',
         sortable: true,
-        width: '70px',
+        width: '60px',
         align: 'center'
       }, {
-        text: 'แก้ไข',
+        text: 'ก',
         value: 'updated_at',
         sortable: true,
-        width: '70px',
+        width: '60px',
         align: 'center'
       }, {
         text: 'เผยแพร่',
@@ -3789,6 +3808,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -3799,6 +3819,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   props: {
     tableName: String,
     withDate: {
+      type: Boolean,
+      "default": false
+    },
+    showPinned: {
       type: Boolean,
       "default": false
     }
@@ -4289,6 +4313,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _list_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_list_form */ "./resources/js/pages/_list_form.vue");
+//
 //
 //
 //
@@ -22919,7 +22944,25 @@ var render = function() {
             attrs: { inset: "", vertical: "" }
           }),
           _vm._v(" "),
-          _c("v-spacer")
+          _c("v-spacer"),
+          _vm._v(" "),
+          _c("v-switch", {
+            staticClass: "ma-0 pa-0",
+            attrs: {
+              "true-value": 1,
+              "false-value": 0,
+              label: "เผยแพร่",
+              color: "primary",
+              "hide-details": ""
+            },
+            model: {
+              value: _vm.published,
+              callback: function($$v) {
+                _vm.published = $$v
+              },
+              expression: "published"
+            }
+          })
         ],
         1
       ),
@@ -22949,7 +22992,10 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { staticClass: "pb-0 mb-0" },
+                        {
+                          staticClass: "pb-0 mb-0",
+                          attrs: { cols: "12", md: "6" }
+                        },
                         [
                           _c(
                             "v-dialog",
@@ -23090,320 +23136,269 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { staticClass: "pb-0 mb-0" },
+                        {
+                          staticClass: "pb-0 mb-0",
+                          attrs: { cols: "12", md: "3" }
+                        },
                         [
                           _c(
-                            "v-container",
-                            { staticClass: "pt-0 mt-0 pb-0 mb-0" },
-                            [
-                              _c(
-                                "v-row",
+                            "v-dialog",
+                            {
+                              ref: "beginTimePickerDialog",
+                              attrs: {
+                                "return-value": _vm.beginTime,
+                                persistent: "",
+                                width: "300px"
+                              },
+                              on: {
+                                "update:returnValue": function($event) {
+                                  _vm.beginTime = $event
+                                },
+                                "update:return-value": function($event) {
+                                  _vm.beginTime = $event
+                                }
+                              },
+                              scopedSlots: _vm._u(
                                 [
-                                  _c(
-                                    "v-col",
-                                    { staticClass: "pt-0 mt-0 pb-0 mb-0" },
-                                    [
-                                      _c(
-                                        "v-dialog",
-                                        {
-                                          ref: "beginTimePickerDialog",
-                                          attrs: {
-                                            "return-value": _vm.beginTime,
-                                            persistent: "",
-                                            width: "300px"
-                                          },
-                                          on: {
-                                            "update:returnValue": function(
-                                              $event
-                                            ) {
-                                              _vm.beginTime = $event
-                                            },
-                                            "update:return-value": function(
-                                              $event
-                                            ) {
-                                              _vm.beginTime = $event
-                                            }
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
+                                  {
+                                    key: "activator",
+                                    fn: function(ref) {
+                                      var on = ref.on
+                                      var attrs = ref.attrs
+                                      return [
+                                        _c(
+                                          "v-text-field",
+                                          _vm._g(
+                                            _vm._b(
                                               {
-                                                key: "activator",
-                                                fn: function(ref) {
-                                                  var on = ref.on
-                                                  var attrs = ref.attrs
-                                                  return [
-                                                    _c(
-                                                      "v-text-field",
-                                                      _vm._g(
-                                                        _vm._b(
-                                                          {
-                                                            attrs: {
-                                                              rules:
-                                                                _vm.timeRules,
-                                                              label:
-                                                                "ตั้งแต่เวลา",
-                                                              "prepend-icon":
-                                                                "mdi-clock-time-four-outline",
-                                                              readonly: "",
-                                                              required: ""
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                _vm.beginTime,
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.beginTime = $$v
-                                                              },
-                                                              expression:
-                                                                "beginTime"
-                                                            }
-                                                          },
-                                                          "v-text-field",
-                                                          attrs,
-                                                          false
-                                                        ),
-                                                        on
-                                                      )
-                                                    )
-                                                  ]
+                                                attrs: {
+                                                  rules: _vm.timeRules,
+                                                  label: "ตั้งแต่เวลา",
+                                                  "prepend-icon":
+                                                    "mdi-clock-time-four-outline",
+                                                  readonly: "",
+                                                  required: ""
+                                                },
+                                                model: {
+                                                  value: _vm.beginTime,
+                                                  callback: function($$v) {
+                                                    _vm.beginTime = $$v
+                                                  },
+                                                  expression: "beginTime"
                                                 }
-                                              }
-                                            ],
-                                            null,
-                                            false,
-                                            2522865106
-                                          ),
-                                          model: {
-                                            value: _vm.beginTimePickerModal,
-                                            callback: function($$v) {
-                                              _vm.beginTimePickerModal = $$v
-                                            },
-                                            expression: "beginTimePickerModal"
-                                          }
-                                        },
-                                        [
-                                          _vm._v(" "),
-                                          _c(
-                                            "v-time-picker",
-                                            {
-                                              attrs: {
-                                                format: "24hr",
-                                                "full-width": ""
                                               },
-                                              model: {
-                                                value: _vm.beginTime,
-                                                callback: function($$v) {
-                                                  _vm.beginTime = $$v
-                                                },
-                                                expression: "beginTime"
-                                              }
-                                            },
-                                            [
-                                              _c("v-spacer"),
-                                              _vm._v(" "),
-                                              _c(
-                                                "v-btn",
-                                                {
-                                                  attrs: {
-                                                    text: "",
-                                                    color: "primary"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      _vm.beginTimePickerModal = false
-                                                    }
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                      ยกเลิก\n                    "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "v-btn",
-                                                {
-                                                  attrs: {
-                                                    text: "",
-                                                    color: "primary"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.$refs.beginTimePickerDialog.save(
-                                                        _vm.beginTime
-                                                      )
-                                                    }
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                      ตกลง\n                    "
-                                                  )
-                                                ]
-                                              )
-                                            ],
-                                            1
+                                              "v-text-field",
+                                              attrs,
+                                              false
+                                            ),
+                                            on
                                           )
-                                        ],
-                                        1
+                                        )
+                                      ]
+                                    }
+                                  }
+                                ],
+                                null,
+                                false,
+                                2522865106
+                              ),
+                              model: {
+                                value: _vm.beginTimePickerModal,
+                                callback: function($$v) {
+                                  _vm.beginTimePickerModal = $$v
+                                },
+                                expression: "beginTimePickerModal"
+                              }
+                            },
+                            [
+                              _vm._v(" "),
+                              _c(
+                                "v-time-picker",
+                                {
+                                  attrs: { format: "24hr", "full-width": "" },
+                                  model: {
+                                    value: _vm.beginTime,
+                                    callback: function($$v) {
+                                      _vm.beginTime = $$v
+                                    },
+                                    expression: "beginTime"
+                                  }
+                                },
+                                [
+                                  _c("v-spacer"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { text: "", color: "primary" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.beginTimePickerModal = false
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                ยกเลิก\n              "
                                       )
-                                    ],
-                                    1
+                                    ]
                                   ),
                                   _vm._v(" "),
                                   _c(
-                                    "v-col",
-                                    { staticClass: "pt-0 mt-0 pb-0 mb-0" },
-                                    [
-                                      _c(
-                                        "v-dialog",
-                                        {
-                                          ref: "endTimePickerDialog",
-                                          attrs: {
-                                            "return-value": _vm.endTime,
-                                            persistent: "",
-                                            width: "300px"
-                                          },
-                                          on: {
-                                            "update:returnValue": function(
-                                              $event
-                                            ) {
-                                              _vm.endTime = $event
-                                            },
-                                            "update:return-value": function(
-                                              $event
-                                            ) {
-                                              _vm.endTime = $event
-                                            }
-                                          },
-                                          scopedSlots: _vm._u(
-                                            [
-                                              {
-                                                key: "activator",
-                                                fn: function(ref) {
-                                                  var on = ref.on
-                                                  var attrs = ref.attrs
-                                                  return [
-                                                    _c(
-                                                      "v-text-field",
-                                                      _vm._g(
-                                                        _vm._b(
-                                                          {
-                                                            attrs: {
-                                                              rules:
-                                                                _vm.timeRules,
-                                                              label: "ถึงเวลา",
-                                                              "prepend-icon":
-                                                                "mdi-clock-time-four-outline",
-                                                              readonly: "",
-                                                              required: ""
-                                                            },
-                                                            model: {
-                                                              value:
-                                                                _vm.endTime,
-                                                              callback: function(
-                                                                $$v
-                                                              ) {
-                                                                _vm.endTime = $$v
-                                                              },
-                                                              expression:
-                                                                "endTime"
-                                                            }
-                                                          },
-                                                          "v-text-field",
-                                                          attrs,
-                                                          false
-                                                        ),
-                                                        on
-                                                      )
-                                                    )
-                                                  ]
-                                                }
-                                              }
-                                            ],
-                                            null,
-                                            false,
-                                            3719382027
-                                          ),
-                                          model: {
-                                            value: _vm.endTimePickerModal,
-                                            callback: function($$v) {
-                                              _vm.endTimePickerModal = $$v
-                                            },
-                                            expression: "endTimePickerModal"
-                                          }
-                                        },
-                                        [
-                                          _vm._v(" "),
-                                          _c(
-                                            "v-time-picker",
-                                            {
-                                              attrs: {
-                                                format: "24hr",
-                                                "full-width": ""
-                                              },
-                                              model: {
-                                                value: _vm.endTime,
-                                                callback: function($$v) {
-                                                  _vm.endTime = $$v
-                                                },
-                                                expression: "endTime"
-                                              }
-                                            },
-                                            [
-                                              _c("v-spacer"),
-                                              _vm._v(" "),
-                                              _c(
-                                                "v-btn",
-                                                {
-                                                  attrs: {
-                                                    text: "",
-                                                    color: "primary"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      _vm.endTimePickerModal = false
-                                                    }
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                      ยกเลิก\n                    "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "v-btn",
-                                                {
-                                                  attrs: {
-                                                    text: "",
-                                                    color: "primary"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.$refs.endTimePickerDialog.save(
-                                                        _vm.endTime
-                                                      )
-                                                    }
-                                                  }
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                      ตกลง\n                    "
-                                                  )
-                                                ]
-                                              )
-                                            ],
-                                            1
+                                    "v-btn",
+                                    {
+                                      attrs: { text: "", color: "primary" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.$refs.beginTimePickerDialog.save(
+                                            _vm.beginTime
                                           )
-                                        ],
-                                        1
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                ตกลง\n              "
                                       )
-                                    ],
-                                    1
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        {
+                          staticClass: "pb-0 mb-0",
+                          attrs: { cols: "12", md: "3" }
+                        },
+                        [
+                          _c(
+                            "v-dialog",
+                            {
+                              ref: "endTimePickerDialog",
+                              attrs: {
+                                "return-value": _vm.endTime,
+                                persistent: "",
+                                width: "300px"
+                              },
+                              on: {
+                                "update:returnValue": function($event) {
+                                  _vm.endTime = $event
+                                },
+                                "update:return-value": function($event) {
+                                  _vm.endTime = $event
+                                }
+                              },
+                              scopedSlots: _vm._u(
+                                [
+                                  {
+                                    key: "activator",
+                                    fn: function(ref) {
+                                      var on = ref.on
+                                      var attrs = ref.attrs
+                                      return [
+                                        _c(
+                                          "v-text-field",
+                                          _vm._g(
+                                            _vm._b(
+                                              {
+                                                attrs: {
+                                                  rules: _vm.timeRules,
+                                                  label: "ถึงเวลา",
+                                                  "prepend-icon":
+                                                    "mdi-clock-time-four-outline",
+                                                  readonly: "",
+                                                  required: ""
+                                                },
+                                                model: {
+                                                  value: _vm.endTime,
+                                                  callback: function($$v) {
+                                                    _vm.endTime = $$v
+                                                  },
+                                                  expression: "endTime"
+                                                }
+                                              },
+                                              "v-text-field",
+                                              attrs,
+                                              false
+                                            ),
+                                            on
+                                          )
+                                        )
+                                      ]
+                                    }
+                                  }
+                                ],
+                                null,
+                                false,
+                                3719382027
+                              ),
+                              model: {
+                                value: _vm.endTimePickerModal,
+                                callback: function($$v) {
+                                  _vm.endTimePickerModal = $$v
+                                },
+                                expression: "endTimePickerModal"
+                              }
+                            },
+                            [
+                              _vm._v(" "),
+                              _c(
+                                "v-time-picker",
+                                {
+                                  attrs: { format: "24hr", "full-width": "" },
+                                  model: {
+                                    value: _vm.endTime,
+                                    callback: function($$v) {
+                                      _vm.endTime = $$v
+                                    },
+                                    expression: "endTime"
+                                  }
+                                },
+                                [
+                                  _c("v-spacer"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { text: "", color: "primary" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.endTimePickerModal = false
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                ยกเลิก\n              "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { text: "", color: "primary" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.$refs.endTimePickerDialog.save(
+                                            _vm.endTime
+                                          )
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                ตกลง\n              "
+                                      )
+                                    ]
                                   )
                                 ],
                                 1
@@ -23563,7 +23558,26 @@ var render = function() {
                 : _vm._e()
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _vm.showPinned
+            ? _c("v-switch", {
+                attrs: {
+                  "true-value": 1,
+                  "false-value": 0,
+                  label: "ปักหมุด/ไฮไลท์",
+                  color: "primary",
+                  "hide-details": ""
+                },
+                model: {
+                  value: _vm.pinned,
+                  callback: function($$v) {
+                    _vm.pinned = $$v
+                  },
+                  expression: "pinned"
+                }
+              })
+            : _vm._e()
         ],
         1
       ),
@@ -24226,7 +24240,10 @@ var render = function() {
                   [
                     _vm._v(" "),
                     _c("span", [
-                      _vm._v(_vm._s(_vm.formatThaiDateTime(item.created_at)))
+                      _vm._v(
+                        "สร้าง: " +
+                          _vm._s(_vm.formatThaiDateTime(item.created_at))
+                      )
                     ])
                   ]
                 )
@@ -24282,11 +24299,12 @@ var render = function() {
                     _vm._v(" "),
                     _c("span", [
                       _vm._v(
-                        _vm._s(
-                          item.updated_at == null
-                            ? "ยังไม่เคยมีการแก้ไข"
-                            : _vm.formatThaiDateTime(item.updated_at)
-                        )
+                        "แก้ไขล่าสุด: " +
+                          _vm._s(
+                            item.updated_at == null
+                              ? "ยังไม่เคยมีการแก้ไข"
+                              : _vm.formatThaiDateTime(item.updated_at)
+                          )
                       )
                     ])
                   ]
@@ -24739,7 +24757,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("span", [
                                     _vm._v(
-                                      "สร้าง : " +
+                                      "สร้าง: " +
                                         _vm._s(
                                           _vm.formatThaiDateTime(
                                             item.created_at
@@ -24801,7 +24819,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("span", [
                                     _vm._v(
-                                      "แก้ไขล่าสุด : " +
+                                      "แก้ไขล่าสุด: " +
                                         _vm._s(
                                           item.updated_at == null
                                             ? "ยังไม่เคยมีการแก้ไข"
@@ -25017,7 +25035,7 @@ var render = function() {
                       ],
                       null,
                       false,
-                      3465634576
+                      2879937456
                     )
                   })
                 : undefined
@@ -25038,7 +25056,8 @@ var render = function() {
                       "on-cancel-form": _vm.handleCancelForm,
                       "on-save": _vm.handleSave,
                       "on-delete": _vm.handleDelete,
-                      "with-date": _vm.withDate
+                      "with-date": _vm.withDate,
+                      "show-pinned": _vm.showPinned
                     }
                   })
                 : _vm._e()
@@ -25195,7 +25214,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("list-form", {
-    attrs: { "table-name": "event", "with-date": true }
+    attrs: { "table-name": "event", "with-date": true, "show-pinned": true }
   })
 }
 var staticRenderFns = []

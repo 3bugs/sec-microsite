@@ -157,6 +157,8 @@ class ApiDataController extends Controller
       $description = $request->description;
       $categoryId = $request->category_id;
       $content = $request->content_data;
+      $published = $request->published;
+      $pinned = $request->pinned;
 
       $data = new $this->mModelClass;
       $data->title = $title;
@@ -164,6 +166,8 @@ class ApiDataController extends Controller
       $data->category_id = $categoryId;
       $data->cover_image = $imagePath;
       $data->content = $content;
+      $data->published = $published;
+      $data->pinned = $pinned;
       if ($request->has('begin_date')) {
         $data->begin_date = $request->begin_date;
         $data->end_date = $request->end_date;
@@ -213,6 +217,12 @@ class ApiDataController extends Controller
       }
       if ($request->has('content_data')) {
         $data->content = $request->content_data;
+      }
+      if ($request->has('published')) {
+        $data->published = $request->published;
+      }
+      if ($request->has('pinned')) {
+        $data->pinned = $request->pinned;
       }
       if ($request->has('begin_date')) {
         $data->begin_date = $request->begin_date;

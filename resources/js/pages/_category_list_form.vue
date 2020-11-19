@@ -153,7 +153,7 @@
               mdi-calendar
             </v-icon>
           </template>
-          <span>{{ formatThaiDateTime(item.created_at) }}</span>
+          <span>สร้าง: {{ formatThaiDateTime(item.created_at) }}</span>
         </v-tooltip>
       </template>
 
@@ -170,7 +170,7 @@
               mdi-calendar
             </v-icon>
           </template>
-          <span>{{ item.updated_at == null ? 'ยังไม่เคยมีการแก้ไข' : formatThaiDateTime(item.updated_at) }}</span>
+          <span>แก้ไขล่าสุด: {{ item.updated_at == null ? 'ยังไม่เคยมีการแก้ไข' : formatThaiDateTime(item.updated_at) }}</span>
         </v-tooltip>
       </template>
 
@@ -299,8 +299,8 @@ export default {
         {text: ' ', align: 'start', value: 'strip', sortable: false, width: '15px',},
         {text: 'ชื่อหมวดหมู่', align: 'start', value: 'title', sortable: true,},
         {text: 'คำอธิบาย', value: 'description', sortable: true,},
-        {text: 'สร้าง', value: 'created_at', sortable: true, width: '70px', align: 'center',},
-        {text: 'แก้ไข', value: 'updated_at', sortable: true, width: '70px', align: 'center',},
+        {text: 'ส', value: 'created_at', sortable: true, width: '60px', align: 'center',},
+        {text: 'ก', value: 'updated_at', sortable: true, width: '60px', align: 'center',},
         {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
         {text: 'จัดการ', value: 'actions', sortable: false, width: this.allowDelete ? '90px' : '70px', align: 'center',},
       ],

@@ -26,7 +26,7 @@ Route::get('/', function () {
     array('id' => 3, 'buttonText' => 'แหล่งข้อมูลระดมทุน', 'buttonMarginTop' => 25),
     array('id' => 4, 'buttonText' => 'SEC Event', 'buttonMarginTop' => 25),
     array('id' => 5, 'buttonText' => 'คลินิกระดมทุน', 'buttonMarginTop' => 5),
-    array('id' => 6, 'buttonText' => 'พันธกิจ พันธมิตร', 'buttonMarginTop' => 25),
+    array('id' => 6, 'buttonText' => 'ก.ล.ต. กับ SMEs', 'buttonMarginTop' => 25),
   );
   return view('index', [
     'cardDataList' => $cardDataList,

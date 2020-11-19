@@ -2,6 +2,7 @@
   <list-form
     table-name="event"
     :with-date="true"
+    :show-pinned="true"
   />
 </template>
 

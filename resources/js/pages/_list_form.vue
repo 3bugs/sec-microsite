@@ -126,7 +126,7 @@
                   mdi-calendar
                 </v-icon>
               </template>
-              <span>สร้าง : {{ formatThaiDateTime(item.created_at) }}</span>
+              <span>สร้าง: {{ formatThaiDateTime(item.created_at) }}</span>
             </v-tooltip>
           </template>
 
@@ -143,7 +143,7 @@
                   mdi-calendar
                 </v-icon>
               </template>
-              <span>แก้ไขล่าสุด : {{ item.updated_at == null ? 'ยังไม่เคยมีการแก้ไข' : formatThaiDateTime(item.updated_at) }}</span>
+              <span>แก้ไขล่าสุด: {{ item.updated_at == null ? 'ยังไม่เคยมีการแก้ไข' : formatThaiDateTime(item.updated_at) }}</span>
             </v-tooltip>
           </template>
 
@@ -230,6 +230,7 @@
           :on-save="handleSave"
           :on-delete="handleDelete"
           :with-date="withDate"
+          :show-pinned="showPinned"
         />
       </v-tab-item>
     </v-tabs-items>
@@ -269,6 +270,10 @@ export default {
   props: {
     tableName: String,
     withDate: {
+      type: Boolean,
+      default: false,
+    },
+    showPinned: {
       type: Boolean,
       default: false,
     },
