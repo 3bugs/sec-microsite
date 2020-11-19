@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\EventCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -41,10 +42,16 @@ class EventController extends Controller
       ->orderBy('begin_date', 'asc')
       ->get();
 
+    $highlightEventList = Event::whereDate('begin_date', '>=', Carbon::today())
+      ->where('pinned', 1)
+      ->orderBy('begin_date', 'asc')
+      ->get();
+
     return view('event', [
       //'categoryListByDate' => $categoryListByDate,
       'eventCategoryList' => $eventCategoryList,
       'eventList' => $eventList,
+      'highlightEventList' => $highlightEventList,
     ]);
   }
 

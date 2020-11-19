@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-  {{--<link href="/skeleton-loader/jquery.skeleton.css" rel="stylesheet">--}}
+  <link href="css/index.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -92,10 +92,73 @@
       </div>
       <div class="col-12 select_event">
         <h3>Highlight</h3>
-        <select class="form-control">
-          <option>All</option>
+        <select id="select-category" class="form-control">
+          <option value="0">All</option>
+          @foreach ($eventCategoryList as $category)
+            <option value="{{ $category->id }}">{{ $category->title }}</option>
+          @endforeach
         </select>
       </div>
+
+
+
+      <div style="width: 100%; background: #fff;">
+        <div class="container mt-2 mb-2">
+          <div class="row mt-4 d-">
+            <div class="col-12">
+              <div class="sec-event-image d-none d-md-block">
+                <div class="sec-event-content">
+                  <div class="sec-event-date">
+                    <div style="font-size: 14px; line-height: 21px; opacity: 0.5">SEC EVENT</div>
+                    <div style="font-size: 35px; font-weight: bold; line-height: 45px">OCT</div>
+                    <div style="font-size: 72px; font-weight: bold; line-height: 70px">16</div>
+                  </div>
+                  <div class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4">
+                    <div style="flex: 1; flex-direction: column; padding: 25px 30px 0; border: 0px solid red">
+                      <h3 class="mb-3">วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</h3>
+                      <p>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร
+                        วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</p>
+                      <p>Sun ・ Sep 16 2020, 8:40 PM</p>
+                    </div>
+                    <button style="align-self: flex-start; padding: 20px 30px;">
+                      <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="d-xs-block d-md-none">
+                <div class="info-item mb-sm-0">
+                  <div class="info-item-image-container" style="background-image: url('images/event.jpg')">
+                    <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
+                      <div style="font-size: 10px; line-height: 14px; opacity: 0.5;">SEC EVENT</div>
+                      <div style="font-size: 18px; font-weight: bold; line-height: 25px">OCT</div>
+                      <div style="font-size: 36px; font-weight: bold; line-height: 35px">16</div>
+                    </div>
+                  </div>
+                  <div class="info-item-text" style="padding: 14px 0 0 0">
+                    <h3>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</h3>
+                    <p>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร
+                      วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</p>
+                    <button>
+                      <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="row">
+            <div class="col-12 text-center d-block d-sm-none">
+              <a href="#"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
+            </div>
+          </div>-->
+        </div>
+      </div>
+
+
+
+
+
       <div class="col-12 item_hlevent">
         <figure>
           <a href="#">
@@ -288,6 +351,15 @@
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="/js/bootstrap-datepicker.min.js"></script>
   <!-- script src="/skeleton-loader/jquery.scheletrone.js"></script -->
+
+  <script>
+    $(function () {
+      const selectCategory = $('#select-category');
+      selectCategory.on('change', function () {
+
+      });
+    });
+  </script>
 
   <script>
     //const skeletonLoader = $('#skeleton-loader').scheletrone();

@@ -219,12 +219,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 180px;
+  width: 170px;
   height: 193px;
-  font-family: Prompt;
+  font-family: 'Roboto', 'Prompt';
   font-style: normal;
   background: #00AAA6;
-  border-radius: 6px;
+  border-bottom-right-radius: 6px;
   color: white;
 }
 

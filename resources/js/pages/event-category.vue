@@ -3,6 +3,7 @@
     table-name="event"
     :allow-add="false"
     :allow-delete="false"
+    :show-publish="false"
   />
 </template>
 

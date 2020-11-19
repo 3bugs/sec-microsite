@@ -175,7 +175,10 @@
       </template>
 
       <!--status-->
-      <template v-slot:item.published="{ item }">
+      <template
+        v-if="showPublish"
+        v-slot:item.published="{ item }"
+      >
         <v-switch
           class="ma-0 pa-0"
           v-model="item.published"
@@ -267,6 +270,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    showPublish: {
+      type: Boolean,
+      default: true,
+    },
   },
   components: {
     MyDialog,
@@ -301,9 +308,9 @@ export default {
         {text: 'คำอธิบาย', value: 'description', sortable: true,},
         {text: 'ส', value: 'created_at', sortable: true, width: '60px', align: 'center',},
         {text: 'ก', value: 'updated_at', sortable: true, width: '60px', align: 'center',},
-        {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
+        this.showPublish ? {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',} : null,
         {text: 'จัดการ', value: 'actions', sortable: false, width: this.allowDelete ? '90px' : '70px', align: 'center',},
-      ],
+      ].filter(item => item != null),
       dataList: [],
       routeDataList,
       categoryColorList,

@@ -3145,6 +3145,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3156,6 +3159,10 @@ __webpack_require__.r(__webpack_exports__);
       "default": true
     },
     allowDelete: {
+      type: Boolean,
+      "default": true
+    },
+    showPublish: {
       type: Boolean,
       "default": true
     }
@@ -3215,19 +3222,21 @@ __webpack_require__.r(__webpack_exports__);
         sortable: true,
         width: '60px',
         align: 'center'
-      }, {
+      }, this.showPublish ? {
         text: 'เผยแพร่',
         value: 'published',
         sortable: true,
         width: '100px',
         align: 'center'
-      }, {
+      } : null, {
         text: 'จัดการ',
         value: 'actions',
         sortable: false,
         width: this.allowDelete ? '90px' : '70px',
         align: 'center'
-      }],
+      }].filter(function (item) {
+        return item != null;
+      }),
       dataList: [],
       routeDataList: _constants__WEBPACK_IMPORTED_MODULE_0__["routeDataList"],
       categoryColorList: _constants__WEBPACK_IMPORTED_MODULE_0__["categoryColorList"],
@@ -4279,6 +4288,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _category_list_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_category_list_form */ "./resources/js/pages/_category_list_form.vue");
+//
 //
 //
 //
@@ -23943,511 +23953,531 @@ var render = function() {
           options: _vm.getTableOptions()
         },
         on: { "update:options": _vm.handleUpdateTableOptions },
-        scopedSlots: _vm._u([
-          {
-            key: "top",
-            fn: function() {
-              return [
-                _c(
-                  "v-toolbar",
-                  { attrs: { flat: "" } },
-                  [
-                    _c("v-toolbar-title", [
-                      _vm._v(_vm._s(_vm.currentRouteTitle))
-                    ]),
-                    _vm._v(" "),
-                    _c("v-divider", {
-                      staticClass: "mx-4",
-                      attrs: { inset: "", vertical: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("v-spacer"),
-                    _vm._v(" "),
-                    _c(
-                      "v-dialog",
-                      {
-                        attrs: { "max-width": "600px" },
-                        scopedSlots: _vm._u(
-                          [
-                            _vm.allowAdd
-                              ? {
-                                  key: "activator",
-                                  fn: function(ref) {
-                                    var on = ref.on
-                                    var attrs = ref.attrs
-                                    return [
+        scopedSlots: _vm._u(
+          [
+            {
+              key: "top",
+              fn: function() {
+                return [
+                  _c(
+                    "v-toolbar",
+                    { attrs: { flat: "" } },
+                    [
+                      _c("v-toolbar-title", [
+                        _vm._v(_vm._s(_vm.currentRouteTitle))
+                      ]),
+                      _vm._v(" "),
+                      _c("v-divider", {
+                        staticClass: "mx-4",
+                        attrs: { inset: "", vertical: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("v-spacer"),
+                      _vm._v(" "),
+                      _c(
+                        "v-dialog",
+                        {
+                          attrs: { "max-width": "600px" },
+                          scopedSlots: _vm._u(
+                            [
+                              _vm.allowAdd
+                                ? {
+                                    key: "activator",
+                                    fn: function(ref) {
+                                      var on = ref.on
+                                      var attrs = ref.attrs
+                                      return [
+                                        _c(
+                                          "v-btn",
+                                          _vm._g(
+                                            _vm._b(
+                                              {
+                                                staticClass: "mb-2 mr-2",
+                                                attrs: {
+                                                  color: "primary",
+                                                  dark: ""
+                                                }
+                                              },
+                                              "v-btn",
+                                              attrs,
+                                              false
+                                            ),
+                                            on
+                                          ),
+                                          [
+                                            _c(
+                                              "v-icon",
+                                              {
+                                                staticClass: "mr-2",
+                                                attrs: { small: "" }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                mdi-plus-thick\n              "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(
+                                              "\n              เพิ่ม\n            "
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    }
+                                  }
+                                : null
+                            ],
+                            null,
+                            true
+                          ),
+                          model: {
+                            value: _vm.editDialogVisible,
+                            callback: function($$v) {
+                              _vm.editDialogVisible = $$v
+                            },
+                            expression: "editDialogVisible"
+                          }
+                        },
+                        [
+                          _vm._v(" "),
+                          _c(
+                            "v-card",
+                            [
+                              _c("v-card-title", [
+                                _c("span", { staticClass: "headline" }, [
+                                  _vm._v(
+                                    "\n                " +
+                                      _vm._s(_vm.editDialogTitle) +
+                                      "\n              "
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-text",
+                                [
+                                  _c(
+                                    "v-container",
+                                    [
                                       _c(
-                                        "v-btn",
-                                        _vm._g(
-                                          _vm._b(
-                                            {
-                                              staticClass: "mb-2 mr-2",
-                                              attrs: {
-                                                color: "primary",
-                                                dark: ""
-                                              }
+                                        "v-form",
+                                        {
+                                          ref: "form",
+                                          staticClass: "pl-0 pr-0",
+                                          attrs: { "lazy-validation": "" },
+                                          model: {
+                                            value: _vm.valid,
+                                            callback: function($$v) {
+                                              _vm.valid = $$v
                                             },
-                                            "v-btn",
-                                            attrs,
-                                            false
-                                          ),
-                                          on
-                                        ),
+                                            expression: "valid"
+                                          }
+                                        },
                                         [
-                                          _c(
-                                            "v-icon",
-                                            {
-                                              staticClass: "mr-2",
-                                              attrs: { small: "" }
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              counter: 255,
+                                              rules: _vm.titleRules,
+                                              label: "ชื่อหมวดหมู่",
+                                              required: ""
                                             },
-                                            [
-                                              _vm._v(
-                                                "\n                mdi-plus-thick\n              "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(
-                                            "\n              เพิ่ม\n            "
-                                          )
+                                            model: {
+                                              value: _vm.editItem.title,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.editItem,
+                                                  "title",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "editItem.title"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("v-text-field", {
+                                            attrs: {
+                                              rules: _vm.descriptionRules,
+                                              label: "คำอธิบาย",
+                                              required: ""
+                                            },
+                                            model: {
+                                              value: _vm.editItem.description,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.editItem,
+                                                  "description",
+                                                  $$v
+                                                )
+                                              },
+                                              expression: "editItem.description"
+                                            }
+                                          })
                                         ],
                                         1
                                       )
-                                    ]
-                                  }
-                                }
-                              : null
-                          ],
-                          null,
-                          true
-                        ),
-                        model: {
-                          value: _vm.editDialogVisible,
-                          callback: function($$v) {
-                            _vm.editDialogVisible = $$v
-                          },
-                          expression: "editDialogVisible"
-                        }
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "v-card",
-                          [
-                            _c("v-card-title", [
-                              _c("span", { staticClass: "headline" }, [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(_vm.editDialogTitle) +
-                                    "\n              "
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-text",
-                              [
-                                _c(
-                                  "v-container",
-                                  [
-                                    _c(
-                                      "v-form",
-                                      {
-                                        ref: "form",
-                                        staticClass: "pl-0 pr-0",
-                                        attrs: { "lazy-validation": "" },
-                                        model: {
-                                          value: _vm.valid,
-                                          callback: function($$v) {
-                                            _vm.valid = $$v
-                                          },
-                                          expression: "valid"
-                                        }
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-actions",
+                                [
+                                  _c("v-spacer"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: {
+                                        color: "blue darken-1",
+                                        text: ""
                                       },
-                                      [
-                                        _c("v-text-field", {
-                                          attrs: {
-                                            counter: 255,
-                                            rules: _vm.titleRules,
-                                            label: "ชื่อหมวดหมู่",
-                                            required: ""
-                                          },
-                                          model: {
-                                            value: _vm.editItem.title,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.editItem,
-                                                "title",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "editItem.title"
-                                          }
-                                        }),
-                                        _vm._v(" "),
-                                        _c("v-text-field", {
-                                          attrs: {
-                                            rules: _vm.descriptionRules,
-                                            label: "คำอธิบาย",
-                                            required: ""
-                                          },
-                                          model: {
-                                            value: _vm.editItem.description,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.editItem,
-                                                "description",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "editItem.description"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-actions",
-                              [
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { color: "blue darken-1", text: "" },
-                                    on: {
-                                      click: _vm.handleClickCloseEditDialog
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                ยกเลิก\n              "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { color: "blue darken-1", text: "" },
-                                    on: { click: _vm.handleClickSaveEditDialog }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                บันทึก\n              "
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-btn",
-                      {
-                        staticClass: "mb-2",
-                        attrs: { color: "success", dark: "" },
-                        on: { click: _vm.handleClickRefresh }
-                      },
-                      [
-                        _c("v-icon", { attrs: { medium: "" } }, [
-                          _vm._v("\n            mdi-refresh\n          ")
-                        ])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "item.strip",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c("div", {
-                  staticClass: "mt-2 mb-2",
-                  style:
-                    "border: 0 solid red; background-color: " +
-                    _vm.categoryColorList[
-                      (item.id - 1) % _vm.categoryColorList.length
-                    ] +
-                    "; min-height: 70px; height: 100%; width: 10px;"
-                })
-              ]
-            }
-          },
-          {
-            key: "item.created_at",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c(
-                  "v-tooltip",
-                  {
-                    attrs: { bottom: "" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "activator",
-                          fn: function(ref) {
-                            var on = ref.on
-                            var attrs = ref.attrs
-                            return [
-                              _c(
-                                "v-icon",
-                                _vm._g(
-                                  _vm._b(
-                                    {
-                                      staticClass: "mr-2",
-                                      attrs: { small: "" }
-                                    },
-                                    "v-icon",
-                                    attrs,
-                                    false
-                                  ),
-                                  on
-                                ),
-                                [
-                                  _vm._v(
-                                    "\n            mdi-calendar\n          "
-                                  )
-                                ]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      true
-                    )
-                  },
-                  [
-                    _vm._v(" "),
-                    _c("span", [
-                      _vm._v(
-                        "สร้าง: " +
-                          _vm._s(_vm.formatThaiDateTime(item.created_at))
-                      )
-                    ])
-                  ]
-                )
-              ]
-            }
-          },
-          {
-            key: "item.updated_at",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c(
-                  "v-tooltip",
-                  {
-                    attrs: { bottom: "" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "activator",
-                          fn: function(ref) {
-                            var on = ref.on
-                            var attrs = ref.attrs
-                            return [
-                              _c(
-                                "v-icon",
-                                _vm._g(
-                                  _vm._b(
-                                    {
-                                      staticClass: "mr-2",
-                                      attrs: { small: "" }
-                                    },
-                                    "v-icon",
-                                    attrs,
-                                    false
-                                  ),
-                                  on
-                                ),
-                                [
-                                  _vm._v(
-                                    "\n            mdi-calendar\n          "
-                                  )
-                                ]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      true
-                    )
-                  },
-                  [
-                    _vm._v(" "),
-                    _c("span", [
-                      _vm._v(
-                        "แก้ไขล่าสุด: " +
-                          _vm._s(
-                            item.updated_at == null
-                              ? "ยังไม่เคยมีการแก้ไข"
-                              : _vm.formatThaiDateTime(item.updated_at)
-                          )
-                      )
-                    ])
-                  ]
-                )
-              ]
-            }
-          },
-          {
-            key: "item.published",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c("v-switch", {
-                  staticClass: "ma-0 pa-0",
-                  attrs: { color: "primary", "hide-details": "" },
-                  on: {
-                    click: function($event) {
-                      return _vm.handleClickSwitch(item)
-                    }
-                  },
-                  model: {
-                    value: item.published,
-                    callback: function($$v) {
-                      _vm.$set(item, "published", $$v)
-                    },
-                    expression: "item.published"
-                  }
-                })
-              ]
-            }
-          },
-          {
-            key: "item.actions",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c(
-                  "v-tooltip",
-                  {
-                    attrs: { bottom: "" },
-                    scopedSlots: _vm._u(
-                      [
-                        {
-                          key: "activator",
-                          fn: function(ref) {
-                            var on = ref.on
-                            var attrs = ref.attrs
-                            return [
-                              _c(
-                                "v-icon",
-                                _vm._g(
-                                  _vm._b(
-                                    {
-                                      class: _vm.allowDelete ? "mr-3" : "",
-                                      attrs: { small: "" },
                                       on: {
-                                        click: function($event) {
-                                          return _vm.handleClickEdit(item)
-                                        }
+                                        click: _vm.handleClickCloseEditDialog
                                       }
                                     },
-                                    "v-icon",
-                                    attrs,
-                                    false
-                                  ),
-                                  on
-                                ),
-                                [_vm._v("\n            mdi-pencil\n          ")]
-                              )
-                            ]
-                          }
-                        }
-                      ],
-                      null,
-                      true
-                    )
-                  },
-                  [_vm._v(" "), _c("span", [_vm._v("แก้ไข")])]
-                ),
-                _vm._v(" "),
-                _vm.allowDelete
-                  ? _c(
-                      "v-tooltip",
-                      {
-                        attrs: { bottom: "" },
-                        scopedSlots: _vm._u(
-                          [
-                            {
-                              key: "activator",
-                              fn: function(ref) {
-                                var on = ref.on
-                                var attrs = ref.attrs
-                                return [
-                                  _c(
-                                    "v-icon",
-                                    _vm._g(
-                                      _vm._b(
-                                        {
-                                          attrs: { small: "" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.handleClickDelete(item)
-                                            }
-                                          }
-                                        },
-                                        "v-icon",
-                                        attrs,
-                                        false
-                                      ),
-                                      on
-                                    ),
                                     [
                                       _vm._v(
-                                        "\n            mdi-delete\n          "
+                                        "\n                ยกเลิก\n              "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: {
+                                        color: "blue darken-1",
+                                        text: ""
+                                      },
+                                      on: {
+                                        click: _vm.handleClickSaveEditDialog
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                บันทึก\n              "
                                       )
                                     ]
                                   )
-                                ]
-                              }
-                            }
-                          ],
-                          null,
-                          true
-                        )
-                      },
-                      [_vm._v(" "), _c("span", [_vm._v("ลบ")])]
-                    )
-                  : _vm._e()
-              ]
-            }
-          },
-          {
-            key: "progress",
-            fn: function() {
-              return [
-                _c("v-progress-linear", {
-                  attrs: { color: "indigo", height: 5, indeterminate: "" }
-                })
-              ]
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "mb-2",
+                          attrs: { color: "success", dark: "" },
+                          on: { click: _vm.handleClickRefresh }
+                        },
+                        [
+                          _c("v-icon", { attrs: { medium: "" } }, [
+                            _vm._v("\n            mdi-refresh\n          ")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              },
+              proxy: true
             },
-            proxy: true
-          }
-        ])
+            {
+              key: "item.strip",
+              fn: function(ref) {
+                var item = ref.item
+                return [
+                  _c("div", {
+                    staticClass: "mt-2 mb-2",
+                    style:
+                      "border: 0 solid red; background-color: " +
+                      _vm.categoryColorList[
+                        (item.id - 1) % _vm.categoryColorList.length
+                      ] +
+                      "; min-height: 70px; height: 100%; width: 10px;"
+                  })
+                ]
+              }
+            },
+            {
+              key: "item.created_at",
+              fn: function(ref) {
+                var item = ref.item
+                return [
+                  _c(
+                    "v-tooltip",
+                    {
+                      attrs: { bottom: "" },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-icon",
+                                  _vm._g(
+                                    _vm._b(
+                                      {
+                                        staticClass: "mr-2",
+                                        attrs: { small: "" }
+                                      },
+                                      "v-icon",
+                                      attrs,
+                                      false
+                                    ),
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n            mdi-calendar\n          "
+                                    )
+                                  ]
+                                )
+                              ]
+                            }
+                          }
+                        ],
+                        null,
+                        true
+                      )
+                    },
+                    [
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "สร้าง: " +
+                            _vm._s(_vm.formatThaiDateTime(item.created_at))
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              }
+            },
+            {
+              key: "item.updated_at",
+              fn: function(ref) {
+                var item = ref.item
+                return [
+                  _c(
+                    "v-tooltip",
+                    {
+                      attrs: { bottom: "" },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-icon",
+                                  _vm._g(
+                                    _vm._b(
+                                      {
+                                        staticClass: "mr-2",
+                                        attrs: { small: "" }
+                                      },
+                                      "v-icon",
+                                      attrs,
+                                      false
+                                    ),
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n            mdi-calendar\n          "
+                                    )
+                                  ]
+                                )
+                              ]
+                            }
+                          }
+                        ],
+                        null,
+                        true
+                      )
+                    },
+                    [
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "แก้ไขล่าสุด: " +
+                            _vm._s(
+                              item.updated_at == null
+                                ? "ยังไม่เคยมีการแก้ไข"
+                                : _vm.formatThaiDateTime(item.updated_at)
+                            )
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              }
+            },
+            _vm.showPublish
+              ? {
+                  key: "item.published",
+                  fn: function(ref) {
+                    var item = ref.item
+                    return [
+                      _c("v-switch", {
+                        staticClass: "ma-0 pa-0",
+                        attrs: { color: "primary", "hide-details": "" },
+                        on: {
+                          click: function($event) {
+                            return _vm.handleClickSwitch(item)
+                          }
+                        },
+                        model: {
+                          value: item.published,
+                          callback: function($$v) {
+                            _vm.$set(item, "published", $$v)
+                          },
+                          expression: "item.published"
+                        }
+                      })
+                    ]
+                  }
+                }
+              : null,
+            {
+              key: "item.actions",
+              fn: function(ref) {
+                var item = ref.item
+                return [
+                  _c(
+                    "v-tooltip",
+                    {
+                      attrs: { bottom: "" },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-icon",
+                                  _vm._g(
+                                    _vm._b(
+                                      {
+                                        class: _vm.allowDelete ? "mr-3" : "",
+                                        attrs: { small: "" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.handleClickEdit(item)
+                                          }
+                                        }
+                                      },
+                                      "v-icon",
+                                      attrs,
+                                      false
+                                    ),
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n            mdi-pencil\n          "
+                                    )
+                                  ]
+                                )
+                              ]
+                            }
+                          }
+                        ],
+                        null,
+                        true
+                      )
+                    },
+                    [_vm._v(" "), _c("span", [_vm._v("แก้ไข")])]
+                  ),
+                  _vm._v(" "),
+                  _vm.allowDelete
+                    ? _c(
+                        "v-tooltip",
+                        {
+                          attrs: { bottom: "" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "activator",
+                                fn: function(ref) {
+                                  var on = ref.on
+                                  var attrs = ref.attrs
+                                  return [
+                                    _c(
+                                      "v-icon",
+                                      _vm._g(
+                                        _vm._b(
+                                          {
+                                            attrs: { small: "" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.handleClickDelete(
+                                                  item
+                                                )
+                                              }
+                                            }
+                                          },
+                                          "v-icon",
+                                          attrs,
+                                          false
+                                        ),
+                                        on
+                                      ),
+                                      [
+                                        _vm._v(
+                                          "\n            mdi-delete\n          "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            true
+                          )
+                        },
+                        [_vm._v(" "), _c("span", [_vm._v("ลบ")])]
+                      )
+                    : _vm._e()
+                ]
+              }
+            },
+            {
+              key: "progress",
+              fn: function() {
+                return [
+                  _c("v-progress-linear", {
+                    attrs: { color: "indigo", height: 5, indeterminate: "" }
+                  })
+                ]
+              },
+              proxy: true
+            }
+          ],
+          null,
+          true
+        )
       }),
       _vm._v(" "),
       _c("my-dialog", {
@@ -25188,7 +25218,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("category-list-form", {
-    attrs: { "table-name": "event", "allow-add": false, "allow-delete": false }
+    attrs: {
+      "table-name": "event",
+      "allow-add": false,
+      "allow-delete": false,
+      "show-publish": false
+    }
   })
 }
 var staticRenderFns = []

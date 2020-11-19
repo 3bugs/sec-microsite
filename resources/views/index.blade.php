@@ -161,9 +161,9 @@
             <div class="sec-event-image d-none d-md-block">
               <div class="sec-event-content">
                 <div class="sec-event-date">
-                  <div style="font-size: 14px; line-height: 21px; opacity: 0.5;">SEC EVENT</div>
-                  <div style="font-size: 35px; font-weight: 500; line-height: 45px; letter-spacing: 6px;">OCT</div>
-                  <div style="font-size: 72px; font-weight: 600; line-height: 70px; letter-spacing: 10px;">16</div>
+                  <div style="font-size: 14px; line-height: 21px; opacity: 0.5">SEC EVENT</div>
+                  <div style="font-size: 35px; font-weight: bold; line-height: 45px">OCT</div>
+                  <div style="font-size: 72px; font-weight: bold; line-height: 70px">16</div>
                 </div>
                 <div class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4">
                   <div style="flex: 1; flex-direction: column; padding: 25px 30px 0; border: 0px solid red">
@@ -182,9 +182,9 @@
               <div class="info-item mb-sm-0">
                 <div class="info-item-image-container" style="background-image: url('images/event.jpg')">
                   <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
-                    <div style="font-size: 10px; line-height: 14px; opacity: 0.5;">SEC EVENT</div>
-                    <div style="font-size: 25px; font-weight: 500; line-height: 30px; letter-spacing: 2px;">OCT</div>
-                    <div style="font-size: 50px; font-weight: 600; line-height: 45px; letter-spacing: 5px;">16</div>
+                    <div style="font-size: 10px; line-height: 14px; opacity: 0.5">SEC EVENT</div>
+                    <div style="font-size: 18px; font-weight: bold; line-height: 25px">OCT</div>
+                    <div style="font-size: 36px; font-weight: bold; line-height: 35px">16</div>
                   </div>
                 </div>
                 <div class="info-item-text" style="padding: 14px 0 0 0">
