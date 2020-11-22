@@ -21,13 +21,13 @@
           </a>
         </div>
         <div class="col-6 col-md-2 link_iconbot">
-          <a href="javascript:void(0)">
+          <a href="/event">
             <img src="/images/menu04.svg">
             <div>SEC event <img src="/images/icon-readmore.svg"></div>
           </a>
         </div>
         <div class="col-6 col-md-2 link_iconbot">
-          <a href="javascript:void(0)">
+          <a href="/contact">
             <img src="/images/menu05.svg">
             <div>คลินิคระดมทุน <img src="/images/icon-readmore.svg"></div>
           </a>

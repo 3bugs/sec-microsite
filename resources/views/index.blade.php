@@ -282,7 +282,7 @@
           window.location = '/event';
           break;
         case 5:
-          alert('Under construction!');
+          window.location = '/contact';
           break;
         case 6:
           alert('Under construction!');
