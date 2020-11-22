@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\ApiCategoryController;
+use App\Http\Controllers\api\ApiContactController;
 use App\Http\Controllers\api\ApiDataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,7 @@ $apiCategoryCallback = function () {
 Route::prefix('fundraising-category')->group($apiCategoryCallback);
 Route::prefix('media-category')->group($apiCategoryCallback);
 Route::prefix('event-category')->group($apiCategoryCallback);
+
+Route::get('/contact', [ApiContactController::class, 'index']);
+Route::put('/contact', [ApiContactController::class, 'update']);
+Route::delete('/contact', [ApiContactController::class, 'destroy']);

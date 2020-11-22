@@ -4222,6 +4222,430 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/contact.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/contact.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
+/* harmony import */ var _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/my_dialog */ "./resources/js/components/my_dialog.vue");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/utils */ "./resources/js/utils/utils.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {},
+  components: {
+    MyDialog: _components_my_dialog__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      KEY_TABLE_OPTIONS: "table-contact-options",
+      isLoadingList: true,
+      isDeleting: false,
+      isUpdatePublished: false,
+      headers: [{
+        text: ' ',
+        align: 'start',
+        value: 'strip',
+        sortable: false,
+        width: '15px'
+      }, {
+        text: 'ชื่อผู้ติดต่อ',
+        value: 'name',
+        sortable: true
+      }, {
+        text: 'อีเมล',
+        value: 'email',
+        sortable: true
+      }, {
+        text: 'เบอร์โทร',
+        value: 'phone',
+        sortable: true
+      }, {
+        text: 'ข้อความ',
+        value: 'message',
+        sortable: false
+      }, {
+        text: 'ส',
+        value: 'created_at',
+        sortable: true,
+        width: '60px',
+        align: 'center'
+      }, {
+        text: 'ติดต่อแล้ว',
+        value: 'seen',
+        sortable: true,
+        width: '120px',
+        align: 'center'
+      }, {
+        text: 'จัดการ',
+        value: 'actions',
+        sortable: false,
+        width: '70px',
+        align: 'center'
+      }],
+      dataList: [],
+      unseenCount: null,
+      routeDataList: _constants__WEBPACK_IMPORTED_MODULE_0__["routeDataList"],
+      editDialogVisible: false,
+      dialog: {
+        visible: false,
+        title: '',
+        message: ''
+      },
+      snackbar: {
+        visible: false,
+        message: '',
+        iconName: null
+      },
+      formatThaiDateTime: _utils_utils__WEBPACK_IMPORTED_MODULE_2__["formatThaiDateTime"]
+    };
+  },
+  computed: {
+    currentRouteTitle: function currentRouteTitle() {
+      return Object(_constants__WEBPACK_IMPORTED_MODULE_0__["getRouteTitle"])(this.$route.name);
+    }
+  },
+  created: function created() {
+    this.fetchList();
+  },
+  methods: {
+    showDialog: function showDialog(title, message, buttonList, persistent) {
+      this.dialog = {
+        visible: true,
+        persistent: persistent,
+        title: title,
+        message: message,
+        buttonList: buttonList
+      };
+    },
+    handleUpdateTableOptions: function handleUpdateTableOptions(option) {
+      //alert(JSON.stringify(option));
+      localStorage.setItem(this.KEY_TABLE_OPTIONS, JSON.stringify(option));
+      console.log('TABLE OPTIONS SAVED');
+    },
+    getTableOptions: function getTableOptions() {
+      var jsonOptions = localStorage.getItem(this.KEY_TABLE_OPTIONS);
+      console.log('TABLE OPTIONS RESTORED');
+      return jsonOptions == null ? null : JSON.parse(jsonOptions);
+    },
+    handleClickRefresh: function handleClickRefresh() {
+      this.dataList = [];
+      this.unseenCount = null;
+      this.fetchList();
+    },
+    scrollToTop: function scrollToTop() {
+      document.body.scrollTop = 0; // For Safari
+
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    },
+    fetchList: function fetchList() {
+      var _this = this;
+
+      this.isLoadingList = true;
+      var url = "/api/contact?t=".concat(Date.now());
+      console.log(url);
+      axios.get(url, {
+        params: {}
+      }).then(function (response) {
+        console.log(response.data);
+
+        if (response.data.status === 'ok') {
+          var dataList = response.data.data_list;
+          dataList.forEach(function (item, index) {
+            item.seen = item.seen === 1;
+          });
+          _this.dataList = dataList;
+          _this.unseenCount = response.data.unseen_count;
+        } else {
+          var errorMessage = response.data.message;
+
+          _this.showDialog('ผิดพลาด', errorMessage, [{
+            text: 'OK',
+            onClick: null
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+
+        _this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง', [{
+          text: 'OK',
+          onClick: null
+        }], true);
+      }).then(function () {
+        // always executed
+        _this.isLoadingList = false;
+      });
+    },
+    handleClickDelete: function handleClickDelete(item) {
+      var _this2 = this;
+
+      this.showDialog("\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1C\u0E39\u0E49\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D", "\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1C\u0E39\u0E49\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E0A\u0E37\u0E48\u0E2D '".concat(item.name, "' \u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
+        text: 'ยกเลิก',
+        onClick: function onClick() {}
+      }, {
+        text: 'ลบ',
+        onClick: function onClick() {
+          _this2.doDeleting(item.id);
+        }
+      }], false);
+    },
+    doDeleting: function doDeleting(id) {
+      var _this3 = this;
+
+      this.isDeleting = true;
+      axios.post("/api/contact", {
+        id: id,
+        _method: 'delete'
+      }).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this3.snackbar.message = 'ลบข้อมูลสำเร็จ';
+          _this3.snackbar.iconName = 'mdi-check-bold';
+          _this3.snackbar.visible = true;
+
+          _this3.handleClickRefresh();
+        } else {
+          _this3.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {//
+            }
+          }], true);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        _this3.isDeleting = false;
+      });
+    },
+    handleClickSwitch: function handleClickSwitch(item) {
+      var _this4 = this;
+
+      this.showDialog("\u0E2A\u0E16\u0E32\u0E19\u0E30\u0E01\u0E32\u0E23\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E01\u0E25\u0E31\u0E1A", "\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E2A\u0E16\u0E32\u0E19\u0E30\u0E01\u0E32\u0E23\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E01\u0E25\u0E31\u0E1A\u0E40\u0E1B\u0E47\u0E19 ".concat(!item.seen ? 'OFF (ยังไม่ได้ติดต่อกลับ)' : 'ON (ติดต่อกลับแล้ว)', " \u0E43\u0E0A\u0E48\u0E2B\u0E23\u0E37\u0E2D\u0E44\u0E21\u0E48?"), [{
+        text: 'ไม่ใช่',
+        onClick: function onClick() {
+          item.seen = !item.seen;
+        }
+      }, {
+        text: 'ใช่',
+        onClick: function onClick() {
+          _this4.doUpdateSeen(item);
+        }
+      }], true);
+    },
+    doUpdateSeen: function doUpdateSeen(item) {
+      var _this5 = this;
+
+      var self = this;
+      var formData = new FormData();
+      formData.append('id', item.id);
+      formData.append('seen', item.seen ? 1 : 0);
+      formData.append('_method', 'put');
+      var config = {
+        /*headers: {
+          'content-type': 'multipart/form-data'
+        }*/
+      };
+      item.isUpdating = true; //axios.put ไม่ work!!!
+
+      axios.post("/api/contact", formData, config).then(function (response) {
+        var status = response.data.status;
+        var message = response.data.message;
+
+        if (status === 'ok') {
+          _this5.snackbar.message = 'บันทึกข้อมูลสำเร็จ';
+          _this5.snackbar.iconName = 'mdi-check-bold';
+          _this5.snackbar.visible = true;
+          _this5.dataList = [];
+          _this5.unseenCount = null;
+
+          _this5.fetchList();
+        } else {
+          item.seen = !item.seen;
+
+          _this5.showDialog('ผิดพลาด', "\u0E40\u0E01\u0E34\u0E14\u0E02\u0E49\u0E2D\u0E1C\u0E34\u0E14\u0E1E\u0E25\u0E32\u0E14: ".concat(message), [{
+            text: 'OK',
+            onClick: function onClick() {}
+          }], true);
+        }
+      })["catch"](function (error) {
+        item.seen = !item.seen;
+        console.log(error);
+        this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+          text: 'OK',
+          onClick: function onClick() {//
+          }
+        }], true);
+      }).then(function () {
+        // always executed
+        self.isUpdating = false;
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/dashboard.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/dashboard.vue?vue&type=script&lang=js& ***!
@@ -25128,6 +25552,319 @@ var render = function() {
         ],
         1
       ),
+      _vm._v(" "),
+      _c("my-dialog", {
+        attrs: {
+          visible: _vm.dialog.visible,
+          persistent: _vm.dialog.persistent,
+          title: _vm.dialog.title,
+          message: _vm.dialog.message,
+          "button-list": _vm.dialog.buttonList
+        },
+        on: {
+          close: function($event) {
+            _vm.dialog.visible = false
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          model: {
+            value: _vm.snackbar.visible,
+            callback: function($$v) {
+              _vm.$set(_vm.snackbar, "visible", $$v)
+            },
+            expression: "snackbar.visible"
+          }
+        },
+        [
+          _vm.snackbar.iconName != null
+            ? _c(
+                "v-icon",
+                { staticClass: "mr-1", attrs: { small: "", color: "success" } },
+                [_vm._v("\n      " + _vm._s(_vm.snackbar.iconName) + "\n    ")]
+              )
+            : _vm._e(),
+          _vm._v("\n    " + _vm._s(_vm.snackbar.message) + "\n  ")
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/contact.vue?vue&type=template&id=c886f672&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/contact.vue?vue&type=template&id=c886f672&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    [
+      _c(
+        "v-overlay",
+        { attrs: { value: _vm.isDeleting, "z-index": "9999" } },
+        [
+          _c(
+            "v-progress-circular",
+            { attrs: { indeterminate: "", size: "70" } },
+            [
+              _c("v-img", {
+                staticClass: "mb-2",
+                attrs: {
+                  "lazy-src": "/images/logo.svg",
+                  "max-height": "40",
+                  "max-width": "40",
+                  src: "/images/logo.svg"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("v-data-table", {
+        staticClass: "elevation-1",
+        attrs: {
+          headers: _vm.headers,
+          items: _vm.dataList,
+          loading: _vm.isLoadingList,
+          "footer-props": {
+            //'items-per-page-all-text': 'ทั้งหมด',
+            "items-per-page-text": "จำนวนแถวข้อมูลต่อหน้า",
+            //'page-text': '',
+            "show-current-page": true
+          },
+          options: _vm.getTableOptions()
+        },
+        on: { "update:options": _vm.handleUpdateTableOptions },
+        scopedSlots: _vm._u([
+          {
+            key: "top",
+            fn: function() {
+              return [
+                _c(
+                  "v-toolbar",
+                  { attrs: { flat: "" } },
+                  [
+                    _c("v-toolbar-title", [
+                      _vm._v(
+                        _vm._s(_vm.currentRouteTitle) +
+                          " [ยังไม่ได้ติดต่อกลับ: " +
+                          _vm._s(_vm.unseenCount) +
+                          "]"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("v-divider", {
+                      staticClass: "mx-4",
+                      attrs: { inset: "", vertical: "" }
+                    }),
+                    _vm._v(" "),
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "mb-2",
+                        attrs: { color: "success", dark: "" },
+                        on: { click: _vm.handleClickRefresh }
+                      },
+                      [
+                        _c("v-icon", { attrs: { medium: "" } }, [
+                          _vm._v("\n            mdi-refresh\n          ")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "item.strip",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c("div", {
+                  staticClass: "mt-2 mb-2",
+                  style:
+                    "border: 0 solid red; background-color: " +
+                    (item.seen ? "transparent" : "pink") +
+                    "; min-height: 50px; height: 100%; width: 10px;"
+                })
+              ]
+            }
+          },
+          {
+            key: "item.created_at",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      staticClass: "mr-2",
+                                      attrs: { small: "" }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [
+                                  _vm._v(
+                                    "\n            mdi-calendar\n          "
+                                  )
+                                ]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(
+                        "สร้าง: " +
+                          _vm._s(_vm.formatThaiDateTime(item.created_at))
+                      )
+                    ])
+                  ]
+                )
+              ]
+            }
+          },
+          {
+            key: "item.seen",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c("v-switch", {
+                  staticClass: "ma-0 pa-0",
+                  attrs: { color: "primary", "hide-details": "" },
+                  on: {
+                    click: function($event) {
+                      return _vm.handleClickSwitch(item)
+                    }
+                  },
+                  model: {
+                    value: item.seen,
+                    callback: function($$v) {
+                      _vm.$set(item, "seen", $$v)
+                    },
+                    expression: "item.seen"
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "item.actions",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-tooltip",
+                  {
+                    attrs: { bottom: "" },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            var attrs = ref.attrs
+                            return [
+                              _c(
+                                "v-icon",
+                                _vm._g(
+                                  _vm._b(
+                                    {
+                                      attrs: { small: "" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.handleClickDelete(item)
+                                        }
+                                      }
+                                    },
+                                    "v-icon",
+                                    attrs,
+                                    false
+                                  ),
+                                  on
+                                ),
+                                [_vm._v("\n            mdi-delete\n          ")]
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      true
+                    )
+                  },
+                  [_vm._v(" "), _c("span", [_vm._v("ลบ")])]
+                )
+              ]
+            }
+          },
+          {
+            key: "progress",
+            fn: function() {
+              return [
+                _c("v-progress-linear", {
+                  attrs: { color: "indigo", height: 5, indeterminate: "" }
+                })
+              ]
+            },
+            proxy: true
+          }
+        ])
+      }),
       _vm._v(" "),
       _c("my-dialog", {
         attrs: {
@@ -85418,6 +86155,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_media_category__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/media-category */ "./resources/js/pages/media-category.vue");
 /* harmony import */ var _pages_event__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/event */ "./resources/js/pages/event.vue");
 /* harmony import */ var _pages_event_category__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/event-category */ "./resources/js/pages/event-category.vue");
+/* harmony import */ var _pages_contact__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/contact */ "./resources/js/pages/contact.vue");
+
 
 
 
@@ -85502,6 +86241,12 @@ var routeDataList = [{
     menuTitle: 'หมวดหมู่ SEC Event',
     menuIconName: 'mdi-shape-outline'
   }]
+}, {
+  path: '/contact',
+  name: 'contact',
+  component: _pages_contact__WEBPACK_IMPORTED_MODULE_8__["default"],
+  title: 'ข้อมูลผู้ติดต่อ',
+  menuIconName: 'mdi-card-account-phone'
 }];
 var getRouteTitle = function getRouteTitle(routeName) {
   var resultList = [];
@@ -85674,6 +86419,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_list_form_vue_vue_type_template_id_9c259522___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_list_form_vue_vue_type_template_id_9c259522___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/contact.vue":
+/*!****************************************!*\
+  !*** ./resources/js/pages/contact.vue ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _contact_vue_vue_type_template_id_c886f672_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contact.vue?vue&type=template&id=c886f672&scoped=true& */ "./resources/js/pages/contact.vue?vue&type=template&id=c886f672&scoped=true&");
+/* harmony import */ var _contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contact.vue?vue&type=script&lang=js& */ "./resources/js/pages/contact.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _contact_vue_vue_type_template_id_c886f672_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _contact_vue_vue_type_template_id_c886f672_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c886f672",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/contact.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/contact.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/pages/contact.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./contact.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/contact.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/contact.vue?vue&type=template&id=c886f672&scoped=true&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/pages/contact.vue?vue&type=template&id=c886f672&scoped=true& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_vue_vue_type_template_id_c886f672_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./contact.vue?vue&type=template&id=c886f672&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/contact.vue?vue&type=template&id=c886f672&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_vue_vue_type_template_id_c886f672_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contact_vue_vue_type_template_id_c886f672_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

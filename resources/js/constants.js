@@ -6,6 +6,7 @@ import MediaMore from './pages/media-more';
 import MediaCategory from './pages/media-category';
 import Event from './pages/event';
 import EventCategory from './pages/event-category';
+import Contact from './pages/contact';
 
 export const routeDataList = [
   {
@@ -97,6 +98,13 @@ export const routeDataList = [
       },
     ],
   },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact,
+    title: 'ข้อมูลผู้ติดต่อ',
+    menuIconName: 'mdi-card-account-phone'
+  }
 ];
 
 export const getRouteTitle = (routeName) => {

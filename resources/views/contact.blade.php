@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-12 pagebreadcrumb">
             <a href="index.html">&#60; กลับหน้าแรก</a>
-            <h1>คลินิคระดมทุน</h1>
+            <h1>คลินิกระดมทุน</h1>
             <img src="images/bc-contact.png" class="img_breadcrumb">
           </div>
         </div>
