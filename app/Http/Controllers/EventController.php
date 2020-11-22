@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\EventCategory;
+use App\Utils\Utils;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -42,10 +44,22 @@ class EventController extends Controller
       ->orderBy('begin_date', 'asc')
       ->get();
 
-    $highlightEventList = Event::whereDate('begin_date', '>=', Carbon::today())
+    $highlightEventList = Event::select('id', 'category_id', 'cover_image', 'description', 'title', 'begin_date', 'end_date', 'begin_time', 'end_time')
+      ->whereDate('begin_date', '>=', Carbon::today())
       ->where('pinned', 1)
+      ->where('published', 1)
+      ->orderBy('category_id', 'asc')
       ->orderBy('begin_date', 'asc')
+      ->orderBy('end_date', 'asc')
       ->get();
+
+    foreach ($highlightEventList as $event) {
+      $event->cover_image = Storage::url($event->cover_image);
+      $event->begin_day = explode('-', $event->begin_date)[2];
+      $event->begin_month = Utils::getShortMonthName($event->begin_date);
+      $event->begin_date_display = Utils::formatDisplayDate($event->begin_date);
+      $event->end_date_display = Utils::formatDisplayDate($event->end_date);
+    }
 
     return view('event', [
       //'categoryListByDate' => $categoryListByDate,

@@ -304,6 +304,7 @@
         label="ปักหมุด/ไฮไลท์"
         color="primary"
         hide-details
+        style="margin-bottom: 10px"
       />
 
       <!--<image-uploader

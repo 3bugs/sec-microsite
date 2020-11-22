@@ -9,6 +9,7 @@ use App\Models\Media;
 use App\Models\MediaCategory;
 use App\Models\Event;
 use App\Models\EventCategory;
+use App\Utils\Utils;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -115,6 +116,14 @@ class ApiDataController extends Controller
         ->where('end_date', '>=', $date)
         ->orderBy('category_id', 'asc')
         ->get();
+
+      foreach ($eventList as $event) {
+        $event->cover_image = Storage::url($event->cover_image);
+        $event->begin_day = explode('-', $event->begin_date)[2];
+        $event->begin_month = Utils::getShortMonthName($event->begin_date);
+        $event->begin_date_display = Utils::formatDisplayDate($event->begin_date);
+        $event->end_date_display = Utils::formatDisplayDate($event->end_date);
+      }
 
       return response()->json(array(
         'status' => 'ok',

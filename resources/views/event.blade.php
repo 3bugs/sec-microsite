@@ -34,16 +34,16 @@
             <h6>เลือกหมวดที่สนใจ</h6>
             <div class="filter_calendar">
               <div>
-                <input checked type="checkbox" id="seminar"><label for="seminar">Seminar</label>
+                <input checked type="checkbox" id="seminar"><label for="seminar">{{ $eventCategoryList[0]->title }}</label>
               </div>
               <div>
-                <input checked type="checkbox" id="webinar"><label for="webinar">Webinar</label>
+                <input checked type="checkbox" id="webinar"><label for="webinar">{{ $eventCategoryList[1]->title }}</label>
               </div>
               <div>
-                <input checked type="checkbox" id="business_matching"><label for="business_matching">Business Matching</label>
+                <input checked type="checkbox" id="business_matching"><label for="business_matching">{{ $eventCategoryList[2]->title }}</label>
               </div>
               <div>
-                <input checked type="checkbox" id="information"><label for="information">Information</label>
+                <input checked type="checkbox" id="information"><label for="information">{{ $eventCategoryList[3]->title }}</label>
               </div>
             </div>
           </div>
@@ -76,267 +76,122 @@
               <template v-if="filteredDataList != null">
                 <h4>@{{ filteredDataList.length > 0 ? filteredDataList.length : 'No' }} Event@{{ filteredDataList.length > 1 ? 's' : ''}} on</h4>
                 <h1>@{{ dateText }}</h1>
+                <p v-if="filteredDataList.length === 0">ไม่มีอีเวนต์ในหมวดที่เลือกในวันดังกล่าว</p>
                 <div
                     v-for="item in filteredDataList"
                     :class="'item_right_event ' + getClassName(item.category_id)"
                     v-on:click="handleClickItem(item)"
                 >
-                  <p>@{{ dateText }}</p>
                   <h4>@{{ item.title }}</h4>
                   <p>@{{ item.description }}</p>
+                  <p class="mt-2 mb-1">@{{ item.begin_date === item.end_date ? item.begin_date_display : `${item.begin_date_display} - ${item.end_date_display}` }}</p>
                 </div>
               </template>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-12 select_event">
-        <h3>Highlight</h3>
-        <select id="select-category" class="form-control">
-          <option value="0">All</option>
-          @foreach ($eventCategoryList as $category)
-            <option value="{{ $category->id }}">{{ $category->title }}</option>
-          @endforeach
-        </select>
-      </div>
 
+      {{--<div>
+        @foreach ($highlightEventList as $event)
+          Title: {{ $event->title }} | Cover Image: {{ $event->cover_image }} | Date: {{ $event->begin_date }} - {{ $event->end_date }}<br>
+        @endforeach
+      </div>--}}
 
+    </div>
+  </section>
 
-      <div style="width: 100%; background: #fff;">
-        <div class="container mt-2 mb-2">
-          <div class="row mt-4 d-">
-            <div class="col-12">
-              <div class="sec-event-image d-none d-md-block">
-                <div class="sec-event-content">
-                  <div class="sec-event-date">
-                    <div style="font-size: 14px; line-height: 21px; opacity: 0.5">SEC EVENT</div>
-                    <div style="font-size: 35px; font-weight: bold; line-height: 45px">OCT</div>
-                    <div style="font-size: 72px; font-weight: bold; line-height: 70px">16</div>
-                  </div>
-                  <div class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4">
-                    <div style="flex: 1; flex-direction: column; padding: 25px 30px 0; border: 0px solid red">
-                      <h3 class="mb-3">วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</h3>
-                      <p>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร
-                        วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</p>
-                      <p>Sun ・ Sep 16 2020, 8:40 PM</p>
-                    </div>
-                    <button style="align-self: flex-start; padding: 20px 30px;">
-                      <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
-                    </button>
-                  </div>
-                </div>
+  <section id="highlight-events" class="container">
+    <div class="select_event mb-2">
+      <h3>Highlight</h3>
+      <select
+          id="select-category"
+          class="form-control"
+          @change="handleSelectCategory($event)"
+      >
+        <option value="0">ทุกหมวด</option>
+        <option disabled>──────────</option>
+        @foreach ($eventCategoryList as $category)
+          <option value="{{ $category->id }}">{{ $category->title }}</option>
+        @endforeach
+      </select>
+    </div>
+
+    <div class="row mt-3 mb-4">
+      <div class="col-12" v-if="eventList.length > 0">
+        <div class="sec-event-image d-none d-md-block"
+             :style="{ backgroundImage: `url(${eventList[0].coverImage})` }">
+          <div class="sec-event-content">
+            <div class="sec-event-date">
+              <div style="font-size: 14px; line-height: 21px; opacity: 0.5">SEC event</div>
+              <div style="font-size: 35px; font-weight: bold; line-height: 45px">@{{ eventList[0].beginMonth }}</div>
+              <div style="font-size: 72px; font-weight: bold; line-height: 70px">@{{ eventList[0].beginDay }}</div>
+            </div>
+            <div class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4">
+              <div style="flex: 1; flex-direction: column; padding: 25px 30px 0; border: 0px solid red">
+                <h3 class="mb-3">@{{ decodeEntities(eventList[0].title) }}</h3>
+                <p>@{{ decodeEntities(eventList[0].description) }}</p>
+                <p>@{{ eventList[0].beginDate === eventList[0].endDate ? eventList[0].beginDateDisplay : `${eventList[0].beginDateDisplay} - ${eventList[0].endDateDisplay}` }}</p>
               </div>
-              <div class="d-xs-block d-md-none">
-                <div class="info-item mb-sm-0">
-                  <div class="info-item-image-container" style="background-image: url('images/event.jpg')">
-                    <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
-                      <div style="font-size: 10px; line-height: 14px; opacity: 0.5;">SEC EVENT</div>
-                      <div style="font-size: 18px; font-weight: bold; line-height: 25px">OCT</div>
-                      <div style="font-size: 36px; font-weight: bold; line-height: 35px">16</div>
-                    </div>
-                  </div>
-                  <div class="info-item-text" style="padding: 14px 0 0 0">
-                    <h3>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</h3>
-                    <p>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร
-                      วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</p>
-                    <button>
-                      <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <button style="align-self: flex-start; padding: 20px 30px;">
+                <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+              </button>
             </div>
           </div>
-          <!--<div class="row">
-            <div class="col-12 text-center d-block d-sm-none">
-              <a href="#"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
+        </div>
+        <div class="d-xs-block d-md-none">
+          <div class="info-item mb-sm-0">
+            <div class="info-item-image-container"
+                 :style="{ backgroundImage: `url(${eventList[0].coverImage})` }">
+              <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
+                <div style="font-size: 10px; line-height: 14px; opacity: 0.5;">SEC event</div>
+                <div style="font-size: 18px; font-weight: bold; line-height: 25px">@{{ eventList[0].beginMonth }}</div>
+                <div style="font-size: 36px; font-weight: bold; line-height: 35px">@{{ eventList[0].beginDay }}</div>
+              </div>
             </div>
-          </div>-->
+            <div class="info-item-text" style="padding: 14px 0 0 0">
+              <h3>@{{ decodeEntities(eventList[0].title) }}</h3>
+              <p>@{{ decodeEntities(eventList[0].description) }}</p>
+              <button>
+                <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
-
-
-
-
-      <div class="col-12 item_hlevent">
-        <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
-            <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>16</span>
-            </div>
-          </a>
-          <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h3>วิธีการระดมทุนให้
-              ได้ตามเป้าต้องทำ
-              อย่างไร</h3>
-            <p>In oculis quidem se esse admonere interesse enim maxime placeat, facere possimus, omnis. Et quidem faciunt, ut labore et accurate disserendum et harum quidem exercitus quid.</p>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            <a class="btn_registerevent" href="#">ลงทะเบียนเข้าร่วม<i class="fa fa-chevron-right"></i></a>
-          </figcaption>
-        </figure>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-6 col-lg-3 item_eventpage">
+    <!--<div class="row">
+      <div class="col-12 text-center d-block d-sm-none">
+        <a href="#"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
+      </div>
+    </div>-->
+
+    <div
+        v-if="eventList.length > 1"
+        class="row mb-4"
+    >
+      <div
+          v-for="event in eventList.filter((item, index) => index > 0)"
+          class="col-12 col-md-6 col-lg-3 item_eventpage"
+      >
         <figure>
           <a href="#">
             <img src="/images/event.jpg">
             <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>17</span>
+              <h6>SEC event</h6>
+              <div>@{{ event.beginMonth }}</div>
+              <span>@{{ event.beginDay }}</span>
             </div>
           </a>
           <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h5>วิธีการระดมทุนให้ได้ตามเป้าต้องทำอย่างไร</h5>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
+            {{--<h6>Sun ・ Sep 16 2020, 8PM</h6>--}}
+            <h5>@{{ decodeEntities(event.title) }}</h5>
+            <p>@{{ decodeEntities(event.description) }}</p>
+            {{--<p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>--}}
+            <p>@{{ event.beginDate === event.endDate ? event.beginDateDisplay : `${event.beginDateDisplay} - ${event.endDateDisplay}` }}</p>
             <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
           </figcaption>
         </figure>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3 item_eventpage">
-        <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
-            <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>18</span>
-            </div>
-          </a>
-          <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h5>วิธีการระดมทุนให้ได้ตามเป้าต้องทำอย่างไร</h5>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3 item_eventpage">
-        <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
-            <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>19</span>
-            </div>
-          </a>
-          <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h5>วิธีการระดมทุนให้ได้ตามเป้าต้องทำอย่างไร</h5>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3 item_eventpage">
-        <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
-            <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>20</span>
-            </div>
-          </a>
-          <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h5>วิธีการระดมทุนให้ได้ตามเป้าต้องทำอย่างไร</h5>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-12 headmore_event">
-        <h3>All SEC event</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-6 col-lg-3 item_eventpage">
-        <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
-            <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>17</span>
-            </div>
-          </a>
-          <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h5>วิธีการระดมทุนให้ได้ตามเป้าต้องทำอย่างไร</h5>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3 item_eventpage">
-        <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
-            <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>18</span>
-            </div>
-          </a>
-          <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h5>วิธีการระดมทุนให้ได้ตามเป้าต้องทำอย่างไร</h5>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3 item_eventpage">
-        <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
-            <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>19</span>
-            </div>
-          </a>
-          <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h5>วิธีการระดมทุนให้ได้ตามเป้าต้องทำอย่างไร</h5>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3 item_eventpage">
-        <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
-            <div class="date_hlevent">
-              <h6>SCE event</h6>
-              <div>SEP</div>
-              <span>20</span>
-            </div>
-          </a>
-          <figcaption>
-            <h6>Sun ・ Sep 16 2020, 8PM</h6>
-            <h5>วิธีการระดมทุนให้ได้ตามเป้าต้องทำอย่างไร</h5>
-            <p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>
-            <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 wrap_btn_viewmore">
-        <button class="btn_viewmore">ดูเพิ่ม</button>
       </div>
     </div>
   </section>
@@ -353,12 +208,11 @@
   <!-- script src="/skeleton-loader/jquery.scheletrone.js"></script -->
 
   <script>
-    $(function () {
+    /*$(function () {
       const selectCategory = $('#select-category');
       selectCategory.on('change', function () {
-
       });
-    });
+    });*/
   </script>
 
   <script>
@@ -397,6 +251,7 @@
       return cl;
     }
 
+    let selectedDate = null;
     const calendar = $('#calendar-container div');
     calendar.datepicker({
       todayHighlight: false,
@@ -411,7 +266,7 @@
         }
         @endforeach--}}
 
-        @foreach ($eventList as $event)
+            @foreach ($eventList as $event)
         if (formattedDate < '{{ $event->begin_date }}') {
           return getClassName(categoryIdList);
         }
@@ -423,9 +278,10 @@
         {{--{{ $event->category_id }} * {{ $event->begin_date }} * {{ $event->end_date }}--}}
         @endforeach
 
-        return getClassName(categoryIdList);
+          return getClassName(categoryIdList);
       },
     }).on('changeDate', function (e) {
+      selectedDate = e.date;
       //console.log(getFormattedDate(e.date));
       eventList.fetchEventByDate(getFormattedDate(e.date));
     });
@@ -436,9 +292,55 @@
           categoryEnableValue[$(this).attr('id')] = $(this).is(':checked');
           //console.log(categoryEnableValue);
           calendar.datepicker('update');
+          if (selectedDate != null) {
+            calendar.datepicker('setDate', selectedDate);
+          }
           eventList.updateCategoryEnableValue();
         });
       });
+    });
+  </script>
+
+  <script>
+    const $highlightEvents = $('#highlight-events');
+    const highlightEventDataList = [
+        @foreach ($highlightEventList as $event)
+      {
+        id: {{ $event->id }},
+        categoryId: {{ $event->category_id }},
+        title: '{{ $event->title }}',
+        description: '{{ $event->description }}',
+        coverImage: '{{ $event->cover_image }}',
+        beginDate: '{{ $event->begin_date }}',
+        endDate: '{{ $event->end_date }}',
+        beginTime: '{{ $event->begin_time }}',
+        endTime: '{{ $event->end_time }}',
+        beginDay: '{{ $event->begin_day }}',
+        beginMonth: '{{ $event->begin_month }}',
+        beginDateDisplay: '{{ $event->begin_date_display }}',
+        endDateDisplay: '{{ $event->end_date_display }}',
+      },
+      @endforeach
+    ];
+
+    const highlightEvents = new Vue({
+      el: '#highlight-events',
+      data: {
+        selectedCategoryId: 0,
+        eventList: highlightEventDataList,
+      },
+      computed: {},
+      created() {
+
+      },
+      methods: {
+        handleSelectCategory(e) {
+          this.selectedCategoryId = parseInt(e.target.value);
+          this.eventList = this.selectedCategoryId === 0
+            ? highlightEventDataList
+            : highlightEventDataList.filter(event => event.categoryId === this.selectedCategoryId);
+        },
+      }
     });
   </script>
 
@@ -485,9 +387,15 @@
                     this.dataList = response.data.data_list;
 
                     $eventList.fadeIn(300, () => {
-                      $([document.documentElement, document.body]).animate({
-                        scrollTop: Modernizr.mq('(max-width: 991px)') ? $eventList.offset().top - 10 : $eventList.offset().top - 80
-                      }, 500);
+                      let scrollTop;
+                      if (Modernizr.mq('(max-width: 767px)')) { // hidden menu
+                        scrollTop = $eventList.offset().top - 20;
+                      } else if (Modernizr.mq('(max-width: 991px)')) { // fixed menu
+                        scrollTop = $eventList.offset().top - 80;
+                      } else { // fixed menu + layout ซ้าย-ขวา
+                        scrollTop = $eventList.offset().top - 80;
+                      }
+                      $([document.documentElement, document.body]).animate({scrollTop}, 500);
                     });
                   } else {
                     alert('เกิดข้อผิดพลาดในการดึงข้อมูล กรุณาลองใหม่');

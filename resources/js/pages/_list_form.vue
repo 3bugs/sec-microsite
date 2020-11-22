@@ -99,6 +99,17 @@
             </v-img>
           </template>
 
+          <!--title-->
+          <template v-slot:item.title="{ item }">
+            {{ item.title }}
+            <v-icon
+              v-if="item.pinned"
+              color="yellow"
+            >
+              mdi-star
+            </v-icon>
+          </template>
+
           <!--category-->
           <template v-slot:item.category_id="{ item }">
             <v-chip

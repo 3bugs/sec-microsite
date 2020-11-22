@@ -608,7 +608,7 @@ body {
 }
 
 .select_event {
-  margin-bottom: 45px;
+  _margin-bottom: 45px;
 }
 
 .select_event h3 {
@@ -1098,6 +1098,7 @@ body {
   background-color: #F8F8F8;
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom: 0.8rem;
 }
 
 .bg_right_calendar h1 {
@@ -1252,6 +1253,11 @@ body {
   .bg_right_calendar h1 {
     font-size: 2rem;
     margin-bottom: 15px;
+  }
+
+  .bg_right_calendar > #event-list-content > h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   .item_hlevent figure figcaption h3 {
@@ -1491,7 +1497,7 @@ body {
   }
 
   .bg_right_calendar h1 {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   .select_event select.form-control {
@@ -1500,7 +1506,7 @@ body {
   }
 
   .bg_calendar_event {
-    margin-bottom: 25px;
+    margin-bottom: 35px;
   }
 
   .select_event {

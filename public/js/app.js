@@ -2394,6 +2394,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -3558,6 +3559,17 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -23572,6 +23584,7 @@ var render = function() {
           _vm._v(" "),
           _vm.showPinned
             ? _c("v-switch", {
+                staticStyle: { "margin-bottom": "10px" },
                 attrs: {
                   "true-value": 1,
                   "false-value": 0,
@@ -24694,6 +24707,24 @@ var render = function() {
                           }
                         },
                         {
+                          key: "item.title",
+                          fn: function(ref) {
+                            var item = ref.item
+                            return [
+                              _vm._v(
+                                "\n          " +
+                                  _vm._s(item.title) +
+                                  "\n          "
+                              ),
+                              item.pinned
+                                ? _c("v-icon", { attrs: { color: "yellow" } }, [
+                                    _vm._v("\n            mdi-star\n          ")
+                                  ])
+                                : _vm._e()
+                            ]
+                          }
+                        },
+                        {
                           key: "item.category_id",
                           fn: function(ref) {
                             var item = ref.item
@@ -25065,7 +25096,7 @@ var render = function() {
                       ],
                       null,
                       false,
-                      2879937456
+                      1282216773
                     )
                   })
                 : undefined
