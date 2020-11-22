@@ -86246,6 +86246,7 @@ var routeDataList = [{
   name: 'contact',
   component: _pages_contact__WEBPACK_IMPORTED_MODULE_8__["default"],
   title: 'ข้อมูลผู้ติดต่อ',
+  menuTitle: 'คลินิกระดมทุน',
   menuIconName: 'mdi-card-account-phone'
 }];
 var getRouteTitle = function getRouteTitle(routeName) {

@@ -7,19 +7,11 @@
   <?php
   define('MEDIA_CATEGORY', 'media-category-');
   ?>
-  <section class="container-fluid bg_breadcrumb">
-    <div class="row">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 pagebreadcrumb">
-            <a href="/">&#60; กลับหน้าแรก</a>
-            <h1>แหล่งข้อมูลระดมทุน</h1>
-            <img src="/images/bc-media.png" class="img_breadcrumb">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
+  @include('includes.header', [
+    'title' => 'แหล่งข้อมูลระดมทุน',
+    'imageSrc' => 'images/bc-media.png',
+  ])
 
   <section class="container">
     <div class="row">

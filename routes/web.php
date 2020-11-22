@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\EventController;
@@ -18,27 +19,11 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', function () {
-  $cardDataList = array(
-    array('id' => 1, 'buttonText' => 'สำรวจตัวเอง', 'buttonMarginTop' => 25),
-    array('id' => 2, 'buttonText' => 'เครื่องมือระดมทุน', 'buttonMarginTop' => 25),
-    array('id' => 3, 'buttonText' => 'แหล่งข้อมูลระดมทุน', 'buttonMarginTop' => 25),
-    array('id' => 4, 'buttonText' => 'SEC Event', 'buttonMarginTop' => 25),
-    array('id' => 5, 'buttonText' => 'คลินิกระดมทุน', 'buttonMarginTop' => 5),
-    array('id' => 6, 'buttonText' => 'ก.ล.ต. กับ SMEs', 'buttonMarginTop' => 25),
-  );
-  return view('index', [
-    'cardDataList' => $cardDataList,
-  ]);
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/survey', function () {
   return view('survey');
 });
-
-/*Route::get('/fundraising', function () {
-  return view('fundraising');
-});*/
 
 Route::get('/fundraising', [FundraisingController::class, 'index']);
 Route::get('/fundraising/{fundraising}', [FundraisingController::class, 'show']);

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-  <link href="css/index.css" rel="stylesheet">
+  <link href="css/home.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -113,10 +113,10 @@
             <div class="sec-event-header" style="display: flex; align-items: center">
               <h1>SEC EVENT</h1>
               <div class="d-none d-lg-block">
-                <button class="sec-event-button-active" style="margin-left: 30px">SEMINAR</button>
-                <button class="sec-event-button-inactive" style="margin-left: 10px">WEBINAR</button>
-                <button class="sec-event-button-inactive" style="margin-left: 10px">BUSINESS MATCHING</button>
-                <button class="sec-event-button-inactive" style="margin-left: 10px">INFORMATION</button>
+                <button class="sec-event-button-active" style="margin-left: 30px">{{ strtoupper($eventCategoryList[0]->title) }}</button>
+                <button class="sec-event-button-inactive" style="margin-left: 10px">{{ strtoupper($eventCategoryList[1]->title) }}</button>
+                <button class="sec-event-button-inactive" style="margin-left: 10px">{{ strtoupper($eventCategoryList[2]->title) }}</button>
+                <button class="sec-event-button-inactive" style="margin-left: 10px">{{ strtoupper($eventCategoryList[3]->title) }}</button>
               </div>
             </div>
           </div>
@@ -133,32 +133,33 @@
         <div class="row mt-2">
           <div class="col-12">
             <div class="d-none d-sm-block d-lg-none">
-              <button class="sec-event-button-active mr-sm-2 mr-0">SEMINAR</button>
-              <button class="sec-event-button-inactive mr-sm-2 mr-0">WEBINAR</button>
-              <button class="sec-event-button-inactive mr-sm-2 mr-0">BUSINESS MATCHING</button>
-              <button class="sec-event-button-inactive">INFORMATION</button>
+              <button class="sec-event-button-active mr-sm-2 mr-0">{{ strtoupper($eventCategoryList[0]->title) }}</button>
+              <button class="sec-event-button-inactive mr-sm-2 mr-0">{{ strtoupper($eventCategoryList[1]->title) }}</button>
+              <button class="sec-event-button-inactive mr-sm-2 mr-0">{{ strtoupper($eventCategoryList[2]->title) }}</button>
+              <button class="sec-event-button-inactive">{{ strtoupper($eventCategoryList[3]->title) }}</button>
             </div>
           </div>
         </div>
         <div class="d-block d-sm-none">
           <div class="row mt-2 no-gutters">
             <div class="col-6 d-flex flex-column mb-2">
-              <button class="sec-event-button-active mr-1">SEMINAR</button>
+              <button class="sec-event-button-active mr-1">{{ strtoupper($eventCategoryList[0]->title) }}</button>
             </div>
             <div class="col-6 d-flex flex-column mb-2">
-              <button class="sec-event-button-inactive ml-1">WEBINAR</button>
+              <button class="sec-event-button-inactive ml-1">{{ strtoupper($eventCategoryList[1]->title) }}</button>
             </div>
             <div class="col-6 d-flex flex-column">
-              <button class="sec-event-button-inactive mr-1">BUSINESS MATCHING</button>
+              <button class="sec-event-button-inactive mr-1">{{ strtoupper($eventCategoryList[2]->title) }}</button>
             </div>
             <div class="col-6 d-flex flex-column">
-              <button class="sec-event-button-inactive ml-1">INFORMATION</button>
+              <button class="sec-event-button-inactive ml-1">{{ strtoupper($eventCategoryList[3]->title) }}</button>
             </div>
           </div>
         </div>
         <div class="row mt-4 d-">
           <div class="col-12">
-            <div class="sec-event-image d-none d-md-block">
+            <div class="sec-event-image d-none d-md-block"
+                 style="backgroundImage: url({{ $eventList[0]->cover_image }})">
               <div class="sec-event-content">
                 <div class="sec-event-date">
                   <div style="font-size: 14px; line-height: 21px; opacity: 0.5">SEC EVENT</div>
@@ -167,10 +168,9 @@
                 </div>
                 <div class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4">
                   <div style="flex: 1; flex-direction: column; padding: 25px 30px 0; border: 0px solid red">
-                    <h3 class="mb-3">วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</h3>
-                    <p>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร
-                      วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</p>
-                    <p>Sun ・ Sep 16 2020, 8:40 PM</p>
+                    <h3 class="mb-3">{{ $eventList[0]->title }}</h3>
+                    <p>{{ $eventList[0]->description }}</p>
+                    <p>{{ $eventList[0]->begin_date_display }}</p>
                   </div>
                   <button style="align-self: flex-start; padding: 20px 30px;">
                     <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
@@ -426,10 +426,30 @@
       },
     });
 
+    const eventList = [
+        @foreach ($eventList as $event)
+      {
+        id: {{ $event->id }},
+        categoryId: {{ $event->category_id }},
+        title: '{{ $event->title }}',
+        description: '{{ $event->description }}',
+        coverImage: '{{ $event->cover_image }}',
+        beginDate: '{{ $event->begin_date }}',
+        endDate: '{{ $event->end_date }}',
+        beginTime: '{{ $event->begin_time }}',
+        endTime: '{{ $event->end_time }}',
+        beginDay: '{{ $event->begin_day }}',
+        beginMonth: '{{ $event->begin_month }}',
+        beginDateDisplay: '{{ $event->begin_date_display }}',
+        endDateDisplay: '{{ $event->end_date_display }}',
+      },
+      @endforeach
+    ];
+
     const app = new Vue({
       el: '#app',
       data: {
-        message: 'Vue.js is working!',
+        event: null,
       },
     });
   </script>

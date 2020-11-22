@@ -103,6 +103,7 @@ export const routeDataList = [
     name: 'contact',
     component: Contact,
     title: 'ข้อมูลผู้ติดต่อ',
+    menuTitle: 'คลินิกระดมทุน',
     menuIconName: 'mdi-card-account-phone'
   }
 ];

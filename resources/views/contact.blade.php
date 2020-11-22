@@ -4,19 +4,11 @@
 @endsection
 
 @section('content')
-  <section class="container-fluid bg_breadcrumb">
-    <div class="row">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 pagebreadcrumb">
-            <a href="index.html">&#60; กลับหน้าแรก</a>
-            <h1>คลินิกระดมทุน</h1>
-            <img src="images/bc-contact.png" class="img_breadcrumb">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  @include('includes.header', [
+    'title' => 'คลินิกระดมทุน',
+    'imageSrc' => 'images/bc-contact.png',
+  ])
+
   <section class="container">
     @if (isset($formSubmitSuccess))
       @if ($formSubmitSuccess === true)

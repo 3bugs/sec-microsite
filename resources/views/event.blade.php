@@ -1,23 +1,14 @@
 @extends('layouts.master')
 
 @section('head')
-  <link href="css/index.css" rel="stylesheet">
+  <link href="css/home.css" rel="stylesheet">
 @endsection
 
 @section('content')
-  <section class="container-fluid bg_breadcrumb">
-    <div class="row">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 pagebreadcrumb">
-            <a href="/">&#60; กลับหน้าแรก</a>
-            <h1>SEC EVENT</h1>
-            <img src="/images/bc-event.png" class="img_breadcrumb">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  @include('includes.header', [
+    'title' => 'SEC EVENT',
+    'imageSrc' => 'images/bc-event.png',
+  ])
 
   <section class="container">
     <div class="row">

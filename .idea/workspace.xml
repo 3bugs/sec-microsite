@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiContactController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/pages/contact.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/event.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fundraising.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fundraising.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/media.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/media.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +174,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -191,9 +197,9 @@
       <recent name="$PROJECT_DIR$/resources/views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
       <recent name="$PROJECT_DIR$/resources/js/pages" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
@@ -261,14 +267,7 @@
       <workItem from="1605498863380" duration="47450000" />
       <workItem from="1605768632944" duration="14646000" />
       <workItem from="1605841368855" duration="34223000" />
-      <workItem from="1606027298386" duration="14080000" />
-    </task>
-    <task id="LOCAL-00021" summary="back: re-implement sidebar">
-      <created>1604054979209</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1604054979209</updated>
+      <workItem from="1606027298386" duration="19854000" />
     </task>
     <task id="LOCAL-00022" summary="back: refactor api">
       <created>1604337218728</created>
@@ -606,7 +605,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606035558331</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="back: contact">
+      <created>1606041505741</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1606041505741</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,7 +620,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: re-implement sidebar" />
     <MESSAGE value="back: refactor api" />
     <MESSAGE value="back: refactor category api" />
     <MESSAGE value="back: จัดการแหล่งข้อมูลระดมทุน - อื่นๆ/link" />
@@ -639,7 +644,8 @@
     <MESSAGE value="front: ปรับ css หน้า event" />
     <MESSAGE value="front: highlight events" />
     <MESSAGE value="front: contact" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: contact" />
+    <MESSAGE value="back: contact" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: contact" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -655,17 +661,17 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1871" y="24" width="1415" height="1056" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604311505085" />
-    <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606022781075">
+    <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606046918582">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604904111665" />
-    <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606022781075" />
-    <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606035558000">
+    <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606046918582" />
+    <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606041505363">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
     <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605784527132" />
-    <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606035558000" />
+    <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606041505363" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1605325585878">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -704,30 +710,30 @@
     </state>
     <state x="2032" y="258" width="705" height="559" key="NewPhpClassDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604393249186" />
     <state x="2586" y="258" width="585" height="559" key="NewPhpClassDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603815050162" />
-    <state x="2252" y="501" key="NewPhpFileDialog" timestamp="1603782902576">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state x="2159" y="464" key="NewPhpFileDialog" timestamp="1606044154706">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2159" y="464" key="NewPhpFileDialog/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603187083512" />
     <state x="2252" y="501" key="NewPhpFileDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1603782902576" />
-    <state x="2159" y="464" key="NewPhpFileDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603471279932" />
-    <state x="2679" y="189" width="1855" height="1056" key="SettingsEditor" timestamp="1606016889216">
+    <state x="2159" y="464" key="NewPhpFileDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606044154706" />
+    <state x="2679" y="189" width="1855" height="1056" key="SettingsEditor" timestamp="1606041551409">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2274" y="189" key="SettingsEditor/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1605059459533" />
     <state x="1431" y="24" width="1855" height="1056" key="SettingsEditor/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605711720410" />
-    <state x="2679" y="189" key="SettingsEditor/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606016889216" />
+    <state x="2679" y="189" key="SettingsEditor/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606041551409" />
     <state x="127" y="47" key="SettingsEditor/65.24.1855.1056/1920.0.1920.1080@65.24.1855.1056" timestamp="1605147515756" />
     <state width="654" height="446" key="SwitcherDM" timestamp="1606029173309">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605071264370" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606029173309" />
-    <state x="2512" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606035559959">
+    <state x="2512" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606041506856">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
     <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605784529016" />
-    <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606035559959" />
+    <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606041506856" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -754,11 +760,11 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1928" y="109" width="1212" height="904" key="org.intellij.images.editor.actions.BackgroundImageDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604385655900" />
-    <state x="2575" y="236" width="672" height="160" key="search.everywhere.popup" timestamp="1606038002799">
+    <state x="2575" y="236" width="672" height="160" key="search.everywhere.popup" timestamp="1606047952197">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605780766381" />
-    <state x="2575" y="236" width="672" height="160" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606038002799" />
+    <state x="2575" y="236" width="672" height="160" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606047952197" />
     <state x="698" y="255" width="672" height="663" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@65.24.1855.1056" timestamp="1605328987715" />
   </component>
 </project>
