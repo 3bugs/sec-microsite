@@ -29,16 +29,16 @@
               <h3><a href="/"><span style="color: #3877A0">หน้าแรก > </span></a><span style="color: black">สำรวจตัวเอง</span></h3>
               <img src="images/survey_start.svg" class="pt-3 pb-3 pl-4 pr-4 d-flex d-md-none align-self-center" style="width: 100%; max-width: 260px">
               <h1 class="mt-3" style="font-weight: 700; line-height: 1.4em;">
-                <span style="color: black">ทำไมต้อง</span><br>
-                <span style="color: #003558">สำรวจตัวเอง</span>
+                <span style="color: black">สำรวจตัวเอง</span><br>
+                <span style="color: #003558; font-size: 0.8em">เพื่อค้นพบช่องทางระดมทุน</span>
               </h1>
-              <p class="mt-2 mb-1">ทำไมต้องสำรวจตัวเอง ไม่ต้องสำรวจหรอก ทำไมต้องสำรวจตัวเอง ไม่ต้องสำรวจหรอก ทำไมต้องสำรวจตัวเอง ไม่ต้องสำรวจหรอก ทำไมต้องสำรวจตัวเอง ไม่ต้องสำรวจหรอก
-                ทำไมต้องสำรวจตัวเอง ไม่ต้องสำรวจหรอก ทำไมต้องสำรวจตัวเอง ไม่ต้องสำรวจหรอก
+              <p class="mt-2 mb-1">ช่องทางระดมทุนไหนที่ตอบโจทย์ความต้องการของท่านมากที่สุด ?
+                ท่านสามารถหาคำตอบได้ด้วยตัวของท่านเอง โดยใช้เวลาเพียงน้อยนิดผ่านการตอบคำถามเพียงไม่กี่ข้อ ถ้าพร้อมแล้ว มาหาคำตอบช่องทางระดมทุนของท่านกันเลย
               </p>
             </div>
             <div style="display: flex; flex: 1; align-items: center;">
               <button class="mt-3 mt-md-4 mt-lg-4 mt-xl-4 mb-3 mb-md-4 mb-lg-4 mb-xl-4" v-on:click="handleClickStartSurvey">
-                <h5>เริ่มแบบสำรวจ&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+                <h5>เริ่มกันเลย&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
               </button>
             </div>
           </div>

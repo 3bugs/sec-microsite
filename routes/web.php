@@ -7,6 +7,7 @@ use App\Http\Controllers\FundraisingController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\VisionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ Route::get('/event/{event}', [EventController::class, 'show']);
 
 Route::get('/contact', [ContactController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);
+
+Route::get('/vision', [VisionController::class, 'index']);
 
 Route::get('/admin', function () {
   return redirect('/admin/dashboard');

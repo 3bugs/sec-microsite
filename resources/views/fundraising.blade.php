@@ -16,10 +16,8 @@
   <section class="container">
     <div class="row">
       <div class="col-12 headpage">
-        <h2>การระดมทุนสำคัญอย่างไร?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut pulvinar ut egestas quam eget. Non, consequat at magna scelerisque neque vulputate. Vitae, nec sit
-          mauris dui dui eu sed odio. Adipiscing nunc nibh maecenas quam congue tristique amet semper. Turpis felis eu ac tempus, ac. Morbi quis dui at metus purus tincidunt tortor rhoncus. Convallis
-          massa pharetra ac lobortis.</p>
+        <h2>รู้จักเครื่องมือระดมทุน</h2>
+        <p>สำหรับท่านที่ต้องการระดมเงินทุนผ่านตลาดทุน โดยเฉพาะอย่างยิ่งหากท่านเป็นผู้ประกอบการ SME หรือ Startup ต้องทำความรู้จักกับ “ผลิตภัณฑ์” ซึ่งถือเป็นเครื่องมือที่จะเสนอขายให้แก่ผู้ลงทุน และช่วยให้ท่านได้มาซึ่งเงินทุนสำหรับนำไปใช้ดำเนินธุรกิจหรือขยายกิจการต่อไป โดยปกติแล้วการที่จะออกผลิตภัณฑ์เพื่อการระดมทุนเหล่านี้ได้ อย่างน้อยท่านต้องประกอบธุรกิจในรูปแบบของ “บริษัทจำกัด” และเริ่มต้นศึกษาวิธีการออกและเสนอขายผลิตภัณฑ์ได้ที่นี่ … แล้วท่านจะรู้ว่าการระดมทุนไม่ใช่เรื่องยากอย่างที่คิด :)</p>
       </div>
     </div>
     <div class="row">

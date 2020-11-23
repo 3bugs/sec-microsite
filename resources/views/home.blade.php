@@ -13,7 +13,8 @@
         <div class="row">
           <div class="col-10 offset-1 text-center">
             <h1>สำรวจตัวเอง</h1>
-            <p>In oculis quidem se esse admonere interesse enim maxime placeat, facere possimus, omnis. Et quidem faciunt, ut labore et accurate disserendum et harum quidem exercitus quid.</p>
+            <p class="mt-4">ใช้เวลาเพียงเล็กน้อยด้วยการตอบคำถามเพียงไม่กี่ข้อ เพื่อค้นหาช่องทางระดมทุนที่เข้ากับความต้องการของท่าน
+              และเมื่อได้รู้แล้วว่าช่องทางไหนที่เหมาะกับท่านก็เริ่มลงมือศึกษากระบวนการระดมทุนเพื่อสานฝันให้เป็นจริงกันได้เลย !</p>
             <button onclick="window.location = '/survey'" style="padding-left: 30px; padding-right: 30px"><h5>เริ่มแบบสำรวจ&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></button>
           </div>
         </div>
@@ -31,65 +32,50 @@
               <div class="flip-card mb-4 mb-md-5" style="margin-bottom: 0" onclick="handleClickCard({{ $cardData['id'] }})">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img src="images/menu0{{ $cardData['id'] }}.svg" alt="menu {{ $cardData['id'] }}" style="width: 100%">
+                    <img
+                        src="images/menu0{{ $cardData['id'] }}.svg"
+                        alt="menu {{ $cardData['id'] }}"
+                        style="width: 100%"
+                    >
                     <button style="margin-top: {{ $cardData['buttonMarginTop'] }}px">
-                      <h5>{{ $cardData['buttonText'] }}&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+                      <h5>{{ $cardData['title'] }}&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
                     </button>
                   </div>
                   <div class="flip-card-back">
-                    <h5>{{ $cardData['buttonText'] }}&nbsp;<i class="fa fa-chevron-circle-right"></i></h5>
-                    <p style="margin-top: 10px">
-                      @for ($i = 0; $i < 10; $i++)
-                        {{ $cardData['buttonText'] }}
-                      @endfor
+                    <h5>{{ $cardData['title'] }}&nbsp;<i class="fa fa-chevron-circle-right"></i></h5>
+                    <p class="mt-3">
+                      {!! $cardData['text'] !!}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           @endforeach
-
-          {{--<div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
-            <flip-card :id="0" button-text="สำรวจตัวเอง" img-src="images/menu01.svg" img-alt="menu 1"></flip-card>
-          </div>
-          <div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
-            <flip-card :id="1" button-text="เครื่องมือระดมทุน" img-src="images/menu02.svg" img-alt="menu 2"></flip-card>
-          </div>
-          <div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
-            <flip-card :id="2" button-text="สื่อการเรียนรู้ระดมทุน" img-src="images/menu03.svg" img-alt="menu 3"></flip-card>
-          </div>
-          <div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
-            <flip-card :id="3" button-text="SEC Event" img-src="images/menu04.svg" img-alt="menu 4"></flip-card>
-          </div>
-          <div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
-            <flip-card :id="4" button-text="คลินิกระดมทุน" img-src="images/menu05.svg" img-alt="menu 5" :button-margin-top="5"></flip-card>
-          </div>
-          <div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
-            <flip-card :id="5" button-text="พันธกิจ พันธมิตร" img-src="images/menu06.svg" img-alt="menu 6"></flip-card>
-          </div>--}}
         </div>
       </div>
 
       <div class="container d-sm-none d-xs-block" style="border: 0px solid red">
         <div class="row">
+          @foreach ($cardDataList as $cardData)
           <div class="col-12 d-flex flex-column mb-3">
-            <accordion-card title="สำรวจตัวเอง" button-text="สำรวจ" img-src="images/menu01.svg" img-alt="menu 1"></accordion-card>
+            <div class="accordion-card">
+              <div class="d-flex align-items-center" style="font-size: 24px">
+                <img
+                    class="mr-3"
+                    src="images/menu0{{ $cardData['id'] }}.svg"
+                    alt="menu {{ $cardData['id'] }}"
+                    style="width: 75px; height: 75px"
+                >
+                <h3 style="flex: 1; font-size: 20px">{{ $cardData['title'] }}</h3>
+                <i class="fa fa-chevron-circle-down ml-2" style="font-size: 24px"></i>
+              </div>
+              <div class="accordion-card-hidden flex-column" style="padding: 0; margin: 0 0 12px">
+                <p>{!! $cardData['text'] !!}</p>
+                <button><h5>{{ $cardData['buttonText'] }}</h5></button>
+              </div>
+            </div>
           </div>
-          <div class="col-12 d-flex flex-column mb-3">
-            <accordion-card title="เครื่องมือระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu02.svg" img-alt="menu 2"></accordion-card>
-          </div>
-          <div class="col-12 d-flex flex-column mb-3">
-            <accordion-card title="แหล่งข้อมูลระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu03.svg" img-alt="menu 3"></accordion-card>
-          </div>
-          <div class="col-12 d-flex flex-column mb-3">
-            <accordion-card title="SEC Event" button-text="ดูเพิ่มเติม" img-src="images/menu04.svg" img-alt="menu 4"></accordion-card>
-          </div>
-          <div class="col-12 d-flex flex-column mb-3">
-            <accordion-card title="คลินิกระดมทุน" button-text="ดูเพิ่มเติม" img-src="images/menu05.svg" img-alt="menu 5"></accordion-card>
-          </div>
-          <div class="col-12 d-flex flex-column mb-0">
-            <accordion-card title="ก.ล.ต. กับ SMEs" button-text="ดูเพิ่มเติม" img-src="images/menu06.svg" img-alt="menu 6"></accordion-card>
-          </div>
+          @endforeach
         </div>
       </div>
 
@@ -218,7 +204,7 @@
             </div>
           </div>-->
           <div class="col-sm-9 col-12">
-            <h1>สื่อการเรียนรู้ระดมทุน</h1>
+            <h1>แหล่งข้อมูลระดมทุน</h1>
           </div>
           <div class="col-sm-3 col-12 d-none d-sm-block text-right">
             <a href="#"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
@@ -285,7 +271,7 @@
           window.location = '/contact';
           break;
         case 6:
-          alert('Under construction!');
+          window.location = '/vision';
           break;
       }
     }
@@ -335,7 +321,6 @@
         <p>@{{ dummyText }}</p>
         <button><h5>@{{ buttonText }}</h5></button>
       </div>
-
       </div>
     `,
       props: {

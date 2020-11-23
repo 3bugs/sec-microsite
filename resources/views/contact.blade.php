@@ -36,9 +36,9 @@
         <div><a href="tel:1207"><img src="images/hotline.svg"></a></div>
         <div><a href="tel:020339999">Tel : 0-2033-9999</a></div>
         <div class="linkmail"><a href="mailto:info@sec.or.th">Email : info@sec.or.th</a></div>
-        <div><a href="#"><img src="images/001-facebook.svg"><span>กลต</span></a></div>
-        <div><a href="#"><img src="images/002-youtube.svg"><span>กลต</span></a></div>
-        <div><a href="#"><img src="images/003-twitter.svg"><span>กลต</span></a></div>
+        <div><a href="#"><img src="images/001-facebook.svg"><span>สำนักงาน กลต.</span></a></div>
+        <div><a href="#"><img src="images/002-youtube.svg"><span>ThaiSEC</span></a></div>
+        <div><a href="#"><img src="images/003-twitter.svg"><span>ThaiSEC_News</span></a></div>
       </div>
       <div class="col-12 col-md-6">
         <form

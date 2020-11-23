@@ -11,31 +11,31 @@
         <div class="col-6 col-md-2 link_iconbot">
           <a href="/fundraising">
             <img src="/images/menu02.svg">
-            <div>ช่องทางระดมทุน <img src="/images/icon-readmore.svg"></div>
+            <div>เครื่องมือระดมทุน <img src="/images/icon-readmore.svg"></div>
           </a>
         </div>
         <div class="col-6 col-md-2 link_iconbot">
           <a href="/media">
             <img src="/images/menu03.svg">
-            <div>เรียนรู้การระดมทุน <img src="/images/icon-readmore.svg"></div>
+            <div>แหล่งข้อมูลระดมทุน <img src="/images/icon-readmore.svg"></div>
           </a>
         </div>
         <div class="col-6 col-md-2 link_iconbot">
           <a href="/event">
             <img src="/images/menu04.svg">
-            <div>SEC event <img src="/images/icon-readmore.svg"></div>
+            <div>SEC Event <img src="/images/icon-readmore.svg"></div>
           </a>
         </div>
         <div class="col-6 col-md-2 link_iconbot">
           <a href="/contact">
             <img src="/images/menu05.svg">
-            <div>คลินิคระดมทุน <img src="/images/icon-readmore.svg"></div>
+            <div>คลินิกระดมทุน <img src="/images/icon-readmore.svg"></div>
           </a>
         </div>
         <div class="col-6 col-md-2 link_iconbot">
-          <a href="javascript:void(0)">
+          <a href="/vision">
             <img src="/images/menu06.svg">
-            <div>พันธกิจ / พันธมิตร <img src="/images/icon-readmore.svg"></div>
+            <div>ก.ล.ต. กับ SMEs <img src="/images/icon-readmore.svg"></div>
           </a>
         </div>
       </div>

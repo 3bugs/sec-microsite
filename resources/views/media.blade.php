@@ -17,9 +17,7 @@
     <div class="row">
       <div class="col-12 headpage">
         <h2>สื่อการเรียนรู้ระดมทุน</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut pulvinar ut egestas quam eget. Non, consequat at magna scelerisque neque vulputate. Vitae, nec sit
-          mauris dui dui eu sed odio. Adipiscing nunc nibh maecenas quam congue tristique amet semper. Turpis felis eu ac tempus, ac. Morbi quis dui at metus purus tincidunt tortor rhoncus. Convallis
-          massa pharetra ac lobortis.</p>
+        <p>ท่านสามารถรับชมคลิปวิดีโอที่มีเนื้อหาเกี่ยวข้องกับการระดมทุนในรูปแบบต่าง ๆ ตามที่ท่านต้องการได้ โดยในแต่ละหัวข้อจะแบ่งออกเป็นเรื่องย่อยที่มีเนื้อหาเกี่ยวข้องกัน เพื่อท่านเห็นภาพกระบวนการระดมทุนในหลากหลายรูปแบบได้อย่างชัดเจนมากยิ่งขึ้น รวมถึงมีความเข้าใจและนำไปสู่การเตรียมความพร้อมในการเข้าระดมทุนผ่านตลาดทุนได้ในที่สุด</p>
       </div>
     </div>
     <div class="row">

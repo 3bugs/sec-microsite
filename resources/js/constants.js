@@ -7,6 +7,7 @@ import MediaCategory from './pages/media-category';
 import Event from './pages/event';
 import EventCategory from './pages/event-category';
 import Contact from './pages/contact';
+import Vision from './pages/vision';
 
 export const routeDataList = [
   {
@@ -105,7 +106,15 @@ export const routeDataList = [
     title: 'ข้อมูลผู้ติดต่อ',
     menuTitle: 'คลินิกระดมทุน',
     menuIconName: 'mdi-card-account-phone'
-  }
+  },
+  {
+    path: '/vision',
+    name: 'vision',
+    component: Vision,
+    title: 'ก.ล.ต. กับ SMEs',
+    menuTitle: 'ก.ล.ต. กับ SMEs',
+    menuIconName: 'mdi-lightbulb-on-outline'
+  },
 ];
 
 export const getRouteTitle = (routeName) => {
