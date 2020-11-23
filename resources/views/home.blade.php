@@ -113,7 +113,7 @@
             <button class="inactive" style="margin-left: 10px">INFORMATION</button>
           </div>-->
           <div class="col-4 col-md-3 col-lg-2 text-right">
-            <a href="#"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
+            <a href="/event"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
           </div>
         </div>
         <div class="row mt-2">
@@ -207,7 +207,7 @@
             <h1>แหล่งข้อมูลระดมทุน</h1>
           </div>
           <div class="col-sm-3 col-12 d-none d-sm-block text-right">
-            <a href="#"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
+            <a href="/media"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
           </div>
         </div>
         <div class="row mt-4">

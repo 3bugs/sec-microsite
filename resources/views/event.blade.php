@@ -74,8 +74,8 @@
                     v-on:click="handleClickItem(item)"
                 >
                   <h4>@{{ item.title }}</h4>
-                  <p>@{{ item.description }}</p>
-                  <p class="mt-2 mb-1">@{{ item.begin_date === item.end_date ? item.begin_date_display : `${item.begin_date_display} - ${item.end_date_display}` }}</p>
+                  <p class="mt-2">@{{ item.description }}</p>
+                  <p class="mt-3 mb-1">@{{ item.begin_date === item.end_date ? item.begin_date_display : `${item.begin_date_display} - ${item.end_date_display}` }}</p>
                 </div>
               </template>
             </div>
@@ -177,9 +177,9 @@
           <figcaption>
             {{--<h6>Sun ・ Sep 16 2020, 8PM</h6>--}}
             <h5>@{{ decodeEntities(event.title) }}</h5>
-            <p>@{{ decodeEntities(event.description) }}</p>
+            <p class="mt-2">@{{ decodeEntities(event.description) }}</p>
             {{--<p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>--}}
-            <p>@{{ event.beginDate === event.endDate ? event.beginDateDisplay : `${event.beginDateDisplay} - ${event.endDateDisplay}` }}</p>
+            <p class="mt-3 mb-2">@{{ event.beginDate === event.endDate ? event.beginDateDisplay : `${event.beginDateDisplay} - ${event.endDateDisplay}` }}</p>
             <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
           </figcaption>
         </figure>
