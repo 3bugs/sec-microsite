@@ -80,7 +80,7 @@ class EventController extends Controller
       $event->content
     );
 
-    return view('event-details', [
+    return view('fundraising-details', [
       'item' => $event,
     ]);
   }

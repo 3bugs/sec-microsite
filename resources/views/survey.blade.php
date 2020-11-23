@@ -53,23 +53,30 @@
 
       <div class="survey-end" style="display: none">
         <div class="survey-end-content">
-          <div class="pt-4 pt-sm-4 pt-lg-5 pl-3 pl-sm-4 pl-lg-5 pr-3 pr-sm-4 pr-lg-5 mb-3" style="display: flex; flex: 1; flex-direction: column; justify-content: space-between; align-items: center">
+          <div class="pt-3 pt-sm-3 pt-lg-4 pl-3 pl-sm-4 pl-lg-5 pr-3 pr-sm-4 pr-lg-5 mb-3" style="display: flex; flex: 1; flex-direction: column; justify-content: space-between; align-items: center">
             <img src="images/survey_start.svg" class="mt-2" style="width: 40%">
 
-            <div style="display: flex; flex-direction: column; align-items: center">
-              <h2 class="mt-3" style="font-weight: bold; line-height: 1.5em; color: #003558">@{{resultText}}</h2>
+            <div class="d-flex flex-column align-items-center">
+              <h2 class="mt-3" style="font-weight: bold; line-height: 1.5em; color: #003558">ผลลัพธ์ของท่านคือ</h2>
               <p class="mt-2 ml-5 mr-5 text-center d-none">
                 @{{resultText}}
               </p>
+              <a href="javascript:void(0)"
+                 v-for="item in resultPageList"
+                 :key="item.id"
+                 class="mt-2 d-flex"
+              >
+                <img :src="`images/survey-results/button-${item.id}.png`">
+              </a>
             </div>
-            <button
+            {{--<button
                 v-for="item in resultPageList"
                 :key="item.id"
                 class="mt-2"
                 v-on:click="() => handleClickReadMore(item)"
             >
               <h5>@{{item.text}}&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
-            </button>
+            </button>--}}
             {{--<button class="mt-2" v-on:click="handleClickReadMore">
               <h5>อ่านต่อ 2&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
             </button>--}}
@@ -125,6 +132,7 @@
       {id: 'g', text: 'ออกหุ้นกู้', pageId: 0}, //todo: **********
       {id: 'h', text: 'ออกหุ้นเพิ่มทุน', pageId: 0}, //todo: **********
       {id: 'k', text: 'PP for non-listed', pageId: 0}, //todo: **********
+      {id: 'l', text: 'การเสนอขายหุ้นสำหรับวิสาหกิจเพื่อสังคม', pageId: 0}, //todo: **********
     ];
 
     const questionList = [
@@ -133,7 +141,7 @@
         choiceList: [
           {text: 'จัดตั้ง\nเป็นบริษัท', value: false, nextQuestion: 1},
           {text: 'ไม่จด\nทะเบียนบริษัท', value: false, nextQuestion: -1},
-          {text: 'วิสาหกิจ\nเพื่อสังคม', value: false, nextQuestion: -1},
+          {text: 'วิสาหกิจ\nเพื่อสังคม', value: false, nextQuestion: -1, resultList: ['l']},
         ],
       },
       { // 1

@@ -404,7 +404,7 @@
           return categoryNameList[categoryId - 1];
         },
         handleClickItem(item) {
-          alert('Under construction!');
+          window.location = `/event/${item.id}`;
         },
         updateCategoryEnableValue() {
           this.categoryEnableValue = categoryEnableValue;
