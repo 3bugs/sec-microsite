@@ -33,8 +33,14 @@ class MediaController extends Controller
       $media->content
     );
 
-    return view('media-details', [
-      'item' => $media,
-    ]);
+    if ($media->category_id > 2) {
+      return view('media-details', [
+        'item' => $media,
+      ]);
+    } else {
+      return view('fundraising-details', [
+        'item' => $media,
+      ]);
+    }
   }
 }

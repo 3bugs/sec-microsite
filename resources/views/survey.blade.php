@@ -58,7 +58,9 @@
 
             <div class="d-flex flex-column align-items-center">
               <h2 class="mt-3" style="font-weight: bold; line-height: 1.5em; color: #003558">ผลลัพธ์ของท่านคือ</h2>
-              <p class="mt-2 ml-5 mr-5 text-center d-none">
+              <p class="mt-2 ml-2 mr-2 text-center"
+                 v-if="resultText != null"
+              >
                 @{{resultText}}
               </p>
               <a href="javascript:void(0)"
@@ -70,6 +72,15 @@
                 <img :src="`images/survey-results/button-${item.id}.png`">
               </a>
             </div>
+
+            <button
+                v-if="buttonText != null"
+                class="mt-2"
+                v-on:click="window.open(buttonClickUrl, '_blank')"
+            >
+              <h5>@{{buttonText}}&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+            </button>
+
             {{--<button
                 v-for="item in resultPageList"
                 :key="item.id"
@@ -134,7 +145,12 @@
       {id: 'h', text: 'ออกหุ้นเพิ่มทุน', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/EQITYINSTRUMENT.aspx'},
       {id: 'k', text: 'PP for non-listed', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/SHAREPP.aspx'},
       {id: 'l', text: 'การเสนอขายหุ้นสำหรับวิสาหกิจเพื่อสังคม', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/SE-OFFERING.aspx#summary'},
-      {},
+      {
+        id: 'x',
+        text: 'เพื่อเริ่มต้นเข้าสู่กระบวนการระดมทุนภายใต้โครงการส่งเสริมการระดมทุนผ่านตลาดทุน อย่างน้อยกิจการของท่านจำเป็นต้องจัดตั้งเป็น “บริษัทจำกัด” โดยท่านสามารถเริ่มต้นศึกษารายละเอียดการจดทะเบียนจัดตั้งบริษัทได้ที่ กรมพัฒนาธุรกิจการค้า กระทรวงพาณิชย์',
+        buttonText: 'ศึกษาเพิ่มเติม',
+        url: 'https://www.dbd.go.th/news_view.php?nid=369',
+      },
     ];
 
     const questionList = [
@@ -160,24 +176,31 @@
       },
       { // 2
         questionText: 'โปรดเลือกขนาดธุรกิจของท่าน',
-        description: '* SME ขนาดเล็ก (วิสาหกิจขนาดย่อม)\nภาคการผลิต : จ้างงานไม่เกิน 50 คน หรือ รายได้ไม่เกิน 100 ล้านบาทต่อปี\n ภาคการค้าและการบริการ : จ้างงานไม่เกิน 30 คน / รายได้ไม่เกิน  50 ล้านบาทต่อปี\n\n** SME ขนาดกลาง (วิสาหกิจขนาดกลาง)\nภาคการผลิต : จ้างงานไม่เกิน 51-200 คน / รายได้เกิน 100 ล้านบาท แต่ไม่เกิน 500 ล้านบาทต่อปี\nภาคการค้าและการบริการ : จ้างงานไม่เกิน 30-100 คน / รายได้เกิน 50 ล้านบาท แต่ไม่เกิน 300 ล้านบาทต่อปี\n\n***กิจการขนาดใหญ่\nจ้างงานมากกว่า 200 คน / รายได้มากกว่า 500 ล้านบาท',
+        remark: [
+          '* SME ขนาดเล็ก (วิสาหกิจขนาดย่อม) • ภาคการผลิต : จ้างงานไม่เกิน 50 คน หรือ รายได้ไม่เกิน 100 ล้านบาทต่อปี • ภาคการค้าและการบริการ : จ้างงานไม่เกิน 30 คน / รายได้ไม่เกิน  50 ล้านบาทต่อปี',
+          '** SME ขนาดกลาง (วิสาหกิจขนาดกลาง) • ภาคการผลิต : จ้างงานไม่เกิน 51-200 คน / รายได้เกิน 100 ล้านบาท แต่ไม่เกิน 500 ล้านบาทต่อปี • ภาคการค้าและการบริการ : จ้างงานไม่เกิน 30-100 คน / รายได้เกิน 50 ล้านบาท แต่ไม่เกิน 300 ล้านบาทต่อปี',
+          '*** กิจการขนาดใหญ่ • จ้างงานมากกว่า 200 คน / รายได้มากกว่า 500 ล้านบาท'
+        ],
         choiceList: [
-          {text: 'SME ขนาดเล็ก*', value: false, nextQuestion: 3},
-          {text: 'SME ขนาดกลาง**', value: false, nextQuestion: 4},
-          {text: 'กิจการขนาดใหญ่***', value: false, nextQuestion: 5},
+          {
+            text: 'SME ขนาดเล็ก*',
+            value: false,
+            nextQuestion: 3,
+            remark: '* SME ขนาดเล็ก (วิสาหกิจขนาดย่อม)\nภาคการผลิต : จ้างงานไม่เกิน 50 คน หรือ รายได้ไม่เกิน 100 ล้านบาทต่อปี\nภาคการค้าและการบริการ : จ้างงานไม่เกิน 30 คน / รายได้ไม่เกิน  50 ล้านบาทต่อปี'
+          },
+          {
+            text: 'SME ขนาดกลาง**',
+            value: false,
+            nextQuestion: 4,
+            remark: '** SME ขนาดกลาง (วิสาหกิจขนาดกลาง)\nภาคการผลิต : จ้างงานไม่เกิน 51-200 คน / รายได้เกิน 100 ล้านบาท แต่ไม่เกิน 500 ล้านบาทต่อปี\nภาคการค้าและการบริการ : จ้างงานไม่เกิน 30-100 คน / รายได้เกิน 50 ล้านบาท แต่ไม่เกิน 300 ล้านบาทต่อปี'
+          },
+          {text: 'กิจการขนาดใหญ่***', value: false, nextQuestion: 5, remark: '*** กิจการขนาดใหญ่\\nจ้างงานมากกว่า 200 คน / รายได้มากกว่า 500 ล้านบาท'},
         ],
 
         /*
-        * SME ขนาดเล็ก (วิสาหกิจขนาดย่อม)
-ภาคการผลิต : จ้างงานไม่เกิน 50 คน หรือ รายได้ไม่เกิน 100 ล้านบาทต่อปี
-ภาคการค้าและการบริการ : จ้างงานไม่เกิน 30 คน / รายได้ไม่เกิน  50 ล้านบาทต่อปี
-
-** SME ขนาดกลาง (วิสาหกิจขนาดกลาง)
-ภาคการผลิต : จ้างงานไม่เกิน 51-200 คน /  รายได้เกิน 100 ล้านบาท แต่ไม่เกิน 500 ล้านบาทต่อปี
-ภาคการค้าและการบริการ : จ้างงานไม่เกิน 30-100 คน /  รายได้เกิน 50 ล้านบาท แต่ไม่เกิน 300 ล้านบาทต่อปี
-
-***กิจการขนาดใหญ่
-จ้างงานมากกว่า 200 คน / รายได้มากกว่า 500 ล้านบาท
+        * SME ขนาดเล็ก (วิสาหกิจขนาดย่อม)\nภาคการผลิต : จ้างงานไม่เกิน 50 คน หรือ รายได้ไม่เกิน 100 ล้านบาทต่อปี\nภาคการค้าและการบริการ : จ้างงานไม่เกิน 30 คน / รายได้ไม่เกิน  50 ล้านบาทต่อปี
+        ** SME ขนาดกลาง (วิสาหกิจขนาดกลาง)\nภาคการผลิต : จ้างงานไม่เกิน 51-200 คน / รายได้เกิน 100 ล้านบาท แต่ไม่เกิน 500 ล้านบาทต่อปี\nภาคการค้าและการบริการ : จ้างงานไม่เกิน 30-100 คน / รายได้เกิน 50 ล้านบาท แต่ไม่เกิน 300 ล้านบาทต่อปี
+        *** กิจการขนาดใหญ่\nจ้างงานมากกว่า 200 คน / รายได้มากกว่า 500 ล้านบาท
         */
       },
       { // 3
@@ -247,6 +270,13 @@
         </li>
         <div class="empty" v-if="currentQuestion.choiceList.length === 2"></div>
       </ul>
+      <div v-if="currentQuestion.remark != null" class="mt-3">
+        <p
+          v-for="remark in currentQuestion.remark"
+          class="mb-1 ml-2 mr-2"
+          style="font-size: 0.9em"
+        >@{{ remark }}</p>
+      </div>
       <div class="button-container">
         <button
           v-bind:style="{zIndex: 1000, display: questionHistoryList.length === 0 ? 'none' : 'block'}"
@@ -346,9 +376,11 @@
       el: '#app',
       data: {
         message: 'Vue.js is working!',
-        resultText: '',
+        resultText: null,
         imageVisible: false,
         resultPageList: [],
+        buttonText: null,
+        buttonClickUrl: null,
       },
       methods: {
         handleClickStartSurvey() {
@@ -385,12 +417,23 @@
           surveyForm.fadeOut(300, () => {
             $('.survey-footer').addClass('mr-0');
 
-            this.resultPageList = resultList.map(item => {
-              return fundraisingPageList.filter(o => o.id === item)[0];
-            });
-            this.resultText = this.resultPageList.reduce((total, item) => {
-              return total + (total === '' ? '' : ' หรือ ') + item.text;
-            }, '');
+            if (resultList[0] === 'x') {
+              const resultPage = resultList.map(item => {
+                return fundraisingPageList.filter(o => o.id === item)[0];
+              })[0];
+              this.resultText = resultPage.text;
+              this.buttonText = resultPage.buttonText;
+              this.buttonClickUrl = resultPage.url;
+            } else {
+              this.resultPageList = resultList.map(item => {
+                return fundraisingPageList.filter(o => o.id === item)[0];
+              });
+              this.resultText = null;
+              this.buttonText = null;
+              /*this.resultText = this.resultPageList.reduce((total, item) => {
+                return total + (total === '' ? '' : ' หรือ ') + item.text;
+              }, '');*/
+            }
 
             this.imageVisible = false;
             window.scrollTo(0, 0);

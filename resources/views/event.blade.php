@@ -147,7 +147,7 @@
               <h3>@{{ decodeEntities(eventList[0].title) }}</h3>
               <p>@{{ decodeEntities(eventList[0].description) }}</p>
               <button>
-                <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+                <h5>อ่านรายละเอียดเพิ่มเติม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
               </button>
             </div>
           </div>

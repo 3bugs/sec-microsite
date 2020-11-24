@@ -74,7 +74,9 @@
                 </div>
                 <div class="accordion-card-hidden flex-column" style="padding: 0; margin: 0 0 12px">
                   <p>{!! $cardData['text'] !!}</p>
-                  <button><h5>{{ $cardData['buttonText'] }}</h5></button>
+                  <button
+                      onclick="handleClickCard({{ $cardData['id'] }})"
+                  ><h5>{{ $cardData['buttonText'] }}</h5></button>
                 </div>
               </div>
             </div>
@@ -205,7 +207,7 @@
                   <p>@{{ highlightEvent.description }}</p>
                   <p>@{{ highlightEvent.beginDate === highlightEvent.endDate ? highlightEvent.beginDateDisplay : `${highlightEvent.beginDateDisplay} - ${highlightEvent.endDateDisplay}` }}</p>
                   <button>
-                    <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+                    <h5>อ่านรายละเอียดเพิ่มเติม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
                   </button>
                 </div>
               </div>
