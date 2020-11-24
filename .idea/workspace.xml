@@ -6,16 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiDataController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EventCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Fundraising.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fundraising.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/FundraisingCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FundraisingCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Media.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Media.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MediaCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MediaCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Vision.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Vision.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_11_053346_create_event_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_11_053346_create_event_categories_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/survey.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/survey.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -267,14 +257,7 @@
       <workItem from="1605768632944" duration="14646000" />
       <workItem from="1605841368855" duration="34223000" />
       <workItem from="1606027298386" duration="25419000" />
-      <workItem from="1606098529015" duration="33067000" />
-    </task>
-    <task id="LOCAL-00026" summary="front: refactor controller">
-      <created>1604908115143</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1604908115143</updated>
+      <workItem from="1606098529015" duration="34056000" />
     </task>
     <task id="LOCAL-00027" summary="front: content css">
       <created>1604910023803</created>
@@ -612,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606122445335</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="back: fix กรณี int ถูกส่งไปเป็น string">
+      <created>1606195815816</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1606195815816</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,7 +610,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: refactor controller" />
     <MESSAGE value="front: content css" />
     <MESSAGE value="front: เพิ่มหน้า survey" />
     <MESSAGE value="front: แก้ข้อความ" />
@@ -645,7 +634,8 @@
     <MESSAGE value="front: ปรับข้อความ" />
     <MESSAGE value="front: css หน้า event" />
     <MESSAGE value="front: ปรับหน้า survey" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: ปรับหน้า survey" />
+    <MESSAGE value="back: fix กรณี int ถูกส่งไปเป็น string" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: fix กรณี int ถูกส่งไปเป็น string" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -666,11 +656,11 @@
     </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606108300549" />
     <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606046918582" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606122445168">
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606195815542">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606122445168" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606195815542" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606049929627" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1605325585878">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -728,11 +718,11 @@
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1605071264370" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606029173309" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606122446501">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606195817040">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606122446501" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606195817040" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606049931114" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />

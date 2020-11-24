@@ -62,6 +62,7 @@
                 @{{resultText}}
               </p>
               <a href="javascript:void(0)"
+                 v-on:click.prevent="handleClickReadMore(item)"
                  v-for="item in resultPageList"
                  :key="item.id"
                  class="mt-2 d-flex"
