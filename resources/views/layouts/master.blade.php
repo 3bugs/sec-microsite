@@ -72,7 +72,7 @@
       <div class="row">
         <div class="col-12 wrap_myd">
           <h2>Make your dreams a <span>reality</span></h2>
-          <a href="#">ติดต่อเรา <img src="/images/ar_ftbtn.svg"></a>
+          <a href="/contact">ติดต่อเรา <img src="/images/ar_ftbtn.svg"></a>
         </div>
       </div>
       <div class="row row_bot_footer">

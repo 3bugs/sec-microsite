@@ -118,14 +118,17 @@
               <div style="font-size: 35px; font-weight: bold; line-height: 45px">@{{ eventList[0].beginMonth }}</div>
               <div style="font-size: 72px; font-weight: bold; line-height: 70px">@{{ eventList[0].beginDay }}</div>
             </div>
-            <div class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4">
+            <div
+                class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4"
+                @click="handleClickItem(eventList[0])"
+            >
               <div style="flex: 1; flex-direction: column; padding: 25px 30px 0; border: 0px solid red">
                 <h3 class="mb-3">@{{ decodeEntities(eventList[0].title) }}</h3>
                 <p>@{{ decodeEntities(eventList[0].description) }}</p>
                 <p>@{{ eventList[0].beginDate === eventList[0].endDate ? eventList[0].beginDateDisplay : `${eventList[0].beginDateDisplay} - ${eventList[0].endDateDisplay}` }}</p>
               </div>
               <button style="align-self: flex-start; padding: 20px 30px;">
-                <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+                <h5>อ่านรายละเอียดเพิ่มเติม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
               </button>
             </div>
           </div>

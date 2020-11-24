@@ -175,14 +175,17 @@
                   <div style="font-size: 35px; font-weight: bold; line-height: 45px">@{{ highlightEvent.beginMonth }}</div>
                   <div style="font-size: 72px; font-weight: bold; line-height: 70px">@{{ highlightEvent.beginDay }}</div>
                 </div>
-                <div class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4">
+                <div
+                    class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4"
+                    @click="handleClickEvent(highlightEvent.id)"
+                >
                   <div style="flex: 1; flex-direction: column; padding: 25px 30px 0; border: 0px solid red">
                     <h3 class="mb-3">@{{ highlightEvent.title }}</h3>
                     <p>@{{ highlightEvent.description }}</p>
                     <p>@{{ highlightEvent.beginDate === highlightEvent.endDate ? highlightEvent.beginDateDisplay : `${highlightEvent.beginDateDisplay} - ${highlightEvent.endDateDisplay}` }}</p>
                   </div>
                   <button style="align-self: flex-start; padding: 20px 30px;">
-                    <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
+                    <h5>อ่านรายละเอียดเพิ่มเติม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
                   </button>
                 </div>
               </div>
@@ -497,7 +500,10 @@
       methods: {
         handleClickCategoryButton: function (categoryId) {
           this.selectedEventCategory = categoryId;
-        }
+        },
+        handleClickEvent: function (id) {
+          window.location = `/event/${id}`;
+        },
       },
     });
   </script>
