@@ -86,29 +86,27 @@
           <div class="row">
             <div class="col-12 col-md-4">
               <ul class="footer_menu">
-                <li><h4>Column Heading</h4></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
+                <li><h4><a href="/fundraising" style="color: white">เครื่องมือระดมทุน</a></h4></li>
+                <li><a href="/fundraising">• ต้องการกู้ยืม</a></li>
+                <li><a href="/fundraising">• ต้องการหาคนร่วมลงทุนเป็นเจ้าของ</a></li>
+                <li><a href="/fundraising">• วิสาหกิจเพื่อสังคม</a></li>
               </ul>
             </div>
             <div class="col-12 col-md-4">
               <ul class="footer_menu">
-                <li><h4>Column Heading</h4></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
+                <li><h4><a href="/media" style="color: white">แหล่งข้อมูลระดมทุน</a></h4></li>
+                <li><a href="/media">• สื่อการเรียนรู้ระดมทุน</a></li>
+                <li><a href="/media">• บทความที่เกี่ยวข้อง</a></li>
+                <li><a href="/media">• ข้อมูลที่ต้องรู้</a></li>
               </ul>
             </div>
             <div class="col-12 col-md-4">
               <ul class="footer_menu">
-                <li><h4>Column Heading</h4></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
-                <li><a href="#">Link goes here</a></li>
+                <li><h4><a href="/event" style="color: white">SEC Event</a></h4></li>
+                <li><a href="/event">• Seminar</a></li>
+                <li><a href="/event">• Webinar</a></li>
+                <li><a href="/event">• Business Matching</a></li>
+                <li><a href="/event">• คลินิกระดมทุน</a></li>
               </ul>
             </div>
           </div>
@@ -116,7 +114,7 @@
       </div>
       <div class="row">
         <div class="col-12 copyright">
-          <small>2019 Securities & Exchange Commission, Thailand All rights reserved. เว็บไซต์นี้แสดงผลได้ดีบน Microsoft Edge, Chrome, Safari และ Firefox</small>
+          <small>2020 Securities & Exchange Commission, Thailand. All rights reserved. เว็บไซต์นี้แสดงผลได้ดีบน Microsoft Edge, Chrome, Safari และ Firefox</small>
         </div>
       </div>
     </div>

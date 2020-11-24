@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-12 headpage head_secevent">
         <h2>SEC EVENT</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutrum facilisi interdum ut pulvinar ut egestas quam </p>
+        {{--<p></p>--}}
       </div>
       <div class="col-12 bg_calendar_event">
         <div class="row">

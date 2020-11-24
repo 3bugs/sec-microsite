@@ -60,7 +60,7 @@
       <!--บทความที่เกี่ยวข้อง-->
       <div class="col-12 relate_fd">
         <h3>บทความที่เกี่ยวข้อง</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutru</p>
+        <p>แหล่งรวมสาระและความรู้ที่จะทำให้ทุกเรื่องของการระดมทุนผ่านตลาดทุนเป็นเรื่องที่เข้าใจง่าย</p>
         <div class="row">
           @for ($i = 0; $i < count($mediaCategoryList); $i++)
             @if ($mediaCategoryList[$i]->id === 1)
@@ -82,8 +82,8 @@
 
       <!--ลิ้งค์อื่นๆ ที่เกี่ยวข้อง-->
       <div class="col-12 relate_fd">
-        <h3>ลิ้งค์อื่นๆ ที่เกี่ยวข้อง</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus rutru</p>
+        <h3>ข้อมูลที่ต้องรู้</h3>
+        <p>ข้อมูลสำคัญสำหรับผู้ระดมทุนและผู้ลงทุน</p>
         <div class="row">
           @for ($i = 0; $i < count($mediaCategoryList); $i++)
             @if ($mediaCategoryList[$i]->id === 2)
