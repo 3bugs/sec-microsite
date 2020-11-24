@@ -45,12 +45,12 @@ class EventController extends Controller
       ->get();
 
     $highlightEventList = Event::select('id', 'category_id', 'cover_image', 'description', 'title', 'begin_date', 'end_date', 'begin_time', 'end_time')
-      ->whereDate('begin_date', '>=', Carbon::today())
-      ->where('pinned', 1)
+      //->whereDate('begin_date', '>=', Carbon::today())
+      //->where('pinned', 1)
       ->where('published', 1)
+      ->orderBy('pinned', 'desc')
       ->orderBy('category_id', 'asc')
-      ->orderBy('begin_date', 'asc')
-      ->orderBy('end_date', 'asc')
+      ->orderBy('begin_date', 'desc')
       ->get();
 
     foreach ($highlightEventList as $event) {
