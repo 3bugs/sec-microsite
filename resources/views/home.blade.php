@@ -57,24 +57,24 @@
       <div class="container d-sm-none d-xs-block" style="border: 0px solid red">
         <div class="row">
           @foreach ($cardDataList as $cardData)
-          <div class="col-12 d-flex flex-column mb-3">
-            <div class="accordion-card">
-              <div class="d-flex align-items-center" style="font-size: 24px">
-                <img
-                    class="mr-3"
-                    src="images/menu0{{ $cardData['id'] }}.svg"
-                    alt="menu {{ $cardData['id'] }}"
-                    style="width: 75px; height: 75px"
-                >
-                <h3 style="flex: 1; font-size: 20px">{{ $cardData['title'] }}</h3>
-                <i class="fa fa-chevron-circle-down ml-2" style="font-size: 24px"></i>
-              </div>
-              <div class="accordion-card-hidden flex-column" style="padding: 0; margin: 0 0 12px">
-                <p>{!! $cardData['text'] !!}</p>
-                <button><h5>{{ $cardData['buttonText'] }}</h5></button>
+            <div class="col-12 d-flex flex-column mb-3">
+              <div class="accordion-card">
+                <div class="d-flex align-items-center" style="font-size: 24px">
+                  <img
+                      class="mr-3"
+                      src="images/menu0{{ $cardData['id'] }}.svg"
+                      alt="menu {{ $cardData['id'] }}"
+                      style="width: 75px; height: 75px"
+                  >
+                  <h3 style="flex: 1; font-size: 20px">{{ $cardData['title'] }}</h3>
+                  <i class="fa fa-chevron-circle-down ml-2" style="font-size: 24px"></i>
+                </div>
+                <div class="accordion-card-hidden flex-column" style="padding: 0; margin: 0 0 12px">
+                  <p>{!! $cardData['text'] !!}</p>
+                  <button><h5>{{ $cardData['buttonText'] }}</h5></button>
+                </div>
               </div>
             </div>
-          </div>
           @endforeach
         </div>
       </div>
@@ -99,10 +99,26 @@
             <div class="sec-event-header" style="display: flex; align-items: center">
               <h1>SEC EVENT</h1>
               <div class="d-none d-lg-block">
-                <button class="sec-event-button-active" style="margin-left: 30px">{{ strtoupper($eventCategoryList[0]->title) }}</button>
-                <button class="sec-event-button-inactive" style="margin-left: 10px">{{ strtoupper($eventCategoryList[1]->title) }}</button>
-                <button class="sec-event-button-inactive" style="margin-left: 10px">{{ strtoupper($eventCategoryList[2]->title) }}</button>
-                <button class="sec-event-button-inactive" style="margin-left: 10px">{{ strtoupper($eventCategoryList[3]->title) }}</button>
+                <button
+                    :class="selectedEventCategory === 0 ? 'sec-event-button-active' : 'sec-event-button-inactive'"
+                    @click="handleClickCategoryButton(0)"
+                    style="margin-left: 30px"
+                >{{ strtoupper($eventCategoryList[0]->title) }}</button>
+                <button
+                    :class="selectedEventCategory === 1 ? 'sec-event-button-active' : 'sec-event-button-inactive'"
+                    @click="handleClickCategoryButton(1)"
+                    style="margin-left: 10px"
+                >{{ strtoupper($eventCategoryList[1]->title) }}</button>
+                <button
+                    :class="selectedEventCategory === 2 ? 'sec-event-button-active' : 'sec-event-button-inactive'"
+                    @click="handleClickCategoryButton(2)"
+                    style="margin-left: 10px"
+                >{{ strtoupper($eventCategoryList[2]->title) }}</button>
+                <button
+                    :class="selectedEventCategory === 3 ? 'sec-event-button-active' : 'sec-event-button-inactive'"
+                    @click="handleClickCategoryButton(3)"
+                    style="margin-left: 10px"
+                >{{ strtoupper($eventCategoryList[3]->title) }}</button>
               </div>
             </div>
           </div>
@@ -142,21 +158,23 @@
             </div>
           </div>
         </div>
-        <div class="row mt-4 d-">
-          <div class="col-12">
+        <div class="row mt-4">
+          <div class="col-12" v-if="highlightEvent == null"><h4>ไม่มีอีเวนต์ในหมวดนี้</h4></div>
+
+          <div class="col-12" v-if="highlightEvent != null">
             <div class="sec-event-image d-none d-md-block"
-                 style="backgroundImage: url({{ $eventList[0]->cover_image }})">
+                 :style="`backgroundImage: url(${highlightEvent.coverImage})`">
               <div class="sec-event-content">
                 <div class="sec-event-date">
                   <div style="font-size: 14px; line-height: 21px; opacity: 0.5">SEC EVENT</div>
-                  <div style="font-size: 35px; font-weight: bold; line-height: 45px">OCT</div>
-                  <div style="font-size: 72px; font-weight: bold; line-height: 70px">16</div>
+                  <div style="font-size: 35px; font-weight: bold; line-height: 45px">@{{ highlightEvent.beginMonth }}</div>
+                  <div style="font-size: 72px; font-weight: bold; line-height: 70px">@{{ highlightEvent.beginDay }}</div>
                 </div>
                 <div class="sec-event-details-container mt-0 mt-sm-1 mt-md-2 mt-lg-3 mr-0 mr-sm-2 mr-md-3 mr-lg-4">
                   <div style="flex: 1; flex-direction: column; padding: 25px 30px 0; border: 0px solid red">
-                    <h3 class="mb-3">{{ $eventList[0]->title }}</h3>
-                    <p>{{ $eventList[0]->description }}</p>
-                    <p>{{ $eventList[0]->begin_date_display }}</p>
+                    <h3 class="mb-3">@{{ highlightEvent.title }}</h3>
+                    <p>@{{ highlightEvent.description }}</p>
+                    <p>@{{ highlightEvent.beginDate === highlightEvent.endDate ? highlightEvent.beginDateDisplay : `${highlightEvent.beginDateDisplay} - ${highlightEvent.endDateDisplay}` }}</p>
                   </div>
                   <button style="align-self: flex-start; padding: 20px 30px;">
                     <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
@@ -411,6 +429,14 @@
       },
     });
 
+    const eventCategoryIdList = [
+        @foreach ($eventCategoryList as $category)
+      {
+        id: {{ $category->id }},
+      },
+      @endforeach
+    ];
+
     const eventList = [
         @foreach ($eventList as $event)
       {
@@ -435,6 +461,18 @@
       el: '#app',
       data: {
         event: null,
+        selectedEventCategory: 0,
+      },
+      computed: {
+        highlightEvent: function () {
+          const filteredEventList = eventList.filter(event => event.categoryId === eventCategoryIdList[this.selectedEventCategory].id);
+          return filteredEventList.length === 0 ? null : filteredEventList[0];
+        },
+      },
+      methods: {
+        handleClickCategoryButton: function (categoryId) {
+          this.selectedEventCategory = categoryId;
+        }
       },
     });
   </script>

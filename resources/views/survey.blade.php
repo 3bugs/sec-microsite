@@ -125,15 +125,15 @@
   <script>
     const fundraisingPageList = [
       {id: 'a', text: 'หุ้นกู้ CFD', pageId: 12},
-      {id: 'b', text: 'หุ้น CFD', pageId: 15}, //todo: **********
-      {id: 'c', text: 'PP หุ้นกู้แปลงสภาพ', pageId: 13}, //todo: **********
-      {id: 'd', text: 'PP หุ้น', pageId: 18}, //todo: **********
-      {id: 'e', text: 'PO SME', pageId: 0}, //todo: **********
-      {id: 'f', text: 'IPO SET', pageId: 16}, //todo: **********
-      {id: 'g', text: 'ออกหุ้นกู้', pageId: 0}, //todo: **********
-      {id: 'h', text: 'ออกหุ้นเพิ่มทุน', pageId: 0}, //todo: **********
-      {id: 'k', text: 'PP for non-listed', pageId: 0}, //todo: **********
-      {id: 'l', text: 'การเสนอขายหุ้นสำหรับวิสาหกิจเพื่อสังคม', pageId: 17}, //todo: **********
+      {id: 'b', text: 'หุ้น CFD', pageId: 15},
+      {id: 'c', text: 'PP หุ้นกู้แปลงสภาพ', pageId: 13},
+      {id: 'd', text: 'PP หุ้น', pageId: 18},
+      {id: 'e', text: 'PO SME', pageId: 0, url: null}, //todo: **********
+      {id: 'f', text: 'IPO SET', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LawandRegulations/SharePO.aspx'},
+      {id: 'g', text: 'ออกหุ้นกู้', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LawandRegulations/DebtInstrument.aspx'},
+      {id: 'h', text: 'ออกหุ้นเพิ่มทุน', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/EQITYINSTRUMENT.aspx'},
+      {id: 'k', text: 'PP for non-listed', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/SHAREPP.aspx'},
+      {id: 'l', text: 'การเสนอขายหุ้นสำหรับวิสาหกิจเพื่อสังคม', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/SE-OFFERING.aspx#summary'},
     ];
 
     const questionList = [
@@ -142,6 +142,11 @@
         choiceList: [
           {text: 'จัดตั้ง\nเป็นบริษัท', value: false, nextQuestion: 1},
           {text: 'ไม่จด\nทะเบียนบริษัท', value: false, nextQuestion: -1},
+          /*
+          เพื่อเริ่มต้นเข้าสู่กระบวนการระดมทุนภายใต้โครงการส่งเสริมการระดมทุนผ่านตลาดทุน อย่างน้อยกิจการของท่านจำเป็นต้องจัดตั้งเป็น “บริษัทจำกัด” โดยท่านสามารถเริ่มต้นศึกษารายละเอียดการจดทะเบียนจัดตั้งบริษัทได้ที่ กรมพัฒนาธุรกิจการค้า กระทรวงพาณิชย์”
+ศึกษาข้อมูลเพิ่มเติมได้ที่ (Link ไปที่ >>> https://www.dbd.go.th/news_view.php?nid=369)
+          */
+
           {text: 'วิสาหกิจ\nเพื่อสังคม', value: false, nextQuestion: -1, resultList: ['l']},
         ],
       },
@@ -347,7 +352,11 @@
           if (item.pageId > 0) {
             window.open(`/fundraising/${item.pageId}`);
           } else {
-            alert('ขออภัย ยังไม่มีหน้ารายละเอียดของหัวข้อนี้');
+            if (item.url != null) {
+              window.open(item.url, '_blank');
+            } else {
+              alert('ขออภัย ยังไม่มีหน้ารายละเอียดของหัวข้อนี้');
+            }
           }
         },
         handleClickSurveyAgain() {
