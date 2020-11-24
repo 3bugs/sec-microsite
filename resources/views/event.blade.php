@@ -166,8 +166,10 @@
           class="col-12 col-md-6 col-lg-3 item_eventpage"
       >
         <figure>
-          <a href="#">
-            <img src="/images/event.jpg">
+          <a href="javascript:void(0)"
+             v-on:click.prevent="handleClickItem(event)"
+          >
+            <img :src="event.coverImage">
             <div class="date_hlevent">
               <h6>SEC event</h6>
               <div>@{{ event.beginMonth }}</div>
@@ -330,6 +332,9 @@
           this.eventList = this.selectedCategoryId === 0
             ? highlightEventDataList
             : highlightEventDataList.filter(event => event.categoryId === this.selectedCategoryId);
+        },
+        handleClickItem(item) {
+          window.location = `/event/${item.id}`;
         },
       }
     });
