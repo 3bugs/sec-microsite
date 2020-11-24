@@ -29,7 +29,10 @@
 
           @foreach ($cardDataList as $cardData)
             <div class="col-lg-4 col-sm-6 col-12" style="border: 0px solid blue">
-              <div class="flip-card mb-4 mb-md-5" style="margin-bottom: 0" onclick="handleClickCard({{ $cardData['id'] }})">
+              <div class="flip-card mb-4 mb-md-5"
+                   style="margin-bottom: 0"
+                   onclick="handleClickCard({{ $cardData['id'] }})"
+              >
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
                     <img
@@ -159,7 +162,9 @@
           </div>
         </div>
         <div class="row mt-4">
-          <div class="col-12" v-if="highlightEvent == null"><h4>ไม่มีอีเวนต์ในหมวดนี้</h4></div>
+          <div class="col-12" v-if="highlightEvent == null">
+            <img src="/images/no_activity.jpg" style="width: 100%">
+          </div>
 
           <div class="col-12" v-if="highlightEvent != null">
             <div class="sec-event-image d-none d-md-block"
@@ -184,17 +189,18 @@
             </div>
             <div class="d-xs-block d-md-none">
               <div class="info-item mb-sm-0">
-                <div class="info-item-image-container" style="background-image: url('images/event.jpg')">
+                <div class="info-item-image-container"
+                     :style="`backgroundImage: url(${highlightEvent.coverImage})`">
                   <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
                     <div style="font-size: 10px; line-height: 14px; opacity: 0.5">SEC EVENT</div>
-                    <div style="font-size: 18px; font-weight: bold; line-height: 25px">OCT</div>
-                    <div style="font-size: 36px; font-weight: bold; line-height: 35px">16</div>
+                    <div style="font-size: 18px; font-weight: bold; line-height: 25px">@{{ highlightEvent.beginMonth }}</div>
+                    <div style="font-size: 36px; font-weight: bold; line-height: 35px">@{{ highlightEvent.beginDay }}</div>
                   </div>
                 </div>
                 <div class="info-item-text" style="padding: 14px 0 0 0">
-                  <h3>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</h3>
-                  <p>วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร
-                    วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร วิธีการระดมทุนให้ได้ตามเป้า ต้องทำอย่างไร</p>
+                  <h3>@{{ highlightEvent.title }}</h3>
+                  <p>@{{ highlightEvent.description }}</p>
+                  <p>@{{ highlightEvent.beginDate === highlightEvent.endDate ? highlightEvent.beginDateDisplay : `${highlightEvent.beginDateDisplay} - ${highlightEvent.endDateDisplay}` }}</p>
                   <button>
                     <h5>ลงทะเบียนเข้าร่วม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
                   </button>
@@ -229,10 +235,25 @@
           </div>
         </div>
         <div class="row mt-4">
-          <div class="col-lg-4 col-sm-6 col-12">
-            <info-item img-src="info01.png" author="พร้อมเลิศ หล่อวิจิตร"></info-item>
-          </div>
-          <div class="col-lg-4 col-sm-6 col-6 pr-2 pr-sm-3">
+          @for ($i = 0; $i < sizeof($mediaList); $i++)
+            <div class="col-lg-4 col-sm-6 {{ $i === 0 ? 'col-12' : ($i < 3 ? 'col-6 pr-2 pr-sm-3' : 'col-12 d-none d-sm-block') }}">
+              <div
+                  class="info-item mb-3 mb-sm-4"
+                  onclick="handleClickMedia({{ $mediaList[$i]->id }})"
+              >
+                <div class="info-item-image-container"
+                     style="background-image: url('{{ $mediaList[$i]->cover_image }}')"
+                >
+                </div>
+                <div class="info-item-text pl-2 pr-2 pt-2 pl-sm-3 pr-sm-3 pt-sm-3">
+                  <h4>{{ $mediaList[$i]->title }}</h4>
+                  <p>{{ $mediaList[$i]->description }}</p>
+                </div>
+              </div>
+            </div>
+          @endfor
+
+          {{--<div class="col-lg-4 col-sm-6 col-6 pr-2 pr-sm-3">
             <info-item img-src="info02.png" title="Minimal Workspace for Inspiration" author="พร้อมเลิศ หล่อวิจิตร"></info-item>
           </div>
           <div class="col-lg-4 col-sm-6 col-6 pl-2 pl-sm-3">
@@ -246,7 +267,7 @@
           </div>
           <div class="col-lg-4 col-sm-6 col-12 d-none d-sm-block">
             <info-item img-src="info01.png" title="Minimal Workspace for Inspiration" author="พร้อมเลิศ หล่อวิจิตร"></info-item>
-          </div>
+          </div>--}}
         </div>
         <div class="row">
           <div class="col-12 text-center d-block d-sm-none">
@@ -292,6 +313,10 @@
           window.location = '/vision';
           break;
       }
+    }
+
+    function handleClickMedia(id) {
+      window.location = `/media/${id}`;
     }
   </script>
 

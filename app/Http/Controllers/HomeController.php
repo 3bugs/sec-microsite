@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\EventCategory;
+use App\Models\Media;
 use App\Utils\Utils;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -66,11 +67,10 @@ class HomeController extends Controller
       ->get();
 
     $eventList = Event::where('published', 1)
-      ->whereDate('begin_date', '>=', Carbon::today())
-      ->orderBy('begin_date', 'asc')
-      ->orderBy('pinned', 'desc')
+      //->whereDate('begin_date', '>=', Carbon::today())
+      ->where('pinned', 1)
+      ->orderBy('begin_date', 'desc')
       ->get();
-
     foreach ($eventList as $event) {
       $event->cover_image = Storage::url($event->cover_image);
       $event->begin_day = explode('-', $event->begin_date)[2];
@@ -79,10 +79,20 @@ class HomeController extends Controller
       $event->end_date_display = Utils::formatDisplayDate($event->end_date);
     }
 
+    $mediaList = Media::where('published', 1)
+      ->where('category_id', '>', 2)
+      ->offset(0)
+      ->limit(6)
+      ->get();
+    foreach ($mediaList as $media) {
+      $media->cover_image = Storage::url($media->cover_image);
+    }
+
     return view('home', [
       'cardDataList' => $cardDataList,
       'eventCategoryList' => $eventCategoryList,
       'eventList' => $eventList,
+      'mediaList' => $mediaList,
     ]);
   }
 }
