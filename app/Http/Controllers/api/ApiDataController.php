@@ -100,7 +100,7 @@ class ApiDataController extends Controller
         'status' => 'ok',
         'data_list' => $dataList,
         'category_list' => $categoryList,
-      ), 200);
+      ), 200, [], JSON_NUMERIC_CHECK);
     } catch (Exception $e) {
       return response()->json(array(
         'status' => 'error',
@@ -141,6 +141,13 @@ class ApiDataController extends Controller
   {
     try {
       $data = $this->mModelClass::find($id);
+      if ($data == null) {
+        return response()->json(array(
+          'status' => 'error',
+          'message' => "ไม่พบข้อมูล id: $id",
+        ), 200);
+      }
+
       $data->cover_image = Storage::url($data->cover_image);
 
       return response()->json(array(

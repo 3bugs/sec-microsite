@@ -9,6 +9,8 @@ class FundraisingCategory extends Model
 {
   use HasFactory;
 
+  protected $casts = ['id' => 'integer', 'published' => 'integer'];
+
   public function fundraisings()
   {
     return $this->hasMany(Fundraising::class, 'category_id', 'id')

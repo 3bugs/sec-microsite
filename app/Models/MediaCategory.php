@@ -9,6 +9,8 @@ class MediaCategory extends Model
 {
   use HasFactory;
 
+  protected $casts = ['id' => 'integer', 'published' => 'integer'];
+
   public function media()
   {
     return $this->hasMany(Media::class, 'category_id', 'id')

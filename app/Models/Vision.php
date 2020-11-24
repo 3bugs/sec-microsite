@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vision extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $casts = ['id' => 'integer'];
 }

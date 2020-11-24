@@ -123,16 +123,16 @@
 
   <script>
     const fundraisingPageList = [
-      {id: 'a', text: 'หุ้นกู้ CFD', pageId: 2},
-      {id: 'b', text: 'หุ้น CFD', pageId: 0}, //todo: **********
-      {id: 'c', text: 'PP หุ้นกู้แปลงสภาพ', pageId: 0}, //todo: **********
-      {id: 'd', text: 'PP หุ้น', pageId: 0}, //todo: **********
+      {id: 'a', text: 'หุ้นกู้ CFD', pageId: 12},
+      {id: 'b', text: 'หุ้น CFD', pageId: 15}, //todo: **********
+      {id: 'c', text: 'PP หุ้นกู้แปลงสภาพ', pageId: 13}, //todo: **********
+      {id: 'd', text: 'PP หุ้น', pageId: 18}, //todo: **********
       {id: 'e', text: 'PO SME', pageId: 0}, //todo: **********
-      {id: 'f', text: 'IPO SET', pageId: 0}, //todo: **********
+      {id: 'f', text: 'IPO SET', pageId: 16}, //todo: **********
       {id: 'g', text: 'ออกหุ้นกู้', pageId: 0}, //todo: **********
       {id: 'h', text: 'ออกหุ้นเพิ่มทุน', pageId: 0}, //todo: **********
       {id: 'k', text: 'PP for non-listed', pageId: 0}, //todo: **********
-      {id: 'l', text: 'การเสนอขายหุ้นสำหรับวิสาหกิจเพื่อสังคม', pageId: 0}, //todo: **********
+      {id: 'l', text: 'การเสนอขายหุ้นสำหรับวิสาหกิจเพื่อสังคม', pageId: 17}, //todo: **********
     ];
 
     const questionList = [
@@ -346,7 +346,7 @@
           if (item.pageId > 0) {
             window.open(`/fundraising/${item.pageId}`);
           } else {
-            alert('Under construction!');
+            alert('ขออภัย ยังไม่มีหน้ารายละเอียดของหัวข้อนี้');
           }
         },
         handleClickSurveyAgain() {
