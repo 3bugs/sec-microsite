@@ -2409,6 +2409,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -24413,25 +24414,27 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              staticClass: "mr-2",
-              attrs: { color: "primary" },
-              on: {
-                click: function($event) {
-                  return _vm.handleClickViewWeb(_vm.item)
-                }
-              }
-            },
-            [
-              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
-                _vm._v("\n        mdi-web\n      ")
-              ]),
-              _vm._v("\n      ดูหน้าเว็บ\n    ")
-            ],
-            1
-          ),
+          _vm.item != null
+            ? _c(
+                "v-btn",
+                {
+                  staticClass: "mr-2",
+                  attrs: { color: "primary" },
+                  on: {
+                    click: function($event) {
+                      return _vm.handleClickViewWeb(_vm.item)
+                    }
+                  }
+                },
+                [
+                  _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                    _vm._v("\n        mdi-web\n      ")
+                  ]),
+                  _vm._v("\n      ดูหน้าเว็บ\n    ")
+                ],
+                1
+              )
+            : _vm._e(),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),

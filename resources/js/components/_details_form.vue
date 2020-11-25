@@ -359,6 +359,7 @@
         บันทึก
       </v-btn>
       <v-btn
+        v-if="item != null"
         class="mr-2"
         color="primary"
         @click="handleClickViewWeb(item)"
