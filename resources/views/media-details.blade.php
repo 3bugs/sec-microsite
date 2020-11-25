@@ -4,25 +4,17 @@
 @endsection
 
 @section('content')
-  <section class="container-fluid bg_breadcrumb">
-    <div class="row">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 pagebreadcrumb">
-            <a href="/">&#60; กลับหน้าแรก</a>
-            <h1>แหล่งข้อมูลระดมทุน</h1>
-            <img src="/images/bc-media.png" class="img_breadcrumb">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  @include('includes.header', [
+    'title' => 'แหล่งข้อมูลระดมทุน',
+    'imageSrc' => '../images/bc-media.png',
+  ])
 
   <section class="container">
     <div class="row">
       <div class="col-12 headpage headpage_detail_wol">
         <a href="/media">&#60; กลับ</a>
       </div>
+
       <div class="col-12 wrap_video wrap_video_wl">
         <div>
           {!! $item->content !!}

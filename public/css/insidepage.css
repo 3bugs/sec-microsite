@@ -320,9 +320,14 @@ body {
   list-style-type: decimal;
 }
 
-.detailfd_text li {
+.detailfd_text ol li {
   margin-bottom: 0.8em;
   margin-left: 3em;
+}
+
+.detailfd_text ul li {
+  margin-bottom: 0.8em;
+  margin-left: 4em;
 }
 
 .detailfd_text ul li:last-child {
@@ -339,6 +344,10 @@ body {
   font-size: 2rem;
   margin-top: 2em;
   margin-bottom: 0.75em;
+}
+
+.detailfd_text h2:first-child {
+  margin-top: 1em;
 }
 
 .detailfd_text h3 {

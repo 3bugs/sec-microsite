@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <title>SEC Microsite - Back Office</title>
+  <title>SEC MICROSITE - Back Office</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,6 +17,9 @@
     }
     .v-list-group .v-list-group__header .v-list-item__icon.v-list-group__header__append-icon {
       min-width: 0 !important;
+    }
+    .v-btn {
+      letter-spacing: 0;
     }
   </style>
 </head>

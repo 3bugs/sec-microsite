@@ -2395,6 +2395,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2559,6 +2573,9 @@ __webpack_require__(/*! ./th */ "./resources/js/components/th.js"); //import Tha
     }
   },
   methods: {
+    handleClickViewWeb: function handleClickViewWeb(item) {
+      window.open("/".concat(this.tableName, "/").concat(item.id));
+    },
     handleChangeDate: function handleChangeDate() {
       if (this.date.length === 2) {
         if (this.date[0] >= this.date[1]) {
@@ -5249,7 +5266,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.v-input .v-label {\n  height: 30px;\n  line-height: 35px;\n}\n.v-text-field .v-label {\n   top: 0;\n}\n.v-date-picker-title__date {\n  font-size: 28px;\n}\n.ck-editor__editable {\n  min-height: 0;\n}\n.ck-content p, .ck-content li {\n  color: #666;\n}\n.ck-content li {\n  margin-bottom: 0.8em;\n  margin-left: 2em;\n}\n.ck-content ul li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content ol li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content h2 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h3 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h4 {\n  color: #222831;\n  font-weight: normal;\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n}\n.ck-content img {\n  margin: 1rem 0;\n  border: 1px solid #e0e0e0;\n}\n", ""]);
+exports.push([module.i, "\n.v-input .v-label {\n  height: 30px;\n  line-height: 35px;\n}\n.v-text-field .v-label {\n   top: 0;\n}\n.v-date-picker-title__date {\n  font-size: 28px;\n}\n.ck-editor__editable {\n  min-height: 0;\n}\n.ck-content p, .ck-content li {\n  color: #666;\n}\n.ck-content ol li {\n  margin-bottom: 0.8em;\n  margin-left: 2em;\n}\n.ck-content ul li {\n  margin-bottom: 0.8em;\n  margin-left: 3em;\n}\n.ck-content ul li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content ol li:last-child {\n  margin-bottom: 2em;\n}\n.ck-content h2 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h3 {\n  color: #10375C;\n  font-weight: normal;\n  margin-top: 1.8em;\n  margin-bottom: 0.75em;\n}\n.ck-content h4 {\n  color: #222831;\n  font-weight: normal;\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n}\n.ck-content img {\n  margin: 1rem 0;\n  border: 1px solid #e0e0e0;\n}\n", ""]);
 
 // exports
 
@@ -24379,6 +24396,7 @@ var render = function() {
           _c(
             "v-btn",
             {
+              staticClass: "mr-2",
               attrs: {
                 disabled: !_vm.valid || _vm.isSaving || _vm.isDeleting,
                 color: "success",
@@ -24391,6 +24409,26 @@ var render = function() {
                 _vm._v("\n        mdi-content-save\n      ")
               ]),
               _vm._v("\n      บันทึก\n    ")
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              staticClass: "mr-2",
+              attrs: { color: "primary" },
+              on: {
+                click: function($event) {
+                  return _vm.handleClickViewWeb(_vm.item)
+                }
+              }
+            },
+            [
+              _c("v-icon", { staticClass: "mr-2", attrs: { small: "" } }, [
+                _vm._v("\n        mdi-web\n      ")
+              ]),
+              _vm._v("\n      ดูหน้าเว็บ\n    ")
             ],
             1
           ),

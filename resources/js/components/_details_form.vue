@@ -344,6 +344,7 @@
       class="pb-5"
     >
       <v-btn
+        class="mr-2"
         :disabled="!valid || isSaving || isDeleting"
         color="success"
         @click="validate"
@@ -356,6 +357,19 @@
           mdi-content-save
         </v-icon>
         บันทึก
+      </v-btn>
+      <v-btn
+        class="mr-2"
+        color="primary"
+        @click="handleClickViewWeb(item)"
+      >
+        <v-icon
+          small
+          class="mr-2"
+        >
+          mdi-web
+        </v-icon>
+        ดูหน้าเว็บ
       </v-btn>
       <v-spacer/>
       <v-dialog
@@ -605,6 +619,10 @@ export default {
     }
   },
   methods: {
+    handleClickViewWeb(item) {
+      window.open(`/${this.tableName}/${item.id}`);
+    },
+
     handleChangeDate() {
       if (this.date.length === 2) {
         if (this.date[0] >= this.date[1]) {
@@ -844,9 +862,14 @@ export default {
   color: #666;
 }
 
-.ck-content li {
+.ck-content ol li {
   margin-bottom: 0.8em;
   margin-left: 2em;
+}
+
+.ck-content ul li {
+  margin-bottom: 0.8em;
+  margin-left: 3em;
 }
 
 .ck-content ul li:last-child {

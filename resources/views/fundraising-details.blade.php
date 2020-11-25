@@ -21,19 +21,10 @@
 @endsection
 
 @section('content')
-  <section class="container-fluid bg_breadcrumb">
-    <div class="row">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 pagebreadcrumb">
-            <a href="/">&#60; กลับหน้าแรก</a>
-            <h1>ช่องทางการระดมทุน</h1>
-            <img src="/images/bc-fundraising.png" class="img_breadcrumb">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  @include('includes.header', [
+    'title' => 'เครื่องมือระดมทุน',
+    'imageSrc' => '../images/bc-fundraising.png',
+  ])
 
   <section class="container">
     <div class="row">
