@@ -33,7 +33,10 @@ class MediaController extends Controller
       $media->content
     );
 
-    if ($media->category_id > 2) {
+    return view('fundraising-details', [
+      'item' => $media,
+    ]);
+    /*if ($media->category_id > 2) {
       return view('media-details', [
         'item' => $media,
       ]);
@@ -41,6 +44,6 @@ class MediaController extends Controller
       return view('fundraising-details', [
         'item' => $media,
       ]);
-    }
+    }*/
   }
 }
