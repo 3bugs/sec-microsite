@@ -25,7 +25,12 @@
         <ul>
           @for ($i = 0; $i < count($fundraisingCategoryList); $i++)
             @if (count($fundraisingCategoryList[$i]->fundraisings) > 0)
-              <li class="{{ $i === 0 ? 'active' : '' }}"><a href="#{{ FUNDRAISING_CATEGORY.$fundraisingCategoryList[$i]->id }}">{{ $fundraisingCategoryList[$i]->title }}</a></li>
+              <li class="{{ $i === 0 ? 'active' : '' }}">
+                <a href="#{{ FUNDRAISING_CATEGORY.$fundraisingCategoryList[$i]->id }}">
+                  {{ $fundraisingCategoryList[$i]->title }}
+                  <span style="float: right"><i class="fa fa-chevron-down"></i></span>
+                </a>
+              </li>
             @endif
           @endfor
         </ul>
