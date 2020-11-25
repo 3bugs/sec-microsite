@@ -22,14 +22,14 @@
 
 @section('content')
   @include('includes.header', [
-    'title' => 'แหล่งข้อมูลระดมทุน',
-    'imageSrc' => 'images/bc-media.png',
+    'title' => 'SEC EVENT',
+    'imageSrc' => 'images/bc-event.png',
   ])
 
   <section class="container">
     <div class="row">
       <div class="col-12 headpage headpage_detail">
-        <a href="/media">&#60; กลับ</a>
+        <a href="/event">&#60; กลับ</a>
         <h2>{{ $item->title }}</h2>
         <p>{{ $item->description }}</p>
       </div>

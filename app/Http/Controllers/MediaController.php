@@ -36,7 +36,7 @@ class MediaController extends Controller
 
     $media->content = str_replace('<a href', '<a target="_blank" href', $media->content);
 
-    return view('fundraising-details', [
+    return view('media-details', [
       'item' => $media,
     ]);
     /*if ($media->category_id > 2) {

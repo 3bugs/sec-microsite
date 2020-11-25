@@ -83,7 +83,7 @@ class EventController extends Controller
 
     $event->content = str_replace('<a href', '<a target="_blank" href', $event->content);
 
-    return view('fundraising-details', [
+    return view('event-details', [
       'item' => $event,
     ]);
   }
