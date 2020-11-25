@@ -20,6 +20,8 @@ use App\Http\Controllers\VisionController;
 |
 */
 
+app('debugbar')->disable();
+
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/survey', function () {

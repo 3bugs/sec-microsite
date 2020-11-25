@@ -38,6 +38,8 @@ class FundraisingController extends Controller
       $fundraising->content
     );
 
+    $fundraising->content = str_replace('<a href', '<a target="_blank" href', $fundraising->content);
+
     return view('fundraising-details', [
       'item' => $fundraising,
     ]);
