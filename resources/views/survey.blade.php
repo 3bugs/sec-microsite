@@ -131,6 +131,9 @@
 @endsection
 
 @section('script')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+          integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+          crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
   <script>
@@ -381,6 +384,7 @@
         resultPageList: [],
         buttonText: null,
         buttonClickUrl: null,
+        isSubmitting: false,
       },
       methods: {
         handleClickStartSurvey() {
@@ -439,7 +443,26 @@
             window.scrollTo(0, 0);
             surveyEnd.fadeIn(300, () => {
             });
+
+            const result = resultList.reduce((total, item, index) => {
+              return total += (index === 0 ? '' : ',') + item;
+            }, '');
+            this.submitResult(result);
           });
+        },
+        submitResult(result) {
+          this.isSubmitting = true;
+          axios.post(`/api/survey`, {
+            result,
+          })
+            .then(response => {
+            })
+            .catch(error => {
+              console.log(error);
+            })
+            .then(() => { // always executed
+              this.isSumitting = false;
+            });
         }
       }
     });
