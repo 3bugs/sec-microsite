@@ -58,4 +58,5 @@ Route::get('/vision', [ApiVisionController::class, 'index']);
 Route::post('/vision', [ApiVisionController::class, 'store']);
 Route::post('/vision/upload-file', [ApiVisionController::class, 'storeUploadFile']);
 
+Route::get('/survey', [ApiSurveyController::class, 'index']);
 Route::post('/survey', [ApiSurveyController::class, 'store']);

@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiSurveyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/SurveyResult.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_25_075653_create_survey_results_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SEC Microsite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEC Microsite.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/pages/survey-results.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/survey.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/survey.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiSurveyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiSurveyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +167,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/pages" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -191,10 +190,10 @@
       <recent name="$PROJECT_DIR$/resources/views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/pages" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/public/images/survey-results" />
-      <recent name="$PROJECT_DIR$/resources/js/pages" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
   </component>
@@ -264,14 +263,7 @@
       <workItem from="1606027298386" duration="25419000" />
       <workItem from="1606098529015" duration="50423000" />
       <workItem from="1606225819664" duration="10020000" />
-      <workItem from="1606269470871" duration="21126000" />
-    </task>
-    <task id="LOCAL-00050" summary="front: css">
-      <created>1604987881302</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1604987881302</updated>
+      <workItem from="1606269470871" duration="22921000" />
     </task>
     <task id="LOCAL-00051" summary="back: css">
       <created>1604987993879</created>
@@ -609,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606289234681</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="front: submit survey result">
+      <created>1606294530590</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1606294530590</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +616,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: contact" />
     <MESSAGE value="front: event หน้า home" />
     <MESSAGE value="front: css หน้า event" />
     <MESSAGE value="front: ปรับหน้า survey" />
@@ -642,7 +640,8 @@
     <MESSAGE value="front: ปรับการแสดง chevron-down icon" />
     <MESSAGE value="front: ปรับ css" />
     <MESSAGE value="back: ซ่อนปุ่มดูหน้าเว็บ ตอน add ข้อมูล" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: ซ่อนปุ่มดูหน้าเว็บ ตอน add ข้อมูล" />
+    <MESSAGE value="front: submit survey result" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: submit survey result" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -658,16 +657,16 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1871" y="24" width="1415" height="1056" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604311505085" />
-    <state x="2064" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606108300549">
+    <state x="2064" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606295691292">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606108300549" />
+    <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606295691292" />
     <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606046918582" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606289234339">
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606294530378">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606289234339" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606294530378" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606241885693" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1605325585878">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -725,11 +724,11 @@
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606279209811" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606238931522" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606289236580">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606294531760">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606289236580" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606294531760" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606241888147" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -757,10 +756,10 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1928" y="109" width="1212" height="904" key="org.intellij.images.editor.actions.BackgroundImageDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604385655900" />
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1606292842245">
+    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1606295682726">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606292842245" />
+    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606295682726" />
     <state x="2575" y="236" width="672" height="160" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606243492255" />
     <state x="698" y="255" width="672" height="663" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@65.24.1855.1056" timestamp="1605328987715" />
   </component>

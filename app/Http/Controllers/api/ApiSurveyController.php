@@ -13,6 +13,23 @@ class ApiSurveyController extends Controller
     app('debugbar')->disable();
   }
 
+  public function index(Request $request)
+  {
+    try {
+      $surveyResultList = SurveyResult::orderBy('id', 'asc')->get();
+
+      return json_encode(array(
+        'status' => 'ok',
+        'data_list' => $surveyResultList,
+      ));
+    } catch (Exception $e) {
+      return json_encode(array(
+        'status' => 'error',
+        'message' => $e->getMessage(),
+      ));
+    }
+  }
+
   public function store(Request $request)
   {
     try {

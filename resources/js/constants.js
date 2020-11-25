@@ -8,6 +8,7 @@ import Event from './pages/event';
 import EventCategory from './pages/event-category';
 import Contact from './pages/contact';
 import Vision from './pages/vision';
+import SurveyResults from './pages/survey-results';
 
 export const routeDataList = [
   {
@@ -114,6 +115,14 @@ export const routeDataList = [
     title: 'ก.ล.ต. กับ SMEs',
     menuTitle: 'ก.ล.ต. กับ SMEs',
     menuIconName: 'mdi-lightbulb-on-outline'
+  },
+  {
+    path: '/survey-results',
+    name: 'survey-results',
+    component: SurveyResults,
+    title: 'Survey Results',
+    menuTitle: 'Survey Results',
+    menuIconName: 'mdi-chart-bar'
   },
 ];
 
