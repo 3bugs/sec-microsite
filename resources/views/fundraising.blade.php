@@ -73,18 +73,17 @@
       const $myNavBar = $('.my-navbar');
       const $chevronDown = $('.chevron-down');
 
-      if (Modernizr.mq('(max-width: 767px)')) {
-        $chevronDown.show();
-      } else {
-        $chevronDown.hide();
-      }
-      
-      $(window).resize(function () {
+      function handleResizeWindow() {
         if (Modernizr.mq('(max-width: 767px)')) {
           $chevronDown.show();
         } else {
           $chevronDown.hide();
         }
+      }
+
+      handleResizeWindow();
+      $(window).resize(function () {
+        handleResizeWindow();
       });
 
       $('.isp_sidebar ul li').click(function (event) {
