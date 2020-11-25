@@ -108,7 +108,7 @@
       </div>
     </div>
 
-    <div class="survey-footer p-3 mr-0 color-inactive text-center">
+    {{--<div class="survey-footer p-3 mr-0 color-inactive text-center">
       <div class="container">
         <div class="row mb-2">
           <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-2"><a href="#">Link goes here</a></div>
@@ -121,7 +121,7 @@
           <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-2"><a href="#">Link goes here</a></div>
         </div>
       </div>
-    </div>
+    </div>--}}
 
     <div v-if="imageVisible">
       <img id="curve-image" src="images/curve.svg">

@@ -26,6 +26,10 @@ class FundraisingController extends Controller
   {
     $fundraising = Fundraising::find($id);
 
+    /* link อันนี้มีปัญหา ทำให้ content ทั้งหมดไม่แสดงเลย
+    <figure class="media"><oembed url="https://www.youtube.com/watch?v=54Z5DE25iZ0&amp;feature=emb_title"></oembed></figure>
+     */
+
     $pattern = '#<figure class="media"><oembed url="(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"></oembed></figure>#U';
     $fundraising->content = preg_replace(
       $pattern,
