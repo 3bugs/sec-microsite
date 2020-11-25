@@ -28,7 +28,7 @@
               <li class="{{ $i === 0 ? 'active' : '' }}">
                 <a href="#{{ FUNDRAISING_CATEGORY.$fundraisingCategoryList[$i]->id }}">
                   {{ $fundraisingCategoryList[$i]->title }}
-                  <span style="float: right"><i class="fa fa-chevron-down"></i></span>
+                  <span class="chevron-down" style="float: right"><i class="fa fa-chevron-down"></i></span>
                 </a>
               </li>
             @endif
@@ -71,6 +71,21 @@
   <script>
     $(document).ready(function () {
       const $myNavBar = $('.my-navbar');
+      const $chevronDown = $('.chevron-down');
+
+      if (Modernizr.mq('(max-width: 767px)')) {
+        $chevronDown.show();
+      } else {
+        $chevronDown.hide();
+      }
+      
+      $(window).resize(function () {
+        if (Modernizr.mq('(max-width: 767px)')) {
+          $chevronDown.show();
+        } else {
+          $chevronDown.hide();
+        }
+      });
 
       $('.isp_sidebar ul li').click(function (event) {
         if ($('.isp_sidebar ul li:not(".active")').is(':hidden')) {
