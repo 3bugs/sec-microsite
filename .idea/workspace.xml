@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FundraisingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FundraisingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/insidepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/insidepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/survey.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/survey.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,21 +258,7 @@
       <workItem from="1606027298386" duration="25419000" />
       <workItem from="1606098529015" duration="50423000" />
       <workItem from="1606225819664" duration="10020000" />
-      <workItem from="1606269470871" duration="8525000" />
-    </task>
-    <task id="LOCAL-00039" summary="front: แก้ข้อความ">
-      <created>1604934415516</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1604934415516</updated>
-    </task>
-    <task id="LOCAL-00040" summary="front: แก้ข้อความ">
-      <created>1604936251639</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1604936251639</updated>
+      <workItem from="1606269470871" duration="8990000" />
     </task>
     <task id="LOCAL-00041" summary="front: css">
       <created>1604937220940</created>
@@ -606,7 +589,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606276420480</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="front: ปรับ css">
+      <created>1606278555046</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1606278555046</updated>
+    </task>
+    <task id="LOCAL-00089" summary="front: ปรับ css">
+      <created>1606278638534</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1606278638534</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,7 +611,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: disable delete event categories" />
     <MESSAGE value="front: event" />
     <MESSAGE value="front: event load progress indicator" />
     <MESSAGE value="back: วันเริ่มต้น-สิ้นสุดอีเวนต์" />
@@ -639,7 +635,8 @@
     <MESSAGE value="front/back: ปรับแก้หลายอย่าง" />
     <MESSAGE value="front: ปรับ media details" />
     <MESSAGE value="front: fix youtube video tag replace in media controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: fix youtube video tag replace in media controller" />
+    <MESSAGE value="front: ปรับ css" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: ปรับ css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -660,11 +657,11 @@
     </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606108300549" />
     <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606046918582" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606276420216">
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606278638431">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606276420216" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606278638431" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606241885693" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1605325585878">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -722,11 +719,11 @@
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606212224231" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606238931522" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606276421747">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606278639490">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606276421747" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606278639490" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606241888147" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -754,10 +751,10 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1928" y="109" width="1212" height="904" key="org.intellij.images.editor.actions.BackgroundImageDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604385655900" />
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1606278125575">
+    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1606278734711">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606278125575" />
+    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606278734711" />
     <state x="2575" y="236" width="672" height="160" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606243492255" />
     <state x="698" y="255" width="672" height="663" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@65.24.1855.1056" timestamp="1605328987715" />
   </component>
