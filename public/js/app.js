@@ -86956,7 +86956,7 @@ var MyUploadAdapter = /*#__PURE__*/function () {
            // Send the request.
           this.xhr.send(data);
         });*/
-      this.resize(file, 1000, 1000, function (resizedFile) {
+      this.resize(file, 1110, 0, function (resizedFile) {
         // Prepare the form data.
         var data = new FormData();
         data.append('upload', resizedFile); // Important note: This is the right place to implement security mechanisms
@@ -87007,28 +87007,34 @@ var MyUploadAdapter = /*#__PURE__*/function () {
         if (this.width === 0 || this.height === 0) {
           alert('Image is empty');
         } else {
-          if (this.width > this.height) {
+          /*if (this.width > this.height) {
             maxHeight = this.height * maxWidth / this.width;
           } else {
             maxWidth = this.width * maxHeight / this.height;
           }
-
           if (maxWidth > this.width) {
             maxWidth = this.width;
             maxHeight = this.height;
+          }*/
+          var w = this.width;
+          var h = this.height; // สนใจความกว้างอย่างเดียว ไม่สนใจความสูง
+
+          if (this.width > maxWidth) {
+            w = maxWidth;
+            h = this.height * maxWidth / this.width;
           } //create a hidden canvas object we can use to create the new resized image data
 
 
           canvas.id = "hiddenCanvas";
-          canvas.width = maxWidth;
-          canvas.height = maxHeight;
+          canvas.width = w;
+          canvas.height = h;
           canvas.style.display = 'none'; //canvas.style.visibility = "hidden";
 
           document.body.appendChild(canvas); //get the context to use
 
           context = canvas.getContext('2d');
-          context.clearRect(0, 0, maxWidth, maxHeight);
-          context.drawImage(imageObj, 0, 0, this.width, this.height, 0, 0, maxWidth, maxHeight); //dataURItoBlob function available here:
+          context.clearRect(0, 0, w, h);
+          context.drawImage(imageObj, 0, 0, this.width, this.height, 0, 0, w, h); //dataURItoBlob function available here:
           // http://stackoverflow.com/questions/12168909/blob-from-dataurl
           // add ')' at the end of this function SO dont allow to update it without a 6 character edit
           //blob = dataURItoBlob(canvas.toDataURL(imageEncoding));

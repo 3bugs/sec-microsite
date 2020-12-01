@@ -99,7 +99,7 @@ export default class MyUploadAdapter {
         this.xhr.send(data);
       });*/
 
-    this.resize(file, 1000, 1000, (resizedFile) => {
+    this.resize(file, 1110, 0, (resizedFile) => {
       // Prepare the form data.
       const data = new FormData();
       data.append('upload', resizedFile);
@@ -152,7 +152,7 @@ export default class MyUploadAdapter {
       if (this.width === 0 || this.height === 0) {
         alert('Image is empty');
       } else {
-        if (this.width > this.height) {
+        /*if (this.width > this.height) {
           maxHeight = this.height * maxWidth / this.width;
         } else {
           maxWidth = this.width * maxHeight / this.height;
@@ -160,12 +160,20 @@ export default class MyUploadAdapter {
         if (maxWidth > this.width) {
           maxWidth = this.width;
           maxHeight = this.height;
+        }*/
+
+        let w = this.width;
+        let h = this.height;
+        // สนใจความกว้างอย่างเดียว ไม่สนใจความสูง
+        if (this.width > maxWidth) {
+          w = maxWidth;
+          h = this.height * maxWidth / this.width;
         }
 
         //create a hidden canvas object we can use to create the new resized image data
         canvas.id = "hiddenCanvas";
-        canvas.width = maxWidth;
-        canvas.height = maxHeight;
+        canvas.width = w;
+        canvas.height = h;
         canvas.style.display = 'none';
         //canvas.style.visibility = "hidden";
         document.body.appendChild(canvas);
@@ -173,8 +181,8 @@ export default class MyUploadAdapter {
         //get the context to use
         context = canvas.getContext('2d');
 
-        context.clearRect(0, 0, maxWidth, maxHeight);
-        context.drawImage(imageObj, 0, 0, this.width, this.height, 0, 0, maxWidth, maxHeight);
+        context.clearRect(0, 0, w, h);
+        context.drawImage(imageObj, 0, 0, this.width, this.height, 0, 0, w, h);
 
         //dataURItoBlob function available here:
         // http://stackoverflow.com/questions/12168909/blob-from-dataurl
