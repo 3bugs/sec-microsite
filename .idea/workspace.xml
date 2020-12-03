@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/menu05-old.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/menu06-old.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/my_upload_adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/my_upload_adapter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FundraisingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FundraisingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MediaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MediaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Fundraising.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fundraising.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/FundraisingCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FundraisingCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Media.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Media.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MediaCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MediaCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_21_023043_create_fundraisings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_21_023043_create_fundraisings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_30_040747_create_media_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_30_040747_create_media_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/menu05-old.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/menu05-old2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/menu05.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/menu05.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/menu06.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/menu06.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +176,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -179,19 +191,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/resources/js/pages" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/public/images/survey-results" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public/menu05a.svg" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/_old" />
       <recent name="$PROJECT_DIR$/resources/js" />
       <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/js/pages" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/public/images/survey-results" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
   </component>
   <component name="RunManager">
@@ -261,14 +273,8 @@
       <workItem from="1606098529015" duration="50423000" />
       <workItem from="1606225819664" duration="10020000" />
       <workItem from="1606269470871" duration="25014000" />
-      <workItem from="1606805771271" duration="1595000" />
-    </task>
-    <task id="LOCAL-00052" summary="front+back: css">
-      <created>1604988869127</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1604988869127</updated>
+      <workItem from="1606805771271" duration="3475000" />
+      <workItem from="1606964478706" duration="7222000" />
     </task>
     <task id="LOCAL-00053" summary="back: css">
       <created>1604989052398</created>
@@ -606,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606296263099</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="back: ขนาด (dimension) รูปที่อัพโหลด">
+      <created>1606807442064</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1606807442065</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,7 +627,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: css หน้า event" />
     <MESSAGE value="front: ปรับหน้า survey" />
     <MESSAGE value="back: fix กรณี int ถูกส่งไปเป็น string" />
     <MESSAGE value="front: link ผลลัพธ์หน้า survey" />
@@ -639,7 +651,8 @@
     <MESSAGE value="back: ซ่อนปุ่มดูหน้าเว็บ ตอน add ข้อมูล" />
     <MESSAGE value="front: submit survey result" />
     <MESSAGE value="back: display survey result" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: display survey result" />
+    <MESSAGE value="back: ขนาด (dimension) รูปที่อัพโหลด" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: ขนาด (dimension) รูปที่อัพโหลด" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="200" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603441358919">
@@ -660,11 +673,11 @@
     </state>
     <state x="2064" y="297" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606295691292" />
     <state x="2618" y="297" width="524" height="482" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606046918582" />
-    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606296262718">
+    <state x="1431" y="24" width="1920" height="1056" key="CommitChangelistDialog2" timestamp="1606807441378">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="65" y="-4" width="1855" height="1084" key="CommitChangelistDialog2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342212518" />
-    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606296262718" />
+    <state x="1431" y="24" width="1855" height="1056" key="CommitChangelistDialog2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606807441378" />
     <state x="1920" y="24" width="1920" height="1056" key="CommitChangelistDialog2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606241885693" />
     <state x="2700" y="297" key="FileChooserDialogImpl" timestamp="1605325585878">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -722,11 +735,11 @@
     </state>
     <state width="654" height="446" key="SwitcherDM/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606279209811" />
     <state width="654" height="446" key="SwitcherDM/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606238931522" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606296264302">
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2" timestamp="1606807443704">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2486" y="275" key="Vcs.Push.Dialog.v2/0.24.1920.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603342214034" />
-    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606296264302" />
+    <state x="1958" y="275" key="Vcs.Push.Dialog.v2/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606807443704" />
     <state x="2512" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606241888147" />
     <state x="2638" y="355" width="484" height="362" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603456149482">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -754,10 +767,10 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1928" y="109" width="1212" height="904" key="org.intellij.images.editor.actions.BackgroundImageDialog/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1604385655900" />
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1606295682726">
+    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1606978324196">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606295682726" />
+    <state x="2021" y="236" width="672" height="678" key="search.everywhere.popup/1366.0.1920.1080/0.312.1366.768@1366.0.1920.1080" timestamp="1606978324196" />
     <state x="2575" y="236" width="672" height="160" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606243492255" />
     <state x="698" y="255" width="672" height="663" key="search.everywhere.popup/65.24.1855.1056/1920.0.1920.1080@65.24.1855.1056" timestamp="1605328987715" />
   </component>

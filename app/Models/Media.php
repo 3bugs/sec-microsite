@@ -9,7 +9,7 @@ class Media extends Model
 {
   use HasFactory;
 
-  protected $casts = ['id' => 'integer', 'category_id' => 'integer', 'published' => 'integer', 'pinned' => 'integer'];
+  protected $casts = ['id' => 'integer', 'category_id' => 'integer', 'published' => 'integer', 'pinned' => 'integer', 'sort_index' => 'integer'];
 
   public function mediaCategory()
   {

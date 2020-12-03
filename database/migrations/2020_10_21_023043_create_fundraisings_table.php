@@ -23,6 +23,7 @@ class CreateFundraisingsTable extends Migration
       $table->longText('content');
       $table->boolean('published')->default(1);
       $table->boolean('pinned')->default(0);
+      $table->integer('sort_index')->default(0);
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
     });

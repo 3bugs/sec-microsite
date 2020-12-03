@@ -14,6 +14,8 @@ class MediaCategory extends Model
   public function media()
   {
     return $this->hasMany(Media::class, 'category_id', 'id')
-      ->where('media.published', '=', 1);
+      ->where('media.published', '=', 1)
+      ->orderBy('media.category_id', 'asc')
+      ->orderBy('media.sort_index', 'asc');
   }
 }

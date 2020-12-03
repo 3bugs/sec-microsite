@@ -14,6 +14,8 @@ class FundraisingCategory extends Model
   public function fundraisings()
   {
     return $this->hasMany(Fundraising::class, 'category_id', 'id')
-      ->where('fundraisings.published', '=', 1);
+      ->where('fundraisings.published', '=', 1)
+      ->orderBy('fundraisings.category_id', 'asc')
+      ->orderBy('fundraisings.sort_index', 'asc');
   }
 }
