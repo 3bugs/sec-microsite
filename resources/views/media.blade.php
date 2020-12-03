@@ -15,9 +15,33 @@
 
   <section class="container">
     <div class="row">
+      <!--ข้อมูลที่ต้องรู้-->
+      <div class="col-12 headpage">
+        <h2>ข้อมูลที่ต้องรู้</h2>
+        <p>ข้อมูลสำคัญสำหรับผู้ระดมทุนและผู้ลงทุน</p>
+        <div class="row">
+          @for ($i = 0; $i < count($mediaCategoryList); $i++)
+            @if ($mediaCategoryList[$i]->id === 2)
+              @foreach ($mediaCategoryList[$i]->media as $media)
+                <figure class="col-12 col-md-4 item_fundraising">
+                  <a href="media/{{ $media->id }}">
+                    <div><img src="{{ Storage::url($media->cover_image) }}"></div>
+                    <figcaption>
+                      <h4>{{ $media->title }}</h4>
+                      <p>{{ $media->description }}</p>
+                    </figcaption>
+                  </a>
+                </figure>
+              @endforeach
+            @endif
+          @endfor
+        </div>
+      </div>
+
       <div class="col-12 headpage">
         <h2>สื่อการเรียนรู้ระดมทุน</h2>
-        <p>ท่านสามารถรับชมคลิปวิดีโอที่มีเนื้อหาเกี่ยวข้องกับการระดมทุนในรูปแบบต่าง ๆ ตามที่ท่านต้องการได้ โดยในแต่ละหัวข้อจะแบ่งออกเป็นเรื่องย่อยที่มีเนื้อหาเกี่ยวข้องกัน เพื่อท่านเห็นภาพกระบวนการระดมทุนในหลากหลายรูปแบบได้อย่างชัดเจนมากยิ่งขึ้น รวมถึงมีความเข้าใจและนำไปสู่การเตรียมความพร้อมในการเข้าระดมทุนผ่านตลาดทุนได้ในที่สุด</p>
+        <p>ท่านสามารถรับชมคลิปวิดีโอที่มีเนื้อหาเกี่ยวข้องกับการระดมทุนในรูปแบบต่าง ๆ ตามที่ท่านต้องการได้ โดยในแต่ละหัวข้อจะแบ่งออกเป็นเรื่องย่อยที่มีเนื้อหาเกี่ยวข้องกัน
+          เพื่อท่านเห็นภาพกระบวนการระดมทุนในหลากหลายรูปแบบได้อย่างชัดเจนมากยิ่งขึ้น รวมถึงมีความเข้าใจและนำไปสู่การเตรียมความพร้อมในการเข้าระดมทุนผ่านตลาดทุนได้ในที่สุด</p>
       </div>
     </div>
     <div class="row">
@@ -65,29 +89,6 @@
         <div class="row">
           @for ($i = 0; $i < count($mediaCategoryList); $i++)
             @if ($mediaCategoryList[$i]->id === 1)
-              @foreach ($mediaCategoryList[$i]->media as $media)
-                <figure class="col-12 col-md-4 item_fundraising">
-                  <a href="media/{{ $media->id }}">
-                    <div><img src="{{ Storage::url($media->cover_image) }}"></div>
-                    <figcaption>
-                      <h4>{{ $media->title }}</h4>
-                      <p>{{ $media->description }}</p>
-                    </figcaption>
-                  </a>
-                </figure>
-              @endforeach
-            @endif
-          @endfor
-        </div>
-      </div>
-
-      <!--ลิ้งค์อื่นๆ ที่เกี่ยวข้อง-->
-      <div class="col-12 relate_fd">
-        <h3>ข้อมูลที่ต้องรู้</h3>
-        <p>ข้อมูลสำคัญสำหรับผู้ระดมทุนและผู้ลงทุน</p>
-        <div class="row">
-          @for ($i = 0; $i < count($mediaCategoryList); $i++)
-            @if ($mediaCategoryList[$i]->id === 2)
               @foreach ($mediaCategoryList[$i]->media as $media)
                 <figure class="col-12 col-md-4 item_fundraising">
                   <a href="media/{{ $media->id }}">
