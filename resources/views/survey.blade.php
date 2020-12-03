@@ -161,7 +161,7 @@
         questionText: 'การจัดตั้งธุรกิจของท่านเป็นแบบใด ?',
         choiceList: [
           {text: 'จัดตั้ง\nเป็นบริษัท', value: false, nextQuestion: 1},
-          {text: 'ไม่จด\nทะเบียนบริษัท', value: false, nextQuestion: -1, resultList: ['x']},
+          {text: 'บุคคลธรรมดาหรือ\nห้างหุ้นส่วนจำกัด', value: false, nextQuestion: -1, resultList: ['x']},
           /*
           เพื่อเริ่มต้นเข้าสู่กระบวนการระดมทุนภายใต้โครงการส่งเสริมการระดมทุนผ่านตลาดทุน อย่างน้อยกิจการของท่านจำเป็นต้องจัดตั้งเป็น “บริษัทจำกัด” โดยท่านสามารถเริ่มต้นศึกษารายละเอียดการจดทะเบียนจัดตั้งบริษัทได้ที่ กรมพัฒนาธุรกิจการค้า กระทรวงพาณิชย์”
 ศึกษาข้อมูลเพิ่มเติมได้ที่ (Link ไปที่ >>> https://www.dbd.go.th/news_view.php?nid=369)
@@ -209,8 +209,8 @@
       { // 3
         questionText: 'ท่านต้องการหาเงินทุนด้วยวิธีการใด ?',
         choiceList: [
-          {text: 'อยากกู้ยืม', value: false, nextQuestion: -1, resultList: ['a', 'c']},
-          {text: 'อยากหาคน\nร่วมลงทุน', value: false, nextQuestion: -1, resultList: ['b', 'd']},
+          {text: 'อยากยืมเงิน\nจากผู้ลงทุน', value: false, nextQuestion: -1, resultList: ['a', 'c']},
+          {text: 'อยากหาคน\nร่วมลงทุนเป็นเจ้าของ', value: false, nextQuestion: -1, resultList: ['b', 'd']},
         ],
       },
       { // 4

@@ -43,7 +43,7 @@ class HomeController extends Controller
       array(
         'id' => 4,
         'title' => 'SEC Event',
-        'text' => '',
+        'text' => 'ปฏิทินกิจกรรมที่น่าสนใจสำหรับผู้ประกอบการ SMEs และ Startups ที่จัดขึ้นในหลากหลายรูปแบบ อาทิ งานสัมมนา Webinar Business Matching และ คลินิกระดมทุน',
         'buttonText' => 'ดูเพิ่มเติม',
         'buttonMarginTop' => 20,
       ),
