@@ -12,8 +12,9 @@ class Utils
     $dateParts = explode('-', $dateString);
     $day = $dateParts[2];
     $month = $dateParts[1];
-    $year = intval($dateParts[0]) + 543;
-    $year %= 100; // เอาเฉพาะ 2 หลักท้าย
+    $year = $dateParts[0];
+    //$year = intval($dateParts[0]) + 543;
+    //$year %= 100; // เอาเฉพาะ 2 หลักท้าย
     return "${day}.${month}.${year}";
   }
 

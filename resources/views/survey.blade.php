@@ -138,10 +138,10 @@
 
   <script>
     const fundraisingPageList = [
-      {id: 'a', text: 'หุ้นกู้ CFD', pageId: 12},
-      {id: 'b', text: 'หุ้น CFD', pageId: 15},
-      {id: 'c', text: 'PP หุ้นกู้แปลงสภาพ', pageId: 13},
-      {id: 'd', text: 'PP หุ้น', pageId: 18},
+      {id: 'a', text: 'หุ้นกู้ CFD', pageId: 25},
+      {id: 'b', text: 'หุ้น CFD', pageId: 24},
+      {id: 'c', text: 'PP หุ้นกู้แปลงสภาพ', pageId: 23},
+      {id: 'd', text: 'PP หุ้น', pageId: 22},
       {id: 'e', text: 'PO SME', pageId: 0, url: null}, //todo: **********
       {id: 'f', text: 'IPO SET', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LawandRegulations/SharePO.aspx'},
       {id: 'g', text: 'ออกหุ้นกู้', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LawandRegulations/DebtInstrument.aspx'},

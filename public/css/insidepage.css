@@ -680,16 +680,30 @@ body {
   line-height: 1;
 }
 
-.item_hlevent figure a .date_hlevent div {
-  font-size: 35px;
+.item_eventpage figure > a .date_hlevent {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #FFF;
+  text-align: center;
+}
+
+.item_eventpage figure > a .date_hlevent div.month {
+  font-size: 38px;
   line-height: 1;
   font-weight: bold;
 }
 
-.item_hlevent figure a .date_hlevent span {
+.item_eventpage figure > a .date_hlevent div.day {
   font-size: 72px;
-  display: block;
   line-height: 1;
+  font-weight: bold;
+}
+
+.item_eventpage figure > a .date_hlevent div.year {
+  font-size: 30px;
+  line-height: 0.9;
   font-weight: bold;
 }
 
@@ -769,27 +783,18 @@ body {
   opacity: 0.6;
 }
 
-.item_eventpage figure > a .date_hlevent {
-  position: absolute;
-  top: 35px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  color: #FFF;
-  text-align: center;
-}
-
 .item_eventpage figure > a .date_hlevent h6 {
   opacity: 0.5;
   line-height: 1;
   margin-bottom: 15px;
 }
 
-.item_eventpage figure > a .date_hlevent div {
+/*.item_eventpage figure > a .date_hlevent div {
   font-size: 35px;
   line-height: 1;
   font-weight: bold;
   margin-bottom: 10px;
-}
+}*/
 
 .item_eventpage figure > a .date_hlevent span {
   font-size: 72px;

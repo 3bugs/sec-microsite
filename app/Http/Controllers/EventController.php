@@ -57,6 +57,7 @@ class EventController extends Controller
       $event->cover_image = Storage::url($event->cover_image);
       $event->begin_day = explode('-', $event->begin_date)[2];
       $event->begin_month = Utils::getShortMonthName($event->begin_date);
+      $event->begin_year = explode('-', $event->begin_date)[0];
       $event->begin_date_display = Utils::formatDisplayDate($event->begin_date);
       $event->end_date_display = Utils::formatDisplayDate($event->end_date);
     }

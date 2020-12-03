@@ -175,8 +175,9 @@
             <img :src="event.coverImage">
             <div class="date_hlevent">
               <h6>SEC event</h6>
-              <div>@{{ event.beginMonth }}</div>
-              <span>@{{ event.beginDay }}</span>
+              <div class="month">@{{ event.beginMonth }}</div>
+              <div class="day">@{{ event.beginDay }}</div>
+              <div class="year">@{{ event.beginYear }}</div>
             </div>
           </a>
           <figcaption>
@@ -313,6 +314,7 @@
         endTime: '{{ $event->end_time }}',
         beginDay: '{{ $event->begin_day }}',
         beginMonth: '{{ $event->begin_month }}',
+        beginYear: '{{ $event->begin_year }}',
         beginDateDisplay: '{{ $event->begin_date_display }}',
         endDateDisplay: '{{ $event->end_date_display }}',
       },
