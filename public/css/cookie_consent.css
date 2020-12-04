@@ -1,0 +1,226 @@
+/* The Modal (background) */
+#cookie-modal-backdrop {
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  _overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+  color: white;
+}
+
+#cookie-modal-backdrop.open {
+  display: flex !important;
+  animation: fadeIn ease 0.6s;
+  -webkit-animation: fadeIn ease 0.6s;
+  -moz-animation: fadeIn ease 0.6s;
+  -o-animation: fadeIn ease 0.6s;
+  -ms-animation: fadeIn ease 0.6s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#cookie-modal-backdrop a {
+  color: white;
+}
+
+/* Modal Content/Box */
+#cookie-modal-backdrop .cookie-modal {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 95%;
+  max-width: 800px;
+  max-height: 80%;
+  box-sizing: border-box;
+  background-color: #003558;
+  padding: 40px 0;
+  border-radius: 0px;
+  border: 0 solid #888;
+}
+
+#cookie-modal-backdrop .cookie-modal-content {
+  overflow: auto;
+  padding: 0 5% 0;
+}
+
+#cookie-modal-backdrop .cookie-modal-content p {
+  color: white;
+}
+
+/* The Close Button */
+#cookie-modal-backdrop .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#cookie-modal-backdrop .close:hover,
+#cookie-modal-backdrop .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#cookie-modal-backdrop hr {
+  border: none;
+  height: 1px;
+  margin: 25px 0;
+  color: rgba(255, 255, 255, 0.4); /* old IE */
+  background-color: rgba(255, 255, 255, 0.4); /* Modern Browsers */
+}
+
+/* width */
+#cookie-modal-backdrop ::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+#cookie-modal-backdrop ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+#cookie-modal-backdrop ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Handle on hover */
+#cookie-modal-backdrop ::-webkit-scrollbar-thumb:hover {
+  background: #8DC63F;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle {
+  display: inline-block;
+  cursor: pointer;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle-switch {
+  display: inline-block;
+  background: white;
+  border-radius: 16px;
+  width: 50px;
+  height: 22px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle-switch:before {
+  content: '';
+  display: block;
+  background: #a3a3a3;
+  border-radius: 50%;
+  _box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.25s;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle:hover .toggle-switch:before {
+  background: #666;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle-checkbox:checked ~ .toggle-switch {
+  background: #8DC63F;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle-checkbox:checked ~ .toggle-switch:before {
+  left: 30px;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle-label {
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle-checkbox:checked ~ .toggle-label.-off {
+  display: none;
+}
+
+#cookie-modal-backdrop .cc-switch .toggle-checkbox:not(:checked) ~ .toggle-label.-on {
+  display: none;
+}
+
+#cookie-modal-backdrop button {
+  background: #8DC63F;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 30px;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#cookie-modal-backdrop button:hover {
+  cursor: pointer;
+  background: #72A927;
+}
+
+.cookie-trigger small {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cookie-trigger small:hover {
+  cursor: pointer;
+}

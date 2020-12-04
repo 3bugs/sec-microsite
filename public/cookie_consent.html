@@ -73,70 +73,70 @@
 </div>
 
 <script>
-  window.cookieManager = {
-    write: (key, value) => {
-      document.cookie = `${key}=${encodeURIComponent(JSON.stringify(value))}; path=/`
-    },
-    read: key => {
-      const match = document.cookie.match(`(^|[^;]+)\\s*${key}\\s*=\\s*([^;]+)`)
-      if (!match) return undefined
-      return JSON.parse(match.pop())
-    },
-  }
-
-  window.COOKIE_KEYS = {
-    AUTO_SHOW: 'CC_AUTO_SHOW',
-    ALLOW_GA: 'CC_ALLOW_GA',
-  }
-
-  const $ccBackdrop = $('#cookie-modal-backdrop')
-  const $ccModal = $('#cookie-modal-backdrop .modal')
-  const $ccModalTriggerButton = $('#cc-modal-trigger-button')
-  const $ccGaSwitchInput = $('#cc-ga-switch-input')
-  const $ccSaveButton = $('#cc-save-button')
-
-  const panel = {
-    open: () => {
-      $ccBackdrop.addClass('open')
-      //window.ccState.panelOpen = true
-    },
-    close: () => {
-      $ccBackdrop.removeClass('open')
-      //window.ccState.panelOpen = false
-
-      // Save state that autoShow has been done
-      if (!cookieManager.read(COOKIE_KEYS.AUTO_SHOW)) {
-        cookieManager.write(COOKIE_KEYS.AUTO_SHOW, true)
-      }
-    },
-    save: () => {
-      const allowGa = $ccGaSwitchInput.is(':checked')
-      cookieManager.write(COOKIE_KEYS.ALLOW_GA, allowGa)
-
-      // init GA right away if ga is allow and not initialized before
-      if (allowGa && typeof ga === 'undefined') {
-        initGA()
-      }
-    },
-  }
-
-  $ccModalTriggerButton.on('click', event => {
-    panel.open()
-  })
-  $ccBackdrop.on('click', function (event) {
-    if ($(this).is(event.target)) panel.close()
-  })
-  $ccModal.on('click', () => {
-    //alert('no')
-  })
-  $ccSaveButton.on('click', event => {
-    event.preventDefault()
-    panel.save()
-    panel.close()
-  })
-
   // On ready
   $(document).ready(() => {
+    window.cookieManager = {
+      write: (key, value) => {
+        document.cookie = `${key}=${encodeURIComponent(JSON.stringify(value))}; path=/`
+      },
+      read: key => {
+        const match = document.cookie.match(`(^|[^;]+)\\s*${key}\\s*=\\s*([^;]+)`)
+        if (!match) return undefined
+        return JSON.parse(match.pop())
+      },
+    }
+
+    window.COOKIE_KEYS = {
+      AUTO_SHOW: 'CC_AUTO_SHOW',
+      ALLOW_GA: 'CC_ALLOW_GA',
+    }
+
+    const $ccBackdrop = $('#cookie-modal-backdrop')
+    const $ccModal = $('#cookie-modal-backdrop .modal')
+    const $ccModalTriggerButton = $('#cc-modal-trigger-button')
+    const $ccGaSwitchInput = $('#cc-ga-switch-input')
+    const $ccSaveButton = $('#cc-save-button')
+
+    const panel = {
+      open: () => {
+        $ccBackdrop.addClass('open')
+        //window.ccState.panelOpen = true
+      },
+      close: () => {
+        $ccBackdrop.removeClass('open')
+        //window.ccState.panelOpen = false
+
+        // Save state that autoShow has been done
+        if (!cookieManager.read(COOKIE_KEYS.AUTO_SHOW)) {
+          cookieManager.write(COOKIE_KEYS.AUTO_SHOW, true)
+        }
+      },
+      save: () => {
+        const allowGa = $ccGaSwitchInput.is(':checked')
+        cookieManager.write(COOKIE_KEYS.ALLOW_GA, allowGa)
+
+        // init GA right away if ga is allow and not initialized before
+        if (allowGa && typeof ga === 'undefined') {
+          initGA()
+        }
+      },
+    }
+
+    $ccModalTriggerButton.on('click', event => {
+      panel.open()
+    })
+    $ccBackdrop.on('click', function (event) {
+      if ($(this).is(event.target)) panel.close()
+    })
+    $ccModal.on('click', () => {
+      //alert('no')
+    })
+    $ccSaveButton.on('click', event => {
+      event.preventDefault()
+      panel.save()
+      panel.close()
+    })
+
     const autoShow = cookieManager.read(COOKIE_KEYS.AUTO_SHOW)
     const allowGA = cookieManager.read(COOKIE_KEYS.ALLOW_GA)
 

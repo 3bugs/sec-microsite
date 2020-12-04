@@ -8,6 +8,7 @@ use App\Http\Controllers\MediaController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\VisionController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ use App\Http\Controllers\VisionController;
 app('debugbar')->disable();
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::post('/search', [SearchController::class, 'index']);
 
 Route::get('/survey', function () {
   return view('survey');
