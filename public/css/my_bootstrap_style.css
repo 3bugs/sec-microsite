@@ -7,3 +7,7 @@
   background-color: #72A927 !important;
   border-color: #72A927 !important;
 }
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 1);
+}

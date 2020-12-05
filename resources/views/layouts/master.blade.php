@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>ก.ล.ต.</title>
+  <title>SEC MICROSITE</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,20 +16,22 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link href='https://fonts.googleapis.com/css?family=Prompt|Sarabun|Roboto' rel='stylesheet'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Prompt|Sarabun|Roboto'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="/css/hamburgers.min.css" rel="stylesheet">
-  <link href="/css/bootstrap-datepicker.min.css" rel="stylesheet">
-  <link href="/css/insidepage.css?v=1" rel="stylesheet">
-  <link href="{{ asset('css/my_bootstrap_style.css?v=1') }}" rel="stylesheet">
+  <link rel='stylesheet' href="{{ asset('css/normalize.css') }}">
+  <link rel='stylesheet' href="{{ asset('/css/main.css') }}">
+  <link rel='stylesheet' href="{{ asset('css/hamburgers.min.css') }}">
+  <link rel='stylesheet' href="{{ asset('css/bootstrap-datepicker.min.css') }}">
+  <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=1') }}">
+  <link rel='stylesheet' href="{{ asset('css/my_bootstrap_style.css?v=1') }}">
+  <link rel='stylesheet' href="{{ asset('css/cookie_consent.css') }}">
+  <link rel='stylesheet' href="{{ asset('css/sidenav.css') }}">
 
   <meta name="theme-color" content="#fafafa">
-
-  <link href="{{ asset('css/cookie_consent.css') }}" rel="stylesheet">
 
   @yield('head')
 </head>
@@ -50,7 +52,8 @@
       <img class="img-search" src="{{ asset('/images/ic_search.svg') }}" alt="search icon">
       <div class="icon-label d-none d-md-block" style="color: #005288;">Search</div>
     </div>
-    <div id="menu-item-menu" class="menu-item" style="background-color: #8DC63F">
+    <div id="menu-item-menu" class="menu-item" style="background-color: #8DC63F"
+         onclick="toggleSideNav()">
       <!--<img class="img-search" src="images/ic_menu.svg" alt="search icon">-->
 
       <button class="hamburger hamburger--elastic" type="button" style="margin: 0; padding: 0;">
@@ -68,8 +71,8 @@
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
      style="z-index: 9999">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content"
-         style="background-image: url( {{asset('images/bg_search_2.jpg')}} ); background-size: cover;">
+    <div class="modal-content p-2"
+         style="background-image: url( {{ asset('images/bg_search_2.jpg') }} ); background-size: cover;">
       <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLabel">ค้นหา</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -123,76 +126,117 @@
   </div>
 </div>
 
-<div class="page-content">
-  @yield('content')
+@php
+  {{
+    $menuDataList = array(
+      array('title' => 'หน้าหลัก', 'url' => '/', 'image' => null),
+      array('title' => 'สำรวจตัวเอง', 'url' => '/survey', 'image' => 'menu01.svg'),
+      array('title' => 'เครื่องมือระดมทุน', 'url' => '/fundraising', 'image' => 'menu02.svg'),
+      array('title' => 'แหล่งข้อมูลระดมทุน', 'url' => '/media', 'image' => 'menu03.svg'),
+      array('title' => 'SEC Event', 'url' => '/event', 'image' => 'menu04.svg'),
+      array('title' => 'คลินิกระดมทุน', 'url' => '/contact', 'image' => 'menu05.svg'),
+      array('title' => 'ก.ล.ต. กับ SMEs', 'url' => '/vision', 'image' => 'menu06.svg'),
+    );
+  }}
+@endphp
+
+<div id="sidenav-menu" class="sidenav-menu">
+  <a href="javascript:void(0)" id="close-button" onclick="closeNav()">&times;</a>
+
+  @foreach ($menuDataList as $menuData)
+    <div class="d-flex justify-content-between align-items-center"
+         onclick="handleClickMenuItem('{{ $menuData['url'] }}')">
+      <a href="javascript:void(0)">{{ $menuData['title'] }}</a>
+      @if ($menuData['image'] === null)
+        <span>&nbsp;</span>
+      @else
+        <img src="{{ asset('images/' . $menuData['image']) }}" style="height: 35px">
+      @endif
+    </div>
+  @endforeach
+
+  <!--  <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(1)">สำรวจตัวเอง</a>
+    <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(2)">เครื่องมือระดมทุน</a>
+    <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(3)">แหล่งข้อมูลระดมทุน</a>
+    <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(4)">SEC Event</a>
+    <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(5)">คลินิกระดมทุน</a>
+    <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(6)">ก.ล.ต. กับ SMEs</a>-->
 </div>
 
-<!--footer-->
-<footer class="container-fluid footer">
-  <div class="row">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 wrap_myd">
-          <h2>Make your dreams a <span>reality</span></h2>
-          <a href="/contact">ติดต่อเรา <img src="/images/ar_ftbtn.svg"></a>
+<div id="sidenav-main">
+  <div class="page-content">
+    @yield('content')
+  </div>
+
+  <!--footer-->
+  <footer class="container-fluid footer">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 wrap_myd">
+            <h2>Make your dreams a <span>reality</span></h2>
+            <a href="/contact">ติดต่อเรา <img src="/images/ar_ftbtn.svg"></a>
+          </div>
         </div>
-      </div>
-      <div class="row row_bot_footer">
-        <div class="col-12 col-md-5 botlogoandsocial">
-          <img src="/images/footer-logo.svg">
-          <a href="#"><img src="/images/001-facebook.svg"></a><a href="#"><img src="/images/002-youtube.svg"></a><a href="#"><img src="/images/003-twitter.svg"></a>
-          <p>สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์
-            333/3 ถนนวิภาวดีรังสิต แขวงจอมพล เขตจตุจักร กรุงเทพมหานคร 10900</p>
-        </div>
-        <div class="col-12 col-md-7">
-          <div class="row">
-            <div class="col-12 col-md-4">
-              <ul class="footer_menu">
-                <li><h4><a href="/fundraising" style="color: white">เครื่องมือระดมทุน</a></h4></li>
-                <li><a href="/fundraising">ต้องการกู้ยืม</a></li>
-                <li><a href="/fundraising">ต้องการหาคนร่วมลงทุนเป็นเจ้าของ</a></li>
-                <li><a href="/fundraising">วิสาหกิจเพื่อสังคม</a></li>
-              </ul>
-            </div>
-            <div class="col-12 col-md-4">
-              <ul class="footer_menu">
-                <li><h4><a href="/media" style="color: white">แหล่งข้อมูลระดมทุน</a></h4></li>
-                <li><a href="/media">สื่อการเรียนรู้ระดมทุน</a></li>
-                <li><a href="/media">บทความที่เกี่ยวข้อง</a></li>
-                <li><a href="/media">ข้อมูลที่ต้องรู้</a></li>
-              </ul>
-            </div>
-            <div class="col-12 col-md-4">
-              <ul class="footer_menu">
-                <li><h4><a href="/event" style="color: white">SEC Event</a></h4></li>
-                <li><a href="/event">Seminar</a></li>
-                <li><a href="/event">Webinar</a></li>
-                <li><a href="/event">Business Matching</a></li>
-                <li><a href="/event">คลินิกระดมทุน</a></li>
-              </ul>
+        <div class="row row_bot_footer">
+          <div class="col-12 col-md-5 botlogoandsocial">
+            <img src="/images/footer-logo.svg">
+            <a href="#"><img src="/images/001-facebook.svg"></a><a href="#"><img src="/images/002-youtube.svg"></a><a href="#"><img src="/images/003-twitter.svg"></a>
+            <p>สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์
+              333/3 ถนนวิภาวดีรังสิต แขวงจอมพล เขตจตุจักร กรุงเทพมหานคร 10900</p>
+          </div>
+          <div class="col-12 col-md-7">
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <ul class="footer_menu">
+                  <li><h4><a href="/fundraising" style="color: white">เครื่องมือระดมทุน</a></h4></li>
+                  <li><a href="/fundraising">ต้องการกู้ยืม</a></li>
+                  <li><a href="/fundraising">ต้องการหาคนร่วมลงทุนเป็นเจ้าของ</a></li>
+                  <li><a href="/fundraising">วิสาหกิจเพื่อสังคม</a></li>
+                </ul>
+              </div>
+              <div class="col-12 col-md-4">
+                <ul class="footer_menu">
+                  <li><h4><a href="/media" style="color: white">แหล่งข้อมูลระดมทุน</a></h4></li>
+                  <li><a href="/media">สื่อการเรียนรู้ระดมทุน</a></li>
+                  <li><a href="/media">บทความที่เกี่ยวข้อง</a></li>
+                  <li><a href="/media">ข้อมูลที่ต้องรู้</a></li>
+                </ul>
+              </div>
+              <div class="col-12 col-md-4">
+                <ul class="footer_menu">
+                  <li><h4><a href="/event" style="color: white">SEC Event</a></h4></li>
+                  <li><a href="/event">Seminar</a></li>
+                  <li><a href="/event">Webinar</a></li>
+                  <li><a href="/event">Business Matching</a></li>
+                  <li><a href="/event">คลินิกระดมทุน</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row mb-2">
-        <div class="col-12 cookie-trigger">
-          <small>นโยบายคุกกี้</small>
+        <div class="row mb-2">
+          <div class="col-12 cookie-trigger">
+            <small>นโยบายคุกกี้</small>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12 copyright">
-          <small>2020 Securities & Exchange Commission, Thailand. All rights reserved. เว็บไซต์นี้แสดงผลได้ดีบน Microsoft Edge, Chrome, Safari และ Firefox</small>
+        <div class="row">
+          <div class="col-12 copyright">
+            <small>2020 Securities & Exchange Commission, Thailand. All rights reserved. เว็บไซต์นี้แสดงผลได้ดีบน Microsoft Edge, Chrome, Safari และ Firefox</small>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
-{{--</div>--}}
+  </footer>
+  {{--</div>--}}
+</div>
 
+<!--cookie modal-->
 <div id="cookie-modal-backdrop" class="">
   <div class="cookie-modal">
     <div class="cookie-modal-content">
-      <h2><img src="{{ asset('images/cookie.svg') }}" style="width: 30px; margin-right: 10px">การใช้คุกกี้</h2>
+      <!--<img src="asset('images/cookie.svg')" style="width: 30px; margin-right: 10px">-->
+      <h2>การใช้คุกกี้</h2>
       <p>
         ก.ล.ต. ใช้คุกกี้จำเป็นเพื่อการทำงานของเว็บไซต์
         และอาจใช้คุกกี้ชนิดจดจำข้อมูลซึ่งคุณสามารถเลือกเปิดหรือปิดการใช้งานได้
@@ -205,7 +249,7 @@
           <a href="/policy.html" target="_blank">“คุกกี้”</a></strong>
       </p>
       <hr>
-      <h2><img src="{{ asset('images/cookie.svg') }}" style="width: 30px; margin-right: 10px">คุกกี้ที่จำเป็น</h2>
+      <h2>คุกกี้ที่จำเป็น</h2>
       <p>
         คุกกี้เหล่านี้ที่จำเป็นในการเปิดใช้คุณลักษณะการทำงานพื้นฐานของเว็บไซต์ เช่น
         การรักษาความปลอดภัย การบริหารจัดการเครือข่าย การเข้าสู่ระบบ
@@ -214,7 +258,7 @@
       </p>
       <hr>
       <div style="display: flex; align-items: center; justify-content: space-between; margin: 0.83em 0;">
-        <h2 style="margin: 0"><img src="{{ asset('images/cookie.svg') }}" style="width: 30px; margin-right: 10px">คุกกี้วิเคราะห์</h2>
+        <h2 style="margin: 0">คุกกี้วิเคราะห์</h2>
         <div class="cc-switch" style="color: #fff;">
           <label class="toggle">
             <input
@@ -274,61 +318,129 @@
 @yield('script')
 
 <script>
-  const menu = $('#menu-item-menu');
-  const hamburgerButton = $('#menu-item-menu button')
-  menu.on("click", function (e) {
-    hamburgerButton.toggleClass("is-active");
-    // Do something else, like open/close menu
-  });
+  const SIDE_NAV_WIDTH_MD = 300;
+  const SIDE_NAV_WIDTH_SM = 300;
 
-  function adjustNavBar() {
-    const navBar = $('.my-navbar');
-    const logo = $('.my-navbar .logo');
-    const header = $('.my-navbar .header');
-    const menuItem = $('.my-navbar .menu-item');
-    const iconLabel = $('.my-navbar .icon-label');
-    const imgSearch = $('.my-navbar .img-search');
-    const hamburgerInner = $('.hamburger-inner');
-
-    if (Modernizr.mq('(min-width: 768px)')) {
-      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        navBar.css('height', '60px');
-        logo.css('width', '40px');
-        logo.css('height', '40px');
-        logo.css('margin-left', '25px');
-        logo.css('margin-bottom', '2px');
-        header.css('font-size', '16px');
-        header.css('margin', '2px 15px 0');
-        menuItem.css('width', '80px');
-        iconLabel.css('font-size', '12px');
-        iconLabel.addClass('icon-label-hide');
-        imgSearch.css('width', '26px');
-        hamburgerInner.addClass('hamburger-width-small');
-      } else {
-        navBar.css('height', '100px');
-        logo.css('width', '57px');
-        logo.css('height', '57px');
-        logo.css('margin-left', '50px');
-        logo.css('margin-bottom', '8px');
-        header.css('font-size', '20px');
-        header.css('margin', '0 25px');
-        menuItem.css('width', '140px');
-        iconLabel.css('font-size', '14px');
-        iconLabel.removeClass('icon-label-hide');
-        imgSearch.css('width', '34px');
-        hamburgerInner.removeClass('hamburger-width-small');
-      }
-    }
-  }
+  let isSideNavOpen = false;
+  let $sideNavMenu, $sideNavMain, $topNav, $closeButton;
+  let $logo, $header, $menuItem, $iconLabel, $imgSearch, $hamburgerInner;
 
   $(function () {
+    $sideNavMenu = $('.sidenav-menu');
+    $sideNavMain = $('#sidenav-main');
+    $topNav = $('.my-navbar');
+    $closeButton = $('#close-button');
+    $logo = $('.my-navbar .logo');
+    $header = $('.my-navbar .header');
+    $menuItem = $('.my-navbar .menu-item');
+    $iconLabel = $('.my-navbar .icon-label');
+    $imgSearch = $('.my-navbar .img-search');
+    $hamburgerInner = $('.hamburger-inner');
+
+    if (Modernizr.mq('(min-width: 768px)')) {
+      $sideNavMenu.css('top', $topNav.css('height'));
+      $closeButton.hide();
+    } else {
+      $closeButton.show();
+    }
+
     window.onload = function (e) {
       adjustNavBar();
     }
     window.onscroll = function (e) {
       adjustNavBar();
     };
+    window.onresize = function (e) {
+      if (Modernizr.mq('(min-width: 768px)')) {
+        $closeButton.hide();
+      } else {
+        $closeButton.show();
+      }
+    };
   });
+
+  function toggleSideNav() {
+    isSideNavOpen ? closeNav() : openNav();
+  }
+
+  /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+  function openNav() {
+    const sideNavWidth = Modernizr.mq('(min-width: 768px)') ? SIDE_NAV_WIDTH_MD : SIDE_NAV_WIDTH_SM;
+    isSideNavOpen = true;
+
+    if (Modernizr.mq('(min-width: 450px)')) {
+      $sideNavMenu.css('width', `${sideNavWidth}px`);
+    } else {
+      $sideNavMenu.css('width', `100%`);
+    }
+
+    if (Modernizr.mq('(min-width: 1200px)')) {
+      $sideNavMain.css('margin-right', `${sideNavWidth}px`);
+    }
+    if (Modernizr.mq('(min-width: 768px)')) {
+      $sideNavMenu.css('top', $topNav.css('height'));
+    }
+    //document.body.style.backgroundColor = "rgba(0,0,0,0.8)";
+  }
+
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+  function closeNav() {
+    isSideNavOpen = false;
+    $sideNavMenu.css('width', '0');
+    $sideNavMain.css('margin-right', '0');
+    //document.body.style.backgroundColor = "white";
+  }
+
+  const menu = $('#menu-item-menu');
+  const hamburgerButton = $('#menu-item-menu button')
+  menu.on("click", function (e) {
+    if (Modernizr.mq('(min-width: 768px)')) {
+      hamburgerButton.toggleClass("is-active");
+    }
+    // Do something else, like open/close menu
+  });
+
+  function adjustNavBar() {
+    if (Modernizr.mq('(min-width: 768px)')) {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        $topNav.css('height', '60px');
+        $logo.css('width', '40px');
+        $logo.css('height', '40px');
+        $logo.css('margin-left', '25px');
+        $logo.css('margin-bottom', '2px');
+        $header.css('font-size', '16px');
+        $header.css('margin', '2px 15px 0');
+        $menuItem.css('width', '80px');
+        $iconLabel.css('font-size', '12px');
+        $iconLabel.addClass('icon-label-hide');
+        $imgSearch.css('width', '26px');
+        $hamburgerInner.addClass('hamburger-width-small');
+      } else {
+        $topNav.css('height', '100px');
+        $logo.css('width', '57px');
+        $logo.css('height', '57px');
+        $logo.css('margin-left', '50px');
+        $logo.css('margin-bottom', '8px');
+        $header.css('font-size', '20px');
+        $header.css('margin', '0 25px');
+        $menuItem.css('width', '140px');
+        $iconLabel.css('font-size', '14px');
+        $iconLabel.removeClass('icon-label-hide');
+        $imgSearch.css('width', '34px');
+        $hamburgerInner.removeClass('hamburger-width-small');
+      }
+      setTimeout(() => {
+        $sideNavMenu.css('top', $topNav.css('height'));
+      }, 100);
+    }
+  }
+
+  function handleClickMenuItem(url) {
+    closeNav();
+    setTimeout(() => {
+      window.location.href = url;
+    }, 300);
+  }
 </script>
 
 <script>
