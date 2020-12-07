@@ -1,7 +1,15 @@
 @extends('layouts.master')
 
 @section('head')
-  <link href="css/survey.css" rel="stylesheet">
+  <link href="{{ asset('css/survey.css') }}" rel="stylesheet">
+  <script type="text/javascript"
+          src="https://platform-api.sharethis.com/js/sharethis.js#property=5fcc37961aaf5800135bdf32&product=inline-share-buttons"
+          async="async"></script>
+<!--  <script type='text/javascript'
+          src='https://platform-api.sharethis.com/js/sharethis.js#property=undefined&product=undefined'
+          async='async'></script>-->
+  <!--  Copy and paste this placement code wherever you’d like your inline share buttons to appear on your site.-->
+  <!--  <div class="sharethis-inline-share-buttons"></div>-->
 @endsection
 
 @section('content')
@@ -21,13 +29,13 @@
     </div>-->
 
     <div class="survey-form-container">
-      <div class="survey-begin" style="display: flex">
+      <div class="survey-begin" style="display: none">
         <div class="survey-begin-content">
           <div class="pt-4 pt-sm-4 pt-lg-5 pl-3 pl-sm-4 pl-lg-5 pr-3 pr-sm-4 pr-md-0 mb-3"
                style="border: 0px solid blue; display: flex; flex: 1; flex-direction: column; justify-content: space-between">
             <div style="display: flex; flex-direction: column; border: 0px solid red">
               <h3><a href="/"><span style="color: #3877A0">หน้าแรก > </span></a><span style="color: black">สำรวจตัวเอง</span></h3>
-              <img src="images/survey_start.svg" class="pt-3 pb-3 pl-4 pr-4 d-flex d-md-none align-self-center" style="width: 100%; max-width: 260px">
+              <img src="{{ asset('images/survey_start.svg') }}" class="pt-3 pb-3 pl-4 pr-4 d-flex d-md-none align-self-center" style="width: 100%; max-width: 260px">
               <h1 class="mt-3" style="font-weight: 700; line-height: 1.4em;">
                 <span style="color: black">สำรวจตัวเอง</span><br>
                 <span style="color: #003558; font-size: 0.8em">เพื่อค้นพบช่องทางระดมทุน</span>
@@ -43,7 +51,7 @@
             </div>
           </div>
           <div class="d-none d-md-flex" style="display: flex; flex: 1; justify-content: center; align-items: center">
-            <img src="images/survey_start.svg" class="pt-5 pb-5 pl-3 pr-5" style="width: 100%">
+            <img src="{{ asset('images/survey_start.svg') }}" class="pt-5 pb-5 pl-3 pr-5" style="width: 100%">
           </div>
         </div>
         <p class="mt-3 mb-3 pt-1 pb-1 text-center" style="align-self: center">การทำแบบสำรวจนี้ไม่ถือเป็นข้อบังคับที่สามารถใช้ในการประเมินผลทางกฎหมายได้</p>
@@ -51,10 +59,10 @@
 
       <survey-form :on-end-survey="handleEndSurvey"></survey-form>
 
-      <div class="survey-end" style="display: none">
+      <div class="survey-end" style="display: flex">
         <div class="survey-end-content">
           <div class="pt-3 pt-sm-3 pt-lg-4 pl-3 pl-sm-4 pl-lg-5 pr-3 pr-sm-4 pr-lg-5 mb-3" style="display: flex; flex: 1; flex-direction: column; justify-content: space-between; align-items: center">
-            <img src="images/survey_start.svg" class="mt-2" style="width: 40%">
+            <img src="{{ asset('images/survey_start.svg') }}" class="mt-2" style="width: 40%">
 
             <div class="d-flex flex-column align-items-center">
               <h2 class="mt-3" style="font-weight: bold; line-height: 1.5em; color: #003558">ผลลัพธ์ของท่านคือ</h2>
@@ -94,7 +102,8 @@
             </button>--}}
             <div class="mt-3 mt-md-4 mb-3 mb-md-4" style="display: flex; flex: 1; align-items: center;">
               <!--<div class="mr-2"></div>-->
-              <button id="share-button" class="mr-2" v-on:click="handleClickShare">
+              <button id="share-button" class="mr-2"
+                      data-toggle="modal" data-target="#shareModal">
                 <h5>แชร์&nbsp;&nbsp;<i class="fa fa-share-alt"></i></h5>
               </button>
               <!--<div class="mr-2"></div>-->
@@ -126,6 +135,29 @@
     <div v-if="imageVisible">
       <img id="curve-image" src="images/curve.svg">
       <img id="man-image" src="images/man.svg">
+    </div>
+  </div>
+
+  <!-- Share modal -->
+  <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+       style="z-index: 9999">
+    <div class="modal-dialog modal-dialog-centered modal" role="document">
+      <div class="modal-content p-2"
+           style="background-image: url( {{ asset('images/bg_search_2.jpg') }} ); background-size: cover;">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">แชร์</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body p-5">
+          <div class="sharethis-inline-share-buttons d-flex justify-content-between"></div>
+        </div>
+        <!--<div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+          <button type="button" class="btn btn-primary">ค้นหา</button>
+        </div>-->
+      </div>
     </div>
   </div>
 @endsection

@@ -51,7 +51,7 @@
           {{ csrf_field() }}
           <h3>กรอกข้อมูลติดต่อกลับ</h3>
           <div class="form-group">
-            <label for="name">ชื่อ นามสกุล</label>
+            <label for="name">ชื่อ นามสกุล:</label>
             <input
                 id="name"
                 v-model="name"
@@ -62,7 +62,7 @@
             >
           </div>
           <div class="form-group">
-            <label for="email">อีเมล</label>
+            <label for="email">อีเมล:</label>
             <input
                 id="email"
                 v-model="email"
@@ -73,7 +73,7 @@
             >
           </div>
           <div class="form-group">
-            <label for="phone">เบอร์โทรศัพท์</label>
+            <label for="phone">เบอร์โทรศัพท์:</label>
             <input
                 id="phone"
                 v-model="phone"
@@ -84,7 +84,7 @@
             >
           </div>
           <div class="form-group">
-            <label for="message">ข้อความ</label>
+            <label for="message">ข้อความ:</label>
             <textarea
                 id="message"
                 v-model="message"

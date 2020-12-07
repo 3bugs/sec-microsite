@@ -1,5 +1,8 @@
-html, body {
+#sidenav-main {
+  width: 100%;
+}
 
+html, body {
 }
 
 body {
@@ -73,7 +76,7 @@ button:disabled {
   flex: 1;
   flex-direction: column;
   justify-content: center;
-  margin-top: 0px;
+  margin: 0 auto;
   width: 100%;
   max-width: 1140px;
   border: 0 solid red;

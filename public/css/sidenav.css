@@ -1,14 +1,14 @@
 /* The side navigation menu */
 .sidenav-menu {
+  position: fixed; /* Stay in place */
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
   top: 0; /* Stay at the top */
   right: 0;
   background-color: #005288;
   /*background: linear-gradient(-130.95deg, #003558 14.65%, #005288 57.97%);*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+  transition: 0.3s; /* transition effect to slide in the sidenav */
   box-shadow: 4px 7px 34px -1px #001828;
   padding-top: 1.5rem;
   z-index: 10;
@@ -28,10 +28,10 @@
   /*color: #818181;*/
   display: block;
   transition: 0.3s;
-  font-family: Sarabun;
+  font-family: Prompt;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   color: #FFFFFF;
   opacity: 0.7;
   line-height: 2.5em;
@@ -64,6 +64,7 @@
   position: absolute;
   top: 4px;
   right: 22px;
+  font-family: Sarabun;
   font-size: 45px;
   line-height: 1em;
   padding: 0;
@@ -71,7 +72,7 @@
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #sidenav-main {
-  transition: margin-right .5s;
+  transition: margin-right .3s;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

@@ -9,6 +9,7 @@ import EventCategory from './pages/event-category';
 import Contact from './pages/contact';
 import Vision from './pages/vision';
 import SurveyResults from './pages/survey-results';
+import Banner from './pages/banner';
 
 export const routeDataList = [
   {
@@ -123,6 +124,14 @@ export const routeDataList = [
     title: 'Survey Results',
     menuTitle: 'Survey Results',
     menuIconName: 'mdi-chart-bar'
+  },
+  {
+    path: '/banner',
+    name: 'banner',
+    component: Banner,
+    title: 'Banners',
+    menuTitle: 'Banners',
+    menuIconName: 'mdi-card-text-outline'
   },
 ];
 

@@ -304,7 +304,7 @@ export default {
       isUpdatePublished: false,
       headers: [
         {text: 'รูปภาพปก', value: 'image', sortable: false, width: '170px',},
-        {text: 'หัวข้อ/ชื่อเรื่อง', align: 'start', value: 'title', sortable: true,},
+        {text: 'หัวข้อ', align: 'start', value: 'title', sortable: true,},
         {text: 'หมวดหมู่', value: 'category_id', sortable: true,},
         this.withDate ? {text: 'วัน', value: 'begin_date', sortable: true, width: '100px', align: 'center',} : null,
         {text: 'ส', value: 'created_at', sortable: true, width: '60px', align: 'center',},

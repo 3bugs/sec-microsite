@@ -36,7 +36,7 @@
   @yield('head')
 </head>
 
-<body>
+<body style="overflow-x: hidden">
 <!--[if IE]>
 <p class="browserupgrade">คุณใช้บราวเซอร์ที่เก่าเกินไป กรุณา<a href="https://browsehappy.com/">อัพเกรดบราวเซอร์</a>เพื่อความปลอดภัยและประสบการณ์ที่ดีในการใช้งานเว็บไซต์นี้</p>
 <![endif]-->
@@ -129,13 +129,13 @@
 @php
   {{
     $menuDataList = array(
-      array('title' => 'หน้าหลัก', 'url' => '/', 'image' => null),
-      array('title' => 'สำรวจตัวเอง', 'url' => '/survey', 'image' => 'menu01.svg'),
-      array('title' => 'เครื่องมือระดมทุน', 'url' => '/fundraising', 'image' => 'menu02.svg'),
-      array('title' => 'แหล่งข้อมูลระดมทุน', 'url' => '/media', 'image' => 'menu03.svg'),
-      array('title' => 'SEC Event', 'url' => '/event', 'image' => 'menu04.svg'),
-      array('title' => 'คลินิกระดมทุน', 'url' => '/contact', 'image' => 'menu05.svg'),
-      array('title' => 'ก.ล.ต. กับ SMEs', 'url' => '/vision', 'image' => 'menu06.svg'),
+      array('title' => 'หน้าหลัก', 'url' => '/', 'image' => null, 'imageMarginTop' => 20),
+      array('title' => 'สำรวจตัวเอง', 'url' => '/survey', 'image' => 'menu01.svg', 'imageMarginTop' => 20),
+      array('title' => 'เครื่องมือระดมทุน', 'url' => '/fundraising', 'image' => 'menu02.svg', 'imageMarginTop' => 25),
+      array('title' => 'แหล่งข้อมูลระดมทุน', 'url' => '/media', 'image' => 'menu03.svg', 'imageMarginTop' => 20),
+      array('title' => 'SEC Event', 'url' => '/event', 'image' => 'menu04.svg', 'imageMarginTop' => 20),
+      array('title' => 'คลินิกระดมทุน', 'url' => '/contact', 'image' => 'menu05.svg', 'imageMarginTop' => 15),
+      array('title' => 'ก.ล.ต. กับ SMEs', 'url' => '/vision', 'image' => 'menu06.svg', 'imageMarginTop' => 20),
     );
   }}
 @endphp
@@ -145,17 +145,19 @@
 
   @foreach ($menuDataList as $menuData)
     <div class="d-flex justify-content-between align-items-center"
+         style="height: 60px; overflow-y: hidden; overflow-x: hidden"
          onclick="handleClickMenuItem('{{ $menuData['url'] }}')">
       <a href="javascript:void(0)">{{ $menuData['title'] }}</a>
       @if ($menuData['image'] === null)
         <span>&nbsp;</span>
       @else
-        <img src="{{ asset('images/' . $menuData['image']) }}" style="height: 35px">
+        <img src="{{ asset('images/' . $menuData['image']) }}"
+             style="height: 45px; margin-top: {{ $menuData['imageMarginTop'] }}px">
       @endif
     </div>
-  @endforeach
+@endforeach
 
-  <!--  <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(1)">สำรวจตัวเอง</a>
+<!--  <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(1)">สำรวจตัวเอง</a>
     <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(2)">เครื่องมือระดมทุน</a>
     <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(3)">แหล่งข้อมูลระดมทุน</a>
     <a href="javascript:void(0)" onclick="return handleClickSideNavMenuItem(4)">SEC Event</a>

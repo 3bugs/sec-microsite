@@ -212,7 +212,7 @@
         v-model="title"
         :counter="255"
         :rules="titleRules"
-        label="หัวข้อ"
+        label="หัวข้อ/ชื่อเรื่อง"
         required
       ></v-text-field>
 
@@ -496,8 +496,8 @@ export default {
       valid: true,
       title: '',
       titleRules: [
-        v => !!v || 'ต้องกรอกหัวข้อ',
-        v => (v && v.length <= 255) || 'หัวข้อต้องไม่เกิน 255 ตัวอักษร',
+        v => !!v || 'ต้องกรอกหัวข้อ/ชื่อเรื่อง',
+        v => (v && v.length <= 255) || 'หัวข้อ/ชื่อเรื่อง ต้องไม่เกิน 255 ตัวอักษร',
       ],
       description: '',
       descriptionRules: [
