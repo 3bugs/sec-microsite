@@ -219,7 +219,7 @@
         </div>
         <div class="row mb-2">
           <div class="col-12 cookie-trigger">
-            <small>นโยบายคุกกี้</small>
+            <small>นโยบายความเป็นส่วนตัว</small>
           </div>
         </div>
         <div class="row">

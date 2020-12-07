@@ -29,7 +29,7 @@
     </div>-->
 
     <div class="survey-form-container">
-      <div class="survey-begin" style="display: none">
+      <div class="survey-begin" style="display: flex">
         <div class="survey-begin-content">
           <div class="pt-4 pt-sm-4 pt-lg-5 pl-3 pl-sm-4 pl-lg-5 pr-3 pr-sm-4 pr-md-0 mb-3"
                style="border: 0px solid blue; display: flex; flex: 1; flex-direction: column; justify-content: space-between">
@@ -59,7 +59,7 @@
 
       <survey-form :on-end-survey="handleEndSurvey"></survey-form>
 
-      <div class="survey-end" style="display: flex">
+      <div class="survey-end" style="display: none">
         <div class="survey-end-content">
           <div class="pt-3 pt-sm-3 pt-lg-4 pl-3 pl-sm-4 pl-lg-5 pr-3 pr-sm-4 pr-lg-5 mb-3" style="display: flex; flex: 1; flex-direction: column; justify-content: space-between; align-items: center">
             <img src="{{ asset('images/survey_start.svg') }}" class="mt-2" style="width: 40%">
