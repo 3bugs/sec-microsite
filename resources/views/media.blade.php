@@ -49,7 +49,7 @@
         <ul>
           @for ($i = 0; $i < count($mediaCategoryList); $i++)
             @if (count($mediaCategoryList[$i]->media) > 0 && $mediaCategoryList[$i]->id > 2)
-              <li class="{{ $i === 2 ? 'active' : '' }}">
+              <li class="{{ $mediaCategoryList[$i]->sort_index === 1 ? 'active' : '' }}">
                 <a href="#{{ MEDIA_CATEGORY.$mediaCategoryList[$i]->id }}">
                   {{ $mediaCategoryList[$i]->title }}
                   <span class="chevron-down" style="float: right"><i class="fa fa-chevron-down"></i></span>

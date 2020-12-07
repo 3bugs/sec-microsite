@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MediaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MediaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiDataController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_30_044501_create_media_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_30_044501_create_media_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/media.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/media.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,14 +265,7 @@
       <workItem from="1607051047022" duration="3574000" />
       <workItem from="1607057044819" duration="18819000" />
       <workItem from="1607094265667" duration="54891000" />
-      <workItem from="1607308766571" duration="13117000" />
-    </task>
-    <task id="LOCAL-00063" summary="front: event load progress indicator">
-      <created>1605244251910</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1605244251910</updated>
+      <workItem from="1607308766571" duration="13575000" />
     </task>
     <task id="LOCAL-00064" summary="back: วันเริ่มต้น-สิ้นสุดอีเวนต์">
       <created>1605601458596</created>
@@ -613,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607313093348</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="add sort_index field in media">
+      <created>1607337752177</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1607337752177</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +618,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: ปรับแก้หลายอย่าง" />
     <MESSAGE value="front/back: ปรับแก้หลายอย่าง" />
     <MESSAGE value="front: ปรับ media details" />
     <MESSAGE value="front: fix youtube video tag replace in media controller" />
@@ -646,6 +642,7 @@
     <MESSAGE value="add social share in survey page" />
     <MESSAGE value="update survey page" />
     <MESSAGE value="update search controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="update search controller" />
+    <MESSAGE value="add sort_index field in media" />
+    <option name="LAST_COMMIT_MESSAGE" value="add sort_index field in media" />
   </component>
 </project>
