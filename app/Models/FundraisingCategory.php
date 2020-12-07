@@ -9,7 +9,7 @@ class FundraisingCategory extends Model
 {
   use HasFactory;
 
-  protected $casts = ['id' => 'integer', 'published' => 'integer'];
+  protected $casts = ['id' => 'integer', 'published' => 'integer', 'sort_index' => 'integer'];
 
   public function fundraisings()
   {
