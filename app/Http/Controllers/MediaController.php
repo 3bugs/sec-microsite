@@ -15,7 +15,7 @@ class MediaController extends Controller
   public function index(Request $request)
   {
     $mediaCategoryList = MediaCategory::where('published', 1)
-      ->orderBy('id', 'asc')
+      ->orderBy('sort_index', 'asc')
       ->get();
 
     return view('media', [

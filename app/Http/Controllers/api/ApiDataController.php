@@ -87,13 +87,17 @@ class ApiDataController extends Controller
       }
 
       if ($this->mType === Constants::PAGE_TYPE_MEDIA) {
-        $categoryList = ($this->mCategoryModelClass)::where('id', '>', 2)
+        $categoryList = ($this->mCategoryModelClass)::where('published', 1)
+          ->where('id', '>', 2)
           ->orderBy('id', 'asc')->get();
       } else if ($this->mType === Constants::PAGE_TYPE_MEDIA_MORE) {
-        $categoryList = ($this->mCategoryModelClass)::where('id', '<=', 2)
+        $categoryList = ($this->mCategoryModelClass)::where('published', 1)
+          ->where('id', '<=', 2)
           ->orderBy('id', 'asc')->get();
       } else {
-        $categoryList = ($this->mCategoryModelClass)::orderBy('id', 'asc')->get();
+        $categoryList = ($this->mCategoryModelClass)::where('published', 1)
+          ->orderBy('id', 'asc')
+          ->get();
       }
 
       return response()->json(array(
