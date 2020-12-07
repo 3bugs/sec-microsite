@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/survey.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/survey.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,21 +266,7 @@
       <workItem from="1607051047022" duration="3574000" />
       <workItem from="1607057044819" duration="18819000" />
       <workItem from="1607094265667" duration="54891000" />
-      <workItem from="1607308766571" duration="2980000" />
-    </task>
-    <task id="LOCAL-00060" summary="front: event">
-      <created>1605176856180</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1605176856181</updated>
-    </task>
-    <task id="LOCAL-00061" summary="front: event">
-      <created>1605200812877</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1605200812878</updated>
+      <workItem from="1607308766571" duration="4245000" />
     </task>
     <task id="LOCAL-00062" summary="front: event">
       <created>1605238090713</created>
@@ -613,7 +597,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607309818503</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="update survey page">
+      <created>1607311880046</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1607311880046</updated>
+    </task>
+    <task id="LOCAL-00110" summary="update survey page">
+      <created>1607311967968</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1607311967968</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +619,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: ปรับข้อความ" />
     <MESSAGE value="front: ปรับเงื่อนไข highlight event" />
     <MESSAGE value="front: ปรับแก้หลายอย่าง" />
     <MESSAGE value="front/back: ปรับแก้หลายอย่าง" />
@@ -646,6 +643,7 @@
     <MESSAGE value="front: หน้าค้นหา" />
     <MESSAGE value="finish: hamburger menu" />
     <MESSAGE value="add social share in survey page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add social share in survey page" />
+    <MESSAGE value="update survey page" />
+    <option name="LAST_COMMIT_MESSAGE" value="update survey page" />
   </component>
 </project>
