@@ -900,6 +900,11 @@ body {
   font-weight: bold;
 }
 
+.datepicker table tr td.today {
+  border-color: #aaa !important;
+  background: lightyellow !important;
+}
+
 .datepicker table tr td.new, .datepicker table tr td.old {
   color: #BDBDBD;
 }

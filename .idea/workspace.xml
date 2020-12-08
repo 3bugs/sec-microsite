@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/event-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fundraising-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fundraising-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/media-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/media-details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/insidepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/insidepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/event.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,21 +266,7 @@
       <workItem from="1607051047022" duration="3574000" />
       <workItem from="1607057044819" duration="18819000" />
       <workItem from="1607094265667" duration="54891000" />
-      <workItem from="1607308766571" duration="21159000" />
-    </task>
-    <task id="LOCAL-00068" summary="front: highlight events">
-      <created>1606023314514</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1606023314515</updated>
-    </task>
-    <task id="LOCAL-00069" summary="front: contact">
-      <created>1606035558331</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1606035558331</updated>
+      <workItem from="1607308766571" duration="22817000" />
     </task>
     <task id="LOCAL-00070" summary="back: contact">
       <created>1606041505741</created>
@@ -612,7 +597,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607402677275</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="header images in details page">
+      <created>1607403353595</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1607403353595</updated>
+    </task>
+    <task id="LOCAL-00118" summary="fix header image path">
+      <created>1607403644858</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1607403644858</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,8 +619,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: ปรับ media details" />
-    <MESSAGE value="front: fix youtube video tag replace in media controller" />
     <MESSAGE value="front: replace link to open in _blank" />
     <MESSAGE value="front: disable debug bar" />
     <MESSAGE value="front: หน้า media/event details" />
@@ -645,6 +642,8 @@
     <MESSAGE value="update search controller" />
     <MESSAGE value="add sort_index field in media" />
     <MESSAGE value="header images" />
-    <option name="LAST_COMMIT_MESSAGE" value="header images" />
+    <MESSAGE value="header images in details page" />
+    <MESSAGE value="fix header image path" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix header image path" />
   </component>
 </project>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-  <link href="css/home.css" rel="stylesheet">
+  <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -67,7 +67,7 @@
               </template>
 
               <template v-if="filteredDataList != null">
-                <h4>@{{ filteredDataList.length > 0 ? filteredDataList.length : 'No' }} Event@{{ filteredDataList.length > 1 ? 's' : ''}} on</h4>
+                <h4>@{{ filteredDataList.length > 0 ? filteredDataList.length : 'No' }} event@{{ filteredDataList.length > 1 ? 's' : ''}} on</h4>
                 <h1>@{{ dateText }}</h1>
                 <p v-if="filteredDataList.length === 0">ไม่มีอีเวนต์ในหมวดที่เลือกในวันดังกล่าว</p>
                 <div
@@ -203,7 +203,7 @@
           integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
           crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="/js/bootstrap-datepicker.min.js"></script>
+  <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
   <!-- script src="/skeleton-loader/jquery.scheletrone.js"></script -->
 
   <script>
@@ -253,7 +253,7 @@
     let selectedDate = null;
     const calendar = $('#calendar-container div');
     calendar.datepicker({
-      todayHighlight: false,
+      todayHighlight: true,
       format: "mm/dd/yyyy",
       weekStart: 0,
       beforeShowDay: function (date) {
