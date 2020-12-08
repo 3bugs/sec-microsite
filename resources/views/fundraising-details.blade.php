@@ -22,8 +22,10 @@
 
 @section('content')
   @include('includes.header', [
+    'class' => 'fundraising',
     'title' => 'เครื่องมือระดมทุน',
-    'imageSrc' => '../images/bc-fundraising.png',
+    'imageSrc' => 'images/header-fundraising.svg',
+    'bottom' => -35,
   ])
 
   <section class="container">
