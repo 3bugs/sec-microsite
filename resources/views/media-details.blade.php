@@ -24,7 +24,7 @@
   @include('includes.header', [
     'class' => 'media',
     'title' => 'แหล่งข้อมูลระดมทุน',
-    'imageSrc' => 'images/header-media.svg',
+    'imageSrc' => '../images/header-media.svg',
     'bottom' => -15,
   ])
 

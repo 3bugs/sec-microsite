@@ -24,7 +24,7 @@
   @include('includes.header', [
     'class' => 'fundraising',
     'title' => 'เครื่องมือระดมทุน',
-    'imageSrc' => 'images/header-fundraising.svg',
+    'imageSrc' => '../images/header-fundraising.svg',
     'bottom' => -35,
   ])
 

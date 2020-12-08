@@ -24,7 +24,7 @@
   @include('includes.header', [
     'class' => 'event',
     'title' => 'SEC EVENT',
-    'imageSrc' => 'images/header-event.svg',
+    'imageSrc' => '../images/header-event.svg',
     'bottom' => -165,
   ])
 
