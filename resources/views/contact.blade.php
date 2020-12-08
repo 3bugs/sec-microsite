@@ -5,8 +5,10 @@
 
 @section('content')
   @include('includes.header', [
+    'class' => 'contact',
     'title' => 'คลินิกระดมทุน',
-    'imageSrc' => 'images/bc-contact.png',
+    'imageSrc' => 'images/header-contact.svg',
+    'bottom' => 0,
   ])
 
   <section class="container">

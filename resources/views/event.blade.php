@@ -6,8 +6,10 @@
 
 @section('content')
   @include('includes.header', [
+    'class' => 'event',
     'title' => 'SEC EVENT',
-    'imageSrc' => 'images/bc-event.png',
+    'imageSrc' => 'images/header-event.svg',
+    'bottom' => -165,
   ])
 
   <section class="container">

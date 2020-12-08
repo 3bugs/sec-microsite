@@ -102,10 +102,10 @@
             </button>--}}
             <div class="mt-3 mt-md-4 mb-3 mb-md-4" style="display: flex; flex: 1; align-items: center;">
               <!--<div class="mr-2"></div>-->
-              <button id="share-button" class="mr-2"
+              <!--<button id="share-button" class="mr-2"
                       data-toggle="modal" data-target="#shareModal">
                 <h5>แชร์&nbsp;&nbsp;<i class="fa fa-share-alt"></i></h5>
-              </button>
+              </button>-->
               <!--<div class="mr-2"></div>-->
               <button id="try-again-button" v-on:click="handleClickSurveyAgain">
                 <h5>ลองอีกครั้ง&nbsp;&nbsp;<i class="fa fa-repeat"></i></h5>

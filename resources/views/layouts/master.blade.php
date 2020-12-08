@@ -23,10 +23,10 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Prompt|Sarabun|Roboto'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel='stylesheet' href="{{ asset('css/normalize.css') }}">
-  <link rel='stylesheet' href="{{ asset('/css/main.css') }}">
+  <link rel='stylesheet' href="{{ asset('css/main.css') }}">
   <link rel='stylesheet' href="{{ asset('css/hamburgers.min.css') }}">
   <link rel='stylesheet' href="{{ asset('css/bootstrap-datepicker.min.css') }}">
-  <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=1') }}">
+  <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=2') }}">
   <link rel='stylesheet' href="{{ asset('css/my_bootstrap_style.css?v=1') }}">
   <link rel='stylesheet' href="{{ asset('css/cookie_consent.css') }}">
   <link rel='stylesheet' href="{{ asset('css/sidenav.css') }}">
@@ -49,7 +49,7 @@
   </div>
   <div style="display: flex; align-items: center; align-self: stretch">
     <div id="menu-item-search" class="menu-item" data-toggle="modal" data-target="#searchModal">
-      <img class="img-search" src="{{ asset('/images/ic_search.svg') }}" alt="search icon">
+      <img class="img-search" src="{{ asset('images/ic_search.svg') }}" alt="search icon">
       <div class="icon-label d-none d-md-block" style="color: #005288;">Search</div>
     </div>
     <div id="menu-item-menu" class="menu-item" style="background-color: #8DC63F"
@@ -130,12 +130,12 @@
   {{
     $menuDataList = array(
       array('title' => 'หน้าหลัก', 'url' => '/', 'image' => null, 'imageMarginTop' => 20),
-      array('title' => 'สำรวจตัวเอง', 'url' => '/survey', 'image' => 'menu01.svg', 'imageMarginTop' => 20),
-      array('title' => 'เครื่องมือระดมทุน', 'url' => '/fundraising', 'image' => 'menu02.svg', 'imageMarginTop' => 25),
-      array('title' => 'แหล่งข้อมูลระดมทุน', 'url' => '/media', 'image' => 'menu03.svg', 'imageMarginTop' => 20),
-      array('title' => 'SEC Event', 'url' => '/event', 'image' => 'menu04.svg', 'imageMarginTop' => 20),
-      array('title' => 'คลินิกระดมทุน', 'url' => '/contact', 'image' => 'menu05.svg', 'imageMarginTop' => 15),
-      array('title' => 'ก.ล.ต. กับ SMEs', 'url' => '/vision', 'image' => 'menu06.svg', 'imageMarginTop' => 20),
+      array('title' => 'สำรวจตัวเอง', 'url' => '/survey', 'image' => 'header-survey.svg', 'imageMarginBottom' => -25),
+      array('title' => 'เครื่องมือระดมทุน', 'url' => '/fundraising', 'image' => 'header-fundraising.svg', 'imageMarginBottom' => -15),
+      array('title' => 'แหล่งข้อมูลระดมทุน', 'url' => '/media', 'image' => 'header-media.svg', 'imageMarginBottom' => -15),
+      array('title' => 'SEC Event', 'url' => '/event', 'image' => 'header-event.svg', 'imageMarginBottom' => -45),
+      array('title' => 'คลินิกระดมทุน', 'url' => '/contact', 'image' => 'header-contact.svg', 'imageMarginBottom' => -5),
+      array('title' => 'ก.ล.ต. กับ SMEs', 'url' => '/vision', 'image' => 'header-vision.svg', 'imageMarginBottom' => -20),
     );
   }}
 @endphp
@@ -152,7 +152,7 @@
         <span>&nbsp;</span>
       @else
         <img src="{{ asset('images/' . $menuData['image']) }}"
-             style="height: 45px; margin-top: {{ $menuData['imageMarginTop'] }}px">
+             style="width: 75px; margin-bottom: {{ $menuData['imageMarginBottom'] }}px">
       @endif
     </div>
 @endforeach

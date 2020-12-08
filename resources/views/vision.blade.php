@@ -5,8 +5,10 @@
 
 @section('content')
   @include('includes.header', [
+    'class' => 'vision',
     'title' => 'ก.ล.ต. กับ SMEs',
-    'imageSrc' => 'images/bc-vision.png',
+    'imageSrc' => 'images/header-vision.svg',
+    'bottom' => -50,
   ])
 
   <section class="container mt-5">

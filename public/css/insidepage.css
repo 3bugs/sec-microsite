@@ -32,8 +32,8 @@ body {
 .img_breadcrumb {
   position: absolute;
   right: 0;
-  bottom: 0;
-  height: 100%;
+  /*bottom: -45px;
+  height: 300px;*/
   object-fit: contain;
   object-position: right bottom;
 }
@@ -1317,7 +1317,27 @@ body {
   }
 
   .img_breadcrumb {
-    width: 190px;
+    width: 210px !important;
+  }
+
+  .pagebreadcrumb > .fundraising {
+    bottom: -20px !important;
+  }
+
+  .pagebreadcrumb > .media {
+    bottom: -10px !important;
+  }
+
+  .pagebreadcrumb > .event {
+    bottom: -100px !important;
+  }
+
+  .pagebreadcrumb > .contact {
+    bottom: 0 !important;
+  }
+
+  .pagebreadcrumb > .vision {
+    bottom: -30px !important;
   }
 
   .pagebreadcrumb {

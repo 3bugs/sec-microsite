@@ -2,10 +2,11 @@
   <div class="row">
     <div class="container">
       <div class="row">
-        <div class="col-12 pagebreadcrumb">
+        <div class="col-12 pagebreadcrumb" style="overflow-y: hidden">
           <a href="/">&#60; กลับหน้าแรก</a>
           <h1>{{ $title }}</h1>
-          <img src="{{ $imageSrc }}" class="img_breadcrumb">
+          <img src="{{ $imageSrc }}" class="img_breadcrumb {{ $class }}"
+               style="width: 340px; bottom: {{ $bottom }}px">
         </div>
       </div>
     </div>
