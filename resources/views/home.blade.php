@@ -118,7 +118,7 @@
     </div>
 
     <!--SEC events-->
-    <div style="width: 100%; background: #fff; padding: 30px 0">
+    <div id="section-event" style="width: 100%; background: #fff">
       <div class="container mt-md-4 mt-2 mb-md-4 mb-2">
         <div class="row align-items-center no-gutters">
           <div class="col-8 col-md-9 col-lg-10">
