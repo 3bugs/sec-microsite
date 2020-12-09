@@ -152,7 +152,6 @@ button {
 }
 
 .my-navbar .logo {
-  width: 57px;
   height: 57px;
   margin-left: 50px;
   margin-bottom: 8px;
@@ -251,10 +250,9 @@ button {
   }
 
   .my-navbar .logo {
-    width: 40px;
-    height: 40px;
+    /*height: 40px;
     margin-left: 20px;
-    margin-bottom: 0;
+    margin-bottom: 0;*/
   }
 
   .my-navbar .header {

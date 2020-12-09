@@ -23,7 +23,7 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Prompt|Sarabun|Roboto'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel='stylesheet' href="{{ asset('css/normalize.css') }}">
-  <link rel='stylesheet' href="{{ asset('css/main.css') }}">
+  <link rel='stylesheet' href="{{ asset('css/main.css?v=1') }}">
   <link rel='stylesheet' href="{{ asset('css/hamburgers.min.css') }}">
   <link rel='stylesheet' href="{{ asset('css/bootstrap-datepicker.min.css') }}">
   <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=2') }}">
@@ -44,8 +44,8 @@
 {{--<div id="app">--}}
 <div class="my-navbar">
   <div style="display: flex; align-items: center">
-    <a href="/"><img class="logo" src="{{ asset('images/logo.svg') }}" alt="logo" style="cursor: pointer"></a>
-    <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</div>
+    <a href="/"><img class="logo" src="{{ asset('images/logo_sec2.svg') }}" alt="logo" style="cursor: pointer"></a>
+<!--    <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</div>-->
   </div>
   <div style="display: flex; align-items: center; align-self: stretch">
     <div id="menu-item-search" class="menu-item" data-toggle="modal" data-target="#searchModal">
@@ -355,6 +355,7 @@
     window.onresize = function (e) {
       if (Modernizr.mq('(min-width: 768px)')) {
         $closeButton.hide();
+        adjustNavBar();
       } else {
         $closeButton.show();
       }
@@ -403,13 +404,15 @@
   });
 
   function adjustNavBar() {
+    $logo.css('margin-left', `${$(document).width() * 100 / 1836}px`);
+
     if (Modernizr.mq('(min-width: 768px)')) {
       if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         $topNav.css('height', '60px');
-        $logo.css('width', '40px');
-        $logo.css('height', '40px');
-        $logo.css('margin-left', '25px');
-        $logo.css('margin-bottom', '2px');
+        //$logo.css('width', '50px');
+        $logo.css('height', '46px');
+        //$logo.css('margin-left', '72px');
+        $logo.css('margin-top', '14px');
         $header.css('font-size', '16px');
         $header.css('margin', '2px 15px 0');
         $menuItem.css('width', '80px');
@@ -419,10 +422,10 @@
         $hamburgerInner.addClass('hamburger-width-small');
       } else {
         $topNav.css('height', '100px');
-        $logo.css('width', '57px');
-        $logo.css('height', '57px');
-        $logo.css('margin-left', '50px');
-        $logo.css('margin-bottom', '8px');
+        //$logo.css('width', '57px');
+        $logo.css('height', '74px');
+        //$logo.css('margin-left', '72px');
+        $logo.css('margin-top', '18px');
         $header.css('font-size', '20px');
         $header.css('margin', '0 25px');
         $menuItem.css('width', '140px');
@@ -434,6 +437,9 @@
       setTimeout(() => {
         $sideNavMenu.css('top', $topNav.css('height'));
       }, 100);
+    } else {
+      $logo.css('height', '46px');
+      $logo.css('margin-top', '14px');
     }
   }
 
