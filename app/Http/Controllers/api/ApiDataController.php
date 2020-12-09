@@ -10,6 +10,7 @@ use App\Models\MediaCategory;
 use App\Models\Event;
 use App\Models\EventCategory;
 use App\Utils\Utils;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -61,7 +62,7 @@ class ApiDataController extends Controller
     }
   }
 
-  public function index(Request $request)
+  public function index(Request $request): JsonResponse
   {
     try {
       /*$dataList = DB::table('fundraisings')
@@ -113,7 +114,7 @@ class ApiDataController extends Controller
     }
   }
 
-  public function indexByDate($date)
+  public function indexByDate($date): JsonResponse
   {
     try {
       $eventList = ($this->mModelClass)::where('begin_date', '<=', $date)
@@ -141,7 +142,7 @@ class ApiDataController extends Controller
     }
   }
 
-  public function show($id)
+  public function show($id): JsonResponse
   {
     try {
       $data = $this->mModelClass::find($id);
@@ -166,7 +167,7 @@ class ApiDataController extends Controller
     }
   }
 
-  public function store(Request $request)
+  public function store(Request $request): JsonResponse
   {
     // imagePath: public/fundraising/xxx.jpg
     // imageUrl: /storage/fundraising/xxx.jpg
@@ -216,7 +217,7 @@ class ApiDataController extends Controller
     }
   }
 
-  public function update(Request $request)
+  public function update(Request $request): JsonResponse
   {
     try {
       $imagePath = null;
@@ -272,7 +273,7 @@ class ApiDataController extends Controller
     }
   }
 
-  public function destroy(Request $request)
+  public function destroy(Request $request): JsonResponse
   {
     try {
       $id = $request->id;

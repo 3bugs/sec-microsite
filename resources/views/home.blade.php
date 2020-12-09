@@ -184,7 +184,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-4">
+        <div class="row mt-4" id="event-container">
           <div class="col-12" v-if="highlightEvent == null">
             <img src="/images/no_activity.jpg" style="width: 100%">
           </div>
@@ -243,8 +243,8 @@
       </div>
     </div>
 
-    <!--สื่อการเรียนรู้ระดมทุน-->
-    <div style="width: 100%; background: #f8f8f8; padding: 30px 0">
+    <!--แหล่งข้อมูลระดมทุน-->
+    <div style="width: 100%; background: url('{{ asset('images/bg-media.png') }}') no-repeat; background-size: cover; padding: 30px 0">
       <div class="container mt-md-4 mt-2 mb-md-4 mb-2">
         <div class="row align-items-center no-gutters">
           <!--<div class="col-12">
@@ -254,10 +254,10 @@
             </div>
           </div>-->
           <div class="col-sm-9 col-12">
-            <h1>แหล่งข้อมูลระดมทุน</h1>
+            <h1 style="color: rgba(255, 255, 255, 1)">แหล่งข้อมูลระดมทุน</h1>
           </div>
           <div class="col-sm-3 col-12 d-none d-sm-block text-right">
-            <a href="/media"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
+            <a href="/media"><h5 style="color: white">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
           </div>
         </div>
         <div class="row mt-4">
@@ -517,6 +517,9 @@
       data: {
         event: null,
         selectedEventCategory: 0,
+        $eventContainer: null,
+      },
+      created() {
       },
       computed: {
         highlightEvent: function () {
@@ -527,6 +530,19 @@
       methods: {
         handleClickCategoryButton: function (categoryId) {
           this.selectedEventCategory = categoryId;
+
+          /*const $eventContainer = $('#event-container');
+          if ($eventContainer) {
+            $eventContainer.fadeOut(150, () => {
+              this.selectedEventCategory = categoryId;
+              Vue.nextTick(() => {
+                $eventContainer.fadeIn(150, () => {
+                });
+              });
+            });
+          } else {
+            this.selectedEventCategory = categoryId;
+          }*/
         },
         handleClickEvent: function (id) {
           window.location = `/event/${id}`;

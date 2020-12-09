@@ -192,7 +192,7 @@
               <div class="col-12 col-md-4">
                 <ul class="footer_menu">
                   <li><h4><a href="/fundraising" style="color: white">เครื่องมือระดมทุน</a></h4></li>
-                  <li><a href="/fundraising">ต้องการกู้ยืม</a></li>
+                  <li><a href="/fundraising">ต้องการกู้ยืมเงินจากผู้ลงทุน</a></li>
                   <li><a href="/fundraising">ต้องการหาคนร่วมลงทุนเป็นเจ้าของ</a></li>
                   <li><a href="/fundraising">วิสาหกิจเพื่อสังคม</a></li>
                 </ul>

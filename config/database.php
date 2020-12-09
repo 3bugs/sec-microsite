@@ -1,6 +1,31 @@
 <?php
+require '../vendor/autoload.php';
 
 use Illuminate\Support\Str;
+/*use GuzzleHttp\Client;
+
+// Login
+$client = new Client();
+$request = $client->request('POST', 'https://login.microsoftonline.com/'.env('Azure_AD_Tenant_ID').'/oauth2/v2.0/token', [
+  'form_params' => [
+    'grant_type' => 'client_credentials',
+    'client_id' => env('Azure_AD_Application_ID'),
+    'client_secret' => env('Azure_AD_Application_Secret'),
+    'scope' => 'https://vault.azure.net/.default'
+  ]
+]);
+
+$response_api = $request->getBody()->getContents();
+//$response_api = str_replace(" ","",substr($response_api,3));
+$data_json = json_decode($response_api, true);
+
+// Get Secrets
+$client_2 = new \GuzzleHttp\Client();
+$request_2 = $client_2->request('get', 'https://'.env('AZURE_KEY_VAULT').'.vault.azure.net/secrets/'.env('AZURE_SECRET_NAME').'?api-version=2016-10-01', [
+  'headers' => [
+    'Authorization' =>'Bearer '.$data_json['access_token']
+  ]
+]);*/
 
 return [
 

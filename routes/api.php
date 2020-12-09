@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\ApiBannerController;
 use App\Http\Controllers\api\ApiCategoryController;
 use App\Http\Controllers\api\ApiContactController;
 use App\Http\Controllers\api\ApiDataController;
@@ -60,3 +61,8 @@ Route::post('/vision/upload-file', [ApiVisionController::class, 'storeUploadFile
 
 Route::get('/survey', [ApiSurveyController::class, 'index']);
 Route::post('/survey', [ApiSurveyController::class, 'store']);
+
+Route::get('/banner', [ApiBannerController::class, 'index']);
+Route::post('/banner', [ApiBannerController::class, 'store']);
+Route::put('/banner', [ApiBannerController::class, 'update']);
+Route::delete('/banner', [ApiBannerController::class, 'destroy']);
