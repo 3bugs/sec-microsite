@@ -179,7 +179,7 @@
       {id: 'g', text: 'ออกหุ้นกู้', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LawandRegulations/DebtInstrument.aspx'},
       {id: 'h', text: 'ออกหุ้นเพิ่มทุน', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/EQITYINSTRUMENT.aspx'},
       {id: 'k', text: 'PP for non-listed', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/SHAREPP.aspx'},
-      {id: 'l', text: 'การเสนอขายหุ้นสำหรับวิสาหกิจเพื่อสังคม', pageId: 0, url: 'https://www.sec.or.th/TH/Pages/LAWANDREGULATIONS/SE-OFFERING.aspx#summary'},
+      {id: 'l', text: 'การเสนอขายหุ้นสำหรับวิสาหกิจเพื่อสังคม', pageId: 17, url: null},
       {
         id: 'x',
         text: 'เพื่อเริ่มต้นเข้าสู่กระบวนการระดมทุนภายใต้โครงการส่งเสริมการระดมทุนผ่านตลาดทุน อย่างน้อยกิจการของท่านจำเป็นต้องจัดตั้งเป็น “บริษัทจำกัด” โดยท่านสามารถเริ่มต้นศึกษารายละเอียดการจดทะเบียนจัดตั้งบริษัทได้ที่ กรมพัฒนาธุรกิจการค้า กระทรวงพาณิชย์',
