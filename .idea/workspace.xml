@@ -5,168 +5,169 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/AiKzlkSOwhKgkf0VwktWKlO8xTRVKj9nlfJGcYxm.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/BxXF9T2j3DGRvXLscDUcE2zVF65cRlaLbz9qcqLz.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/D9yxwjrN3ZgfBlKfj8RWXYKmPWysPNlVHvjTtgGg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/FpFf3JThMxHPNin8pJZ9gSE1euSz3ocNICaZzuzz.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/QyaSwOayWrZ6d1BxLnBl3emmN4Lg6L0buFqFV380.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/XhFTkqihYC512izIz5nKKYAXwlowO8PAAbd1ndDE.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/Z8Zs7gBPLLl4TEVNkVkul7Rd7Ese6kLVfnkE88sh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/ZO1lN8STHxWMWg1JGMuRWNg8gi5jeLrqD7rIscnc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/ZsAhKsFOqU4mFoYiNt5VPyLgWSTF1FsPUAGqAfYC.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/cW378eagSZNRKIm1hrMuPM8yDHCHh0A4xeFvkGLy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/fFd2OFOWRh0tGpinMgkEd1mhzdePcmmc0TSc8fpN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/fYraGAcIYn9bWkE4i9dix1EcHL2IPu1ULv0FyY25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/ivvJu9Xpt6FR9WsZWv7Q3Ye3xy1yV4BNNXo6liss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/kOX9j9YIZnNldih3M3TbNKo0oKom1LtEnPwR1Dwo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/oKZ6UVXzJi4gLPUGWp3tVHk9DCqou70O3oBRQrVw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/oimdSjASUexAewX4PTg2RDIZ5zjp3p0lGkTRYk5f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/tx7fAHe3a70V89jr4MOAzdEgqvNCcluUc5mEwci2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/u3QnzHto2RP3jdffJKIL2iXHaLyV4kaitP5VGaAO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/vsMONGrlL2bMnZBFs5j3lQvYHllWVhPNcxRDEsmS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/wH4fTu8qmwCrXWzkuUUDVs7QREcUl9x7hQ4Rwyg3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/wTxb8rszbmlffKZgzwmmCzRfN0CkMEpAlqTbmfpL.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/event/yML8QQVh8plRF0Aj3J1TPcVrlQBv4aD2cf0n4M1e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/26MZtCmmh4vwyTnsMvNZ0uSmXpr8raovK2oSyZVv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/2EvXrFhgGncPeyu2sHLvV55OWfkeQ0OChSiggqgD.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/2WlsQzhbpP0MfNW8DukL6s0hoLhYYLds8XWiy621.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/3di2knQOLHxbOWATBdUwNk54mXdtlHV6N9gcqaka.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/4nyh5em501l1G5G8UAfAihpOhz2Dk9SWFhNanra6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/5FWqTj6ElHzooodWyI34M5UK8h6S5hYTKX1fJJCn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/6XoMDRuTVgWS0PhVQ8dG2NPwZPyqeTa8ue9FjjAJ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/7OxzIvSHZ6VjQxLKcGYqlywsEnHSkZYfpoV7lOeL.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/7od90Q2T3TziBePL72pyDBHkbPN8JyduQYGkbOL7.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/8sDSilZ1OpeDmsi8If85seVJ41Xg0ktCRnabTrA5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/9ZSvwRIjuKHwqDLcylCzhpj8acidcvCk5MV5xCBv.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/9gv2XG9I7s1ap3jh6c5onAWDjaXHelizzvr9pf8l.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/AOaMGtbA4mJFIzwo5DGYLGi8k2jcTqfeNuVgXRZt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/B4XCIraKkTNXgxKrqmu7tzlaPTCXpqXY3AxfhG0A.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/BJCa32Zm3GcMrU4UeEOI04mQ7IPAoVw0mMG4VTuV.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/CXSoUTKkh9gYb0otgdkCZuXyjV9se8kRizsj5kKU.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/CmV2yM67exIeR7cTKEsvcohWdPzuNiHFGSeOBkGR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/D5kUbnrqdbuS2GC5PF3OmnlfGEfzXFRfZ4bII0Ms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/EwjSiTVaT1GZ6FlAdPKBce21ogIbixvX1Q0BUcMo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/FGMZlHDimopJnkFWS0TzPZcgZG2KfM5PQhcLTkJ1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/FP98EwSvweOPRoFjHc69XLjweNV5L0RsWFKMjEJu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/FR3FCCHVCJRKoB6bv4KBAbtsAKdnYYc2ZOJjQe3T.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/FuVCNLU7vh6sSahSYUtTdmhgOhPtITFCJE993hfr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/GGJxNt1SvWGwwKOlU4UXnKec99hT1UJr9nrySJTx.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/HIKJIqaQRm6pNTkrfcHZ6rkX6TD4RV0q0hSiIcKp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/HNAKVVnpp1RHJ5Al0OhGqrUqrAgE5SJgOBrRcOAC.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/HX8HFewoufgZchu9kVI9KBQIpWEZbmbGDQLzaVav.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/II8NCh2SJrr51x3IkAafVfkXqstj2Q26ZWVo8vt2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/JnBETbjcNGyOGhGy0GEQOoGvO1MoJfe6mY4WY1hN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/K7MjnViSB2Wf3v9jY4M0fNhKu7r32RPV01lWIQ3q.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/MHs9GLXj5FWG1KfSmv8CE9z1xuIajWhRWfD2rOaN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/Mi2ujV3HotiCPKqTafake3cz67eta7ly7YsFBGhK.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/NejiQYMs3Bc0s6emAEKBmDu3aUt83q5paFUYnhUm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/OVP6KW2BdiIOAVq1jjqsvZXd6zI4G0tFWmT9jUWI.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/PDQCJmPYZevAH3AiVlVX6rrzaSEXp4SKXHuKAMp9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/Pa5tuwYoStZWub3MBJAfftM0r1lu8W0mk3atKEGm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/PtsvokW368vB2y22gsTNqfsdP9kSAfwAwH1DKJQ9.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/Qi8mvyY4JV3sZUmSQ87PWYbZYVbgD83fUrPneqfW.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/R5zG8P7F2kkro2XtNrRVQzRjO05Csz2O5b38mSCC.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/RrCTPNnLR33wbhmXSAXIJx2lvdxp4e9k8VAdwjsg.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/SeG7ljcmP5rDOTImIiwn0fLdQwSTQqQs6DPimfcW.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/TGLVgpiOuGmYj655JCEh1XoTBfK6jm6VPdycgVGr.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/V5ZXRoriFr5oPALAHy4FbN8zAkE2vNLAqPcJkves.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/WQTroXKlXYSO6lfJspbTNWSvnucxzeTI1Ng4hnHL.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/Wa804LKgTqyekUKI4nIuuZxaudDSjKJT2Zp21Cbc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/X1LU1OOPKt8YHJLhpM1FoCqCBVqZQ6FXrJznRZQ1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/XwYBMc4GlIbK6n06ysFPobLm27uqIN6EHJTKd35a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/Y0VxsfyJW6c6uPhA8XCV8ZWaSekZU5AIBxPS8Stm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/YnqykZsACBE3L3MnFfnhclhAlLCUiYkf7V6ZdaI6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/Z5QVW937BVYpYFJZNwz6LuA6PdHZmDJhTa1OHLqe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/ZpD9RlEWbY6kcBQqgm3IUl3AMKkNm5WiEKvRYiEj.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/aNJMZUP17WkxolE7Dr79qC5pfV4n9UMgxjqk7ea3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/aOKKsKvr17HLV53W2HAQIH7fMvbatWyJcD2ZZNql.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/aT85pX6X0bt2cFOFJrnXwg6xMOnEicn2S4njZ6og.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/armFnNCXk2kHwW5yxTDCg1VUs059rtxEK27TCOUk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/b3xBEJrBZ06Z3mNVGJghfjohpgNryV0Qj74SgOls.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/b6gduZ03YhEcWJWyabO2r2uZlywR5P2YgXUA0qTU.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/baSATDycW9lr3615GNOH1hGQsi2UzPJfaoo6GwT1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/bzYRvAuZR6q0SGj29nQ4bMklLQfbtpvIcA5g9PqS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/cB3O35Qe3hqxNulITDOXtjvbvbyAdII0cj8MswMc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/cPs5pUsAujLHpBjoNLsCzKKkRmGLVfKF8yMo8ows.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/cYjgXP5GmVmaHzS7BUGSy7so2nNKbXTNr6cj4ENb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/dufXPpTpKfmC1CKbmtOY1FKSUk0v3VS0ICwPoWOE.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/ekZZmcPk3OucpJZd5C6OwjVuzwVnyMrocUWBbTyN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/ewj2vBR7MuAsRUB2ym9K8x6r2VmKMUzol41nF6PE.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/fKARWPKV3Kk5HVKOcXHnPi3vFwt8HY4FrahXWiIH.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/ff7iylOHEqGIJK0hpijvMqJoeAlEVu1NDW6Aqf4k.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/gjLWPx4QImjuj5bFEQcjvFPZBIxp5ybLKmUnHqTw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/hx5HfFv3hxMXK2lRVVm0HfCl5rsUWKZznnAD9hu3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/iWzKsT7O3yiCzbmL0eNYHUMEZTtPDV3o5F4kBnjJ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/jhMHJmxJmTUqwZGpKGM0amUsldOyoAkBboXTczdK.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/jw9E0HcmsXSLe8T74JA2QR6ywIbU3aBIW1lRsrO1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/kI7gsdCLs0xNvw78YV4yFZDSB0LZA41TDrIxbD0W.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/kTkQtAQ77vOsKmoki9twQyYv7hTqRbC5hRYdEjN5.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/kUtww8DrLsoJmiExQ4qISLOPBeQS80GhJ7AhM83m.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/ky2sPZY0Pl91lLVWd35wKkHO1opCp2q5B9kBAuZ9.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/lGW8vHjT5VZY3eFo1F9jRXnJHsfgDIZT4eqcQG7n.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/n7u2QZJZmEuYUVbYIpU4vc0GaqmAIr5kRIrrNY4P.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/nVS5DyC1frnCXnv3MLkqj0jBG0CaxTrV6NZ9lmut.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/oVdmECD1VtlTMHDwDvYjnMAELX8XTHqJtCbN2Odo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/oynkt4uJHnZr0fQXzcwD6OQi0f3B4CXzDGli0bFn.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/pXZPKc14fl6BAQrm74vffeAPd0PdPsAm9pj33Htl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/q9N0gqbXWPutp40Yv3SgC80AqnXI7GKeTCgSJxWb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/qBlLPpfUCGd63GdpkLvQUrT2TFbdKIOak0qlk9j6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/qCSBaGkr1ZvX2rl9EjrN4D3Th5PNbtBO4NYwdb8P.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/qKeduQAeWstALNe3L7Y8DdJnDIhSC6gfkZnI0k0w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/qb9KbCBx07uzTWI5mZQNmc3PQxbBBd0INU67H00d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/rJQNBJGvti4XrGbMr1OdSqBBOaMBjd2kbopYib0F.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/rMXfIq16ASNNvOcQelLJ2MreRg4RxkKJoGyh0qZP.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/rPssZxLiD5RP6AxCIPBEqbvGUMttk9VgcoMhJO0Y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/rtSTcmoJB2Ik6cCThb602WDHlIHoz0wi9Nyti0zn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/skMxyoGaugf2XK6IhZ1XOToS65H4yGukdxir2q3v.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/t3E4pA1kD3VnAdN4fxrLLMqaI9K1diHT8PxXw2I0.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/tNCGZTFXaJw0ZAXAh29PQu6Pzfys79Up59hYFqT9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/tkhU8VUUEMg4xHIzHJVJJ8UQew9A1cFAvRppafr8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/u4400frtgkaImuRdiBo0AUiaMBrltNYu4gCBYpZd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/u6a41JfOX4mAcWGqeS319qsVA7pldt74El6ttZAl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/vGHnP9jR3R8htp7FZvpURbzfVGRciNFV5Wf7Gokg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/wnWs3DkvVjUjOBCAjAc06ZVkImwciEuH5Yn8Y41U.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/x1mfILNoWJWtmjZQZARAhEIkaBgwCiPexAEzseVY.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/xCW9OmHWgGopA3NzojendkOFmcYUaDLLt6eevvgv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/xl9XT2AKyr09Dp3xnKQFc4dpPKs4yjBmbzv6Ln0x.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/xsCxIh39je946EfdSryz7iEdTDyLAWv23qGbEMWu.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/zCjU3lV2L3ZGrOiwH7Xck43dGy7uYr6qKYxzVt2G.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/zHcNP7AOdlELehrlltzcNOyybVunpWhgbeSvQ6st.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/fundraising/zq3PKXfNxirIONYPtJlRZuQJmlAp6xZHeNP4lS0L.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/0T8mBOi284wghS7XJLkJZkwdJ5hY0eROsFYM0UJC.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/0oiNww0i6RfooMYmPLkTAlenkP3fX2SJGjiiMWLz.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/1wlO0MjTYS2dPbL3FGxjWBwLdw6dcGaumQB6HNNR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/2nBhXsEtUN6k1gMfTeXdYOfCa5PgdRPZdVSUdcDU.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/838MQLXnRQZsM2T74FH2PDaRmtSXSDIcoCaiffax.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/CSw2jGTLGRRbWdRw8lY6XKqXTITJPyUjLNHvEgmn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/FRgI3Go07T2yNuDjHKWK03DKNJSO28XrwjjRZbHY.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/FZyePOiQNMDCz0NXfmc8Shtk1k7hWetJHmip49M9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/HrXTevRL5wrCsoNpfPV2XVjUSCIZ0PZQM5GU7lA0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/QPR13Qm3ZkKs2BLAg8l8QqoZlk5FAPivw6qaFn4X.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/RcHG2YTf9jJORrH79Vey5NBuz13ogncSuBEnUFX8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/Rwds9RYMSR9zTrldZsRFcWyv1LN0r0y8t7vDgqXl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/SIcweCzMcnpq4RusRJVKIBEMJbeaRemhqzVx5lOF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/UkNcDnQaQ4kzuP46h16LEcZ4GcVErBY1RNFAGFPJ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/a8YU7zDSZ6Et4RUgdeTsfsHp2aitTCJ4w2gMW0xQ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/dwfAGzZOGIKuGvF9YemWsgNPTeDp77zlGTkdmCVe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/eFidzWutGq0XBXI7hpWamlaqxcXpCCJEekLCeS0M.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/gytzZmmjHMSWuNPzU1vRXPH0bknz7HM6bwAmxYbn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/lS5BqS38JJTI14EHaR3KfGa6doauOYdy21C1nUbM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/nKq4jlfsGJ40TufIbTCoKg4n9RhMPR8JmWDzkt3C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/oYZTuY0sgsksu6yv2XVT23PFNzCV29T7CoSieVjS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/pJluCraHOouy0PlLlpnSebLFv0M5POrSeJ7OlASM.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/v9CJIHGnKC5c7abIT8rg5XdOKh8dTzQO5x6hz42H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/vSpFyalMIlM8DJeqpYnjgv3qdxEYzXMxnsW5tiJa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/xzMO4gsG8bBx6mVJVrFjFD6yqbHkZRRAPMhhZDNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/media/ytFlxJYUPXiem5RQ6Eg6EALc2PQhdAkx5uY7R23O.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/vision/6CEf0Z4zF6mlQoxxFdg6DcjmkYO7Uy4Fk9F9TLsF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/vision/ANoDMB9pIHyh0gma7nKA1tnvvlKiQGWg26cP11ib.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/vision/KuC0V6lR2eC1bkMnzimILVnE09Cix1sgBU6zJSrl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/migrate/vision/fTPepLIgMaCcWlfoPjkC7lSylrDamtJnaapfhSJr.png" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/AiKzlkSOwhKgkf0VwktWKlO8xTRVKj9nlfJGcYxm.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/BJX6nuGzQIBdLnJnnvzvE8dQFxQFXo8Arj2djMTl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/BxXF9T2j3DGRvXLscDUcE2zVF65cRlaLbz9qcqLz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/D9yxwjrN3ZgfBlKfj8RWXYKmPWysPNlVHvjTtgGg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/FpFf3JThMxHPNin8pJZ9gSE1euSz3ocNICaZzuzz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/QyaSwOayWrZ6d1BxLnBl3emmN4Lg6L0buFqFV380.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/U9cr0LMfHzF2eFpS1bLbl2su8kKKUbkv2eQ7d8RB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/XhFTkqihYC512izIz5nKKYAXwlowO8PAAbd1ndDE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/Z8Zs7gBPLLl4TEVNkVkul7Rd7Ese6kLVfnkE88sh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/ZO1lN8STHxWMWg1JGMuRWNg8gi5jeLrqD7rIscnc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/ZsAhKsFOqU4mFoYiNt5VPyLgWSTF1FsPUAGqAfYC.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/cW378eagSZNRKIm1hrMuPM8yDHCHh0A4xeFvkGLy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/fFd2OFOWRh0tGpinMgkEd1mhzdePcmmc0TSc8fpN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/fYraGAcIYn9bWkE4i9dix1EcHL2IPu1ULv0FyY25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/ivvJu9Xpt6FR9WsZWv7Q3Ye3xy1yV4BNNXo6liss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/kOX9j9YIZnNldih3M3TbNKo0oKom1LtEnPwR1Dwo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/oKZ6UVXzJi4gLPUGWp3tVHk9DCqou70O3oBRQrVw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/oimdSjASUexAewX4PTg2RDIZ5zjp3p0lGkTRYk5f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/tx7fAHe3a70V89jr4MOAzdEgqvNCcluUc5mEwci2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/u3QnzHto2RP3jdffJKIL2iXHaLyV4kaitP5VGaAO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/vsMONGrlL2bMnZBFs5j3lQvYHllWVhPNcxRDEsmS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/wH4fTu8qmwCrXWzkuUUDVs7QREcUl9x7hQ4Rwyg3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/wTxb8rszbmlffKZgzwmmCzRfN0CkMEpAlqTbmfpL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/event/yML8QQVh8plRF0Aj3J1TPcVrlQBv4aD2cf0n4M1e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/26MZtCmmh4vwyTnsMvNZ0uSmXpr8raovK2oSyZVv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/2EvXrFhgGncPeyu2sHLvV55OWfkeQ0OChSiggqgD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/2WlsQzhbpP0MfNW8DukL6s0hoLhYYLds8XWiy621.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/2hCtkAGbZsxYf13rM324ZLytWFrjCJ1hjVoDMUiC.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/3di2knQOLHxbOWATBdUwNk54mXdtlHV6N9gcqaka.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/4nyh5em501l1G5G8UAfAihpOhz2Dk9SWFhNanra6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/5FWqTj6ElHzooodWyI34M5UK8h6S5hYTKX1fJJCn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/6XoMDRuTVgWS0PhVQ8dG2NPwZPyqeTa8ue9FjjAJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/7OxzIvSHZ6VjQxLKcGYqlywsEnHSkZYfpoV7lOeL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/7od90Q2T3TziBePL72pyDBHkbPN8JyduQYGkbOL7.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/8sDSilZ1OpeDmsi8If85seVJ41Xg0ktCRnabTrA5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/9ZSvwRIjuKHwqDLcylCzhpj8acidcvCk5MV5xCBv.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/9gv2XG9I7s1ap3jh6c5onAWDjaXHelizzvr9pf8l.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/AOaMGtbA4mJFIzwo5DGYLGi8k2jcTqfeNuVgXRZt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/B4XCIraKkTNXgxKrqmu7tzlaPTCXpqXY3AxfhG0A.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/BJCa32Zm3GcMrU4UeEOI04mQ7IPAoVw0mMG4VTuV.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/CXSoUTKkh9gYb0otgdkCZuXyjV9se8kRizsj5kKU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/CmV2yM67exIeR7cTKEsvcohWdPzuNiHFGSeOBkGR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/D5kUbnrqdbuS2GC5PF3OmnlfGEfzXFRfZ4bII0Ms.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/EwjSiTVaT1GZ6FlAdPKBce21ogIbixvX1Q0BUcMo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/FGMZlHDimopJnkFWS0TzPZcgZG2KfM5PQhcLTkJ1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/FP98EwSvweOPRoFjHc69XLjweNV5L0RsWFKMjEJu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/FR3FCCHVCJRKoB6bv4KBAbtsAKdnYYc2ZOJjQe3T.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/FuVCNLU7vh6sSahSYUtTdmhgOhPtITFCJE993hfr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/GGJxNt1SvWGwwKOlU4UXnKec99hT1UJr9nrySJTx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/HIKJIqaQRm6pNTkrfcHZ6rkX6TD4RV0q0hSiIcKp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/HNAKVVnpp1RHJ5Al0OhGqrUqrAgE5SJgOBrRcOAC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/HX8HFewoufgZchu9kVI9KBQIpWEZbmbGDQLzaVav.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/II8NCh2SJrr51x3IkAafVfkXqstj2Q26ZWVo8vt2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/JnBETbjcNGyOGhGy0GEQOoGvO1MoJfe6mY4WY1hN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/K7MjnViSB2Wf3v9jY4M0fNhKu7r32RPV01lWIQ3q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/MHs9GLXj5FWG1KfSmv8CE9z1xuIajWhRWfD2rOaN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/Mi2ujV3HotiCPKqTafake3cz67eta7ly7YsFBGhK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/NejiQYMs3Bc0s6emAEKBmDu3aUt83q5paFUYnhUm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/OVP6KW2BdiIOAVq1jjqsvZXd6zI4G0tFWmT9jUWI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/PDQCJmPYZevAH3AiVlVX6rrzaSEXp4SKXHuKAMp9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/Pa5tuwYoStZWub3MBJAfftM0r1lu8W0mk3atKEGm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/PtsvokW368vB2y22gsTNqfsdP9kSAfwAwH1DKJQ9.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/Qi8mvyY4JV3sZUmSQ87PWYbZYVbgD83fUrPneqfW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/R5zG8P7F2kkro2XtNrRVQzRjO05Csz2O5b38mSCC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/RrCTPNnLR33wbhmXSAXIJx2lvdxp4e9k8VAdwjsg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/SeG7ljcmP5rDOTImIiwn0fLdQwSTQqQs6DPimfcW.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/TGLVgpiOuGmYj655JCEh1XoTBfK6jm6VPdycgVGr.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/V5ZXRoriFr5oPALAHy4FbN8zAkE2vNLAqPcJkves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/WQTroXKlXYSO6lfJspbTNWSvnucxzeTI1Ng4hnHL.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/Wa804LKgTqyekUKI4nIuuZxaudDSjKJT2Zp21Cbc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/X1LU1OOPKt8YHJLhpM1FoCqCBVqZQ6FXrJznRZQ1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/XwYBMc4GlIbK6n06ysFPobLm27uqIN6EHJTKd35a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/Y0VxsfyJW6c6uPhA8XCV8ZWaSekZU5AIBxPS8Stm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/YnqykZsACBE3L3MnFfnhclhAlLCUiYkf7V6ZdaI6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/Z5QVW937BVYpYFJZNwz6LuA6PdHZmDJhTa1OHLqe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/ZpD9RlEWbY6kcBQqgm3IUl3AMKkNm5WiEKvRYiEj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/aNJMZUP17WkxolE7Dr79qC5pfV4n9UMgxjqk7ea3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/aOKKsKvr17HLV53W2HAQIH7fMvbatWyJcD2ZZNql.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/aT85pX6X0bt2cFOFJrnXwg6xMOnEicn2S4njZ6og.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/armFnNCXk2kHwW5yxTDCg1VUs059rtxEK27TCOUk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/b3xBEJrBZ06Z3mNVGJghfjohpgNryV0Qj74SgOls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/b6gduZ03YhEcWJWyabO2r2uZlywR5P2YgXUA0qTU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/baSATDycW9lr3615GNOH1hGQsi2UzPJfaoo6GwT1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/bzYRvAuZR6q0SGj29nQ4bMklLQfbtpvIcA5g9PqS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/cB3O35Qe3hqxNulITDOXtjvbvbyAdII0cj8MswMc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/cPs5pUsAujLHpBjoNLsCzKKkRmGLVfKF8yMo8ows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/cYjgXP5GmVmaHzS7BUGSy7so2nNKbXTNr6cj4ENb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/dufXPpTpKfmC1CKbmtOY1FKSUk0v3VS0ICwPoWOE.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/ekZZmcPk3OucpJZd5C6OwjVuzwVnyMrocUWBbTyN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/ewj2vBR7MuAsRUB2ym9K8x6r2VmKMUzol41nF6PE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/fKARWPKV3Kk5HVKOcXHnPi3vFwt8HY4FrahXWiIH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/ff7iylOHEqGIJK0hpijvMqJoeAlEVu1NDW6Aqf4k.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/gjLWPx4QImjuj5bFEQcjvFPZBIxp5ybLKmUnHqTw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/hx5HfFv3hxMXK2lRVVm0HfCl5rsUWKZznnAD9hu3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/iWzKsT7O3yiCzbmL0eNYHUMEZTtPDV3o5F4kBnjJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/jhMHJmxJmTUqwZGpKGM0amUsldOyoAkBboXTczdK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/jw9E0HcmsXSLe8T74JA2QR6ywIbU3aBIW1lRsrO1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/kI7gsdCLs0xNvw78YV4yFZDSB0LZA41TDrIxbD0W.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/kTkQtAQ77vOsKmoki9twQyYv7hTqRbC5hRYdEjN5.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/kUtww8DrLsoJmiExQ4qISLOPBeQS80GhJ7AhM83m.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/ky2sPZY0Pl91lLVWd35wKkHO1opCp2q5B9kBAuZ9.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/lGW8vHjT5VZY3eFo1F9jRXnJHsfgDIZT4eqcQG7n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/n7u2QZJZmEuYUVbYIpU4vc0GaqmAIr5kRIrrNY4P.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/nCu1XyUAPzlDLc2O1cXL5YhefiY15MocClZ4fHHP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/nVS5DyC1frnCXnv3MLkqj0jBG0CaxTrV6NZ9lmut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/oVdmECD1VtlTMHDwDvYjnMAELX8XTHqJtCbN2Odo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/oynkt4uJHnZr0fQXzcwD6OQi0f3B4CXzDGli0bFn.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/pXZPKc14fl6BAQrm74vffeAPd0PdPsAm9pj33Htl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/q9N0gqbXWPutp40Yv3SgC80AqnXI7GKeTCgSJxWb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/qBlLPpfUCGd63GdpkLvQUrT2TFbdKIOak0qlk9j6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/qCSBaGkr1ZvX2rl9EjrN4D3Th5PNbtBO4NYwdb8P.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/qKeduQAeWstALNe3L7Y8DdJnDIhSC6gfkZnI0k0w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/qb9KbCBx07uzTWI5mZQNmc3PQxbBBd0INU67H00d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/rJQNBJGvti4XrGbMr1OdSqBBOaMBjd2kbopYib0F.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/rMXfIq16ASNNvOcQelLJ2MreRg4RxkKJoGyh0qZP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/rPssZxLiD5RP6AxCIPBEqbvGUMttk9VgcoMhJO0Y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/rtSTcmoJB2Ik6cCThb602WDHlIHoz0wi9Nyti0zn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/skMxyoGaugf2XK6IhZ1XOToS65H4yGukdxir2q3v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/t3E4pA1kD3VnAdN4fxrLLMqaI9K1diHT8PxXw2I0.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/tNCGZTFXaJw0ZAXAh29PQu6Pzfys79Up59hYFqT9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/tkhU8VUUEMg4xHIzHJVJJ8UQew9A1cFAvRppafr8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/u4400frtgkaImuRdiBo0AUiaMBrltNYu4gCBYpZd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/u6a41JfOX4mAcWGqeS319qsVA7pldt74El6ttZAl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/vGHnP9jR3R8htp7FZvpURbzfVGRciNFV5Wf7Gokg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/wnWs3DkvVjUjOBCAjAc06ZVkImwciEuH5Yn8Y41U.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/x1mfILNoWJWtmjZQZARAhEIkaBgwCiPexAEzseVY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/xCW9OmHWgGopA3NzojendkOFmcYUaDLLt6eevvgv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/xl9XT2AKyr09Dp3xnKQFc4dpPKs4yjBmbzv6Ln0x.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/xsCxIh39je946EfdSryz7iEdTDyLAWv23qGbEMWu.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/zCjU3lV2L3ZGrOiwH7Xck43dGy7uYr6qKYxzVt2G.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/zHcNP7AOdlELehrlltzcNOyybVunpWhgbeSvQ6st.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/zq3PKXfNxirIONYPtJlRZuQJmlAp6xZHeNP4lS0L.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/0T8mBOi284wghS7XJLkJZkwdJ5hY0eROsFYM0UJC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/0oiNww0i6RfooMYmPLkTAlenkP3fX2SJGjiiMWLz.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/1wlO0MjTYS2dPbL3FGxjWBwLdw6dcGaumQB6HNNR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/2nBhXsEtUN6k1gMfTeXdYOfCa5PgdRPZdVSUdcDU.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/838MQLXnRQZsM2T74FH2PDaRmtSXSDIcoCaiffax.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/CSw2jGTLGRRbWdRw8lY6XKqXTITJPyUjLNHvEgmn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/FRgI3Go07T2yNuDjHKWK03DKNJSO28XrwjjRZbHY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/FZyePOiQNMDCz0NXfmc8Shtk1k7hWetJHmip49M9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/HrXTevRL5wrCsoNpfPV2XVjUSCIZ0PZQM5GU7lA0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/QPR13Qm3ZkKs2BLAg8l8QqoZlk5FAPivw6qaFn4X.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/RcHG2YTf9jJORrH79Vey5NBuz13ogncSuBEnUFX8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/Rwds9RYMSR9zTrldZsRFcWyv1LN0r0y8t7vDgqXl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/SIcweCzMcnpq4RusRJVKIBEMJbeaRemhqzVx5lOF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/UkNcDnQaQ4kzuP46h16LEcZ4GcVErBY1RNFAGFPJ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/a8YU7zDSZ6Et4RUgdeTsfsHp2aitTCJ4w2gMW0xQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/dwfAGzZOGIKuGvF9YemWsgNPTeDp77zlGTkdmCVe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/eFidzWutGq0XBXI7hpWamlaqxcXpCCJEekLCeS0M.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/gytzZmmjHMSWuNPzU1vRXPH0bknz7HM6bwAmxYbn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/lS5BqS38JJTI14EHaR3KfGa6doauOYdy21C1nUbM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/nKq4jlfsGJ40TufIbTCoKg4n9RhMPR8JmWDzkt3C.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/oYZTuY0sgsksu6yv2XVT23PFNzCV29T7CoSieVjS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/pJluCraHOouy0PlLlpnSebLFv0M5POrSeJ7OlASM.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/v9CJIHGnKC5c7abIT8rg5XdOKh8dTzQO5x6hz42H.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/vSpFyalMIlM8DJeqpYnjgv3qdxEYzXMxnsW5tiJa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/xzMO4gsG8bBx6mVJVrFjFD6yqbHkZRRAPMhhZDNN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/ytFlxJYUPXiem5RQ6Eg6EALc2PQhdAkx5uY7R23O.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/vision/6CEf0Z4zF6mlQoxxFdg6DcjmkYO7Uy4Fk9F9TLsF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/vision/ANoDMB9pIHyh0gma7nKA1tnvvlKiQGWg26cP11ib.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/vision/KuC0V6lR2eC1bkMnzimILVnE09Cix1sgBU6zJSrl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/vision/fTPepLIgMaCcWlfoPjkC7lSylrDamtJnaapfhSJr.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -427,14 +428,7 @@
       <workItem from="1607057044819" duration="18819000" />
       <workItem from="1607094265667" duration="54891000" />
       <workItem from="1607308766571" duration="33219000" />
-      <workItem from="1607480110557" duration="13450000" />
-    </task>
-    <task id="LOCAL-00073" summary="front: css หน้า event">
-      <created>1606116466427</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1606116466427</updated>
+      <workItem from="1607480110557" duration="13839000" />
     </task>
     <task id="LOCAL-00074" summary="front: ปรับหน้า survey">
       <created>1606122445335</created>
@@ -772,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607488937574</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="move image data files">
+      <created>1607502228718</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1607502228718</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -780,7 +781,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: เอา footer หน้า survey กลับมา แต่กำหนด opacity = 0" />
     <MESSAGE value="front: ลบ comment แสดงผลเกินมา" />
     <MESSAGE value="front: add chevron-down icon" />
     <MESSAGE value="front: ปรับการแสดง chevron-down icon" />
@@ -805,6 +805,7 @@
     <MESSAGE value="highlight current date in calendar" />
     <MESSAGE value="add api for banner" />
     <MESSAGE value="add data image files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add data image files" />
+    <MESSAGE value="move image data files" />
+    <option name="LAST_COMMIT_MESSAGE" value="move image data files" />
   </component>
 </project>
