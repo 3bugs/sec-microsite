@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="แก้ link ผลลัพธ์หน้า survey">
-      <change afterPath="$PROJECT_DIR$/public/images/logo_sec2.svg" afterDir="false" />
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/test_kv.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +163,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -182,11 +179,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
       <recent name="$PROJECT_DIR$/resources/js/pages" />
       <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
@@ -271,14 +268,7 @@
       <workItem from="1607094265667" duration="54891000" />
       <workItem from="1607308766571" duration="33219000" />
       <workItem from="1607480110557" duration="17753000" />
-      <workItem from="1607527111695" duration="3467000" />
-    </task>
-    <task id="LOCAL-00076" summary="front: link ผลลัพธ์หน้า survey">
-      <created>1606197432560</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1606197432560</updated>
+      <workItem from="1607527111695" duration="6385000" />
     </task>
     <task id="LOCAL-00077" summary="front: หน้า event">
       <created>1606198698273</created>
@@ -616,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607506501654</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="ปรับ logo">
+      <created>1607532157160</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1607532157160</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +621,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: ปรับการแสดง chevron-down icon" />
     <MESSAGE value="front: ปรับ css" />
     <MESSAGE value="back: ซ่อนปุ่มดูหน้าเว็บ ตอน add ข้อมูล" />
     <MESSAGE value="front: submit survey result" />
@@ -649,6 +645,7 @@
     <MESSAGE value="move image data files" />
     <MESSAGE value="add image files" />
     <MESSAGE value="แก้ link ผลลัพธ์หน้า survey" />
-    <option name="LAST_COMMIT_MESSAGE" value="แก้ link ผลลัพธ์หน้า survey" />
+    <MESSAGE value="ปรับ logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="ปรับ logo" />
   </component>
 </project>
