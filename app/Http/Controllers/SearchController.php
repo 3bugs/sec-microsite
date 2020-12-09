@@ -88,7 +88,7 @@ class SearchController extends Controller
 
     $dataList = array();
     foreach ($rows as $key => $data) {
-      if ($data->$category->published === 1 &&
+      if ($data->$category != null && $data->$category->published === 1 &&
         (strpos($data->title, $searchTerm) !== false
           || strpos($data->description, $searchTerm) !== false
           || strpos(strip_tags($data->content), $searchTerm) !== false)) {

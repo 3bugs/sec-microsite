@@ -5,8 +5,10 @@
 
 @section('content')
   @include('includes.header', [
+    'class' => 'media',
     'title' => 'SEARCH RESULTS',
-    'imageSrc' => 'images/bc-media.png',
+    'imageSrc' => 'images/header-media.svg',
+    'bottom' => -15,
   ])
 
   <section class="container">
