@@ -152,9 +152,9 @@ button {
 }
 
 .my-navbar .logo {
-  height: 57px;
-  margin-left: 50px;
-  margin-bottom: 8px;
+  /*display: none;*/
+  height: 30px;
+  margin-left: 30px;
   transition: 0.2s;
 }
 

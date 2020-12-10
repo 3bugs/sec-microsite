@@ -44,7 +44,7 @@
 {{--<div id="app">--}}
 <div class="my-navbar">
   <div style="display: flex; align-items: center">
-    <a href="/"><img class="logo" src="{{ asset('images/logo_sec2.svg') }}" alt="logo" style="cursor: pointer"></a>
+    <a href="/"><img class="logo" src="{{ asset('images/logo3.png') }}" alt="logo" style="cursor: pointer"></a>
 <!--    <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</div>-->
   </div>
   <div style="display: flex; align-items: center; align-self: stretch">
@@ -410,9 +410,9 @@
       if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         $topNav.css('height', '60px');
         //$logo.css('width', '50px');
-        $logo.css('height', '46px');
+        $logo.css('height', '38px');
         //$logo.css('margin-left', '72px');
-        $logo.css('margin-top', '14px');
+        //$logo.css('margin-top', '14px');
         $header.css('font-size', '16px');
         $header.css('margin', '2px 15px 0');
         $menuItem.css('width', '80px');
@@ -423,9 +423,9 @@
       } else {
         $topNav.css('height', '100px');
         //$logo.css('width', '57px');
-        $logo.css('height', '74px');
+        $logo.css('height', '60px');
         //$logo.css('margin-left', '72px');
-        $logo.css('margin-top', '18px');
+        //$logo.css('margin-top', '18px');
         $header.css('font-size', '20px');
         $header.css('margin', '0 25px');
         $menuItem.css('width', '140px');
@@ -438,9 +438,10 @@
         $sideNavMenu.css('top', $topNav.css('height'));
       }, 100);
     } else {
-      $logo.css('height', '46px');
-      $logo.css('margin-top', '14px');
+      $logo.css('height', '38px');
+      //$logo.css('margin-top', '14px');
     }
+    //$logo.show();
   }
 
   function handleClickMenuItem(url) {

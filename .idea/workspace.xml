@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/test_kv.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/media/ZX4r82uij1KlZLmH9X3j9kdSkTKLTkIV6QkAEOfz.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,14 +271,7 @@
       <workItem from="1607094265667" duration="54891000" />
       <workItem from="1607308766571" duration="33219000" />
       <workItem from="1607480110557" duration="17753000" />
-      <workItem from="1607527111695" duration="6385000" />
-    </task>
-    <task id="LOCAL-00077" summary="front: หน้า event">
-      <created>1606198698273</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1606198698273</updated>
+      <workItem from="1607527111695" duration="9048000" />
     </task>
     <task id="LOCAL-00078" summary="front: ข้อมูลหน้า survey">
       <created>1606202832512</created>
@@ -613,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607532157160</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="add test file for azure key vault">
+      <created>1607535024626</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1607535024626</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: ปรับ css" />
     <MESSAGE value="back: ซ่อนปุ่มดูหน้าเว็บ ตอน add ข้อมูล" />
     <MESSAGE value="front: submit survey result" />
     <MESSAGE value="back: display survey result" />
@@ -646,6 +648,7 @@
     <MESSAGE value="add image files" />
     <MESSAGE value="แก้ link ผลลัพธ์หน้า survey" />
     <MESSAGE value="ปรับ logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="ปรับ logo" />
+    <MESSAGE value="add test file for azure key vault" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test file for azure key vault" />
   </component>
 </project>
