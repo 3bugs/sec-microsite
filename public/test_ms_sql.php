@@ -1,9 +1,9 @@
 <?php
-$serverName = "localhost";
+$serverName = "secazuredevdb.database.windows.net";
 $connectionOptions = array(
-  "database" => "TestDB",
-  "uid" => "sa",
-  "pwd" => "rihv,g]bL111"
+  "database" => "SMEMCDB",
+  "uid" => "smeuser",
+  "pwd" => "smedevuser@1"
 );
 
 // Establishes the connection
