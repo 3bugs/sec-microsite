@@ -63,6 +63,7 @@ Route::get('/survey', [ApiSurveyController::class, 'index']);
 Route::post('/survey', [ApiSurveyController::class, 'store']);
 
 Route::get('/banner', [ApiBannerController::class, 'index']);
+Route::get('/banner/{id}', [ApiBannerController::class, 'show']);
 Route::post('/banner', [ApiBannerController::class, 'store']);
 Route::put('/banner', [ApiBannerController::class, 'update']);
 Route::delete('/banner', [ApiBannerController::class, 'destroy']);

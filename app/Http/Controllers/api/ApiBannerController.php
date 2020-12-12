@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Utils\Utils;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,10 +21,12 @@ class ApiBannerController extends Controller
   public function index(Request $request): JsonResponse
   {
     try {
-      $bannerList = Banner::where('published', 1)
-        ->orderBy('sort_index', 'asc')
-        ->orderBy('created_at', 'desc')
+      $bannerList = Banner::orderBy('id', 'asc')
         ->get();
+
+      foreach ($bannerList as $banner) {
+        $banner->image = Storage::url($banner->image);
+      }
 
       return response()->json(array(
         'status' => 'ok',

@@ -89,10 +89,10 @@
           </template>
           <template v-slot:item.image="{ item }">
             <v-img
-              :lazy-src="`${item.cover_image}`"
+              :lazy-src="`${item.image}`"
               max-height="75"
               max-width="150"
-              :src="`${item.cover_image}`"
+              :src="`${item.image}`"
               style="border: 0 solid #ccc"
               class="mt-2 mb-2"
             >
@@ -102,26 +102,10 @@
           <!--title-->
           <template v-slot:item.title="{ item }">
             {{ item.title }}
-            <v-icon
-              v-if="item.pinned"
-              color="yellow"
-            >
-              mdi-star
-            </v-icon>
           </template>
 
-          <!--category-->
-          <template v-slot:item.category_id="{ item }">
-            <v-chip
-              small
-              :color="categoryColorList[item.category_id - 1]"
-            >
-              {{ item.category_title }}
-            </v-chip>
-          </template>
-
-          <template v-slot:item.begin_date="{ item }">
-            <div>{{ getThaiDateText([item.begin_date, item.end_date], 2) }}</div>
+          <template v-slot:item.url="{ item }">
+            <a :href="item.url" target="_blank">{{ item.url }}</a>
           </template>
 
           <!--created-->
@@ -158,7 +142,7 @@
             </v-tooltip>
           </template>
 
-          <!--status-->
+          <!--published-->
           <template v-slot:item.published="{ item }">
             <v-switch
               class="ma-0 pa-0"
@@ -170,22 +154,6 @@
           </template>
 
           <template v-slot:item.actions="{ item }">
-            <!--ดูหน้าเว็บ-->
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-icon
-                  small
-                  class="mr-3"
-                  v-bind="attrs"
-                  v-on="on"
-                  @click="() => handleClickViewWeb(item)"
-                >
-                  mdi-web
-                </v-icon>
-              </template>
-              <span>ดูหน้าเว็บ</span>
-            </v-tooltip>
-
             <!--แก้ไข-->
             <v-tooltip bottom>
               <template v-slot:activator="{ on, attrs }">
@@ -236,12 +204,9 @@
           v-if="!showList"
           :table-name="tableName"
           :item="editItem"
-          :category-list="categoryList"
           :on-cancel-form="handleCancelForm"
           :on-save="handleSave"
           :on-delete="handleDelete"
-          :with-date="withDate"
-          :show-pinned="showPinned"
         />
       </v-tab-item>
     </v-tabs-items>
@@ -270,8 +235,8 @@
 </template>
 
 <script>
-import {routeDataList, getRouteTitle, categoryColorList} from '../constants';
-import DetailsForm from '../components/_details_form';
+import {routeDataList, getRouteTitle} from '../constants';
+import DetailsForm from '../components/_details_form_2';
 import MyDialog from '../components/my_dialog';
 import MyProgressOverlay from '../components/my_progress_overlay';
 import {formatThaiDateTime} from '../utils/utils';
@@ -303,19 +268,16 @@ export default {
       isDeleting: false,
       isUpdatePublished: false,
       headers: [
-        {text: 'รูปภาพปก', value: 'image', sortable: false, width: '170px',},
-        {text: 'หัวข้อ', align: 'start', value: 'title', sortable: true,},
-        {text: 'หมวดหมู่', value: 'category_id', sortable: true,},
-        this.withDate ? {text: 'วัน', value: 'begin_date', sortable: true, width: '100px', align: 'center',} : null,
+        {text: 'รูปภาพ', value: 'image', sortable: false, width: '170px',},
+        {text: 'หัวข้อ/ชื่อเรื่อง', align: 'start', value: 'title', sortable: true,},
+        {text: 'URL', value: 'url', sortable: true,},
         {text: 'ส', value: 'created_at', sortable: true, width: '60px', align: 'center',},
         {text: 'ก', value: 'updated_at', sortable: true, width: '60px', align: 'center',},
         {text: 'เผยแพร่', value: 'published', sortable: true, width: '100px', align: 'center',},
         {text: 'จัดการ', value: 'actions', sortable: false, width: '120px', align: 'center',},
       ].filter(item => item != null),
       dataList: [],
-      categoryList: [],
       routeDataList,
-      categoryColorList,
       dialog: {
         visible: false,
         title: '',
@@ -365,21 +327,6 @@ export default {
       this.tab = 1;
       this.editItem = null;
       this.showList = false;
-    },
-
-    handleClickViewWeb(item) {
-      window.open(`/${this.tableName}/${item.id}`);
-      /*this.showDialog(
-        'Under Construction!',
-        'ฟังก์ชันนี้อยู่ระหว่างการพัฒนา',
-        [
-          {
-            text: 'OK',
-            onClick: null,
-          }
-        ],
-        false,
-      );*/
     },
 
     handleClickEdit(item) {
@@ -435,12 +382,6 @@ export default {
               item.isUpdating = false;
             });
             this.dataList = dataList;
-
-            this.categoryList = response.data.category_list.map(item => ({
-              ...item, toString: () => {
-                return item.title
-              }
-            }));
           } else {
             const errorMessage = response.data.message;
             this.showDialog(

@@ -6,14 +6,9 @@
     >
       <v-col class="text-center">
         <img
-          src="/images/under_construction.png"
-          width="300px"
-          height="300px"
-        ><br>
-        <img
-          src="/images/logo.svg"
-          width="120px"
-          height="120px"
+          src="/images/start-to-grow.png"
+          width="500px"
+          style="margin-top: 100px"
         >
         <!--<v-tooltip left>
           <template v-slot:activator="{ on }">

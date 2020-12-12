@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Event;
 use App\Models\EventCategory;
 use App\Models\Media;
@@ -63,6 +64,10 @@ class HomeController extends Controller
       ),
     );
 
+    $bannerList = Banner::where('published', 1)
+      ->orderBy('sort_index', 'asc')
+      ->get();
+
     $eventCategoryList = EventCategory::orderBy('id', 'asc')
       ->get();
 
@@ -89,6 +94,7 @@ class HomeController extends Controller
     }
 
     return view('home', [
+      'bannerList' => $bannerList,
       'cardDataList' => $cardDataList,
       'eventCategoryList' => $eventCategoryList,
       'eventList' => $eventList,

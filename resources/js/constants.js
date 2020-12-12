@@ -129,8 +129,8 @@ export const routeDataList = [
     path: '/banner',
     name: 'banner',
     component: Banner,
-    title: 'Banners',
-    menuTitle: 'Banners',
+    title: 'แบนเนอร์',
+    menuTitle: 'แบนเนอร์',
     menuIconName: 'mdi-card-text-outline'
   },
 ];
