@@ -312,9 +312,9 @@
             <info-item img-src="info01.png" title="Minimal Workspace for Inspiration" author="พร้อมเลิศ หล่อวิจิตร"></info-item>
           </div>--}}
         </div>
-        <div class="row">
+        <div class="row mt-3">
           <div class="col-12 text-center d-block d-sm-none">
-            <a href="#"><h5 style="color: #8DC63F">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
+            <a href="#"><h5 style="color: white">ดูทั้งหมด&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5></a>
           </div>
         </div>
       </div>
