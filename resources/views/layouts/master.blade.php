@@ -26,7 +26,7 @@
   <link rel='stylesheet' href="{{ asset('css/main.css?v=1') }}">
   <link rel='stylesheet' href="{{ asset('css/hamburgers.min.css') }}">
   <link rel='stylesheet' href="{{ asset('css/bootstrap-datepicker.min.css') }}">
-  <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=2') }}">
+  <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=3') }}">
   <link rel='stylesheet' href="{{ asset('css/my_bootstrap_style.css?v=1') }}">
   <link rel='stylesheet' href="{{ asset('css/cookie_consent.css') }}">
   <link rel='stylesheet' href="{{ asset('css/sidenav.css') }}">

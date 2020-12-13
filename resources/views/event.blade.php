@@ -173,6 +173,7 @@
         <figure>
           <a href="javascript:void(0)"
              v-on:click.prevent="handleClickItem(event)"
+             style="display: flex; flex-direction: column; justify-content: center"
           >
             <img :src="event.coverImage">
             <div class="date_hlevent">

@@ -702,8 +702,8 @@ body {
 }
 
 .item_eventpage figure > a .date_hlevent div.year {
-  font-size: 30px;
-  line-height: 0.9;
+  font-size: 32px;
+  line-height: 1;
   font-weight: bold;
 }
 
@@ -1284,6 +1284,18 @@ body {
   .item_eventpage figure > a .date_hlevent span {
     font-size: 60px;
   }
+
+  .item_eventpage figure > a .date_hlevent div.month {
+    font-size: 28px;
+  }
+
+  .item_eventpage figure > a .date_hlevent div.day {
+    font-size: 50px;
+  }
+
+  .item_eventpage figure > a .date_hlevent div.year {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1313,6 +1325,10 @@ body {
     padding: 20px 20px 65px 20px;
     right: 15px;
     top: 15px;
+  }
+
+  .item_eventpage figure > a {
+    padding-bottom: 65%;
   }
 }
 
@@ -1612,7 +1628,7 @@ body {
   }
 
   .item_eventpage figure > a {
-    padding-bottom: 50%;
+    padding-bottom: 42%;
   }
 
   .btn_viewmore {
@@ -1621,5 +1637,11 @@ body {
 
   .datepicker td, .datepicker th {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .item_eventpage figure a .date_hlevent h6 {
+    display: none !important;
   }
 }
