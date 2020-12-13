@@ -47,7 +47,7 @@ $jsonData = json_decode($apiResponse, true);
 //print_r($jsonData);
 
 echo "<h2>Connection String</h2>\n";
-echo "<strong>${jsonData['value']}</strong><br><br>\n";
+echo "<pre><strong>${jsonData['value']}</strong></pre><br><br>\n";
 
 $conn = array();
 $connectionStringParts = explode(';', $jsonData['value']);
@@ -60,7 +60,7 @@ foreach ($connectionStringParts as $keyValueItem) {
 
 echo '<table border="1px" cellpadding="10px" cellspacing="0">';
 foreach ($conn as $key => $value) {
-  echo "<tr><td>$key</td><td><strong>$value</strong></td></tr>\n";
+  echo "<tr><td>$key</td><td><pre><strong>$value</strong></pre></td></tr>\n";
 }
 echo '</table>';
 ?>
