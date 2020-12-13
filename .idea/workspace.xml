@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -271,14 +272,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="9039000" />
-    </task>
-    <task id="LOCAL-00099" summary="front: submit survey result">
-      <created>1606294530590</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1606294530590</updated>
+      <workItem from="1607878845638" duration="10289000" />
     </task>
     <task id="LOCAL-00100" summary="back: display survey result">
       <created>1606296263099</created>
@@ -616,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607887544998</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="front: ชื่อหมวดหมู่ event">
+      <created>1607888253494</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1607888253494</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +625,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add social share in survey page" />
     <MESSAGE value="update survey page" />
     <MESSAGE value="update search controller" />
     <MESSAGE value="add sort_index field in media" />
@@ -649,6 +649,7 @@
     <MESSAGE value="ปรับ css หน้า event" />
     <MESSAGE value="ปรับ css หน้า home" />
     <MESSAGE value="front: validate search form" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: validate search form" />
+    <MESSAGE value="front: ชื่อหมวดหมู่ event" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: ชื่อหมวดหมู่ event" />
   </component>
 </project>
