@@ -142,7 +142,7 @@
                       :class="selectedEventCategory === {{ $i }} ? 'sec-event-button-active' : 'sec-event-button-inactive'"
                       @click="handleClickCategoryButton({{ $i }})"
                       style="margin-left: {{ $i === 0 ? 30 : 10 }}px"
-                  >{{ strtoupper($eventCategoryList[$i]->title) }}</button>
+                  >{{ $i === 3 ? $eventCategoryList[$i]->title : strtoupper($eventCategoryList[$i]->title) }}</button>
                 @endfor
               </div>
             </div>
@@ -164,7 +164,7 @@
                 <button
                     :class="(selectedEventCategory === {{ $i }} ? 'sec-event-button-active' : 'sec-event-button-inactive') + ' mr-sm-2 mr-0'"
                     @click="handleClickCategoryButton({{ $i }})"
-                >{{ strtoupper($eventCategoryList[$i]->title) }}</button>
+                >{{ $i === 3 ? $eventCategoryList[$i]->title : strtoupper($eventCategoryList[$i]->title) }}</button>
               @endfor
             </div>
           </div>
@@ -193,7 +193,7 @@
               <button
                   :class="selectedEventCategory === 3 ? 'sec-event-button-active ml-1' : 'sec-event-button-inactive ml-1'"
                   @click="handleClickCategoryButton(3)"
-              >{{ strtoupper($eventCategoryList[3]->title) }}</button>
+              >{{ $eventCategoryList[3]->title }}</button>
             </div>
           </div>
         </div>

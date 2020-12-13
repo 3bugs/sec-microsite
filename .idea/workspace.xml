@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,14 +271,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="8343000" />
-    </task>
-    <task id="LOCAL-00098" summary="back: ซ่อนปุ่มดูหน้าเว็บ ตอน add ข้อมูล">
-      <created>1606289234681</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1606289234681</updated>
+      <workItem from="1607878845638" duration="9039000" />
     </task>
     <task id="LOCAL-00099" summary="front: submit survey result">
       <created>1606294530590</created>
@@ -616,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607885813248</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="front: validate search form">
+      <created>1607887544998</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1607887544998</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="finish: hamburger menu" />
     <MESSAGE value="add social share in survey page" />
     <MESSAGE value="update survey page" />
     <MESSAGE value="update search controller" />
@@ -649,6 +648,7 @@
     <MESSAGE value="update home page" />
     <MESSAGE value="ปรับ css หน้า event" />
     <MESSAGE value="ปรับ css หน้า home" />
-    <option name="LAST_COMMIT_MESSAGE" value="ปรับ css หน้า home" />
+    <MESSAGE value="front: validate search form" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: validate search form" />
   </component>
 </project>
