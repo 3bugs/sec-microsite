@@ -44,5 +44,18 @@ $apiResponse = $request->getBody()->getContents();
 //$response_api = str_replace(" ","",substr($response_api,3));
 $jsonData = json_decode($apiResponse, true);
 
-print_r($jsonData);
+//print_r($jsonData);
+
+$conn = array();
+$connectionStringParts = explode(';', $jsonData->value);
+foreach ($connectionStringParts as $keyValueItem) {
+  $keyValueItemParts = explode('=', $keyValueItem);
+  $key = $keyValueItemParts[0];
+  $value = $keyValueItemParts[1];
+  $conn[$key] = $value;
+}
+
+foreach ($conn as $key => $value) {
+  echo "[$key] => <strong>$value</strong><br>\n";
+}
 ?>

@@ -270,14 +270,7 @@
       <workItem from="1607480110557" duration="17753000" />
       <workItem from="1607527111695" duration="11779000" />
       <workItem from="1607757503077" duration="22144000" />
-      <workItem from="1607843599121" duration="7440000" />
-    </task>
-    <task id="LOCAL-00084" summary="front: ปรับแก้หลายอย่าง">
-      <created>1606241886191</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1606241886192</updated>
+      <workItem from="1607843599121" duration="8114000" />
     </task>
     <task id="LOCAL-00085" summary="front/back: ปรับแก้หลายอย่าง">
       <created>1606274718259</created>
@@ -615,7 +608,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607854833673</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="update test_kv.php">
+      <created>1607856092775</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1607856092775</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
