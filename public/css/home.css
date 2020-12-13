@@ -340,10 +340,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-transition: all .5s;
+  /*-webkit-transition: all .5s;
   -moz-transition: all .5s;
   -o-transition: all .5s;
-  /*transition: all .5s;*/
+  transition: all .5s;*/
   border-radius: 6px 6px 0 0;
 }
 
