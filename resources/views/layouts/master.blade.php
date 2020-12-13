@@ -80,7 +80,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/search" method="POST">
+        <form id="searchForm" action="/search" method="POST">
           {{ csrf_field() }}
 
           <div class="form-group">
@@ -112,7 +112,7 @@
 
           <div class="row mt-4">
             <div class="col-12">
-              <button type="submit" class="btn btn-primary pull-right">ค้นหา</button>
+              <button id="searchButton" type="button" class="btn btn-primary pull-right">ค้นหา</button>
               <button type="button" class="btn btn-secondary pull-right mr-2" data-dismiss="modal">ปิด</button>
             </div>
           </div>
@@ -328,6 +328,22 @@
   let $logo, $header, $menuItem, $iconLabel, $imgSearch, $hamburgerInner;
 
   $(function () {
+    $searchForm = $('#searchForm');
+    $searchButton = $('#searchButton');
+    $searchTerm = $('#searchTerm');
+    $checkList = [$('#fundraisingCheck'), $('#mediaCheck'), $('#eventCheck')];
+    $searchButton.on('click', () => {
+      const isCheckValid = ($checkList[0].is(':checked')
+        || $checkList[1].is(':checked')
+        || $checkList[2].is(':checked'));
+
+      if ($searchTerm.val().trim() === '' || !isCheckValid) {
+        alert('ต้องกรอกคำค้น และเลือกประเภทเนื้อหาอย่างน้อย 1 ประเภท');
+        return;
+      }
+      $searchForm.submit();
+    });
+
     $sideNavMenu = $('.sidenav-menu');
     $sideNavMain = $('#sidenav-main');
     $topNav = $('.my-navbar');
