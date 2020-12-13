@@ -49,7 +49,7 @@ $jsonData = json_decode($apiResponse, true);
 ?>
 
 <h2>Connection String</h2>
-<pre><strong><?= $jsonData['value'] ?></strong></pre><br><br>
+<p><pre><strong><?= $jsonData['value'] ?></strong></pre></p>
 <?php
 $connectionConfigs = array();
 $connectionStringParts = explode(';', $jsonData['value']);
