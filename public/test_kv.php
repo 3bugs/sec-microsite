@@ -47,7 +47,7 @@ $jsonData = json_decode($apiResponse, true);
 //print_r($jsonData);
 
 $conn = array();
-$connectionStringParts = explode(';', $jsonData->value);
+$connectionStringParts = explode(';', $jsonData['value']);
 foreach ($connectionStringParts as $keyValueItem) {
   $keyValueItemParts = explode('=', $keyValueItem);
   $key = $keyValueItemParts[0];
