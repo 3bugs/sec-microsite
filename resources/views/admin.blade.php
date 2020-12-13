@@ -176,6 +176,7 @@
                               :rules="loginUserRules"
                               label="Username"
                               hint="กรอก username"
+                              @keydown.enter="handleClickLoginButton"
                           ></v-text-field>
                           <v-text-field
                               v-model="loginPassword"
@@ -184,6 +185,7 @@
                               name="password"
                               label="Password"
                               hint="กรอก password"
+                              @keydown.enter="handleClickLoginButton"
                           ></v-text-field>
                         </v-col>
                         <v-col class="d-flex" cols="12" sm="6" xsm="12">
