@@ -65,8 +65,8 @@ export const routeDataList = [
         path: '/media-more',
         name: 'media-more',
         component: MediaMore,
-        title: 'บทความ / Link ที่เกี่ยวข้อง',
-        menuTitle: 'บทความ / Link ที่เกี่ยวข้อง',
+        title: 'ข้อมูลที่ต้องรู้ / บทความที่เกี่ยวข้อง',
+        menuTitle: 'ข้อมูลที่ต้องรู้ / บทความที่เกี่ยวข้อง',
         menuIconName: 'mdi-shape-outline',
       },
       /*{
