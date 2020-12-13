@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="front/back: banner">
-      <change afterPath="$PROJECT_DIR$/public/images/start-to-grow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/_details_form_2.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/banner/BKaECRbcgYGUpq9vwg1kET9TmJw8qwvhglNvqae7.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/banner/X676gck5RBWU6T1CGnf3J9hr5JwOiyPlcf3Pgz4j.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/banner/big-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/banner/uU2yZbx5vVdED7ty7R1HRXZ7l6CS0ZCtW1v4PH2V.png" afterDir="false" />
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/test_ad.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiBannerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiBannerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/_list_form_2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_list_form_2.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/survey.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/survey.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +167,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/storage/app/public/banner" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../3bugs/quickstart" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -194,9 +183,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/storage/app/public/banner" />
       <recent name="$PROJECT_DIR$/resources/js/components" />
-      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
       <recent name="$PROJECT_DIR$/resources/js/pages" />
     </key>
@@ -284,14 +273,8 @@
       <workItem from="1607308766571" duration="33219000" />
       <workItem from="1607480110557" duration="17753000" />
       <workItem from="1607527111695" duration="11779000" />
-      <workItem from="1607757503077" duration="10082000" />
-    </task>
-    <task id="LOCAL-00080" summary="front: หน้า vision">
-      <created>1606210518186</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1606210518186</updated>
+      <workItem from="1607757503077" duration="22144000" />
+      <workItem from="1607843599121" duration="4383000" />
     </task>
     <task id="LOCAL-00081" summary="front: ปรับข้อความ">
       <created>1606211833242</created>
@@ -629,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607757696283</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="front/back: banner">
+      <created>1607770030892</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1607770030892</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +627,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: display survey result" />
     <MESSAGE value="back: ขนาด (dimension) รูปที่อัพโหลด" />
     <MESSAGE value="back: add sort_index field" />
     <MESSAGE value="back: adjust media page's layout" />
@@ -662,6 +651,7 @@
     <MESSAGE value="add test file for azure key vault" />
     <MESSAGE value="change logo" />
     <MESSAGE value="test sql server db connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="test sql server db connection" />
+    <MESSAGE value="front/back: banner" />
+    <option name="LAST_COMMIT_MESSAGE" value="front/back: banner" />
   </component>
 </project>
