@@ -32,7 +32,7 @@
       @endif
     </div>
 
-        <!--<div class="carousel-item active" onclick="handleClickBannerItem('/survey')">
+  <!--<div class="carousel-item active" onclick="handleClickBannerItem('/survey')">
           <img class="d-block w-100" src="{{ asset('images/big-banner.jpg') }}" alt="First slide">
         </div>
         <div class="carousel-item">
@@ -137,26 +137,13 @@
             <div class="sec-event-header" style="display: flex; align-items: center">
               <h1>SEC EVENT</h1>
               <div class="d-none d-lg-block">
-                <button
-                    :class="selectedEventCategory === 0 ? 'sec-event-button-active' : 'sec-event-button-inactive'"
-                    @click="handleClickCategoryButton(0)"
-                    style="margin-left: 30px"
-                >{{ strtoupper($eventCategoryList[0]->title) }}</button>
-                <button
-                    :class="selectedEventCategory === 1 ? 'sec-event-button-active' : 'sec-event-button-inactive'"
-                    @click="handleClickCategoryButton(1)"
-                    style="margin-left: 10px"
-                >{{ strtoupper($eventCategoryList[1]->title) }}</button>
-                <button
-                    :class="selectedEventCategory === 2 ? 'sec-event-button-active' : 'sec-event-button-inactive'"
-                    @click="handleClickCategoryButton(2)"
-                    style="margin-left: 10px"
-                >{{ strtoupper($eventCategoryList[2]->title) }}</button>
-                <button
-                    :class="selectedEventCategory === 3 ? 'sec-event-button-active' : 'sec-event-button-inactive'"
-                    @click="handleClickCategoryButton(3)"
-                    style="margin-left: 10px"
-                >{{ strtoupper($eventCategoryList[3]->title) }}</button>
+                @for ($i = 0; $i < 4; $i++)
+                  <button
+                      :class="selectedEventCategory === {{ $i }} ? 'sec-event-button-active' : 'sec-event-button-inactive'"
+                      @click="handleClickCategoryButton({{ $i }})"
+                      style="margin-left: {{ $i === 0 ? 30 : 10 }}px"
+                  >{{ strtoupper($eventCategoryList[$i]->title) }}</button>
+                @endfor
               </div>
             </div>
           </div>
@@ -173,26 +160,40 @@
         <div class="row mt-2">
           <div class="col-12">
             <div class="d-none d-sm-block d-lg-none">
-              <button class="sec-event-button-active mr-sm-2 mr-0">{{ strtoupper($eventCategoryList[0]->title) }}</button>
-              <button class="sec-event-button-inactive mr-sm-2 mr-0">{{ strtoupper($eventCategoryList[1]->title) }}</button>
-              <button class="sec-event-button-inactive mr-sm-2 mr-0">{{ strtoupper($eventCategoryList[2]->title) }}</button>
-              <button class="sec-event-button-inactive">{{ strtoupper($eventCategoryList[3]->title) }}</button>
+              @for ($i = 0; $i < 4; $i++)
+                <button
+                    :class="(selectedEventCategory === {{ $i }} ? 'sec-event-button-active' : 'sec-event-button-inactive') + ' mr-sm-2 mr-0'"
+                    @click="handleClickCategoryButton({{ $i }})"
+                >{{ strtoupper($eventCategoryList[$i]->title) }}</button>
+              @endfor
             </div>
           </div>
         </div>
         <div class="d-block d-sm-none">
           <div class="row mt-2 no-gutters">
             <div class="col-6 d-flex flex-column mb-2">
-              <button class="sec-event-button-active mr-1">{{ strtoupper($eventCategoryList[0]->title) }}</button>
+              <button
+                  :class="selectedEventCategory === 0 ? 'sec-event-button-active mr-1' : 'sec-event-button-inactive mr-1'"
+                  @click="handleClickCategoryButton(0)"
+              >{{ strtoupper($eventCategoryList[0]->title) }}</button>
             </div>
             <div class="col-6 d-flex flex-column mb-2">
-              <button class="sec-event-button-inactive ml-1">{{ strtoupper($eventCategoryList[1]->title) }}</button>
+              <button
+                  :class="selectedEventCategory === 1 ? 'sec-event-button-active ml-1' : 'sec-event-button-inactive ml-1'"
+                  @click="handleClickCategoryButton(1)"
+              >{{ strtoupper($eventCategoryList[1]->title) }}</button>
             </div>
             <div class="col-6 d-flex flex-column">
-              <button class="sec-event-button-inactive mr-1">{{ strtoupper($eventCategoryList[2]->title) }}</button>
+              <button
+                  :class="selectedEventCategory === 2 ? 'sec-event-button-active mr-1' : 'sec-event-button-inactive mr-1'"
+                  @click="handleClickCategoryButton(2)"
+              >{{ strtoupper($eventCategoryList[2]->title) }}</button>
             </div>
             <div class="col-6 d-flex flex-column">
-              <button class="sec-event-button-inactive ml-1">{{ strtoupper($eventCategoryList[3]->title) }}</button>
+              <button
+                  :class="selectedEventCategory === 3 ? 'sec-event-button-active ml-1' : 'sec-event-button-inactive ml-1'"
+                  @click="handleClickCategoryButton(3)"
+              >{{ strtoupper($eventCategoryList[3]->title) }}</button>
             </div>
           </div>
         </div>
@@ -235,7 +236,11 @@
                     <div style="font-size: 36px; font-weight: bold; line-height: 35px">@{{ highlightEvent.beginDay }}</div>
                   </div>
                 </div>
-                <div class="info-item-text" style="padding: 14px 0 0 0">
+                <div
+                    class="info-item-text"
+                    style="padding: 14px 0 0 0"
+                    @click="handleClickEvent(highlightEvent.id)"
+                >
                   <h3>@{{ highlightEvent.title }}</h3>
                   <p>@{{ highlightEvent.description }}</p>
                   <p>@{{ highlightEvent.beginDate === highlightEvent.endDate ? highlightEvent.beginDateDisplay : `${highlightEvent.beginDateDisplay} - ${highlightEvent.endDateDisplay}` }}</p>
