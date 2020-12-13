@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-  <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/home.css?v=1') }}" rel="stylesheet">
   <link href="{{ asset('css/my_carousel_style.css') }}" rel="stylesheet">
 @endsection
 
