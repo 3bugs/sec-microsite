@@ -46,16 +46,21 @@ $jsonData = json_decode($apiResponse, true);
 
 //print_r($jsonData);
 
+echo "<h2>Connection String</h2>\n";
+echo "<strong>${jsonData['value']}</strong><br><br>\n";
+
 $conn = array();
 $connectionStringParts = explode(';', $jsonData['value']);
 foreach ($connectionStringParts as $keyValueItem) {
-  $keyValueItemParts = explode('=', $keyValueItem);
-  $key = $keyValueItemParts[0];
-  $value = $keyValueItemParts[1];
-  $conn[$key] = $value;
+  if (!empty($keyValueItem)) {
+    $keyValueItemParts = explode('=', $keyValueItem);
+    $conn[$keyValueItemParts[0]] = $keyValueItemParts[1];
+  }
 }
 
+echo '<table border="1px" cellpadding="10px" cellspacing="0">';
 foreach ($conn as $key => $value) {
-  echo "[$key] => <strong>$value</strong><br>\n";
+  echo "<tr><td>$key</td><td><strong>$value</strong></td></tr>\n";
 }
+echo '</table>';
 ?>
