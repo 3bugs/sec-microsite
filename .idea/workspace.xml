@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="update test_kv.php">
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/public/test_kv.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/test_kv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ckeditor5" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ckeditor5" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,21 +269,7 @@
       <workItem from="1607480110557" duration="17753000" />
       <workItem from="1607527111695" duration="11779000" />
       <workItem from="1607757503077" duration="22144000" />
-      <workItem from="1607843599121" duration="8675000" />
-    </task>
-    <task id="LOCAL-00087" summary="front: fix youtube video tag replace in media controller">
-      <created>1606276420480</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1606276420480</updated>
-    </task>
-    <task id="LOCAL-00088" summary="front: ปรับ css">
-      <created>1606278555046</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1606278555046</updated>
+      <workItem from="1607843599121" duration="9659000" />
     </task>
     <task id="LOCAL-00089" summary="front: ปรับ css">
       <created>1606278638534</created>
@@ -615,7 +600,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607856915182</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="update test_kv.php">
+      <created>1607857305718</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1607857305718</updated>
+    </task>
+    <task id="LOCAL-00137" summary="update test_kv.php">
+      <created>1607857458376</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1607857458376</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

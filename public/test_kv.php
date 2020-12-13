@@ -2,6 +2,7 @@
 require '../vendor/autoload.php';
 
 use GuzzleHttp\Client;
+
 //use GuzzleHttp\Psr7\Request;
 
 $azureKeyVault = 'SWW003KVT201'; // env('AZURE_KEY_VAULT');
@@ -45,22 +46,76 @@ $apiResponse = $request->getBody()->getContents();
 $jsonData = json_decode($apiResponse, true);
 
 //print_r($jsonData);
+?>
 
-echo "<h2>Connection String</h2>\n";
-echo "<pre><strong>${jsonData['value']}</strong></pre><br><br>\n";
-
-$conn = array();
+<h2>Connection String</h2>
+<pre><strong><?= $jsonData['value'] ?></strong></pre><br><br>
+<?php
+$connectionConfigs = array();
 $connectionStringParts = explode(';', $jsonData['value']);
 foreach ($connectionStringParts as $keyValueItem) {
   if (!empty($keyValueItem)) {
     $keyValueItemParts = explode('=', $keyValueItem);
-    $conn[$keyValueItemParts[0]] = $keyValueItemParts[1];
+    $connectionConfigs[$keyValueItemParts[0]] = $keyValueItemParts[1];
   }
 }
 
 echo '<table border="1px" cellpadding="10px" cellspacing="0">';
-foreach ($conn as $key => $value) {
+foreach ($connectionConfigs as $key => $value) {
   echo "<tr><td>$key</td><td><pre><strong>$value</strong></pre></td></tr>\n";
 }
 echo '</table>';
+?>
+
+<h2>Test Connection</h2>
+<?php
+$serverNamePart = explode(',', str_replace('tcp:', '', $connectionConfigs['Server']));
+$server = $serverNamePart[0];
+$port = $serverNamePart[1];
+$db = $connectionConfigs['Initial Catalog'];
+$uid = $connectionConfigs['User ID'];
+$pwd = $connectionConfigs['Password'];
+
+$connectionOptions = array(
+  "database" => $db,
+  "uid" => $uid,
+  "pwd" => $pwd,
+);
+
+// Establishes the connection
+$conn = sqlsrv_connect($server, $connectionOptions);
+if ($conn === false) {
+  die(formatErrors(sqlsrv_errors()));
+}
+
+$sql = "SELECT @@Version AS SQL_VERSION";
+$stmt = sqlsrv_query($conn, $sql);
+
+// Error handling
+if ($stmt === false) {
+  die(formatErrors(sqlsrv_errors()));
+}
+?>
+
+<pre><strong>Connection OK!</strong></pre>
+
+<?php
+while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+  echo $row['SQL_VERSION'] . PHP_EOL;
+}
+
+sqlsrv_free_stmt($stmt);
+sqlsrv_close($conn);
+
+function formatErrors($errors)
+{
+  // Display errors
+  echo "Error information: <br/>";
+  foreach ($errors as $error) {
+    echo "SQLSTATE: " . $error['SQLSTATE'] . "<br/>";
+    echo "Code: " . $error['code'] . "<br/>";
+    echo "Message: " . $error['message'] . "<br/>";
+  }
+}
+
 ?>
