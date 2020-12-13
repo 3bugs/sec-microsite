@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/banner/car.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +162,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../3bugs/quickstart" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/storage/app/public/banner" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -270,14 +269,7 @@
       <workItem from="1607480110557" duration="17753000" />
       <workItem from="1607527111695" duration="11779000" />
       <workItem from="1607757503077" duration="22144000" />
-      <workItem from="1607843599121" duration="10824000" />
-    </task>
-    <task id="LOCAL-00091" summary="front: disable debug bar">
-      <created>1606279414998</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1606279414998</updated>
+      <workItem from="1607843599121" duration="11399000" />
     </task>
     <task id="LOCAL-00092" summary="front: หน้า media/event details">
       <created>1606280630675</created>
@@ -615,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607858527499</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="update sidebar menu text">
+      <created>1607859489997</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1607859489997</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,7 +622,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: adjust media page's layout" />
     <MESSAGE value="front: survey wordings" />
     <MESSAGE value="front/back: many fixes" />
     <MESSAGE value="front: หน้าค้นหา" />
@@ -648,6 +646,7 @@
     <MESSAGE value="front/back: banner" />
     <MESSAGE value="back: login/logout" />
     <MESSAGE value="update test_kv.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="update test_kv.php" />
+    <MESSAGE value="update sidebar menu text" />
+    <option name="LAST_COMMIT_MESSAGE" value="update sidebar menu text" />
   </component>
 </project>
