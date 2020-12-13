@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -272,21 +271,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="6138000" />
-    </task>
-    <task id="LOCAL-00094" summary="front: ลบ comment แสดงผลเกินมา">
-      <created>1606282614800</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1606282614801</updated>
-    </task>
-    <task id="LOCAL-00095" summary="front: add chevron-down icon">
-      <created>1606285824015</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1606285824015</updated>
+      <workItem from="1607878845638" duration="6493000" />
     </task>
     <task id="LOCAL-00096" summary="front: ปรับการแสดง chevron-down icon">
       <created>1606286398660</created>
@@ -617,7 +602,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607884361162</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="ปรับ css หน้า home">
+      <created>1607885347651</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1607885347651</updated>
+    </task>
+    <task id="LOCAL-00144" summary="ปรับ css หน้า home">
+      <created>1607885617254</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1607885617254</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: หน้าค้นหา" />
     <MESSAGE value="finish: hamburger menu" />
     <MESSAGE value="add social share in survey page" />
     <MESSAGE value="update survey page" />
@@ -650,6 +648,7 @@
     <MESSAGE value="update sidebar menu text" />
     <MESSAGE value="update home page" />
     <MESSAGE value="ปรับ css หน้า event" />
-    <option name="LAST_COMMIT_MESSAGE" value="ปรับ css หน้า event" />
+    <MESSAGE value="ปรับ css หน้า home" />
+    <option name="LAST_COMMIT_MESSAGE" value="ปรับ css หน้า home" />
   </component>
 </project>
