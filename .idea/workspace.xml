@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="update test_kv.php">
       <change beforePath="$PROJECT_DIR$/public/test_kv.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/test_kv.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ckeditor5" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ckeditor5" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,14 +270,7 @@
       <workItem from="1607480110557" duration="17753000" />
       <workItem from="1607527111695" duration="11779000" />
       <workItem from="1607757503077" duration="22144000" />
-      <workItem from="1607843599121" duration="6151000" />
-    </task>
-    <task id="LOCAL-00083" summary="front: ปรับเงื่อนไข highlight event">
-      <created>1606214416441</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1606214416441</updated>
+      <workItem from="1607843599121" duration="7440000" />
     </task>
     <task id="LOCAL-00084" summary="front: ปรับแก้หลายอย่าง">
       <created>1606241886191</created>
@@ -615,7 +608,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607848678283</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="update test_kv.php">
+      <created>1607854833673</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1607854833673</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,7 +623,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: add sort_index field" />
     <MESSAGE value="back: adjust media page's layout" />
     <MESSAGE value="front: survey wordings" />
     <MESSAGE value="front/back: many fixes" />
@@ -648,6 +647,7 @@
     <MESSAGE value="test sql server db connection" />
     <MESSAGE value="front/back: banner" />
     <MESSAGE value="back: login/logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: login/logout" />
+    <MESSAGE value="update test_kv.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="update test_kv.php" />
   </component>
 </project>
