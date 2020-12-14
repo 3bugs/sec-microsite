@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,21 +271,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="16227000" />
-    </task>
-    <task id="LOCAL-00107" summary="finish: hamburger menu">
-      <created>1607177191824</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1607177191825</updated>
-    </task>
-    <task id="LOCAL-00108" summary="add social share in survey page">
-      <created>1607309818502</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1607309818503</updated>
+      <workItem from="1607878845638" duration="18178000" />
     </task>
     <task id="LOCAL-00109" summary="update survey page">
       <created>1607311880046</created>
@@ -616,7 +602,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607919640684</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="connect azure/.3">
+      <created>1607923066306</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1607923066306</updated>
+    </task>
+    <task id="LOCAL-00157" summary="connect azure/.3">
+      <created>1607923281582</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1607923281582</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="header images" />
     <MESSAGE value="header images in details page" />
     <MESSAGE value="fix header image path" />
     <MESSAGE value="highlight current date in calendar" />
@@ -649,6 +648,7 @@
     <MESSAGE value="front: ปรับ css หน้า home" />
     <MESSAGE value="front: ปรับ css หน้า event" />
     <MESSAGE value="connect azure sql server" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect azure sql server" />
+    <MESSAGE value="connect azure/.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="connect azure/.3" />
   </component>
 </project>

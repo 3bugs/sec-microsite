@@ -31,6 +31,7 @@ class ContactController extends Controller
       $contact->email = $request->email;
       $contact->phone = $request->phone;
       $contact->message = $request->message;
+      $contact->seen = 0;
       $contact->save();
       //return redirect('/contact');
       return view('contact', [
