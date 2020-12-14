@@ -12,6 +12,7 @@ class ApiCategoryController extends Controller
 {
   private $mType;
   private $mCategoryModelClass;
+  private $mHasSortIndex = false;
 
   public function __construct()
   {
@@ -25,6 +26,7 @@ class ApiCategoryController extends Controller
       case 'api/media-category':
         $this->mType = Constants::PAGE_TYPE_MEDIA;
         $this->mCategoryModelClass = MediaCategory::class;
+        $this->mHasSortIndex = true;
         break;
       case 'api/event-category':
         $this->mType = Constants::PAGE_TYPE_EVENT;
@@ -65,16 +67,10 @@ class ApiCategoryController extends Controller
       $category->title = $title;
       $category->description = $description;
 
-      switch (Request()->route()->getPrefix()) {
-        case 'api/fundraising-category':
-          break;
-        case 'api/media-category':
-          $category->sort_index = 0;
-          break;
-        case 'api/event-category':
-          break;
+      if ($this->mHasSortIndex) {
+        $category->sort_index = 0;
       }
-
+      
       $category->save();
 
       $message = "Title: $title\n"

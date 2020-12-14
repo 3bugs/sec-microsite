@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/5OpLXkufU7HMGmWoD1IJLm2nFWDLvna3XNVQoSwF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/SNhXLr1NUt8qTsFIf00AmkKpJdvNlpCARSYvADk1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiCategoryController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -271,14 +273,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="20577000" />
-    </task>
-    <task id="LOCAL-00112" summary="add sort_index field in media">
-      <created>1607337752177</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1607337752177</updated>
+      <workItem from="1607878845638" duration="23664000" />
     </task>
     <task id="LOCAL-00113" summary="add sort_index field in media">
       <created>1607338186510</created>
@@ -616,7 +611,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607929799407</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="bug fix: add media category">
+      <created>1607931229622</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1607931229622</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +626,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add api for banner" />
     <MESSAGE value="add data image files" />
     <MESSAGE value="move image data files" />
     <MESSAGE value="add image files" />
@@ -649,6 +650,7 @@
     <MESSAGE value="set default value of 'seen' field in contacts table" />
     <MESSAGE value="แก้ข้อความ survey" />
     <MESSAGE value="bug fix: search case-insensitive" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix: search case-insensitive" />
+    <MESSAGE value="bug fix: add media category" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix: add media category" />
   </component>
 </project>
