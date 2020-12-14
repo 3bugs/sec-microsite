@@ -248,15 +248,15 @@
       { // 4
         questionText: 'ท่านต้องการหาเงินทุนด้วยวิธีการใด ?',
         choiceList: [
-          {text: 'อยากกู้ยืม', value: false, nextQuestion: -1, resultList: ['a', 'c']},
-          {text: 'อยากหาคน\nร่วมลงทุน', value: false, nextQuestion: -1, resultList: ['b', 'd', 'e']},
+          {text: 'อยากยืมเงิน\nจากผู้ลงทุน', value: false, nextQuestion: -1, resultList: ['a', 'c']},
+          {text: 'อยากหาคน\nร่วมลงทุนเป็นเจ้าของ', value: false, nextQuestion: -1, resultList: ['b', 'd', 'e']},
         ],
       },
       { // 5
         questionText: 'ท่านต้องการหาเงินทุนด้วยวิธีการใด ?',
         choiceList: [
-          {text: 'อยากกู้ยืม', value: false, nextQuestion: -1, resultList: ['a']},
-          {text: 'อยากหาคน\nร่วมลงทุน', value: false, nextQuestion: -1, resultList: ['b', 'f']},
+          {text: 'อยากยืมเงิน\nจากผู้ลงทุน', value: false, nextQuestion: -1, resultList: ['a']},
+          {text: 'อยากหาคน\nร่วมลงทุนเป็นเจ้าของ', value: false, nextQuestion: -1, resultList: ['b', 'f']},
         ],
       },
       { // 6
@@ -269,15 +269,15 @@
       { // 7
         questionText: 'ท่านต้องการหาเงินทุนด้วยวิธีการใด ?',
         choiceList: [
-          {text: 'อยากกู้ยืม', value: false, nextQuestion: -1, resultList: ['g']},
-          {text: 'อยากหาคน\nร่วมลงทุน', value: false, nextQuestion: -1, resultList: ['h']},
+          {text: 'อยากยืมเงิน\nจากผู้ลงทุน', value: false, nextQuestion: -1, resultList: ['g']},
+          {text: 'อยากหาคน\nร่วมลงทุนเป็นเจ้าของ', value: false, nextQuestion: -1, resultList: ['h']},
         ],
       },
       { // 8
         questionText: 'ท่านต้องการหาเงินทุนด้วยวิธีการใด ?',
         choiceList: [
-          {text: 'อยากกู้ยืม', value: false, nextQuestion: -1, resultList: ['a', 'g']},
-          {text: 'อยากหาคน\nร่วมลงทุน', value: false, nextQuestion: -1, resultList: ['b', 'f', 'k']},
+          {text: 'อยากยืมเงิน\nจากผู้ลงทุน', value: false, nextQuestion: -1, resultList: ['a', 'g']},
+          {text: 'อยากหาคน\nร่วมลงทุนเป็นเจ้าของ', value: false, nextQuestion: -1, resultList: ['b', 'f', 'k']},
         ],
       },
     ];
