@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,14 +271,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="15201000" />
-    </task>
-    <task id="LOCAL-00106" summary="front: หน้าค้นหา">
-      <created>1607079131248</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1607079131249</updated>
+      <workItem from="1607878845638" duration="16227000" />
     </task>
     <task id="LOCAL-00107" summary="finish: hamburger menu">
       <created>1607177191824</created>
@@ -617,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607917272044</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="connect azure sql server">
+      <created>1607919640684</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1607919640684</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add sort_index field in media" />
     <MESSAGE value="header images" />
     <MESSAGE value="header images in details page" />
     <MESSAGE value="fix header image path" />
@@ -650,6 +648,7 @@
     <MESSAGE value="front: ชื่อหมวดหมู่ event" />
     <MESSAGE value="front: ปรับ css หน้า home" />
     <MESSAGE value="front: ปรับ css หน้า event" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: ปรับ css หน้า event" />
+    <MESSAGE value="connect azure sql server" />
+    <option name="LAST_COMMIT_MESSAGE" value="connect azure sql server" />
   </component>
 </project>
