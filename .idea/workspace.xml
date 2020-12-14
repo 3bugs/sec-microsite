@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +173,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Blade" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -272,28 +271,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="10289000" />
-    </task>
-    <task id="LOCAL-00100" summary="back: display survey result">
-      <created>1606296263099</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1606296263099</updated>
-    </task>
-    <task id="LOCAL-00101" summary="back: ขนาด (dimension) รูปที่อัพโหลด">
-      <created>1606807442064</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1606807442065</updated>
-    </task>
-    <task id="LOCAL-00102" summary="back: add sort_index field">
-      <created>1606982276426</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1606982276426</updated>
+      <workItem from="1607878845638" duration="12191000" />
     </task>
     <task id="LOCAL-00103" summary="back: adjust media page's layout">
       <created>1606984904416</created>
@@ -617,7 +595,28 @@
       <option name="project" value="LOCAL" />
       <updated>1607888253494</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="front: ปรับ css หน้า home">
+      <created>1607889930338</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1607889930338</updated>
+    </task>
+    <task id="LOCAL-00150" summary="front: ปรับ css หน้า home">
+      <created>1607890085513</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1607890085513</updated>
+    </task>
+    <task id="LOCAL-00151" summary="front: ปรับ css หน้า home">
+      <created>1607890130651</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1607890130651</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update survey page" />
     <MESSAGE value="update search controller" />
     <MESSAGE value="add sort_index field in media" />
     <MESSAGE value="header images" />
@@ -650,6 +648,7 @@
     <MESSAGE value="ปรับ css หน้า home" />
     <MESSAGE value="front: validate search form" />
     <MESSAGE value="front: ชื่อหมวดหมู่ event" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: ชื่อหมวดหมู่ event" />
+    <MESSAGE value="front: ปรับ css หน้า home" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: ปรับ css หน้า home" />
   </component>
 </project>

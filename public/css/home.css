@@ -336,7 +336,7 @@
 .info-item-image-container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 56.25%;
+  padding-bottom: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
