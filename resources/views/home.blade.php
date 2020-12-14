@@ -203,7 +203,7 @@
           </div>
 
           <div class="col-12" v-if="highlightEvent != null">
-            <div class="sec-event-image d-none d-md-block"
+            <div class="sec-event-image d-none d-xl-block"
                  :style="`backgroundImage: url(${highlightEvent.coverImage})`">
               <div class="sec-event-content">
                 <div class="sec-event-date">
@@ -226,15 +226,15 @@
                 </div>
               </div>
             </div>
-            <div class="d-xs-block d-md-none">
+            <div class="d-xs-block d-xl-none">
               <div class="info-item mb-sm-0">
                 <div class="info-item-image-container"
                      :style="`backgroundImage: url(${highlightEvent.coverImage})`">
-                  <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
+<!--                  <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
                     <div style="font-size: 10px; line-height: 14px; opacity: 0.5">SEC EVENT</div>
                     <div style="font-size: 18px; font-weight: bold; line-height: 25px">@{{ highlightEvent.beginMonth }}</div>
                     <div style="font-size: 36px; font-weight: bold; line-height: 35px">@{{ highlightEvent.beginDay }}</div>
-                  </div>
+                  </div>-->
                 </div>
                 <div
                     class="info-item-text"

@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,14 +271,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="12191000" />
-    </task>
-    <task id="LOCAL-00103" summary="back: adjust media page's layout">
-      <created>1606984904416</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1606984904416</updated>
+      <workItem from="1607878845638" duration="13236000" />
     </task>
     <task id="LOCAL-00104" summary="front: survey wordings">
       <created>1606985627059</created>
@@ -616,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607890130651</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="front: ปรับ css หน้า home">
+      <created>1607915798898</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1607915798899</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
