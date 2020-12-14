@@ -112,7 +112,7 @@
 
     <div class="row mt-3 mb-4">
       <div class="col-12" v-if="eventList.length > 0">
-        <div class="sec-event-image d-none d-md-block"
+        <div class="sec-event-image d-none d-xl-block"
              :style="{ backgroundImage: `url(${eventList[0].coverImage})` }">
           <div class="sec-event-content">
             <div class="sec-event-date">
@@ -135,15 +135,15 @@
             </div>
           </div>
         </div>
-        <div class="d-xs-block d-md-none">
+        <div class="d-xs-block d-xl-none">
           <div class="info-item mb-sm-0">
             <div class="info-item-image-container"
                  :style="{ backgroundImage: `url(${eventList[0].coverImage})` }">
-              <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
+<!--              <div class="sec-event-date" style="position: absolute; width: 90px; height: 110px">
                 <div style="font-size: 10px; line-height: 14px; opacity: 0.5;">SEC event</div>
                 <div style="font-size: 18px; font-weight: bold; line-height: 25px">@{{ eventList[0].beginMonth }}</div>
                 <div style="font-size: 36px; font-weight: bold; line-height: 35px">@{{ eventList[0].beginDay }}</div>
-              </div>
+              </div>-->
             </div>
             <div class="info-item-text" style="padding: 14px 0 0 0">
               <h3>@{{ decodeEntities(eventList[0].title) }}</h3>
