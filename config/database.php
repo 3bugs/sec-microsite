@@ -5,69 +5,71 @@ use Illuminate\Support\Str;
 use GuzzleHttp\Client;
 //use GuzzleHttp\Psr7\Request;
 
-$azureKeyVault = env('AZURE_KEY_VAULT');
-$azureSecretName = env('AZURE_SECRET_NAME');
-$azureAdTenantId = env('AZURE_AD_TENANT_ID');
-$azureAdApplicationId = env('AZURE_AD_APPLICATION_ID');
-$azureAdApplicationSecret = env('AZURE_AD_APPLICATION_SECRET');
+if (env('AZURE') == '1') {
+  $azureKeyVault = env('AZURE_KEY_VAULT');
+  $azureSecretName = env('AZURE_SECRET_NAME');
+  $azureAdTenantId = env('AZURE_AD_TENANT_ID');
+  $azureAdApplicationId = env('AZURE_AD_APPLICATION_ID');
+  $azureAdApplicationSecret = env('AZURE_AD_APPLICATION_SECRET');
 
 // Login
-$client = new Client();
-$request = $client->request(
-  'POST',
-  "https://login.microsoftonline.com/${azureAdTenantId}/oauth2/v2.0/token",
-  [
-    'form_params' => [
-      'grant_type' => 'client_credentials',
-      'client_id' => $azureAdApplicationId,
-      'client_secret' => $azureAdApplicationSecret,
-      'scope' => 'https://vault.azure.net/.default'
+  $client = new Client();
+  $request = $client->request(
+    'POST',
+    "https://login.microsoftonline.com/${azureAdTenantId}/oauth2/v2.0/token",
+    [
+      'form_params' => [
+        'grant_type' => 'client_credentials',
+        'client_id' => $azureAdApplicationId,
+        'client_secret' => $azureAdApplicationSecret,
+        'scope' => 'https://vault.azure.net/.default'
+      ]
     ]
-  ]
-);
+  );
 
-$apiResponse = $request->getBody()->getContents();
+  $apiResponse = $request->getBody()->getContents();
 //$response_api = str_replace(" ","",substr($response_api,3));
-$jsonData = json_decode($apiResponse, true);
+  $jsonData = json_decode($apiResponse, true);
 
 // Get Secrets
-$request = $client->request(
-  'GET',
-  "https://${azureKeyVault}.vault.azure.net/secrets/${azureSecretName}?api-version=2016-10-01",
-  [
-    'headers' => [
-      'Authorization' => 'Bearer ' . $jsonData['access_token']
+  $request = $client->request(
+    'GET',
+    "https://${azureKeyVault}.vault.azure.net/secrets/${azureSecretName}?api-version=2016-10-01",
+    [
+      'headers' => [
+        'Authorization' => 'Bearer ' . $jsonData['access_token']
+      ]
     ]
-  ]
-);
+  );
 
-$apiResponse = $request->getBody()->getContents();
+  $apiResponse = $request->getBody()->getContents();
 //$response_api = str_replace(" ","",substr($response_api,3));
-$jsonData = json_decode($apiResponse, true);
+  $jsonData = json_decode($apiResponse, true);
 
 //print_r($jsonData);
 
-$connectionConfigs = array();
-$connectionStringParts = explode(';', $jsonData['value']);
-foreach ($connectionStringParts as $keyValueItem) {
-  if (!empty($keyValueItem)) {
-    $keyValueItemParts = explode('=', $keyValueItem);
-    $connectionConfigs[$keyValueItemParts[0]] = $keyValueItemParts[1];
+  $connectionConfigs = array();
+  $connectionStringParts = explode(';', $jsonData['value']);
+  foreach ($connectionStringParts as $keyValueItem) {
+    if (!empty($keyValueItem)) {
+      $keyValueItemParts = explode('=', $keyValueItem);
+      $connectionConfigs[$keyValueItemParts[0]] = $keyValueItemParts[1];
+    }
   }
+
+  $serverNamePart = explode(',', str_replace('tcp:', '', $connectionConfigs['Server']));
+  $server = $serverNamePart[0];
+  $port = $serverNamePart[1];
+  $db = $connectionConfigs['Initial Catalog'];
+  $uid = $connectionConfigs['User ID'];
+  $pwd = $connectionConfigs['Password'];
+
+  $connectionOptions = array(
+    "database" => $db,
+    "uid" => $uid,
+    "pwd" => $pwd,
+  );
 }
-
-$serverNamePart = explode(',', str_replace('tcp:', '', $connectionConfigs['Server']));
-$server = $serverNamePart[0];
-$port = $serverNamePart[1];
-$db = $connectionConfigs['Initial Catalog'];
-$uid = $connectionConfigs['User ID'];
-$pwd = $connectionConfigs['Password'];
-
-$connectionOptions = array(
-  "database" => $db,
-  "uid" => $uid,
-  "pwd" => $pwd,
-);
 
 return [
 
