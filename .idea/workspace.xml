@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/5OpLXkufU7HMGmWoD1IJLm2nFWDLvna3XNVQoSwF.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/fundraising/SNhXLr1NUt8qTsFIf00AmkKpJdvNlpCARSYvADk1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiCategoryController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -273,14 +271,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="23664000" />
-    </task>
-    <task id="LOCAL-00113" summary="add sort_index field in media">
-      <created>1607338186510</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1607338186510</updated>
+      <workItem from="1607878845638" duration="24191000" />
     </task>
     <task id="LOCAL-00114" summary="add sort_index field in media">
       <created>1607338283007</created>
@@ -618,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607931229622</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="back: handle sort index field when inserting">
+      <created>1607939295321</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1607939295321</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add data image files" />
     <MESSAGE value="move image data files" />
     <MESSAGE value="add image files" />
     <MESSAGE value="แก้ link ผลลัพธ์หน้า survey" />
@@ -651,6 +648,7 @@
     <MESSAGE value="แก้ข้อความ survey" />
     <MESSAGE value="bug fix: search case-insensitive" />
     <MESSAGE value="bug fix: add media category" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix: add media category" />
+    <MESSAGE value="back: handle sort index field when inserting" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: handle sort index field when inserting" />
   </component>
 </project>

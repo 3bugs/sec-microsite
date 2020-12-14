@@ -66,11 +66,12 @@ class ApiCategoryController extends Controller
       $category = new $this->mCategoryModelClass;
       $category->title = $title;
       $category->description = $description;
+      $category->published = 1;
 
       if ($this->mHasSortIndex) {
         $category->sort_index = 0;
       }
-      
+
       $category->save();
 
       $message = "Title: $title\n"
