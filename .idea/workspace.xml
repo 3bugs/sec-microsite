@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/survey.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/survey.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiCategoryController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,21 +271,7 @@
       <workItem from="1607757503077" duration="22144000" />
       <workItem from="1607843599121" duration="11399000" />
       <workItem from="1607875083223" duration="6000" />
-      <workItem from="1607878845638" duration="19487000" />
-    </task>
-    <task id="LOCAL-00110" summary="update survey page">
-      <created>1607311967968</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1607311967968</updated>
-    </task>
-    <task id="LOCAL-00111" summary="update search controller">
-      <created>1607313093348</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1607313093348</updated>
+      <workItem from="1607878845638" duration="20577000" />
     </task>
     <task id="LOCAL-00112" summary="add sort_index field in media">
       <created>1607337752177</created>
@@ -616,7 +602,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607925935103</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="แก้ข้อความ survey">
+      <created>1607929520492</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1607929520492</updated>
+    </task>
+    <task id="LOCAL-00160" summary="bug fix: search case-insensitive">
+      <created>1607929799407</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1607929799407</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,8 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix header image path" />
-    <MESSAGE value="highlight current date in calendar" />
     <MESSAGE value="add api for banner" />
     <MESSAGE value="add data image files" />
     <MESSAGE value="move image data files" />
@@ -649,6 +647,8 @@
     <MESSAGE value="connect azure sql server" />
     <MESSAGE value="connect azure/.3" />
     <MESSAGE value="set default value of 'seen' field in contacts table" />
-    <option name="LAST_COMMIT_MESSAGE" value="set default value of 'seen' field in contacts table" />
+    <MESSAGE value="แก้ข้อความ survey" />
+    <MESSAGE value="bug fix: search case-insensitive" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix: search case-insensitive" />
   </component>
 </project>

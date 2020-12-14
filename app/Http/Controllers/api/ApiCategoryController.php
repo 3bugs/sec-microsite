@@ -64,6 +64,17 @@ class ApiCategoryController extends Controller
       $category = new $this->mCategoryModelClass;
       $category->title = $title;
       $category->description = $description;
+
+      switch (Request()->route()->getPrefix()) {
+        case 'api/fundraising-category':
+          break;
+        case 'api/media-category':
+          $category->sort_index = 0;
+          break;
+        case 'api/event-category':
+          break;
+      }
+
       $category->save();
 
       $message = "Title: $title\n"
