@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,11 +183,11 @@
       <recent name="$PROJECT_DIR$/resources/js/pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/storage/app/public" />
       <recent name="$PROJECT_DIR$/storage" />
       <recent name="$PROJECT_DIR$/storage/app" />
-      <recent name="$PROJECT_DIR$/public/css" />
     </key>
   </component>
   <component name="RunManager">
@@ -274,14 +271,7 @@
       <workItem from="1607875083223" duration="6000" />
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
-      <workItem from="1608010953798" duration="7517000" />
-    </task>
-    <task id="LOCAL-00116" summary="header images">
-      <created>1607402677275</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1607402677275</updated>
+      <workItem from="1608010953798" duration="8199000" />
     </task>
     <task id="LOCAL-00117" summary="header images in details page">
       <created>1607403353595</created>
@@ -619,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608017745614</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="front: update favicon">
+      <created>1608020580817</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1608020580817</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="แก้ link ผลลัพธ์หน้า survey" />
     <MESSAGE value="ปรับ logo" />
     <MESSAGE value="add test file for azure key vault" />
     <MESSAGE value="change logo" />
@@ -652,6 +648,7 @@
     <MESSAGE value="back: handle sort index field when inserting" />
     <MESSAGE value="back: set default value of published field when inserting" />
     <MESSAGE value="front: cookie consent" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: cookie consent" />
+    <MESSAGE value="front: update favicon" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: update favicon" />
   </component>
 </project>

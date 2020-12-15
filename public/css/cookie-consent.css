@@ -18,6 +18,11 @@
     transition: transform .3s;
 }
 
+#cc-control-panel h2 {
+    color: white;
+    text-align: left;
+}
+
 #cc-control-panel p {
     color: white;
 }
