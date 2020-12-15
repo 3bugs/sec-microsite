@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-  <link href="{{ asset('css/survey.css?v=1') }}" rel="stylesheet">
+  <link href="{{ asset('css/survey.css?v=2') }}" rel="stylesheet">
   <script type="text/javascript"
           src="https://platform-api.sharethis.com/js/sharethis.js#property=5fcc37961aaf5800135bdf32&product=inline-share-buttons"
           async="async"></script>
