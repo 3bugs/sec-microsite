@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="" />
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/public/css/cookie-consent.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/cookie-consent.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -271,14 +273,7 @@
       <workItem from="1607875083223" duration="6000" />
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
-      <workItem from="1608010953798" duration="8199000" />
-    </task>
-    <task id="LOCAL-00117" summary="header images in details page">
-      <created>1607403353595</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1607403353595</updated>
+      <workItem from="1608010953798" duration="8424000" />
     </task>
     <task id="LOCAL-00118" summary="fix header image path">
       <created>1607403644858</created>
@@ -616,7 +611,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608020580817</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="front: ปรับสไตล์ cookie consent">
+      <created>1608021511268</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1608021511268</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +626,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ปรับ logo" />
     <MESSAGE value="add test file for azure key vault" />
     <MESSAGE value="change logo" />
     <MESSAGE value="test sql server db connection" />
@@ -649,6 +650,7 @@
     <MESSAGE value="back: set default value of published field when inserting" />
     <MESSAGE value="front: cookie consent" />
     <MESSAGE value="front: update favicon" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: update favicon" />
+    <MESSAGE value="front: ปรับสไตล์ cookie consent" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: ปรับสไตล์ cookie consent" />
   </component>
 </project>

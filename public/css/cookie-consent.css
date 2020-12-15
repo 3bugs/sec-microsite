@@ -25,6 +25,7 @@
 
 #cc-control-panel p {
     color: white;
+    opacity: 0.8;
 }
 
 #cc-control-panel.-open {
