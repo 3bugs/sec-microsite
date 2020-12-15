@@ -12,8 +12,8 @@
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
+  <!--<link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">-->
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet"
@@ -359,7 +359,7 @@
       viewBox="0 0 72.5 72.5"
       enable-background="new 0 0 72.5 72.5"
       xml:space="preserve"
-  ><title>Cookie Control Icon</title>
+  ><title>นโยบายความเป็นส่วนตัว</title>
     <g id="cc-icon-triangle">
       <path d="M0,0l72.5,72.5H0V0z"></path>
     </g>
@@ -369,7 +369,6 @@
     </g>
   </svg>
 </div>
-
 
 <script src="{{ asset('js/vendor/modernizr-3.8.0.min.js') }}"></script>
 <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"
