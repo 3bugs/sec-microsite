@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/cookie-consent.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/cookie-consent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/cookie-consent.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/cookie-consent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,14 +273,7 @@
       <workItem from="1607875083223" duration="6000" />
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
-      <workItem from="1608010953798" duration="9406000" />
-    </task>
-    <task id="LOCAL-00120" summary="add api for banner">
-      <created>1607488465245</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1607488465246</updated>
+      <workItem from="1608010953798" duration="10037000" />
     </task>
     <task id="LOCAL-00121" summary="add data image files">
       <created>1607488937574</created>
@@ -621,7 +611,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608021945167</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="front: cookie">
+      <created>1608022713328</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1608022713328</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,7 +626,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="change logo" />
     <MESSAGE value="test sql server db connection" />
     <MESSAGE value="front/back: banner" />
     <MESSAGE value="back: login/logout" />
@@ -654,6 +650,7 @@
     <MESSAGE value="front: update favicon" />
     <MESSAGE value="front: ปรับสไตล์ cookie consent" />
     <MESSAGE value="front: css หน้า survey" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: css หน้า survey" />
+    <MESSAGE value="front: cookie" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: cookie" />
   </component>
 </project>
