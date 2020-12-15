@@ -44,6 +44,9 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);
 
 Route::get('/vision', [VisionController::class, 'index']);
+Route::get('/privacy-policy', function () {
+  return view('privacy-policy');
+});
 
 Route::get('/admin', function () {
   return redirect(env('APP_URL') . '/admin/dashboard');

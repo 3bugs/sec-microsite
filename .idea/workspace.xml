@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,14 +277,7 @@
       <workItem from="1607875083223" duration="6000" />
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
-      <workItem from="1608010953798" duration="11855000" />
-    </task>
-    <task id="LOCAL-00124" summary="แก้ link ผลลัพธ์หน้า survey">
-      <created>1607506501654</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1607506501654</updated>
+      <workItem from="1608010953798" duration="14388000" />
     </task>
     <task id="LOCAL-00125" summary="ปรับ logo">
       <created>1607532157160</created>
@@ -620,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608023757282</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="back: แก้ routing to admin">
+      <created>1608025847354</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1608025847355</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +630,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: login/logout" />
     <MESSAGE value="update test_kv.php" />
     <MESSAGE value="update sidebar menu text" />
     <MESSAGE value="update home page" />
@@ -653,6 +654,7 @@
     <MESSAGE value="front: cookie" />
     <MESSAGE value="front: change title" />
     <MESSAGE value="front: add social url" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: add social url" />
+    <MESSAGE value="back: แก้ routing to admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: แก้ routing to admin" />
   </component>
 </project>
