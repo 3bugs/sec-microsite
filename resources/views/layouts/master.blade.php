@@ -29,6 +29,7 @@
   <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=3') }}">
   <link rel='stylesheet' href="{{ asset('css/my_bootstrap_style.css?v=1') }}">
   <link rel='stylesheet' href="{{ asset('css/cookie_consent.css') }}">
+  <link rel='stylesheet' href="{{ asset('css/cookie-consent.css') }}">
   <link rel='stylesheet' href="{{ asset('css/sidenav.css') }}">
 
   <meta name="theme-color" content="#fafafa">
@@ -45,7 +46,7 @@
 <div class="my-navbar">
   <div style="display: flex; align-items: center">
     <a href="/"><img class="logo" src="{{ asset('images/logo3.png') }}" alt="logo" style="cursor: pointer"></a>
-<!--    <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</div>-->
+    <!--    <div class="header d-none d-md-block">สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์</div>-->
   </div>
   <div style="display: flex; align-items: center; align-self: stretch">
     <div id="menu-item-search" class="menu-item" data-toggle="modal" data-target="#searchModal">
@@ -233,65 +234,142 @@
   {{--</div>--}}
 </div>
 
-<!--cookie modal-->
-<div id="cookie-modal-backdrop" class="">
-  <div class="cookie-modal">
-    <div class="cookie-modal-content">
-      <!--<img src="asset('images/cookie.svg')" style="width: 30px; margin-right: 10px">-->
-      <h2>การใช้คุกกี้</h2>
-      <p>
-        ก.ล.ต. ใช้คุกกี้จำเป็นเพื่อการทำงานของเว็บไซต์
-        และอาจใช้คุกกี้ชนิดจดจำข้อมูลซึ่งคุณสามารถเลือกเปิดหรือปิดการใช้งานได้
-        เพื่อใช้ในการปรับปรุงประสิทธิภาพเว็บไซต์ โดย ก.ล.ต.
-        จะไม่ใช้คุกกี้ชนิดนี้หากคุณเลือกปิดการใช้งาน การใช้เครื่องมือนี้
-        จะติดตั้งคุกกี้บนอุปกรณ์ของคุณเพื่อที่จะจดจำข้อมูลการตั้งค่าต่างๆ
-      </p>
-      <p>
-        <strong>สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับคุกกี้ที่ ก.ล.ต. ใช้ สามารถดูได้ที่หน้าเว็บ
-          <a href="/policy.html" target="_blank">“คุกกี้”</a></strong>
-      </p>
-      <hr>
-      <h2>คุกกี้ที่จำเป็น</h2>
-      <p>
-        คุกกี้เหล่านี้ที่จำเป็นในการเปิดใช้คุณลักษณะการทำงานพื้นฐานของเว็บไซต์ เช่น
-        การรักษาความปลอดภัย การบริหารจัดการเครือข่าย การเข้าสู่ระบบ
-        คุณสามารถปิดการใช้งานคุกกี้เหล่านี้ได้ด้วยการตั้งค่าในเว็บเบราว์เซอร์
-        แต่การตั้งค่าดังกล่าวอาจส่งผลต่อการทำงานของเว็บไซต์
-      </p>
-      <hr>
-      <div style="display: flex; align-items: center; justify-content: space-between; margin: 0.83em 0;">
-        <h2 style="margin: 0">คุกกี้วิเคราะห์</h2>
-        <div class="cc-switch" style="color: #fff;">
-          <label class="toggle">
-            <input
-                id="cc-ga-switch-input"
-                class="toggle-checkbox"
-                type="checkbox"
-            >
-            <span class="toggle-label -on">เปิด</span>
-            <span class="toggle-label -off">ปิด</span>
-            <div class="toggle-switch"></div>
-          </label>
+{{--
+  <!--cookie modal-->
+  <div id="cookie-modal-backdrop" class="">
+    <div class="cookie-modal">
+      <div class="cookie-modal-content">
+        <h2>การใช้คุกกี้</h2>
+        <p>
+          ก.ล.ต. ใช้คุกกี้จำเป็นเพื่อการทำงานของเว็บไซต์
+          และอาจใช้คุกกี้ชนิดจดจำข้อมูลซึ่งคุณสามารถเลือกเปิดหรือปิดการใช้งานได้
+          เพื่อใช้ในการปรับปรุงประสิทธิภาพเว็บไซต์ โดย ก.ล.ต.
+          จะไม่ใช้คุกกี้ชนิดนี้หากคุณเลือกปิดการใช้งาน การใช้เครื่องมือนี้
+          จะติดตั้งคุกกี้บนอุปกรณ์ของคุณเพื่อที่จะจดจำข้อมูลการตั้งค่าต่างๆ
+        </p>
+        <p>
+          <strong>สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับคุกกี้ที่ ก.ล.ต. ใช้ สามารถดูได้ที่หน้าเว็บ
+            <a href="/policy.html" target="_blank">“คุกกี้”</a></strong>
+        </p>
+        <hr>
+        <h2>คุกกี้ที่จำเป็น</h2>
+        <p>
+          คุกกี้เหล่านี้ที่จำเป็นในการเปิดใช้คุณลักษณะการทำงานพื้นฐานของเว็บไซต์ เช่น
+          การรักษาความปลอดภัย การบริหารจัดการเครือข่าย การเข้าสู่ระบบ
+          คุณสามารถปิดการใช้งานคุกกี้เหล่านี้ได้ด้วยการตั้งค่าในเว็บเบราว์เซอร์
+          แต่การตั้งค่าดังกล่าวอาจส่งผลต่อการทำงานของเว็บไซต์
+        </p>
+        <hr>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin: 0.83em 0;">
+          <h2 style="margin: 0">คุกกี้วิเคราะห์</h2>
+          <div class="cc-switch" style="color: #fff;">
+            <label class="toggle">
+              <input
+                  id="cc-ga-switch-input"
+                  class="toggle-checkbox"
+                  type="checkbox"
+              >
+              <span class="toggle-label -on">เปิด</span>
+              <span class="toggle-label -off">ปิด</span>
+              <div class="toggle-switch"></div>
+            </label>
+          </div>
         </div>
-      </div>
-      <p>
-        ก.ล.ต. ใช้คุกกี้ Google Analytics เพื่อการปรับปรุงประสิทธิภาพของเว็บไซต์
-        โดยรวบรวมและรายงานข้อมูลการใช้งานเว็บไซต์ของคุณ
-        คุกกี้ดังกล่าวจะเก็บข้อมูลที่ไม่ระบุตัวบุคคลโดยตรง
-      </p>
-      <p>
-        <strong>สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับการทำงานของคุกกี้ชนิดนี้ สามารถดูได้ที่หน้าเว็บ
-          <a href="/policy.html" target="_blank">“คุกกี้”</a></strong>
-      </p>
+        <p>
+          ก.ล.ต. ใช้คุกกี้ Google Analytics เพื่อการปรับปรุงประสิทธิภาพของเว็บไซต์
+          โดยรวบรวมและรายงานข้อมูลการใช้งานเว็บไซต์ของคุณ
+          คุกกี้ดังกล่าวจะเก็บข้อมูลที่ไม่ระบุตัวบุคคลโดยตรง
+        </p>
+        <p>
+          <strong>สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับการทำงานของคุกกี้ชนิดนี้ สามารถดูได้ที่หน้าเว็บ
+            <a href="/policy.html" target="_blank">“คุกกี้”</a></strong>
+        </p>
 
-      <div style="text-align: center;">
-        <button id="cc-save-button">
-          บันทึกและปิด
-        </button>
+        <div style="text-align: center;">
+          <button id="cc-save-button">
+            บันทึกและปิด
+          </button>
+        </div>
       </div>
     </div>
   </div>
+--}}
+
+<div id="cc-control-panel">
+  <div class="cc-container">
+    <h2>การใช้คุกกี้</h2>
+    <p>
+      ก.ล.ต. ใช้คุกกี้จำเป็นเพื่อการทำงานของเว็บไซต์
+      และอาจใช้คุกกี้ชนิดจดจำข้อมูลซึ่งคุณสามารถเลือกเปิดหรือปิดการใช้งานได้
+      เพื่อใช้ในการปรับปรุงประสิทธิภาพเว็บไซต์ โดย ก.ล.ต.
+      จะไม่ใช้คุกกี้ชนิดนี้หากคุณเลือกปิดการใช้งาน การใช้เครื่องมือนี้
+      จะติดตั้งคุกกี้บนอุปกรณ์ของคุณเพื่อที่จะจดจำข้อมูลการตั้งค่าต่างๆ
+    </p>
+    <p>
+      สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับคุกกี้ที่ ก.ล.ต. ใช้ สามารถดูได้ที่หน้าเว็บ
+      <a href="/policy.html" target="_blank">“คุกกี้”</a>
+    </p>
+    <hr>
+    <h2>คุกกี้ที่จำเป็น</h2>
+    <p>
+      คุกกี้เหล่านี้ที่จำเป็นในการเปิดใช้คุณลักษณะการทำงานพื้นฐานของเว็บไซต์ เช่น
+      การรักษาความปลอดภัย การบริหารจัดการเครือข่าย การเข้าสู่ระบบ
+      คุณสามารถปิดการใช้งานคุกกี้เหล่านี้ได้ด้วยการตั้งค่าในเว็บเบราว์เซอร์
+      แต่การตั้งค่าดังกล่าวอาจส่งผลต่อการทำงานของเว็บไซต์
+    </p>
+    <hr>
+    <div style="display: flex; align-items: center; justify-content: space-between; margin: 0.83em 0; color: #fff;">
+      <h2 style="margin: 0">คุกกี้วิเคราะห์</h2>
+      <div class="cc-switch" style="color: #fff;">
+        <label class="toggle">
+          <input
+              id="cc-ga-switch-input"
+              class="toggle-checkbox"
+              type="checkbox"
+          >
+          <span class="toggle-label -on">เปิด</span>
+          <span class="toggle-label -off">ปิด</span>
+          <div class="toggle-switch"></div>
+        </label>
+      </div>
+    </div>
+    <p>
+      ก.ล.ต. ใช้คุกกี้ Google Analytics เพื่อการปรับปรุงประสิทธิภาพของเว็บไซต์
+      โดยรวบรวมและรายงานข้อมูลการใช้งานเว็บไซต์ของคุณ
+      คุกกี้ดังกล่าวจะเก็บข้อมูลที่ไม่ระบุตัวบุคคลโดยตรง
+    </p>
+    <p>
+      สำหรับรายละเอียดเพิ่มเติมเกี่ยวกับการทำงานของคุกกี้ชนิดนี้ สามารถดูได้ที่หน้าเว็บ
+      <a href="/policy.html" target="_blank">“คุกกี้”</a>
+    </p>
+    <hr>
+    <div style="text-align: right;">
+      <button id="cc-save" class="cc-button">
+        บันทึกและปิด
+      </button>
+    </div>
+  </div>
 </div>
+<div id="cc-backdrop"></div>
+<div id="cc-panel-trigger">
+  <svg
+      xmlns="http://www.w3.org/2000/svg"
+      x="0px"
+      y="0px"
+      viewBox="0 0 72.5 72.5"
+      enable-background="new 0 0 72.5 72.5"
+      xml:space="preserve"
+  ><title>Cookie Control Icon</title>
+    <g id="cc-icon-triangle">
+      <path d="M0,0l72.5,72.5H0V0z"></path>
+    </g>
+    <g id="cc-icon-star">
+      <path
+          d="M33.2,51.9l-3.9-2.6l1.6-4.4l-4.7,0.2L25,40.6l-3.7,2.9l-3.7-2.9l-1.2,4.5l-4.7-0.2l1.6,4.4l-3.9,2.6l3.9,2.6l-1.6,4.4l4.7-0.2l1.2,4.5l3.7-2.9l3.7,2.9l1.2-4.5l4.7,0.2l-1.6-4.4L33.2,51.9z M24.6,55.3c-0.3,0.4-0.8,0.8-1.3,1s-1.1,0.3-1.9,0.3c-0.9,0-1.7-0.1-2.3-0.4s-1.1-0.7-1.5-1.4c-0.4-0.7-0.6-1.6-0.6-2.6c0-1.4,0.4-2.5,1.1-3.3c0.8-0.8,1.8-1.1,3.2-1.1c1.1,0,1.9,0.2,2.6,0.7s1.1,1.1,1.4,2L23,50.9c-0.1-0.3-0.2-0.5-0.3-0.6c-0.1-0.2-0.3-0.4-0.5-0.5s-0.5-0.2-0.7-0.2c-0.6,0-1.1,0.2-1.4,0.7c-0.2,0.4-0.4,0.9-0.4,1.7c0,1,0.1,1.6,0.4,2c0.3,0.4,0.7,0.5,1.2,0.5c0.5,0,0.9-0.1,1.2-0.4s0.4-0.7,0.6-1.2l2.3,0.7C25.2,54.3,25,54.8,24.6,55.3z"></path>
+    </g>
+  </svg>
+</div>
+
 
 <script src="{{ asset('js/vendor/modernizr-3.8.0.min.js') }}"></script>
 <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -300,6 +378,7 @@
 <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-3.5.1.min.js') }}"><\/script>')</script>
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/cookie-consent.js') }}"></script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <!--<script>

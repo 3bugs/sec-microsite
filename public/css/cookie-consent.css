@@ -1,0 +1,158 @@
+:root {
+    --color-primary: #003558;
+    --color-primary-light: #8DC63F;
+    --color-switch: #d0dd31;
+}
+
+#cc-control-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 90%;
+    max-width: 500px;
+    z-index: 9999;
+    overflow-y: auto;
+    box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.4);
+    transform: translateX(-100%);
+    transition: transform .3s;
+}
+
+#cc-control-panel p {
+    color: white;
+}
+
+#cc-control-panel.-open {
+    transform: translateX(0);
+}
+
+#cc-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: translateY(-100%);
+    cursor: pointer;
+    transition: transform 0s, opacity .3s;
+}
+
+#cc-backdrop.-open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#cc-control-panel > .cc-container {
+    min-height: 100%;
+    font-size: 16px;
+    padding: 24px;
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+#cc-control-panel > .cc-container > h2:first-child {
+    margin-top: 0;
+}
+
+#cc-control-panel > .cc-container a {
+    color: #fff;
+}
+
+#cc-control-panel > .cc-container > hr {
+    border: solid rgba(255, 255, 255, 0.3);
+    border-width: 1px 0 0 0;
+    background: transparent;
+}
+
+#cc-panel-trigger {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    z-index: 10000;
+    fill: var(--color-primary-light);
+}
+
+#cc-icon-star {
+    fill: #fff;
+}
+
+.cc-switch .toggle {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.cc-switch .toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+
+.cc-switch .toggle-switch:before {
+    content: '';
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+}
+
+.cc-switch .toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.cc-switch .toggle-checkbox:checked ~ .toggle-switch {
+    background: var(--color-switch);
+}
+
+.cc-switch .toggle-checkbox:checked ~ .toggle-switch:before {
+    left: 30px;
+}
+
+.cc-switch .toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+.cc-switch .toggle-label {
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+
+.cc-switch .toggle-checkbox:checked ~ .toggle-label.-off {
+    display: none;
+}
+
+.cc-switch .toggle-checkbox:not(:checked) ~ .toggle-label.-on {
+    display: none;
+}
+
+.cc-button {
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    border: 0 none;
+    outline: 0 none;
+    box-shadow: none;
+    cursor: pointer;
+    margin-top: 8px;
+}
