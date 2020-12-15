@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -273,14 +271,7 @@
       <workItem from="1607875083223" duration="6000" />
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
-      <workItem from="1608010953798" duration="10037000" />
-    </task>
-    <task id="LOCAL-00121" summary="add data image files">
-      <created>1607488937574</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1607488937574</updated>
+      <workItem from="1608010953798" duration="10358000" />
     </task>
     <task id="LOCAL-00122" summary="move image data files">
       <created>1607502228718</created>
@@ -618,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608022713328</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="front: change title">
+      <created>1608023298302</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1608023298302</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="test sql server db connection" />
     <MESSAGE value="front/back: banner" />
     <MESSAGE value="back: login/logout" />
     <MESSAGE value="update test_kv.php" />
@@ -651,6 +648,7 @@
     <MESSAGE value="front: ปรับสไตล์ cookie consent" />
     <MESSAGE value="front: css หน้า survey" />
     <MESSAGE value="front: cookie" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: cookie" />
+    <MESSAGE value="front: change title" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: change title" />
   </component>
 </project>

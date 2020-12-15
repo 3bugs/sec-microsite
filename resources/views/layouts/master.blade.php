@@ -184,7 +184,9 @@
         <div class="row row_bot_footer">
           <div class="col-12 col-md-5 botlogoandsocial">
             <img src="/images/footer-logo.svg">
-            <a href="#"><img src="/images/001-facebook.svg"></a><a href="#"><img src="/images/002-youtube.svg"></a><a href="#"><img src="/images/003-twitter.svg"></a>
+            <a href="https://www.facebook.com/sec.or.th"><img src="/images/001-facebook.svg"></a>
+            <a href="https://www.youtube.com/user/insideSEC"><img src="/images/002-youtube.svg"></a>
+            <a href="https://twitter.com/ThaiSEC_News"><img src="/images/003-twitter.svg"></a>
             <p>สำนักงานคณะกรรมการกำกับหลักทรัพย์และตลาดหลักทรัพย์
               333/3 ถนนวิภาวดีรังสิต แขวงจอมพล เขตจตุจักร กรุงเทพมหานคร 10900</p>
           </div>
