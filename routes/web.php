@@ -46,7 +46,7 @@ Route::post('/contact', [ContactController::class, 'store']);
 Route::get('/vision', [VisionController::class, 'index']);
 
 Route::get('/admin', function () {
-  return redirect('/admin/dashboard');
+  return redirect(env('APP_URL') . '/admin/dashboard');
 });
 Route::get('/admin/{any}', function () {
   app('debugbar')->disable();
