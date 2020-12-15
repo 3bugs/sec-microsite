@@ -23,6 +23,7 @@ const $ccBackdrop = $('#cc-backdrop')
 const $ccPanelTrigger = $('#cc-panel-trigger')
 const $ccGaSwitchInput = $('#cc-ga-switch-input')
 const $ccSaveButton = $('#cc-save')
+const $ccPanelTriggerText = $('.cookie-trigger small')
 
 const panel = {
   open: () => {
@@ -50,6 +51,10 @@ const panel = {
     }
   },
 }
+
+$ccPanelTriggerText.on('click', event => {
+  panel.open()
+})
 
 // EVENT LISTENERS
 $ccPanelTrigger.on('click', () => {

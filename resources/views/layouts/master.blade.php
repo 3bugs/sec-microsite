@@ -29,7 +29,7 @@
   <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=3') }}">
   <link rel='stylesheet' href="{{ asset('css/my_bootstrap_style.css?v=1') }}">
 <!--  <link rel='stylesheet' href="{{ asset('css/cookie_consent.css') }}">-->
-  <link rel='stylesheet' href="{{ asset('css/cookie-consent.css?v=1') }}">
+  <link rel='stylesheet' href="{{ asset('css/cookie-consent.css?v=2') }}">
   <link rel='stylesheet' href="{{ asset('css/sidenav.css') }}">
 
   <meta name="theme-color" content="#fafafa">
@@ -377,7 +377,7 @@
 <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-3.5.1.min.js') }}"><\/script>')</script>
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-<script src="{{ asset('js/cookie-consent.js') }}"></script>
+<script src="{{ asset('js/cookie-consent.js?v=1') }}"></script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <!--<script>

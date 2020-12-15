@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/cookie-consent.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/cookie-consent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/cookie-consent.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/cookie-consent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,21 +276,7 @@
       <workItem from="1607875083223" duration="6000" />
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
-      <workItem from="1608010953798" duration="8424000" />
-    </task>
-    <task id="LOCAL-00118" summary="fix header image path">
-      <created>1607403644858</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1607403644858</updated>
-    </task>
-    <task id="LOCAL-00119" summary="highlight current date in calendar">
-      <created>1607405016666</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1607405016666</updated>
+      <workItem from="1608010953798" duration="9406000" />
     </task>
     <task id="LOCAL-00120" summary="add api for banner">
       <created>1607488465245</created>
@@ -618,7 +607,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608021511268</updated>
     </task>
-    <option name="localTasksCounter" value="167" />
+    <task id="LOCAL-00167" summary="front: ปรับสไตล์ cookie consent">
+      <created>1608021654326</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1608021654326</updated>
+    </task>
+    <task id="LOCAL-00168" summary="front: css หน้า survey">
+      <created>1608021945167</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1608021945167</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +629,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add test file for azure key vault" />
     <MESSAGE value="change logo" />
     <MESSAGE value="test sql server db connection" />
     <MESSAGE value="front/back: banner" />
@@ -651,6 +653,7 @@
     <MESSAGE value="front: cookie consent" />
     <MESSAGE value="front: update favicon" />
     <MESSAGE value="front: ปรับสไตล์ cookie consent" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: ปรับสไตล์ cookie consent" />
+    <MESSAGE value="front: css หน้า survey" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: css หน้า survey" />
   </component>
 </project>
