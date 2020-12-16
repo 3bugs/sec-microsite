@@ -18,7 +18,7 @@ const msalConfig = {
 // for more, visit https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/scopes.md
 const loginRequest = {
   //scopes: ["openid", "profile", "User.Read"]
-  scopes: ["profile", "User.Read"]
+  scopes: ["openid"]
 };
 
 // Add here scopes for access token to be used at MS Graph API endpoints.
