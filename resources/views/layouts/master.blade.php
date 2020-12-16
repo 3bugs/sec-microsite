@@ -439,6 +439,10 @@
 
     $sideNavBackdrop.on('click', () => {
       closeNav();
+      const hamburgerButton = $('#menu-item-menu button')
+      if (Modernizr.mq('(min-width: 768px)')) {
+        hamburgerButton.toggleClass("is-active");
+      }
     });
 
     if (Modernizr.mq('(min-width: 768px)')) {
