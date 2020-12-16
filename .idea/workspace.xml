@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="front: bug fix: toggle menu icon">
+      <change afterPath="$PROJECT_DIR$/public/js/azure/authConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure/authPopup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure/authRedirect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure/graph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure/graphConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure/ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/test-ad.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +170,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js/azure" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -179,11 +186,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js/azure" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/storage/app/public/banner" />
       <recent name="$PROJECT_DIR$/resources/js/components" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
@@ -275,14 +282,7 @@
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
       <workItem from="1608010953798" duration="15694000" />
-      <workItem from="1608087816586" duration="6350000" />
-    </task>
-    <task id="LOCAL-00129" summary="front/back: banner">
-      <created>1607770030892</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1607770030892</updated>
+      <workItem from="1608087816586" duration="10289000" />
     </task>
     <task id="LOCAL-00130" summary="back: login/logout">
       <created>1607848255272</created>
@@ -620,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608095402173</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="front: bug fix: toggle menu icon">
+      <created>1608096321529</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1608096321529</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +635,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ปรับ css หน้า home" />
     <MESSAGE value="front: validate search form" />
     <MESSAGE value="front: ชื่อหมวดหมู่ event" />
     <MESSAGE value="front: ปรับ css หน้า home" />
@@ -653,6 +659,7 @@
     <MESSAGE value="front: update z-index" />
     <MESSAGE value="front: add backdrop for sidenav menu" />
     <MESSAGE value="front: change z-index" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: change z-index" />
+    <MESSAGE value="front: bug fix: toggle menu icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: bug fix: toggle menu icon" />
   </component>
 </project>

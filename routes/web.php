@@ -69,6 +69,10 @@ Route::post('/testfile', function (Request $request) {
   return 'PATH: '.$path.'<br>'.'myText: '.$request->myText;
 });
 
+Route::get('/test-ad', function () {
+  return view('test-ad');
+});
+
 /*Route::get('/', function () {
   $tasks = Task::orderBy('created_at', 'asc')->get();
   return view('tasks', [
