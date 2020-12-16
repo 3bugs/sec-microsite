@@ -141,6 +141,7 @@
   }}
 @endphp
 
+<div id="sidenav-backdrop"></div>
 <div id="sidenav-menu" class="sidenav-menu">
   <a href="javascript:void(0)" id="close-button" onclick="closeNav()">&times;</a>
 
@@ -404,7 +405,7 @@
   const SIDE_NAV_WIDTH_SM = 300;
 
   let isSideNavOpen = false;
-  let $sideNavMenu, $sideNavMain, $topNav, $closeButton;
+  let $sideNavBackdrop, $sideNavMenu, $sideNavMain, $topNav, $closeButton;
   let $logo, $header, $menuItem, $iconLabel, $imgSearch, $hamburgerInner;
 
   $(function () {
@@ -424,6 +425,7 @@
       $searchForm.submit();
     });
 
+    $sideNavBackdrop = $('#sidenav-backdrop');
     $sideNavMenu = $('.sidenav-menu');
     $sideNavMain = $('#sidenav-main');
     $topNav = $('.my-navbar');
@@ -434,6 +436,10 @@
     $iconLabel = $('.my-navbar .icon-label');
     $imgSearch = $('.my-navbar .img-search');
     $hamburgerInner = $('.hamburger-inner');
+
+    $sideNavBackdrop.on('click', () => {
+      closeNav();
+    });
 
     if (Modernizr.mq('(min-width: 768px)')) {
       $sideNavMenu.css('top', $topNav.css('height'));
@@ -479,6 +485,8 @@
     if (Modernizr.mq('(min-width: 768px)')) {
       $sideNavMenu.css('top', $topNav.css('height'));
     }
+
+    $sideNavBackdrop.addClass('-open');
     //document.body.style.backgroundColor = "rgba(0,0,0,0.8)";
   }
 
@@ -487,6 +495,7 @@
     isSideNavOpen = false;
     $sideNavMenu.css('width', '0');
     $sideNavMain.css('margin-right', '0');
+    $sideNavBackdrop.removeClass('-open');
     //document.body.style.backgroundColor = "white";
   }
 
