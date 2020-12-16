@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/js/azure/authConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/azure/authConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure2/authConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure2/authPopup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure2/authRedirect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure2/graph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure2/graphConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/azure2/ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/test-ad-auth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +169,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js/azure" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js/azure2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -178,11 +185,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/js/azure" />
+      <recent name="$PROJECT_DIR$/public/js/azure2" />
       <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/public/js/azure" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/storage/app/public/banner" />
-      <recent name="$PROJECT_DIR$/resources/js/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
@@ -274,21 +281,7 @@
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
       <workItem from="1608010953798" duration="15694000" />
-      <workItem from="1608087816586" duration="10896000" />
-    </task>
-    <task id="LOCAL-00132" summary="update test_kv.php">
-      <created>1607854833673</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1607854833673</updated>
-    </task>
-    <task id="LOCAL-00133" summary="update test_kv.php">
-      <created>1607856092775</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1607856092775</updated>
+      <workItem from="1608087816586" duration="11756000" />
     </task>
     <task id="LOCAL-00134" summary="update test_kv.php">
       <created>1607856767012</created>
@@ -619,7 +612,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608106607345</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="front: update azure ad login config">
+      <created>1608106941027</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1608106941027</updated>
+    </task>
+    <task id="LOCAL-00182" summary="front: update azure ad login config">
+      <created>1608107005302</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1608107005302</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +634,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: ปรับ css หน้า home" />
     <MESSAGE value="front: ปรับ css หน้า event" />
     <MESSAGE value="connect azure sql server" />
     <MESSAGE value="connect azure/.3" />
@@ -652,6 +658,7 @@
     <MESSAGE value="front: bug fix: toggle menu icon" />
     <MESSAGE value="front: add files to test azure ad login" />
     <MESSAGE value="front: update azure ad login's redirect uri" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: update azure ad login's redirect uri" />
+    <MESSAGE value="front: update azure ad login config" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: update azure ad login config" />
   </component>
 </project>
