@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-  <link href="{{ asset('css/survey.css?v=2') }}" rel="stylesheet">
+  <link href="{{ asset('css/survey.css?v=3') }}" rel="stylesheet">
   <script type="text/javascript"
           src="https://platform-api.sharethis.com/js/sharethis.js#property=5fcc37961aaf5800135bdf32&product=inline-share-buttons"
           async="async"></script>
@@ -314,7 +314,7 @@
       </div>
       <div class="button-container">
         <button
-          v-bind:style="{zIndex: 1000, display: questionHistoryList.length === 0 ? 'none' : 'block'}"
+          v-bind:style="{zIndex: 4, display: questionHistoryList.length === 0 ? 'none' : 'block'}"
           v-on:click="handleClickPrevious"
         >
           <h5><i class="fa fa-chevron-left"></i>
@@ -324,7 +324,7 @@
         <div class="m-2"></div>
         <button
           class="mt-4 mt-lg-5 mb-4 mb-lg-5"
-          style="z-index: 1000"
+          style="z-index: 4"
           v-on:click="handleClickNext"
           :disabled="currentQuestion.choiceList.find(choice => choice.value) == null"
         >

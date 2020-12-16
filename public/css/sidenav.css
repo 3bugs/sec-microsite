@@ -11,7 +11,7 @@
   transition: 0.3s; /* transition effect to slide in the sidenav */
   box-shadow: 4px 7px 34px -1px #001828;
   padding-top: 1.5rem;
-  z-index: 10;
+  z-index: 6;
 }
 
 @media screen and (max-width: 767px) {

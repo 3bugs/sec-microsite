@@ -23,14 +23,14 @@
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Prompt|Sarabun|Roboto'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel='stylesheet' href="{{ asset('css/normalize.css') }}">
-  <link rel='stylesheet' href="{{ asset('css/main.css?v=1') }}">
+  <link rel='stylesheet' href="{{ asset('css/main.css?v=2') }}">
   <link rel='stylesheet' href="{{ asset('css/hamburgers.min.css') }}">
   <link rel='stylesheet' href="{{ asset('css/bootstrap-datepicker.min.css') }}">
   <link rel='stylesheet' href="{{ asset('css/insidepage.css?v=3') }}">
   <link rel='stylesheet' href="{{ asset('css/my_bootstrap_style.css?v=1') }}">
 <!--  <link rel='stylesheet' href="{{ asset('css/cookie_consent.css') }}">-->
-  <link rel='stylesheet' href="{{ asset('css/cookie-consent.css?v=2') }}">
-  <link rel='stylesheet' href="{{ asset('css/sidenav.css') }}">
+  <link rel='stylesheet' href="{{ asset('css/cookie-consent.css?v=3') }}">
+  <link rel='stylesheet' href="{{ asset('css/sidenav.css?v=1') }}">
 
   <meta name="theme-color" content="#fafafa">
 

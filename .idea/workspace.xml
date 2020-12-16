@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/sidenav.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sidenav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/survey.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/survey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/survey.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/survey.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +177,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -277,14 +277,8 @@
       <workItem from="1607875083223" duration="6000" />
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
-      <workItem from="1608010953798" duration="14388000" />
-    </task>
-    <task id="LOCAL-00125" summary="ปรับ logo">
-      <created>1607532157160</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1607532157160</updated>
+      <workItem from="1608010953798" duration="15694000" />
+      <workItem from="1608087816586" duration="1789000" />
     </task>
     <task id="LOCAL-00126" summary="add test file for azure key vault">
       <created>1607535024626</created>
@@ -622,7 +616,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608025847355</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="front: privacy policy">
+      <created>1608028259700</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1608028259700</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +631,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update test_kv.php" />
     <MESSAGE value="update sidebar menu text" />
     <MESSAGE value="update home page" />
     <MESSAGE value="ปรับ css หน้า event" />
@@ -655,6 +655,7 @@
     <MESSAGE value="front: change title" />
     <MESSAGE value="front: add social url" />
     <MESSAGE value="back: แก้ routing to admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: แก้ routing to admin" />
+    <MESSAGE value="front: privacy policy" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: privacy policy" />
   </component>
 </project>

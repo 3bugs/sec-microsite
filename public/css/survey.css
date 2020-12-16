@@ -220,7 +220,7 @@ button:disabled {
   background: #FBFBFB;
   border: 1px solid #E0E0E0;
   cursor: pointer;
-  z-index: 998;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
@@ -269,7 +269,7 @@ button:disabled {
   position: fixed;
   bottom: 0;
   right: 0;
-  z-index: 997;
+  z-index: 1;
 }
 
 #man-image {
@@ -278,7 +278,7 @@ button:disabled {
   height: 200px;
   bottom: 0;
   right: 0;
-  z-index: 999;
+  z-index: 3;
   border: 0px solid red;
 }
 
