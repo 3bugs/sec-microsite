@@ -73,7 +73,7 @@
 
 <!-- replace next line with authRedirect.js if you would like to use the redirect flow -->
 <!-- <script type="text/javascript" src="./authRedirect.js"></script>   -->
-<script type="text/javascript" src="{{ asset('js/azure2/authPopup.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/azure2/authRedirect.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/azure2/graph.js') }}"></script>
 </body>
 </html>
