@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/cookie-consent.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/cookie-consent.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/sidenav.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sidenav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,14 +276,7 @@
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
       <workItem from="1608010953798" duration="15694000" />
-      <workItem from="1608087816586" duration="4825000" />
-    </task>
-    <task id="LOCAL-00127" summary="change logo">
-      <created>1607564560043</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1607564560043</updated>
+      <workItem from="1608087816586" duration="5581000" />
     </task>
     <task id="LOCAL-00128" summary="test sql server db connection">
       <created>1607757696282</created>
@@ -623,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608090235170</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="front: add backdrop for sidenav menu">
+      <created>1608094450325</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1608094450325</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +629,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update home page" />
     <MESSAGE value="ปรับ css หน้า event" />
     <MESSAGE value="ปรับ css หน้า home" />
     <MESSAGE value="front: validate search form" />
@@ -656,6 +653,7 @@
     <MESSAGE value="back: แก้ routing to admin" />
     <MESSAGE value="front: privacy policy" />
     <MESSAGE value="front: update z-index" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: update z-index" />
+    <MESSAGE value="front: add backdrop for sidenav menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: add backdrop for sidenav menu" />
   </component>
 </project>
