@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/azure2/authConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/azure2/authPopup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/azure2/authRedirect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/azure2/graph.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/azure2/graphConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/azure2/ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/test-ad-auth.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/test-ad.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test-ad.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,21 +275,7 @@
       <workItem from="1607878845638" duration="29340000" />
       <workItem from="1608003784567" duration="2901000" />
       <workItem from="1608010953798" duration="15694000" />
-      <workItem from="1608087816586" duration="11756000" />
-    </task>
-    <task id="LOCAL-00134" summary="update test_kv.php">
-      <created>1607856767012</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1607856767012</updated>
-    </task>
-    <task id="LOCAL-00135" summary="update test_kv.php">
-      <created>1607856915182</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1607856915182</updated>
+      <workItem from="1608087816586" duration="15994000" />
     </task>
     <task id="LOCAL-00136" summary="update test_kv.php">
       <created>1607857305718</created>
@@ -626,7 +606,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608107005302</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="front: add files to test azure ad login">
+      <created>1608107812115</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1608107812115</updated>
+    </task>
+    <task id="LOCAL-00184" summary="front: change azure ad login config">
+      <created>1608112566276</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1608112566277</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +628,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: ปรับ css หน้า event" />
     <MESSAGE value="connect azure sql server" />
     <MESSAGE value="connect azure/.3" />
     <MESSAGE value="set default value of 'seen' field in contacts table" />
@@ -656,9 +649,10 @@
     <MESSAGE value="front: add backdrop for sidenav menu" />
     <MESSAGE value="front: change z-index" />
     <MESSAGE value="front: bug fix: toggle menu icon" />
-    <MESSAGE value="front: add files to test azure ad login" />
     <MESSAGE value="front: update azure ad login's redirect uri" />
     <MESSAGE value="front: update azure ad login config" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: update azure ad login config" />
+    <MESSAGE value="front: add files to test azure ad login" />
+    <MESSAGE value="front: change azure ad login config" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: change azure ad login config" />
   </component>
 </project>
