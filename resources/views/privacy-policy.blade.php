@@ -1,6 +1,39 @@
 @extends('layouts.master')
 
 @section('head')
+  <style>
+    #cookie-table {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #cookie-table th, #cookie-table td {
+      vertical-align: top;
+      padding: 5px 20px;
+    }
+
+    @media screen and (max-width: 767px) {
+      #cookie-table {
+        width: 100%;
+      }
+
+      #cookie-table th, #cookie-table td {
+        padding: 5px 10px;
+      }
+    }
+
+    @media screen and (max-width: 575px) {
+      #cookie-table th, #cookie-table td {
+        padding: 5px 5px;
+        font-size: 1.1rem;
+      }
+
+      #cookie-table td > p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 @endsection
 
 @section('content')
@@ -19,19 +52,19 @@
           คุกกี้ได้ถูกใช้อย่างมากมาย เพื่อที่จะทำให้เว็บไซต์ทำงาน หรือเพิ่มประสิทธิภาพการทำงาน รวมทั้งเก็บข้อมูลให้กับเจ้าของเว็บไซต์
           ตารางด้านล่างนี้แสดงคุกกี้และวัตถุประสงค์การใช้งานของคุกกี้แต่ละชนิดที่ ก.ล.ต. ใช้</p>
 
-        <table style="width: 90%; margin-left: auto; margin-right: auto">
+        <table id="cookie-table">
           <thead>
           <tr>
-            <th style="vertical-align: top; padding: 5px 20px">คุกกี้</th>
-            <th style="vertical-align: top; padding: 5px 20px">ชื่อ</th>
-            <th style="vertical-align: top; padding: 5px 20px">วัตถุประสงค์การใช้งาน</th>
+            <th>คุกกี้</th>
+            <th>ชื่อ</th>
+            <th>วัตถุประสงค์การใช้งาน</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td style="vertical-align: top; padding: 5px 20px"><p>Universal Analytics (Google)</p></td>
-            <td style="vertical-align: top; padding: 5px 20px"><p><pre>_ga<br>_gali<br>_gat<br>_gid</pre></p></td>
-            <td style="vertical-align: top; padding: 5px 20px"><p>คุกกี้เหล่านี้ถูกใช้เพื่อเก็บรวบรวมข้อมูลการใช้งานของผู้เข้าชมเว็บไซต์
+            <td><p>Universal Analytics (Google)</p></td>
+            <td><p><pre>_ga<br>_gali<br>_gat<br>_gid</pre></p></td>
+            <td><p>คุกกี้เหล่านี้ถูกใช้เพื่อเก็บรวบรวมข้อมูลการใช้งานของผู้เข้าชมเว็บไซต์
                 ก.ล.ต. ใช้ข้อมูลเหล่านี้มาประมวลผลจัดทำรายงานเพื่อพัฒนาปรับปรุงเว็บไซต์
                 คุกกี้เหล่านี้จะเก็บข้อมูลที่ไม่ระบุตัวตนของบุคคล ตัวอย่างข้อมูลที่จัดเก็บ เช่น
                 จำนวนผู้เข้าชมเว็บไซต์ หน้าเว็บไซต์ที่เข้าเยี่ยมชม เป็นต้น</p>

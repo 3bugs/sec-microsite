@@ -75,6 +75,9 @@ Route::get('/test-ad', function () {
 Route::get('/test-ad-auth', function () {
   return view('test-ad-auth');
 });
+Route::get('/login', function () {
+  return view('login');
+});
 
 /*Route::get('/', function () {
   $tasks = Task::orderBy('created_at', 'asc')->get();
