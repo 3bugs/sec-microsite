@@ -48,6 +48,7 @@
         label="เผยแพร่"
         color="primary"
         hide-details
+        inset
       />
     </v-toolbar>
 

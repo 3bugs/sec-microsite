@@ -62,6 +62,7 @@
         label="เผยแพร่"
         color="primary"
         hide-details
+        inset
       />
     </v-toolbar>
 
@@ -304,6 +305,7 @@
         label="ปักหมุด/ไฮไลท์"
         color="primary"
         hide-details
+        inset
         style="margin-bottom: 10px"
       />
 

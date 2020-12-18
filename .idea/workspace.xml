@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/_details_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/_details_form.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/_details_form_2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/_details_form_2.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,14 +280,7 @@
       <workItem from="1608010953798" duration="15694000" />
       <workItem from="1608087816586" duration="18835000" />
       <workItem from="1608173652850" duration="16971000" />
-      <workItem from="1608258628968" duration="16245000" />
-    </task>
-    <task id="LOCAL-00141" summary="update home page">
-      <created>1607881989103</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1607881989103</updated>
+      <workItem from="1608258628968" duration="17348000" />
     </task>
     <task id="LOCAL-00142" summary="ปรับ css หน้า event">
       <created>1607884361162</created>
@@ -623,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608277312528</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="back: contact">
+      <created>1608278038756</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1608278038756</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
