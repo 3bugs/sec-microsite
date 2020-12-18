@@ -76,6 +76,43 @@
       </v-card>
     </v-dialog>
 
+    <v-dialog
+      v-model="messageDialogVisible"
+      max-width="600px"
+      :persistent="false"
+    >
+      <v-card>
+        <v-card-title>
+                <span class="headline">
+                  ข้อความจากผู้ติดต่อ
+                </span>
+        </v-card-title>
+
+        <v-card-text>
+          <v-container>
+            <v-textarea
+              v-model="contactMessage"
+              label="ข้อความ"
+              rows="6"
+              row-height="20"
+              readonly
+            ></v-textarea>
+          </v-container>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="handleClickCloseMessage"
+          >
+            ปิด
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
     <v-data-table
       :headers="headers"
       :items="dataList"
@@ -129,6 +166,35 @@
         </div>
       </template>
 
+      <!--email-->
+      <template v-slot:item.email="{ item }">
+        <a :href="`mailto:${item.email}`">{{ item.email }}</a>
+      </template>
+
+      <!--message-->
+      <template v-slot:item.message="{ item }">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+<!--            <v-icon
+              small
+              v-bind="attrs"
+              v-on="on"
+              @click="handleClickEdit(item)"
+            >
+              mdi-note
+            </v-icon>-->
+            <div
+              id="contact-message"
+              v-html="nl2br(item.message)"
+              v-bind="attrs"
+              v-on="on"
+              @click="handleClickMessage(item)"
+            ></div>
+          </template>
+          <div v-html="nl2br(item.message)"></div>
+        </v-tooltip>
+      </template>
+
       <!--created-->
       <template v-slot:item.created_at="{ item }">
         <v-tooltip bottom>
@@ -172,7 +238,7 @@
               mdi-note
             </v-icon>
           </template>
-          <span>{{ item.note == null || item.note.length === 0 ? '(ยังไม่มีบันทึก)' : item.note }}</span>
+          <span v-html="item.note == null || item.note.length === 0 ? '(ยังไม่มีบันทึก)' : nl2br(item.note)"></span>
         </v-tooltip>
       </template>
 
@@ -230,7 +296,7 @@
 <script>
 import {routeDataList, getRouteTitle} from '../constants';
 import MyDialog from '../components/my_dialog';
-import {formatThaiDateTime} from '../utils/utils';
+import {formatThaiDateTime, nl2br} from '../utils/utils';
 
 export default {
   props: {},
@@ -265,6 +331,8 @@ export default {
       defaultItem: {
         note: '',
       },
+      messageDialogVisible: false,
+      contactMessage: '',
       dialog: {
         visible: false,
         title: '',
@@ -276,6 +344,7 @@ export default {
         iconName: null,
       },
       formatThaiDateTime,
+      nl2br,
     }
   },
   computed: {
@@ -558,9 +627,25 @@ export default {
           self.isUpdating = false;
         });
     },
+
+    handleClickMessage(item) {
+      this.contactMessage = item.message;
+      this.messageDialogVisible = true;
+    },
+    handleClickCloseMessage() {
+      this.messageDialogVisible = false;
+    },
   }
 }
 </script>
 
 <style scoped>
+  #contact-message {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
 </style>

@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_17_074812_update_contacts_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiContactController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/_category_list_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_category_list_form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/_list_form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_list_form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/_list_form_2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/_list_form_2.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/pages/contact.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/contact.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/utils/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,14 +281,7 @@
       <workItem from="1608010953798" duration="15694000" />
       <workItem from="1608087816586" duration="18835000" />
       <workItem from="1608173652850" duration="16971000" />
-      <workItem from="1608258628968" duration="10603000" />
-    </task>
-    <task id="LOCAL-00139" summary="update test_kv.php">
-      <created>1607858527499</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1607858527499</updated>
+      <workItem from="1608258628968" duration="15469000" />
     </task>
     <task id="LOCAL-00140" summary="update sidebar menu text">
       <created>1607859489997</created>
@@ -631,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608185214089</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="back: เพิ่มบันทึกช่วยจำใน contact">
+      <created>1608269709073</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1608269709074</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +634,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="connect azure/.3" />
     <MESSAGE value="set default value of 'seen' field in contacts table" />
     <MESSAGE value="แก้ข้อความ survey" />
     <MESSAGE value="bug fix: search case-insensitive" />
@@ -664,6 +658,7 @@
     <MESSAGE value="front: add files to test azure ad login" />
     <MESSAGE value="front: change azure ad login config" />
     <MESSAGE value="front: update css หน้า privacy policy" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: update css หน้า privacy policy" />
+    <MESSAGE value="back: เพิ่มบันทึกช่วยจำใน contact" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: เพิ่มบันทึกช่วยจำใน contact" />
   </component>
 </project>
