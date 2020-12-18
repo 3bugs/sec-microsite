@@ -47,6 +47,7 @@
           <v-dialog
             v-model="editDialogVisible"
             max-width="600px"
+            :persistent="true"
           >
             <template
               v-if="allowAdd"
@@ -140,6 +141,11 @@
         </div>
       </template>
 
+      <!--title-->
+      <template v-slot:item.title="{ item }">
+        <span v-bind:style="{color: item.published ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.4)'}">{{ item.title }}</span>
+      </template>
+
       <!--created-->
       <template v-slot:item.created_at="{ item }">
         <v-tooltip bottom>
@@ -184,6 +190,7 @@
           v-model="item.published"
           color="primary"
           hide-details
+          inset
           @click="handleClickSwitch(item)"
         ></v-switch>
       </template>

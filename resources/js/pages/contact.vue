@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-overlay
-      :value="isDeleting"
+      :value="isSaving || isDeleting"
       z-index="9999"
     >
       <v-progress-circular
@@ -17,6 +17,64 @@
         />
       </v-progress-circular>
     </v-overlay>
+
+    <v-dialog
+      v-model="editDialogVisible"
+      max-width="600px"
+      :persistent="true"
+    >
+      <v-card>
+        <v-card-title>
+                <span class="headline">
+                  บันทึกช่วยจำ
+                </span>
+          <v-spacer></v-spacer>
+          <v-switch
+            class="ma-0 pa-0"
+            label="ติดต่อกลับแล้ว"
+            v-model="editItem.seen"
+            color="primary"
+            inset
+            hide-details
+          ></v-switch>
+        </v-card-title>
+
+        <v-card-text>
+          <v-container>
+            <v-form
+              ref="form"
+              lazy-validation
+              class="pl-0 pr-0"
+            >
+              <v-textarea
+                v-model="editItem.note"
+                label="ข้อความ"
+                rows="6"
+                row-height="20"
+              ></v-textarea>
+            </v-form>
+          </v-container>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="handleClickCancel"
+          >
+            ยกเลิก
+          </v-btn>
+          <v-btn
+            color="blue darken-1"
+            text
+            @click="handleClickSave"
+          >
+            บันทึก
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 
     <v-data-table
       :headers="headers"
@@ -36,7 +94,14 @@
         <v-toolbar
           flat
         >
-          <v-toolbar-title>{{ currentRouteTitle }} [ยังไม่ได้ติดต่อกลับ: {{ unseenCount }}]</v-toolbar-title>
+          <v-toolbar-title>{{ currentRouteTitle }}</v-toolbar-title>
+          <v-chip
+            class="ma-2"
+            :color="unseenCount > 0 ? 'red' : 'green'"
+            text-color="white"
+          >
+            ยังไม่ได้ติดต่อกลับ: {{ unseenCount }}
+          </v-chip>
           <v-divider
             class="mx-4"
             inset
@@ -70,7 +135,6 @@
           <template v-slot:activator="{ on, attrs }">
             <v-icon
               small
-              class="mr-2"
               v-bind="attrs"
               v-on="on"
             >
@@ -90,8 +154,26 @@
           v-model="item.seen"
           color="primary"
           hide-details
+          inset
           @click="handleClickSwitch(item)"
         ></v-switch>
+      </template>
+
+      <!--note-->
+      <template v-slot:item.note="{ item }">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-icon
+              small
+              v-bind="attrs"
+              v-on="on"
+              @click="handleClickEdit(item)"
+            >
+              mdi-note
+            </v-icon>
+          </template>
+          <span>{{ item.note == null || item.note.length === 0 ? '(ยังไม่มีบันทึก)' : item.note }}</span>
+        </v-tooltip>
       </template>
 
       <template v-slot:item.actions="{ item }">
@@ -151,8 +233,7 @@ import MyDialog from '../components/my_dialog';
 import {formatThaiDateTime} from '../utils/utils';
 
 export default {
-  props: {
-  },
+  props: {},
   components: {
     MyDialog,
   },
@@ -162,6 +243,7 @@ export default {
       isLoadingList: true,
       isDeleting: false,
       isUpdatePublished: false,
+      isSaving: false,
       headers: [
         {text: ' ', align: 'start', value: 'strip', sortable: false, width: '15px',},
         {text: 'ชื่อผู้ติดต่อ', value: 'name', sortable: true,},
@@ -170,12 +252,19 @@ export default {
         {text: 'ข้อความ', value: 'message', sortable: false,},
         {text: 'ส', value: 'created_at', sortable: true, width: '60px', align: 'center',},
         {text: 'ติดต่อแล้ว', value: 'seen', sortable: true, width: '120px', align: 'center',},
+        {text: 'บันทึกช่วยจำ', value: 'note', sortable: false, width: '100px', align: 'center',},
         {text: 'จัดการ', value: 'actions', sortable: false, width: '70px', align: 'center',},
       ],
       dataList: [],
       unseenCount: null,
       routeDataList,
       editDialogVisible: false,
+      editItem: {
+        note: '',
+      },
+      defaultItem: {
+        note: '',
+      },
       dialog: {
         visible: false,
         title: '',
@@ -192,6 +281,11 @@ export default {
   computed: {
     currentRouteTitle() {
       return getRouteTitle(this.$route.name);
+    },
+  },
+  watch: {
+    editDialogVisible(val) {
+      val || this.closeEditDialog();
     },
   },
   created() {
@@ -273,6 +367,70 @@ export default {
         })
         .then(() => { // always executed
           this.isLoadingList = false;
+        });
+    },
+
+    handleClickEdit(item) {
+      this.editItem = Object.assign({}, item);
+      this.editDialogVisible = true;
+    },
+    handleClickCancel() {
+      this.closeEditDialog();
+    },
+    handleClickSave() {
+      this.doSaving();
+    },
+    closeEditDialog() {
+      this.editItem = Object.assign({}, this.defaultItem);
+      this.editDialogVisible = false;
+    },
+
+    doSaving() {
+      const self = this;
+      const {id, note, seen} = this.editItem;
+      const formData = new FormData();
+      formData.append('id', id);
+      formData.append('note', note == null ? '' : note.trim());
+      formData.append('seen', seen ? 1 : 0);
+      formData.append('_method', 'put');
+
+      const config = {
+        headers: {
+          //'content-type': 'multipart/form-data'
+        }
+      };
+
+      this.isSaving = true;
+      //axios.put ไม่ work!!!
+      //const saveMethod = this.item == null ? axios.post : axios.put;
+      axios.post(`/api/contact`, formData, config)
+        .then((response) => {
+          const status = response.data.status;
+          const message = response.data.message;
+          if (status === 'ok') {
+            this.closeEditDialog();
+            this.snackbar.message = 'บันทึกข้อมูลสำเร็จ'
+            this.snackbar.iconName = 'mdi-check-bold';
+            this.snackbar.visible = true;
+            this.handleClickRefresh();
+          } else {
+            this.showDialog('ผิดพลาด', `เกิดข้อผิดพลาด: ${message}`, [{
+              text: 'OK', onClick: () => {
+                //
+              },
+            }], true);
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+          this.showDialog('ผิดพลาด', 'เกิดข้อผิดพลาดในการเชื่อมต่อ Server กรุณาลองอีกครั้ง\n\n' + error, [{
+            text: 'OK', onClick: () => {
+              //
+            },
+          }], true);
+        })
+        .then(function () { // always executed
+          self.isSaving = false;
         });
     },
 

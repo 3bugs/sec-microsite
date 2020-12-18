@@ -39,6 +39,9 @@ class ApiContactController extends Controller
       if ($request->has('seen')) {
         $contact->seen = $request->seen;
       }
+      if ($request->has('note')) {
+        $contact->note = $request->note;
+      }
       $contact->save();
 
       return response()->json(array(

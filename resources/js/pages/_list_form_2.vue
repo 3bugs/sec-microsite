@@ -101,7 +101,7 @@
 
           <!--title-->
           <template v-slot:item.title="{ item }">
-            {{ item.title }}
+            <span v-bind:style="{color: item.published ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.4)'}">{{ item.title }}</span>
           </template>
 
           <template v-slot:item.url="{ item }">
@@ -149,6 +149,7 @@
               v-model="item.published"
               color="primary"
               hide-details
+              inset
               @click="handleClickSwitch(item)"
             ></v-switch>
           </template>

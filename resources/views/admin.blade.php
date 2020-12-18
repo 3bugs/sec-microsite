@@ -24,6 +24,11 @@
     .v-btn {
       letter-spacing: 0;
     }
+
+    .v-application--is-ltr .v-input--selection-controls__input {
+      margin-right: auto;
+      margin-left: auto;
+    }
   </style>
 </head>
 <body>
