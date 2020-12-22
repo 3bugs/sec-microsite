@@ -6,15 +6,16 @@
         <div class="Messenger_messenger">
           <div class="Messenger_header"
                style="background: linear-gradient(91.95deg, #003558 14.65%, #005288 57.97%); color: rgb(255, 255, 255);">
-            <h4 class="Messenger_prompt">ต้องการหาข้อมูลเกี่ยวกับอะไร?</h4>
+            <h4 class="Messenger_prompt">คุณต้องการหาข้อมูลเกี่ยวกับอะไร?</h4>
             <span class="chat_close_icon"><i class="fa fa-window-close" aria-hidden="true"></i></span></div>
           <div class="Messenger_content">
             <div class="Messages">
               <div class="Messages_list"></div>
             </div>
             <div class="Input Input-blank">
-              <textarea class="Input_field" placeholder="พิมพ์ข้อความ..."
-                        style="height: 20px;"></textarea>
+              <input type="text"
+                     class="Input_field" placeholder="พิมพ์ข้อความ..."
+                     style="height: 20px;">
 <!--              <button class="Input_button Input_button-emoji">
                 <div class="Icon" style="width: 18px; height: 18px;">
                   <svg width="56px" height="56px" viewBox="1332 47 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

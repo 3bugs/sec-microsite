@@ -567,15 +567,15 @@
 <script>
   // On ready
   $(document).ready(() => {
-    $(".chat_on").click(function(){
-      $(".Layout").toggle();
+    /*$(".chat_on").click(function(){
+      $(".Layout").show();
       $(".chat_on").hide(300);
     });
 
     $(".chat_close_icon").click(function(){
       $(".Layout").hide();
       $(".chat_on").show(300);
-    });
+    });*/
 
     window.cookieManager = {
       write: (key, value) => {

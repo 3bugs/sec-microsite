@@ -21,7 +21,7 @@
   height: 45px;
   right: 15px;
   bottom: 20px;
-  background-color: #72A927;
+  background-color: #005288;
   color: #fff;
   border-radius: 50%;
   text-align: center;
@@ -76,7 +76,6 @@
   opacity: 0;
   -webkit-transition: right .1s cubic-bezier(.25, .25, .5, 1), bottom .1s cubic-bezier(.25, .25, .5, 1), min-width .2s cubic-bezier(.25, .25, .5, 1), max-width .2s cubic-bezier(.25, .25, .5, 1), min-height .2s cubic-bezier(.25, .25, .5, 1), max-height .2s cubic-bezier(.25, .25, .5, 1), border-radius 50ms cubic-bezier(.25, .25, .5, 1) .15s, background-color 50ms cubic-bezier(.25, .25, .5, 1) .15s, color 50ms cubic-bezier(.25, .25, .5, 1) .15s;
   transition: right .1s cubic-bezier(.25, .25, .5, 1), bottom .1s cubic-bezier(.25, .25, .5, 1), min-width .2s cubic-bezier(.25, .25, .5, 1), max-width .2s cubic-bezier(.25, .25, .5, 1), min-height .2s cubic-bezier(.25, .25, .5, 1), max-height .2s cubic-bezier(.25, .25, .5, 1), border-radius 50ms cubic-bezier(.25, .25, .5, 1) .15s, background-color 50ms cubic-bezier(.25, .25, .5, 1) .15s, color 50ms cubic-bezier(.25, .25, .5, 1) .15s
-
 }
 
 #Smallchat .Layout-right {
@@ -171,12 +170,11 @@
   align-items: center;
   padding-left: 15px;
   padding-right: 40px;
-  height: 40px;
+  height: 45px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0
 }
-
 
 #Smallchat .Messenger_header h4 {
   opacity: 0;
@@ -275,7 +273,7 @@
   -ms-flex-negative: 0;
   flex-shrink: 0;
   padding-top: 17px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   color: #96aab4;
   background-color: #fff;
   border-top: 1px solid #e6ebea;
@@ -294,7 +292,7 @@
   padding-right: 0px;
   padding-left: 0px;
   padding-left: 20px;
-  padding-right: 75px;
+  padding-right: 60px;
   background-color: transparent;
   font-size: 16px;
   line-height: 20px;
