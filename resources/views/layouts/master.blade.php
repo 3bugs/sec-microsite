@@ -31,6 +31,7 @@
 <!--  <link rel='stylesheet' href="{{ asset('css/cookie_consent.css') }}">-->
   <link rel='stylesheet' href="{{ asset('css/cookie-consent.css?v=3') }}">
   <link rel='stylesheet' href="{{ asset('css/sidenav.css?v=1') }}">
+<!--  <link rel='stylesheet' href="{{ asset('css/chatbot.css?v=1') }}">-->
 
   <meta name="theme-color" content="#fafafa">
 
@@ -373,6 +374,8 @@
   </svg>
 </div>
 
+{{--@include('includes.chatbot')--}}
+
 <script src="{{ asset('js/vendor/modernizr-3.8.0.min.js') }}"></script>
 <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -564,6 +567,16 @@
 <script>
   // On ready
   $(document).ready(() => {
+    $(".chat_on").click(function(){
+      $(".Layout").toggle();
+      $(".chat_on").hide(300);
+    });
+
+    $(".chat_close_icon").click(function(){
+      $(".Layout").hide();
+      $(".chat_on").show(300);
+    });
+
     window.cookieManager = {
       write: (key, value) => {
         document.cookie = `${key}=${encodeURIComponent(JSON.stringify(value))}; path=/`

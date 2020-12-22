@@ -323,7 +323,7 @@
 @endsection
 
 @section('script')
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 
   <script>
     $(document).ready(function () {
