@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/azure/authConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/azure/authConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/azure2/authConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/azure2/authConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -281,14 +283,7 @@
       <workItem from="1608173652850" duration="16971000" />
       <workItem from="1608258628968" duration="17348000" />
       <workItem from="1608284192534" duration="25000" />
-      <workItem from="1608613674803" duration="11423000" />
-    </task>
-    <task id="LOCAL-00144" summary="ปรับ css หน้า home">
-      <created>1607885617254</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1607885617254</updated>
+      <workItem from="1608613674803" duration="16616000" />
     </task>
     <task id="LOCAL-00145" summary="ปรับ css หน้า home">
       <created>1607885675415</created>
@@ -626,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608632159538</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="test azure ad login">
+      <created>1608695029947</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1608695029949</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +636,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="bug fix: search case-insensitive" />
     <MESSAGE value="bug fix: add media category" />
     <MESSAGE value="back: handle sort index field when inserting" />
     <MESSAGE value="back: set default value of published field when inserting" />
@@ -659,6 +660,7 @@
     <MESSAGE value="back: เพิ่มบันทึกช่วยจำใน contact" />
     <MESSAGE value="back: contact" />
     <MESSAGE value="front: specify vue lib version" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: specify vue lib version" />
+    <MESSAGE value="test azure ad login" />
+    <option name="LAST_COMMIT_MESSAGE" value="test azure ad login" />
   </component>
 </project>
