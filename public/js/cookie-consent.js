@@ -90,10 +90,19 @@ $(document).ready(() => {
 })
 
 function initGA() {
-  return;
+  //return;
   console.log('Initializing Google Analytics...');
 
-  (function (i, s, o, g, r, a, m) {
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-RZGG9Z7RZC');
+
+  /*(function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r
     i[r] = i[r] || function () {
       (i[r].q = i[r].q || []).push(arguments)
@@ -106,5 +115,5 @@ function initGA() {
   })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
 
   ga('create', 'UA-XXXXX-Y', 'auto') // todo: change Tracking ID ***********************
-  ga('send', 'pageview')
+  ga('send', 'pageview')*/
 }
