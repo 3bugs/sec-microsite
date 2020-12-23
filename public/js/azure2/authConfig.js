@@ -7,7 +7,7 @@ const msalConfig = {
   auth: {
     clientId: '2035ec54-9f6b-4228-8ea1-99c4f2201357', //"Enter_the_Application_Id_Here"
     authority: "https://login.microsoftonline.com/0ad5298e-296d-45ab-a446-c0d364c5b18b", //"Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here"
-    redirectUri: "https://starttogrow.sec.or.th", //"Enter_the_Redirect_Uri_Here"
+    redirectUri: "https://starttogrow.sec.or.th/login/azurecallback", //"Enter_the_Redirect_Uri_Here"
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored

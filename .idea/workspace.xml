@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chatbot.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/chatbot.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/chatbot.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/chatbot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -283,14 +281,7 @@
       <workItem from="1608173652850" duration="16971000" />
       <workItem from="1608258628968" duration="17348000" />
       <workItem from="1608284192534" duration="25000" />
-      <workItem from="1608613674803" duration="9248000" />
-    </task>
-    <task id="LOCAL-00143" summary="ปรับ css หน้า home">
-      <created>1607885347651</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1607885347651</updated>
+      <workItem from="1608613674803" duration="11423000" />
     </task>
     <task id="LOCAL-00144" summary="ปรับ css หน้า home">
       <created>1607885617254</created>
@@ -628,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608622590854</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="front: specify vue lib version">
+      <created>1608632159538</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1608632159538</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
