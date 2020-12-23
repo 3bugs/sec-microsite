@@ -31,7 +31,7 @@
 <!--  <link rel='stylesheet' href="{{ asset('css/cookie_consent.css') }}">-->
   <link rel='stylesheet' href="{{ asset('css/cookie-consent.css?v=3') }}">
   <link rel='stylesheet' href="{{ asset('css/sidenav.css?v=1') }}">
-<!--  <link rel='stylesheet' href="{{ asset('css/chatbot.css?v=1') }}">-->
+  <link rel='stylesheet' href="{{ asset('css/chatbot.css?v=1') }}">
 
   <meta name="theme-color" content="#fafafa">
 
@@ -383,7 +383,9 @@
 <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-3.5.1.min.js') }}"><\/script>')</script>
 <script src="{{ asset('js/plugins.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-<script src="{{ asset('js/cookie-consent.js?v=1') }}"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZGG9Z7RZC"></script>
+<script src="{{ asset('js/cookie-consent.js?v=2') }}"></script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <!--<script>
@@ -567,7 +569,7 @@
 <script>
   // On ready
   $(document).ready(() => {
-    /*$(".chat_on").click(function(){
+    $(".chat_on").click(function(){
       $(".Layout").show();
       $(".chat_on").hide(300);
     });
@@ -575,7 +577,7 @@
     $(".chat_close_icon").click(function(){
       $(".Layout").hide();
       $(".chat_on").show(300);
-    });*/
+    });
 
     window.cookieManager = {
       write: (key, value) => {
