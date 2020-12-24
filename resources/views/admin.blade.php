@@ -156,7 +156,7 @@
         <router-view></router-view>
       </v-container>
 
-      <v-container v-if="loggedInUser == null">
+      <v-container v-if="false && loggedInUser == null">
         <v-dialog
             v-model="loginFormVisible"
             persistent
@@ -248,6 +248,6 @@
 <!-- Scripts -->
 <script>
 </script>
-<script src="{{ mix('js/app.js') }}?v=2" defer></script>
+<script src="{{ mix('js/app.js') }}?v=3" defer></script>
 </body>
 </html>
