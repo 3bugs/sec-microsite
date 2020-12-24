@@ -14,6 +14,32 @@ import MyDialog from './components/my_dialog';
 Vue.use(Vuetify);
 Vue.use(CKEditor);
 
+// Config object to be passed to Msal on creation.
+// For a full list of msal.js configuration parameters,
+// visit https://azuread.github.io/microsoft-authentication-library-for-js/docs/msal/modules/_authenticationparameters_.html
+const msalConfig = {
+  auth: {
+    clientId: '2035ec54-9f6b-4228-8ea1-99c4f2201357', //"Enter_the_Application_Id_Here"
+    authority: "https://login.microsoftonline.com/0ad5298e-296d-45ab-a446-c0d364c5b18b", //"Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here"
+    redirectUri: "https://ssw003asv801.azurewebsites.net/login", //"Enter_the_Redirect_Uri_Here"
+  },
+  cache: {
+    cacheLocation: "sessionStorage", // This configures where your cache will be stored
+    storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+  }
+};
+
+// Add here the scopes to request when obtaining an access token for MS Graph API
+// for more, visit https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/scopes.md
+const loginRequest = {
+  //scopes: ["openid", "profile", "User.Read"]
+  scopes: []
+};
+
+// Create the main myMSALObj instance
+// configuration parameters are located at authConfig.js
+const myMSALObj = new Msal.UserAgentApplication(msalConfig);
+
 const LOGGED_IN_USER = 'logged_in_user';
 
 const app = new Vue({
@@ -68,13 +94,45 @@ const app = new Vue({
     if (json != null) {
       this.loggedInUser = JSON.parse(json);
     } else {
-      window.location.href = '/login';
+      //window.location.href = '/login';
+      this.signIn();
     }
   },
   mounted() {
     console.log('mounted()');
   },
   methods: {
+    /*
+  Account's Properties
+  - accountIdentifier
+  - environment
+  - homeAccountIdentifier
+  - idToken
+  - idTokenClaims
+  - name
+  - sid
+  - userName
+  */
+    signIn() {
+      myMSALObj.loginPopup(loginRequest)
+        .then(loginResponse => {
+          console.log("id_token acquired at: " + new Date().toString());
+          console.log(loginResponse);
+
+          const account = myMSALObj.getAccount();
+          if (account) {
+            localStorage.setItem('azure_account', JSON.stringify(account));
+            setTimeout(() => {
+              window.location.href = '/admin';
+            }, 500);
+          }
+        }).catch(error => {
+        console.log(error);
+      });
+    },
+    signOut() {
+      myMSALObj.logout();
+    },
     handleClickHomeButton() {
       window.open('/');
     },
@@ -116,7 +174,9 @@ const app = new Vue({
       return (this.loginUser === 'admin' && this.loginPassword === 'admin');
     },
     handleClickLogout() {
-      this.showDialog(
+      this.signOut();
+
+      /*this.showDialog(
         'Confirm logout',
         'ต้องการออกจากระบบใช่หรือไม่?',
         [
@@ -124,7 +184,7 @@ const app = new Vue({
           {text: 'ใช่', onClick: this.doLogout}
         ],
         true,
-      );
+      );*/
     },
     doLogout() {
       localStorage.removeItem(LOGGED_IN_USER);

@@ -5,6 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- msal.min.js can be used in the place of msal.js; included msal.js to make debug easy -->
+  <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.4.4/js/msal.js" integrity="sha384-fTmwCjhRA6zShZq8Ow5ZkbWwmgp8En46qW6yWpNEkp37MkV50I/V2wjzlEkQ8eWD"
+          crossorigin="anonymous"></script>
+
+  <!-- msal.js with a fallback to backup CDN -->
+  <script type="text/javascript">
+    if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.4.4/js/msal.js' type='text/javascript' %3E%3C/script%3E"));
+  </script>
+
   <!-- Styles -->
   <link href="{{ mix('css/app.css') }}?v=1" rel="stylesheet">
 

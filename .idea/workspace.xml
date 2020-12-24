@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="" />
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -278,21 +282,7 @@
       <workItem from="1608173652850" duration="16971000" />
       <workItem from="1608258628968" duration="17348000" />
       <workItem from="1608284192534" duration="25000" />
-      <workItem from="1608613674803" duration="46256000" />
-    </task>
-    <task id="LOCAL-00149" summary="front: ปรับ css หน้า home">
-      <created>1607889930338</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1607889930338</updated>
-    </task>
-    <task id="LOCAL-00150" summary="front: ปรับ css หน้า home">
-      <created>1607890085513</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1607890085513</updated>
+      <workItem from="1608613674803" duration="47294000" />
     </task>
     <task id="LOCAL-00151" summary="front: ปรับ css หน้า home">
       <created>1607890130651</created>
@@ -623,7 +613,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608806226858</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="back: add azure ad login">
+      <created>1608806588222</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1608806588223</updated>
+    </task>
+    <task id="LOCAL-00199" summary="back: add azure ad login">
+      <created>1608806851755</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1608806851755</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
