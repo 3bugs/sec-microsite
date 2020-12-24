@@ -64,9 +64,11 @@ const app = new Vue({
     console.log('created()');
 
     this.loggedInUser = null;
-    const json = localStorage.getItem(LOGGED_IN_USER);
+    const json = localStorage.getItem('azure_account');
     if (json != null) {
       this.loggedInUser = JSON.parse(json);
+    } else {
+      window.location.href = '/login';
     }
   },
   mounted() {
