@@ -283,14 +283,7 @@
       <workItem from="1608173652850" duration="16971000" />
       <workItem from="1608258628968" duration="17348000" />
       <workItem from="1608284192534" duration="25000" />
-      <workItem from="1608613674803" duration="53653000" />
-    </task>
-    <task id="LOCAL-00155" summary="connect azure sql server">
-      <created>1607919640684</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1607919640684</updated>
+      <workItem from="1608613674803" duration="54431000" />
     </task>
     <task id="LOCAL-00156" summary="connect azure/.3">
       <created>1607923066306</created>
@@ -628,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608870599073</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="back: add azure ad login">
+      <created>1608871967371</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1608871967371</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

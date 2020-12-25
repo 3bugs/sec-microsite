@@ -193,7 +193,8 @@
                         <v-col cols="12">
                           <v-btn
                               block
-                              :disabled="!loginFormValid"
+                              :loading="isLoggingIn"
+                              :disabled="isLoggingIn"
                               color="success"
                               @click="handleClickLoginButton"
                           >เข้าสู่ระบบ

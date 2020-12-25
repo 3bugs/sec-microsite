@@ -60,6 +60,7 @@ const app = new Vue({
     MyDialog,
   },
   data: () => ({
+    isLoggingIn: false,
     loggedInUser: null,
     loginFormVisible: true,
     tab: 0,
@@ -114,6 +115,8 @@ const app = new Vue({
   - userName
   */
     signIn() {
+      this.isLoggingIn = true;
+
       myMSALObj.loginPopup(loginRequest)
         .then(loginResponse => {
           console.log("id_token acquired at: " + new Date().toString());
@@ -128,6 +131,8 @@ const app = new Vue({
           }
         }).catch(error => {
         console.log(error);
+        this.isLoggingIn = false;
+      }).finally(() => {
       });
     },
     signOut() {
