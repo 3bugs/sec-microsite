@@ -127,7 +127,7 @@
         dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>SEC MICROSITE - Back Office</v-toolbar-title>
+      <v-toolbar-title>START TO GROW - Back Office</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <v-menu
@@ -177,14 +177,18 @@
             <v-tabs show-arrows icons-and-text dark grow>
               <v-tabs-slider color="purple darken-4"></v-tabs-slider>
               <v-tab style="background: linear-gradient(130deg, #003558 14.65%, #005288 57.97%)">
-<!--                <v-icon large>mdi-account</v-icon>
-                <div class="caption py-1">Login</div>-->
-                <img src="{{ asset('images/logo_stg.png') }}" style="height: 50px; margin-top: 5px;">
+                <v-icon large>mdi-account</v-icon>
+                <div class="caption py-1">Login</div>
               </v-tab>
               <v-tab-item>
                 <v-card class="px-4">
                   <v-card-text>
                     <v-form ref="loginForm" v-model="loginFormValid" lazy-validation>
+                      <v-row>
+                        <v-col cols="12" style="text-align: center">
+                          <img src="{{ asset('images/logo_stg.png') }}" style="height: 60px; margin-top: 5px;">
+                        </v-col>
+                      </v-row>
                       <v-row>
                         <v-col cols="12">
                           <v-btn
