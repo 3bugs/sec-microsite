@@ -166,7 +166,7 @@
         <router-view></router-view>
       </v-container>
 
-      <v-container v-if="false && loggedInUser == null">
+      <v-container v-if="loggedInUser == null">
         <v-dialog
             v-model="loginFormVisible"
             persistent

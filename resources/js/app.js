@@ -95,7 +95,7 @@ const app = new Vue({
       this.loggedInUser = JSON.parse(json);
     } else {
       //window.location.href = '/login';
-      this.signIn();
+      //this.signIn();
     }
   },
   mounted() {
@@ -137,6 +137,9 @@ const app = new Vue({
       window.open('/');
     },
     handleClickLoginButton() {
+      this.signIn();
+      return;
+
       if (this.$refs.loginForm.validate()) {
         const msg = 'Form data\n-----\n'
           + `loginUser: ${this.loginUser}\n-----\n`
