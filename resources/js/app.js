@@ -14,6 +14,8 @@ import MyDialog from './components/my_dialog';
 Vue.use(Vuetify);
 Vue.use(CKEditor);
 
+//https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa
+
 // Config object to be passed to Msal on creation.
 // For a full list of msal.js configuration parameters,
 // visit https://azuread.github.io/microsoft-authentication-library-for-js/docs/msal/modules/_authenticationparameters_.html
@@ -61,6 +63,7 @@ const app = new Vue({
   },
   data: () => ({
     isLoggingIn: false,
+    isLogInSuccess: false,
     loggedInUser: null,
     loginFormVisible: true,
     tab: 0,
@@ -102,18 +105,20 @@ const app = new Vue({
   mounted() {
     console.log('mounted()');
   },
-  methods: {
-    /*
+
+  /*
   Account's Properties
-  - accountIdentifier
-  - environment
-  - homeAccountIdentifier
-  - idToken
-  - idTokenClaims
-  - name
-  - sid
-  - userName
+    - accountIdentifier
+    - environment
+    - homeAccountIdentifier
+    - idToken
+    - idTokenClaims
+    - name
+    - sid
+    - userName
   */
+
+  methods: {
     signIn() {
       this.isLoggingIn = true;
 
@@ -124,10 +129,11 @@ const app = new Vue({
 
           const account = myMSALObj.getAccount();
           if (account) {
+            this.isLogInSuccess = true;
             localStorage.setItem(LOGGED_IN_USER, JSON.stringify(account));
             setTimeout(() => {
               window.location.href = '/admin';
-            }, 500);
+            }, 1000);
           }
         }).catch(error => {
         console.log(error);

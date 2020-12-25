@@ -183,7 +183,12 @@
               <v-tab-item>
                 <v-card class="px-4">
                   <v-card-text>
-                    <v-form ref="loginForm" v-model="loginFormValid" lazy-validation>
+                    <v-form
+                        v-if="!isLogInSuccess"
+                        ref="loginForm"
+                        v-model="loginFormValid"
+                        lazy-validation
+                    >
                       <v-row>
                         <v-col cols="12" style="text-align: center">
                           <img src="{{ asset('images/logo_stg.png') }}" style="height: 60px; margin-top: 5px;">
@@ -232,6 +237,13 @@
                         </v-col>-->
                       </v-row>
                     </v-form>
+
+                    <v-alert
+                        v-if="isLogInSuccess"
+                        dense
+                        type="success"
+                    >เข้าสู่ระบบสำเร็จ: Welcome @{{ `${loggedInUser.name}` }}
+                    </v-alert>
                   </v-card-text>
                 </v-card>
               </v-tab-item>
@@ -273,6 +285,6 @@
 <!-- Scripts -->
 <script>
 </script>
-<script src="{{ mix('js/app.js') }}?v=4" defer></script>
+<script src="{{ mix('js/app.js') }}?v=5" defer></script>
 </body>
 </html>
