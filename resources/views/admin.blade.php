@@ -170,15 +170,16 @@
         <v-dialog
             v-model="loginFormVisible"
             persistent
-            max-width="500px"
-            min-width="360px"
+            max-width="400px"
+            min-width="300px"
         >
           <div>
             <v-tabs show-arrows icons-and-text dark grow>
               <v-tabs-slider color="purple darken-4"></v-tabs-slider>
               <v-tab style="background: linear-gradient(130deg, #003558 14.65%, #005288 57.97%)">
-                <v-icon large>mdi-account</v-icon>
-                <div class="caption py-1">Login</div>
+<!--                <v-icon large>mdi-account</v-icon>
+                <div class="caption py-1">Login</div>-->
+                <img src="{{ asset('images/logo_stg.png') }}" style="height: 50px; margin-top: 5px;">
               </v-tab>
               <v-tab-item>
                 <v-card class="px-4">
@@ -186,6 +187,15 @@
                     <v-form ref="loginForm" v-model="loginFormValid" lazy-validation>
                       <v-row>
                         <v-col cols="12">
+                          <v-btn
+                              block
+                              :disabled="!loginFormValid"
+                              color="success"
+                              @click="handleClickLoginButton"
+                          >เข้าสู่ระบบ
+                          </v-btn>
+                        </v-col>
+<!--                        <v-col cols="12">
                           <v-text-field
                               v-model="loginUser"
                               :rules="loginUserRules"
@@ -214,7 +224,7 @@
                               @click="handleClickLoginButton"
                           >Login
                           </v-btn>
-                        </v-col>
+                        </v-col>-->
                       </v-row>
                     </v-form>
                   </v-card-text>
