@@ -283,14 +283,7 @@
       <workItem from="1608173652850" duration="16971000" />
       <workItem from="1608258628968" duration="17348000" />
       <workItem from="1608284192534" duration="25000" />
-      <workItem from="1608613674803" duration="50732000" />
-    </task>
-    <task id="LOCAL-00152" summary="front: ปรับ css หน้า home">
-      <created>1607915798898</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1607915798899</updated>
+      <workItem from="1608613674803" duration="51683000" />
     </task>
     <task id="LOCAL-00153" summary="front: ปรับ css หน้า home">
       <created>1607916844702</created>
@@ -628,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608807773301</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="back: add azure ad login">
+      <created>1608868978558</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1608868978558</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

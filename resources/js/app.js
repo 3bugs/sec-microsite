@@ -40,7 +40,7 @@ const loginRequest = {
 // configuration parameters are located at authConfig.js
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
-const LOGGED_IN_USER = 'logged_in_user';
+const LOGGED_IN_USER = 'azure_logged_in_user';
 
 const app = new Vue({
   el: '#app',
@@ -90,7 +90,7 @@ const app = new Vue({
     console.log('created()');
 
     this.loggedInUser = null;
-    const json = localStorage.getItem('azure_account');
+    const json = localStorage.getItem(LOGGED_IN_USER);
     if (json != null) {
       this.loggedInUser = JSON.parse(json);
     } else {
@@ -121,7 +121,7 @@ const app = new Vue({
 
           const account = myMSALObj.getAccount();
           if (account) {
-            localStorage.setItem('azure_account', JSON.stringify(account));
+            localStorage.setItem(LOGGED_IN_USER, JSON.stringify(account));
             setTimeout(() => {
               window.location.href = '/admin';
             }, 500);
@@ -131,6 +131,7 @@ const app = new Vue({
       });
     },
     signOut() {
+      localStorage.removeItem(LOGGED_IN_USER);
       myMSALObj.logout();
     },
     handleClickHomeButton() {

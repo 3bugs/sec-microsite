@@ -258,6 +258,6 @@
 <!-- Scripts -->
 <script>
 </script>
-<script src="{{ mix('js/app.js') }}?v=3" defer></script>
+<script src="{{ mix('js/app.js') }}?v=4" defer></script>
 </body>
 </html>
