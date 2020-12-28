@@ -9,6 +9,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\VisionController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\IpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,7 @@ Route::get('/test-ad-auth', function () {
 Route::get('/login', function () {
   return view('login');
 });
+Route::get('/ip', [IpController::class, 'index']);
 
 /*Route::get('/', function () {
   $tasks = Task::orderBy('created_at', 'asc')->get();
