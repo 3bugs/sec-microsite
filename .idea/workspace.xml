@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="test ip address">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/resources/views/test-ip.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test-ip.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -284,21 +282,7 @@
       <workItem from="1608284192534" duration="25000" />
       <workItem from="1608613674803" duration="59274000" />
       <workItem from="1609131594964" duration="1874000" />
-      <workItem from="1609165385727" duration="4567000" />
-    </task>
-    <task id="LOCAL-00159" summary="แก้ข้อความ survey">
-      <created>1607929520492</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1607929520492</updated>
-    </task>
-    <task id="LOCAL-00160" summary="bug fix: search case-insensitive">
-      <created>1607929799407</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1607929799407</updated>
+      <workItem from="1609165385727" duration="5286000" />
     </task>
     <task id="LOCAL-00161" summary="bug fix: add media category">
       <created>1607931229622</created>
@@ -629,7 +613,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609173722748</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="fix ip address in survey result">
+      <created>1609176560359</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1609176560359</updated>
+    </task>
+    <task id="LOCAL-00209" summary="fix ip address in survey result">
+      <created>1609176790157</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1609176790157</updated>
+    </task>
+    <option name="localTasksCounter" value="210" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +635,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: cookie consent" />
     <MESSAGE value="front: update favicon" />
     <MESSAGE value="front: ปรับสไตล์ cookie consent" />
     <MESSAGE value="front: css หน้า survey" />
@@ -662,6 +659,7 @@
     <MESSAGE value="add google analytics" />
     <MESSAGE value="back: add azure ad login" />
     <MESSAGE value="test ip address" />
-    <option name="LAST_COMMIT_MESSAGE" value="test ip address" />
+    <MESSAGE value="fix ip address in survey result" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix ip address in survey result" />
   </component>
 </project>
