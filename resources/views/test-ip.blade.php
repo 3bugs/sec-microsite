@@ -21,6 +21,6 @@
 
 <body>
 <p style="color: #aaa">{{ date("Y-m-d h:i:sa") }}</p>
-<h1><span style="color: blue; font-size: 10rem; font-family: monospace;">{{ $ip }}</span></h1>
+<h1><span style="color: blue; font-size: 6rem; font-family: monospace;">{{ $ip }}</span></h1>
 </body>
 </html>
