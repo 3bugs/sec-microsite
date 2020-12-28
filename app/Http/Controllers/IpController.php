@@ -12,7 +12,8 @@ class IpController extends Controller
 
   public function index(Request $request)
   {
-    $ip = \Request::ip();
+    //$ip = \Request::ip();
+    $ip = request()->ip();
 
     return view('test-ip', [
       'ip' => $ip,
