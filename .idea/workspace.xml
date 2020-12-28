@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/test-ip.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test-ip.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IpController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,21 +282,7 @@
       <workItem from="1608284192534" duration="25000" />
       <workItem from="1608613674803" duration="59274000" />
       <workItem from="1609131594964" duration="1874000" />
-      <workItem from="1609165385727" duration="5286000" />
-    </task>
-    <task id="LOCAL-00161" summary="bug fix: add media category">
-      <created>1607931229622</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1607931229622</updated>
-    </task>
-    <task id="LOCAL-00162" summary="back: handle sort index field when inserting">
-      <created>1607939295321</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1607939295321</updated>
+      <workItem from="1609165385727" duration="6198000" />
     </task>
     <task id="LOCAL-00163" summary="back: set default value of published field when inserting">
       <created>1607939803437</created>
@@ -627,7 +613,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609176790157</updated>
     </task>
-    <option name="localTasksCounter" value="210" />
+    <task id="LOCAL-00210" summary="fix ip address in survey result">
+      <created>1609177265395</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1609177265395</updated>
+    </task>
+    <task id="LOCAL-00211" summary="fix ip address in survey result">
+      <created>1609177518338</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1609177518338</updated>
+    </task>
+    <option name="localTasksCounter" value="212" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
