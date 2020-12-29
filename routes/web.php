@@ -49,10 +49,12 @@ Route::get('/privacy-policy', function () {
   return view('privacy-policy');
 });
 
-Route::get('/admin', function () {
-  return redirect(env('APP_URL') . '/admin/dashboard');
+define('ADMIN_SLUG', '/XVqkSkQ8v8MxAWKYzTbjGDlF1y5Hgx0gMMGSuhOm');
+
+Route::get(ADMIN_SLUG, function () {
+  return redirect(env('APP_URL') . ADMIN_SLUG . "/dashboard");
 });
-Route::get('/admin/{any}', function () {
+Route::get(ADMIN_SLUG . '/{any}', function () {
   app('debugbar')->disable();
   return view('admin');
 })->where('any', '.*');

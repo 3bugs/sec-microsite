@@ -17,7 +17,7 @@ routeDataList.forEach(item => {
 
 const router = new VueRouter({
   mode: 'history',
-  base: 'admin',
+  base: 'XVqkSkQ8v8MxAWKYzTbjGDlF1y5Hgx0gMMGSuhOm',
   routes: routes,
 });
 
