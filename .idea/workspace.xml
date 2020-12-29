@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IpController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test-ip.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test-ip.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,21 +283,7 @@
       <workItem from="1608284192534" duration="25000" />
       <workItem from="1608613674803" duration="59274000" />
       <workItem from="1609131594964" duration="1874000" />
-      <workItem from="1609165385727" duration="9684000" />
-    </task>
-    <task id="LOCAL-00164" summary="front: cookie consent">
-      <created>1608017745613</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1608017745614</updated>
-    </task>
-    <task id="LOCAL-00165" summary="front: update favicon">
-      <created>1608020580817</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1608020580817</updated>
+      <workItem from="1609165385727" duration="13057000" />
     </task>
     <task id="LOCAL-00166" summary="front: ปรับสไตล์ cookie consent">
       <created>1608021511268</created>
@@ -628,7 +614,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609178920903</updated>
     </task>
-    <option name="localTasksCounter" value="213" />
+    <task id="LOCAL-00213" summary="test ip address">
+      <created>1609232655429</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1609232655429</updated>
+    </task>
+    <task id="LOCAL-00214" summary="test ip address">
+      <created>1609232872078</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1609232872079</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,8 +659,8 @@
     <MESSAGE value="test azure ad login" />
     <MESSAGE value="add google analytics" />
     <MESSAGE value="back: add azure ad login" />
-    <MESSAGE value="test ip address" />
     <MESSAGE value="fix ip address in survey result" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ip address in survey result" />
+    <MESSAGE value="test ip address" />
+    <option name="LAST_COMMIT_MESSAGE" value="test ip address" />
   </component>
 </project>

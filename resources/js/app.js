@@ -93,6 +93,9 @@ const app = new Vue({
   created() {
     console.log('created()');
 
+    this.byPassLogin();
+    return;
+
     this.loggedInUser = null;
     const json = localStorage.getItem(LOGGED_IN_USER);
     if (json != null) {
@@ -119,6 +122,11 @@ const app = new Vue({
   */
 
   methods: {
+    byPassLogin() {
+      this.loggedInUser = {
+        name: 'Administrator',
+      };
+    },
     signIn() {
       this.isLoggingIn = true;
 
