@@ -12,13 +12,14 @@ class IpController extends Controller
 
   public function index(Request $request)
   {
-    $msg = '';
+    $msg = '<ul>';
     $keyList = array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR');
     foreach ($keyList as $key) {
       if (array_key_exists($key, $_SERVER)) {
-        $msg .= $key . ' = <strong>' . $_SERVER[$key] . '</strong><br>\n';
+        $msg .= '<li style="font-family: monospace">' . $key . ': <strong>' . $_SERVER[$key] . "</strong></li>";
       }
     }
+    $msg .= '</ul>';
 
     //$ip = \Request::ip();
     $ip = request()->ip();
