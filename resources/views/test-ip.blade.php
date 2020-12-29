@@ -57,6 +57,7 @@
 
 <body>
 <p style="color: #aaa">{{ date("Y-m-d h:i:sa") }}</p>
+<p>{!! $msg !!}</p>
 <h1><span>{{ $ip }}</span></h1>
 </body>
 </html>

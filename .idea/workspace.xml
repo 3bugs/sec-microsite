@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/test-ip.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test-ip.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,14 +283,7 @@
       <workItem from="1608284192534" duration="25000" />
       <workItem from="1608613674803" duration="59274000" />
       <workItem from="1609131594964" duration="1874000" />
-      <workItem from="1609165385727" duration="6198000" />
-    </task>
-    <task id="LOCAL-00163" summary="back: set default value of published field when inserting">
-      <created>1607939803437</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1607939803437</updated>
+      <workItem from="1609165385727" duration="9684000" />
     </task>
     <task id="LOCAL-00164" summary="front: cookie consent">
       <created>1608017745613</created>
@@ -627,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609177518338</updated>
     </task>
-    <option name="localTasksCounter" value="212" />
+    <task id="LOCAL-00212" summary="fix ip address in survey result">
+      <created>1609178920903</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1609178920903</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
