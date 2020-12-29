@@ -148,7 +148,7 @@
             <div class="info-item-text" style="padding: 14px 0 0 0">
               <h3>@{{ decodeEntities(eventList[0].title) }}</h3>
               <p>@{{ decodeEntities(eventList[0].description) }}</p>
-              <button>
+              <button @click="handleClickItem(eventList[0])">
                 <h5>อ่านรายละเอียดเพิ่มเติม&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></h5>
               </button>
             </div>

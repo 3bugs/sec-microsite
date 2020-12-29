@@ -282,14 +282,7 @@
       <workItem from="1608284192534" duration="25000" />
       <workItem from="1608613674803" duration="59274000" />
       <workItem from="1609131594964" duration="1874000" />
-      <workItem from="1609165385727" duration="18870000" />
-    </task>
-    <task id="LOCAL-00169" summary="front: cookie">
-      <created>1608022713328</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1608022713328</updated>
+      <workItem from="1609165385727" duration="19297000" />
     </task>
     <task id="LOCAL-00170" summary="front: change title">
       <created>1608023298302</created>
@@ -627,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609255052766</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="front: event item onclick">
+      <created>1609260754775</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1609260754775</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,7 +635,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: cookie" />
     <MESSAGE value="front: change title" />
     <MESSAGE value="front: add social url" />
     <MESSAGE value="back: แก้ routing to admin" />
@@ -660,6 +659,7 @@
     <MESSAGE value="back: temporary bypass login" />
     <MESSAGE value="back: replace /admin path with slug" />
     <MESSAGE value="back: temporary disable logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: temporary disable logout" />
+    <MESSAGE value="front: event item onclick" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: event item onclick" />
   </component>
 </project>
