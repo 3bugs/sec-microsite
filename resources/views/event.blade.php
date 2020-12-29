@@ -189,7 +189,9 @@
             <p class="mt-2">@{{ decodeEntities(event.description) }}</p>
             {{--<p class="author">โดย : นายวรายุทธ แสนสิทธิเวช</p>--}}
             <p class="mt-3 mb-2">@{{ event.beginDate === event.endDate ? event.beginDateDisplay : `${event.beginDateDisplay} - ${event.endDateDisplay}` }}</p>
-            <a href="#">อ่านต่อ<i class="fa fa-chevron-right"></i></a>
+            <a href="javascript:void(0)"
+               v-on:click.prevent="handleClickItem(event)"
+            >อ่านต่อ<i class="fa fa-chevron-right"></i></a>
           </figcaption>
         </figure>
       </div>
