@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,14 +282,7 @@
       <workItem from="1608284192534" duration="25000" />
       <workItem from="1608613674803" duration="59274000" />
       <workItem from="1609131594964" duration="1874000" />
-      <workItem from="1609165385727" duration="15665000" />
-    </task>
-    <task id="LOCAL-00167" summary="front: ปรับสไตล์ cookie consent">
-      <created>1608021654326</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1608021654326</updated>
+      <workItem from="1609165385727" duration="16423000" />
     </task>
     <task id="LOCAL-00168" summary="front: css หน้า survey">
       <created>1608021945167</created>
@@ -629,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609249328823</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="back: replace /admin path with slug">
+      <created>1609254299454</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1609254299454</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +635,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: ปรับสไตล์ cookie consent" />
     <MESSAGE value="front: css หน้า survey" />
     <MESSAGE value="front: cookie" />
     <MESSAGE value="front: change title" />
@@ -662,6 +659,7 @@
     <MESSAGE value="fix ip address in survey result" />
     <MESSAGE value="test ip address" />
     <MESSAGE value="back: temporary bypass login" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: temporary bypass login" />
+    <MESSAGE value="back: replace /admin path with slug" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: replace /admin path with slug" />
   </component>
 </project>

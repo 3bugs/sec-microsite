@@ -148,7 +148,7 @@
 
         </template>
 
-        <v-list dense>
+        <v-list dense v-if="false">
           <v-list-item @click="handleClickLogout">
             <v-list-item-title>ออกจากระบบ</v-list-item-title>
           </v-list-item>
