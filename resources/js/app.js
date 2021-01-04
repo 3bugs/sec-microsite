@@ -93,6 +93,9 @@ const app = new Vue({
   created() {
     console.log('created()');
 
+    document.getElementById('app').style.visibility = 'visible';
+    document.getElementById('pre-loader').style.visibility = 'hidden';
+
     this.byPassLogin();
     return;
 

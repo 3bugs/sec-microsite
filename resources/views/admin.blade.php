@@ -39,10 +39,22 @@
       margin-right: auto;
       margin-left: auto;
     }
+
+    #pre-loader {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 <body>
-<div id="app">
+<div id="app" style="visibility: hidden">
   <v-app>
     <v-btn
         fab dark large
@@ -157,7 +169,9 @@
       <!--      <v-icon large v-if="loggedInUser != null">mdi-account</v-icon>-->
     </v-app-bar>
 
-    <v-main :style="{background: '#eee'}">
+    <v-main
+        :style="{background: '#eee'}"
+    >
       <v-container
           fluid
           v-if="loggedInUser != null"
@@ -205,36 +219,36 @@
                           >เข้าสู่ระบบ
                           </v-btn>
                         </v-col>
-<!--                        <v-col cols="12">
-                          <v-text-field
-                              v-model="loginUser"
-                              :rules="loginUserRules"
-                              label="Username"
-                              hint="กรอก username"
-                              @keydown.enter="handleClickLoginButton"
-                          ></v-text-field>
-                          <v-text-field
-                              v-model="loginPassword"
-                              :rules="loginPasswordRules"
-                              type="password"
-                              name="password"
-                              label="Password"
-                              hint="กรอก password"
-                              @keydown.enter="handleClickLoginButton"
-                          ></v-text-field>
-                        </v-col>
-                        <v-col class="d-flex" cols="12" sm="6" xsm="12">
-                        </v-col>
-                        <v-spacer></v-spacer>
-                        <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
-                          <v-btn
-                              block
-                              :disabled="!loginFormValid"
-                              color="success"
-                              @click="handleClickLoginButton"
-                          >Login
-                          </v-btn>
-                        </v-col>-->
+                        <!--                        <v-col cols="12">
+                                                  <v-text-field
+                                                      v-model="loginUser"
+                                                      :rules="loginUserRules"
+                                                      label="Username"
+                                                      hint="กรอก username"
+                                                      @keydown.enter="handleClickLoginButton"
+                                                  ></v-text-field>
+                                                  <v-text-field
+                                                      v-model="loginPassword"
+                                                      :rules="loginPasswordRules"
+                                                      type="password"
+                                                      name="password"
+                                                      label="Password"
+                                                      hint="กรอก password"
+                                                      @keydown.enter="handleClickLoginButton"
+                                                  ></v-text-field>
+                                                </v-col>
+                                                <v-col class="d-flex" cols="12" sm="6" xsm="12">
+                                                </v-col>
+                                                <v-spacer></v-spacer>
+                                                <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
+                                                  <v-btn
+                                                      block
+                                                      :disabled="!loginFormValid"
+                                                      color="success"
+                                                      @click="handleClickLoginButton"
+                                                  >Login
+                                                  </v-btn>
+                                                </v-col>-->
                       </v-row>
                     </v-form>
 
@@ -282,9 +296,16 @@
     </v-snackbar>
   </v-app>
 </div>
+<div id="pre-loader">
+  <img
+      src="{{ asset('images/ic_loading.gif') }}"
+      style="width: 80px"
+  >
+<!--  <span>รอสักครู่...</span>-->
+</div>
 <!-- Scripts -->
 <script>
 </script>
-<script src="{{ mix('js/app.js') }}?v=5" defer></script>
+<script src="{{ mix('js/app.js') }}?v=6" defer></script>
 </body>
 </html>
