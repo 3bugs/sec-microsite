@@ -301,7 +301,7 @@
       src="{{ asset('images/ic_loading.gif') }}"
       style="width: 80px"
   >
-<!--  <span>รอสักครู่...</span>-->
+  <span>รอสักครู่...</span>
 </div>
 <!-- Scripts -->
 <script>
