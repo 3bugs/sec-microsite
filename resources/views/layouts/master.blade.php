@@ -229,7 +229,7 @@
         </div>
         <div class="row">
           <div class="col-12 copyright">
-            <small>2020 Securities & Exchange Commission, Thailand. All rights reserved. เว็บไซต์นี้แสดงผลได้ดีบน Microsoft Edge, Chrome, Safari และ Firefox</small>
+            <small>&copy; {{ date('Y') }} Securities & Exchange Commission, Thailand. All rights reserved. เว็บไซต์นี้แสดงผลได้ดีบน Microsoft Edge, Chrome, Safari และ Firefox</small>
           </div>
         </div>
       </div>

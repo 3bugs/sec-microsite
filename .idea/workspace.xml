@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,14 +291,7 @@
       <workItem from="1608613674803" duration="59274000" />
       <workItem from="1609131594964" duration="1874000" />
       <workItem from="1609165385727" duration="19297000" />
-      <workItem from="1609751211011" duration="4215000" />
-    </task>
-    <task id="LOCAL-00171" summary="front: add social url">
-      <created>1608023664080</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1608023664080</updated>
+      <workItem from="1609751211011" duration="5519000" />
     </task>
     <task id="LOCAL-00172" summary="front: add social url">
       <created>1608023757282</created>
@@ -636,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609754811805</updated>
     </task>
-    <option name="localTasksCounter" value="220" />
+    <task id="LOCAL-00220" summary="back: เพิ่มข้อความใต้ pre-loader icon">
+      <created>1609755521789</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1609755521796</updated>
+    </task>
+    <option name="localTasksCounter" value="221" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,7 +654,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: add social url" />
     <MESSAGE value="back: แก้ routing to admin" />
     <MESSAGE value="front: privacy policy" />
     <MESSAGE value="front: update z-index" />
@@ -679,6 +678,7 @@
     <MESSAGE value="back: temporary disable logout" />
     <MESSAGE value="front: event item onclick" />
     <MESSAGE value="back: เพิ่ม pre-loader icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: เพิ่ม pre-loader icon" />
+    <MESSAGE value="back: เพิ่มข้อความใต้ pre-loader icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="back: เพิ่มข้อความใต้ pre-loader icon" />
   </component>
 </project>
