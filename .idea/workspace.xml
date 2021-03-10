@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="">
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="front: update copyright year">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +172,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../finforthai" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -291,14 +292,24 @@
       <workItem from="1608613674803" duration="59274000" />
       <workItem from="1609131594964" duration="1874000" />
       <workItem from="1609165385727" duration="19297000" />
-      <workItem from="1609751211011" duration="5519000" />
-    </task>
-    <task id="LOCAL-00172" summary="front: add social url">
-      <created>1608023757282</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1608023757282</updated>
+      <workItem from="1609751211011" duration="6027000" />
+      <workItem from="1611650559598" duration="10535000" />
+      <workItem from="1611679736793" duration="749000" />
+      <workItem from="1611718356353" duration="647000" />
+      <workItem from="1611895937804" duration="1675000" />
+      <workItem from="1612930166359" duration="1362000" />
+      <workItem from="1613590686726" duration="684000" />
+      <workItem from="1613984599566" duration="291000" />
+      <workItem from="1614658039448" duration="1117000" />
+      <workItem from="1614664134902" duration="1633000" />
+      <workItem from="1614672275276" duration="508000" />
+      <workItem from="1614687999446" duration="1140000" />
+      <workItem from="1614771098948" duration="577000" />
+      <workItem from="1614791865227" duration="2600000" />
+      <workItem from="1614832280498" duration="1822000" />
+      <workItem from="1614836451226" duration="198000" />
+      <workItem from="1614845933835" duration="1547000" />
+      <workItem from="1615357198460" duration="1025000" />
     </task>
     <task id="LOCAL-00173" summary="back: แก้ routing to admin">
       <created>1608025847354</created>
@@ -636,7 +647,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609755521796</updated>
     </task>
-    <option name="localTasksCounter" value="221" />
+    <task id="LOCAL-00221" summary="front: update copyright year">
+      <created>1609822405755</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1609822405755</updated>
+    </task>
+    <option name="localTasksCounter" value="222" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,7 +672,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back: แก้ routing to admin" />
     <MESSAGE value="front: privacy policy" />
     <MESSAGE value="front: update z-index" />
     <MESSAGE value="front: add backdrop for sidenav menu" />
@@ -679,6 +696,7 @@
     <MESSAGE value="front: event item onclick" />
     <MESSAGE value="back: เพิ่ม pre-loader icon" />
     <MESSAGE value="back: เพิ่มข้อความใต้ pre-loader icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="back: เพิ่มข้อความใต้ pre-loader icon" />
+    <MESSAGE value="front: update copyright year" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: update copyright year" />
   </component>
 </project>

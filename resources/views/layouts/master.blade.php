@@ -569,12 +569,12 @@
 <script>
   // On ready
   $(document).ready(() => {
-    $(".chat_on").click(function(){
+    $(".chat_on").click(function () {
       $(".Layout").show();
       $(".chat_on").hide(300);
     });
 
-    $(".chat_close_icon").click(function(){
+    $(".chat_close_icon").click(function () {
       $(".Layout").hide();
       $(".chat_on").show(300);
     });
@@ -656,6 +656,7 @@
   })
 
   function initGA() {
+    return;
     console.log('Initializing Google Analytics...');
 
     (function (i, s, o, g, r, a, m) {
@@ -673,6 +674,19 @@
     ga('create', 'UA-XXXXX-Y', 'auto') // todo: change Tracking ID ***********************
     ga('send', 'pageview')
   }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D6M2VFJ8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-X6D6M2VFJ8');
 </script>
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
