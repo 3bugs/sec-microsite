@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="front: update copyright year">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="881287cf-f1a7-4884-9542-9ffdecaf904a" name="Default Changelist" comment="front: update google analytics">
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -313,21 +312,7 @@
       <workItem from="1614836451226" duration="198000" />
       <workItem from="1614845933835" duration="1547000" />
       <workItem from="1615357198460" duration="1025000" />
-      <workItem from="1640227643353" duration="1724000" />
-    </task>
-    <task id="LOCAL-00173" summary="back: แก้ routing to admin">
-      <created>1608025847354</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1608025847355</updated>
-    </task>
-    <task id="LOCAL-00174" summary="front: privacy policy">
-      <created>1608028259700</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1608028259700</updated>
+      <workItem from="1640227643353" duration="2486000" />
     </task>
     <task id="LOCAL-00175" summary="front: update z-index">
       <created>1608090235169</created>
@@ -658,7 +643,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609822405755</updated>
     </task>
-    <option name="localTasksCounter" value="222" />
+    <task id="LOCAL-00222" summary="front: update google analytics">
+      <created>1640231772015</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1640231772015</updated>
+    </task>
+    <task id="LOCAL-00223" summary="front: update google analytics">
+      <created>1640231792885</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1640231792886</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,7 +686,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front: privacy policy" />
     <MESSAGE value="front: update z-index" />
     <MESSAGE value="front: add backdrop for sidenav menu" />
     <MESSAGE value="front: change z-index" />
@@ -712,6 +710,7 @@
     <MESSAGE value="back: เพิ่ม pre-loader icon" />
     <MESSAGE value="back: เพิ่มข้อความใต้ pre-loader icon" />
     <MESSAGE value="front: update copyright year" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: update copyright year" />
+    <MESSAGE value="front: update google analytics" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: update google analytics" />
   </component>
 </project>
