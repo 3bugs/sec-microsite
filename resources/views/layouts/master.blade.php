@@ -677,7 +677,7 @@
 </script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6D6M2VFJ8"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-191155952-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
 
@@ -686,7 +686,7 @@
   }
 
   gtag('js', new Date());
-  gtag('config', 'G-X6D6M2VFJ8');
+  gtag('config', 'UA-191155952-1');
 </script>
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
